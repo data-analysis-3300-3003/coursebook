@@ -200,6 +200,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#run-the-labs" id="toc-run-the-labs" class="nav-link" data-scroll-target="#run-the-labs">Run the labs</a></li>
   <li><a href="#download-data" id="toc-download-data" class="nav-link" data-scroll-target="#download-data">Download data</a></li>
   <li><a href="#working-in-colab" id="toc-working-in-colab" class="nav-link" data-scroll-target="#working-in-colab">Working in Colab</a></li>
+  <li><a href="#import-modules" id="toc-import-modules" class="nav-link" data-scroll-target="#import-modules">Import modules</a></li>
+  <li><a href="#setup-renderer" id="toc-setup-renderer" class="nav-link" data-scroll-target="#setup-renderer">Setup renderer</a></li>
   </ul></li>
   <li><a href="#data-summaries" id="toc-data-summaries" class="nav-link" data-scroll-target="#data-summaries">Data summaries</a></li>
   <li><a href="#data-distributions" id="toc-data-distributions" class="nav-link" data-scroll-target="#data-distributions">Data distributions</a>
@@ -247,7 +249,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="run-the-labs" class="level3">
 <h3 class="anchored" data-anchor-id="run-the-labs">Run the labs</h3>
 <p>You can run the labs locally on your machine or you can use cloud environments provided by Google Colab or Binderhub. <strong>If you’re working with Google Colab and Binderhub be aware that your sessions are temporary and you’ll need to take care to save, backup, and download your work.</strong></p>
-<p><a href="https://colab.research.google.com/github/binder-3300-3003/binder/blob/main/lab-3-eda.ipynb" target="_blank"> <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"> </a></p>
+<p><a href="https://colab.research.google.com/github/data-analysis-3300-3003/colab/blob/main/lab-3-eda.ipynb" target="_blank"> <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"> </a></p>
 <p><a href="https://mybinder.org/v2/gh/binder-3300-3003/binder/HEAD" target="_blank"> <img src="https://mybinder.org/badge_logo.svg" alt="Open In Binder"> </a></p>
 </section>
 <section id="download-data" class="level3">
@@ -264,12 +266,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>If you’re working in Google Colab, you’ll need to <strong>uncomment</strong> and run the following code snippet to install the required packages that don’t come with the colab environment.</p>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">## UNCOMMENT BELOW IF WORKING IN GOOGLE COLAB ##</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#!pip install geopandas</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#!pip install pyarrow</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">#!pip install rasterio</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#!pip install libpysal</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#!pip install esda</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">#!pip install splot</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># !pip install geopandas</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># !pip install pyarrow</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># !pip install mapclassify</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># !pip install rasterio</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#!pip install libpysal</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">#!pip install esda</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">#!pip install splot</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="import-modules" class="level3">
+<h3 class="anchored" data-anchor-id="import-modules">Import modules</h3>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import modules</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -282,27 +288,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> esda</span>
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> splot.esda <span class="im">import</span> plot_moran</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> libpysal.weights <span class="im">import</span> KNN, lag_spatial</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>pio.renderers.default <span class="op">=</span> <span class="st">"jupyterlab"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> libpysal.weights <span class="im">import</span> KNN, lag_spatial</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="setup-renderer" class="level3">
+<h3 class="anchored" data-anchor-id="setup-renderer">Setup renderer</h3>
+<p>Uncomment the relevant line depending on whether you are working in Google Colab or Jupyterlab.</p>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>pio.renderers.default <span class="op">=</span> <span class="st">"jupyterlab"</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># pio.renderers.default = "colab"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the crop yield data</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>crop_yield_data_path <span class="op">=</span> os.path.join(os.getcwd(), <span class="st">"week-3"</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Get a list of crop yield data</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>crop_yield_data_files <span class="op">=</span> os.listdir(crop_yield_data_path)</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine the geojson files into one GeoDataFrame</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>dfs <span class="op">=</span> []</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> crop_yield_data_files:</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> i.endswith(<span class="st">".geojson"</span>):</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Loading file </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss"> into a Geopandas GeoDataFrame"</span>)</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>        tmp_df <span class="op">=</span> gpd.read_file(os.path.join(crop_yield_data_path, i))</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>        dfs.append(tmp_df)</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>gdf <span class="op">=</span> pd.concat(dfs, axis<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the crop yield data</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>crop_yield_data_path <span class="op">=</span> os.path.join(os.getcwd(), <span class="st">"week-3"</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Get a list of crop yield data</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>crop_yield_data_files <span class="op">=</span> os.listdir(crop_yield_data_path)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine the geojson files into one GeoDataFrame</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>dfs <span class="op">=</span> []</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> crop_yield_data_files:</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> i.endswith(<span class="st">".geojson"</span>):</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Loading file </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss"> into a Geopandas GeoDataFrame"</span>)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>        tmp_df <span class="op">=</span> gpd.read_file(os.path.join(crop_yield_data_path, i))</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>        dfs.append(tmp_df)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>gdf <span class="op">=</span> pd.concat(dfs, axis<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Loading file bf66-canola-yield-max-vi_sampled.geojson into a Geopandas GeoDataFrame
 Loading file bf66-wheat-yield-max-vi_sampled.geojson into a Geopandas GeoDataFrame</code></pre>
@@ -314,8 +323,8 @@ Loading file bf66-wheat-yield-max-vi_sampled.geojson into a Geopandas GeoDataFra
 <h2 class="anchored" data-anchor-id="data-summaries">Data summaries</h2>
 <p>An initial data exploration task is to produce summary statistics for the variables in our datasets. Pandas <code>DataFrame</code>s and GeoPandas <code>GeoDataFrame</code>s have a <code>describe()</code> method which generates a <code>DataFrame</code> of summary statistics for each variable.</p>
 <div class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Describe our DataFrame of crop yield data</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>gdf.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Describe our DataFrame of crop yield data</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>gdf.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 
 <div>
@@ -486,8 +495,8 @@ Loading file bf66-wheat-yield-max-vi_sampled.geojson into a Geopandas GeoDataFra
 <p>However, there are two main groups in our dataset: canola observations and wheat observations denoted by the <code>Variety</code> column. It will be more informative to generate summary statistcs for each group separately. We can do this using the Pandas <code>groupby()</code> function which splits an <code>DataFrame</code> into subsets based upon a grouping variable, computes statistics for each subset, and then combines the results. Here, we need to <code>groupby()</code> <code>Variety</code> to generate summary statistics for each crop type.</p>
 <p>We’ll also generate these summary statistics within a context manager (denoted by a <code>with</code> block). This context allows us to change the default display values for a <code>DataFrame</code> only for this context without affecting the global defaults that apply to the rest of the notebook. This is a useful trick in case you have a particular need to control how a <code>DataFrame</code> is displayed (e.g.&nbsp;printing all rows as specified by the <code>display.max_rows</code> option).</p>
 <div class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> pd.option_context(<span class="st">'display.max_rows'</span>, <span class="va">None</span>, <span class="st">'display.float_format'</span>, <span class="kw">lambda</span> x: <span class="st">'</span><span class="sc">%.3f</span><span class="st">'</span> <span class="op">%</span> x):</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    display(gdf.groupby([<span class="st">"Variety"</span>]).describe())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> pd.option_context(<span class="st">'display.max_rows'</span>, <span class="va">None</span>, <span class="st">'display.float_format'</span>, <span class="kw">lambda</span> x: <span class="st">'</span><span class="sc">%.3f</span><span class="st">'</span> <span class="op">%</span> x):</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    display(gdf.groupby([<span class="st">"Variety"</span>]).describe())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 
 <div>
@@ -608,8 +617,8 @@ Loading file bf66-wheat-yield-max-vi_sampled.geojson into a Geopandas GeoDataFra
 </div>
 <p>This still isn’t a very helpful layout to view the summary statistics as not all of the statistics can be displayed. Let’s transpose the summary statistics so rows become columns and vice versa using the <code>T</code> transpose operator.</p>
 <div class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> pd.option_context(<span class="st">'display.max_rows'</span>, <span class="va">None</span>, <span class="st">'display.float_format'</span>, <span class="kw">lambda</span> x: <span class="st">'</span><span class="sc">%.3f</span><span class="st">'</span> <span class="op">%</span> x):</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    display(gdf.loc[:, [<span class="st">"Variety"</span>, <span class="st">"DryYield"</span>, <span class="st">"gndvi"</span>, <span class="st">"ndyi"</span>]].groupby([<span class="st">"Variety"</span>]).describe().T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> pd.option_context(<span class="st">'display.max_rows'</span>, <span class="va">None</span>, <span class="st">'display.float_format'</span>, <span class="kw">lambda</span> x: <span class="st">'</span><span class="sc">%.3f</span><span class="st">'</span> <span class="op">%</span> x):</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    display(gdf.loc[:, [<span class="st">"Variety"</span>, <span class="st">"DryYield"</span>, <span class="st">"gndvi"</span>, <span class="st">"ndyi"</span>]].groupby([<span class="st">"Variety"</span>]).describe().T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 
 <div>
@@ -760,14 +769,14 @@ Loading file bf66-wheat-yield-max-vi_sampled.geojson into a Geopandas GeoDataFra
 <p>The inter-quartile range (difference between the 75th and 25th percentile values) tells us how spread out the data is around the median and the standard deviation tells us how spread out the data is around the mean. Assuming a normal distribution, ~68% of the values are within one standard deviation of the mean. Thus, if the standard deviation is small relative to the mean it indicates there is not much spread in the data away from the mean.</p>
 <p>It is often useful to visualise the distribution of variables. A histogram is a common visualisation for distributions. The height of the bars of a histogram correspond to the count of values that fall within the bin. The width of the bar corresponds to the bin width.</p>
 <div class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.histogram(</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    data_frame<span class="op">=</span>gdf, </span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">"DryYield"</span>, </span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    facet_col<span class="op">=</span><span class="st">"Variety"</span>, </span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    hover_data<span class="op">=</span>[<span class="st">"DryYield"</span>, <span class="st">"Elevation"</span>, <span class="st">"WetMass"</span>])</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.histogram(</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    data_frame<span class="op">=</span>gdf, </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">"DryYield"</span>, </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    facet_col<span class="op">=</span><span class="st">"Variety"</span>, </span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    hover_data<span class="op">=</span>[<span class="st">"DryYield"</span>, <span class="st">"Elevation"</span>, <span class="st">"WetMass"</span>])</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="lab-3-eda_files/figure-html/cell-9-output-1.png" class="img-fluid"></p>
+<p><img src="lab-3-eda_files/figure-html/cell-10-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p>The choice of bin width will affect the histogram. Too small a bin width will lead to small peaks in the distribution of data values being visualised which can obscure the dominant pattern in the data. Conversely, too large a bin width could mask important parts of a variable’s distribution. The <code>histogram()</code> function from Plotly Express has a <code>nbins</code> parameter that can be used to specify the number of bins.</p>
@@ -776,17 +785,17 @@ Loading file bf66-wheat-yield-max-vi_sampled.geojson into a Geopandas GeoDataFra
 <p>The majority of data values on the histograms above are concentrated on the far left of the figure. If you zoom in you will see there are a few isolated extreme or outlier yield values, which are masking the dominant pattern of the distribution. Detecting outliers is an important part of exploratory data analysis.</p>
 <p>Now that outliers have been detected we need to fix or remove them. A common way to detect outliers is to use a threshold based on percentile or standard deviation values. Here, we’ll say an outlier is any value that is more or less than three standard deviations from the mean.</p>
 <div class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Canola</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>df_canola <span class="op">=</span> gdf.loc[gdf[<span class="st">"Variety"</span>] <span class="op">==</span> <span class="st">"43Y23 RR"</span>, :]</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"There are </span><span class="sc">{</span>df_canola<span class="sc">.</span>shape[<span class="dv">0</span>]<span class="sc">}</span><span class="ss"> canola rows BEFORE dropping outliers"</span>)</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>df_canola <span class="op">=</span> df_canola.loc[(df_canola[<span class="st">"DryYield"</span>]<span class="op">-</span>df_canola[<span class="st">"DryYield"</span>].mean()).<span class="bu">abs</span>() <span class="op">&lt;</span> (<span class="dv">3</span><span class="op">*</span>df_canola[<span class="st">"DryYield"</span>].std()), :]</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"There are </span><span class="sc">{</span>df_canola<span class="sc">.</span>shape[<span class="dv">0</span>]<span class="sc">}</span><span class="ss"> canola rows AFTER dropping outliers"</span>)</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Wheat</span></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>df_wheat <span class="op">=</span> gdf.loc[gdf[<span class="st">"Variety"</span>] <span class="op">==</span> <span class="st">"Ninja"</span>, :]</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"There are </span><span class="sc">{</span>df_wheat<span class="sc">.</span>shape[<span class="dv">0</span>]<span class="sc">}</span><span class="ss"> wheat rows BEFORE dropping outliers"</span>)</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>df_wheat <span class="op">=</span> df_wheat.loc[(df_wheat[<span class="st">"DryYield"</span>]<span class="op">-</span>df_wheat[<span class="st">"DryYield"</span>].mean()).<span class="bu">abs</span>() <span class="op">&lt;</span> (<span class="dv">3</span><span class="op">*</span>df_wheat[<span class="st">"DryYield"</span>].std()), :]</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"There are </span><span class="sc">{</span>df_wheat<span class="sc">.</span>shape[<span class="dv">0</span>]<span class="sc">}</span><span class="ss"> wheat rows AFTER dropping outliers"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Canola</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>df_canola <span class="op">=</span> gdf.loc[gdf[<span class="st">"Variety"</span>] <span class="op">==</span> <span class="st">"43Y23 RR"</span>, :]</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"There are </span><span class="sc">{</span>df_canola<span class="sc">.</span>shape[<span class="dv">0</span>]<span class="sc">}</span><span class="ss"> canola rows BEFORE dropping outliers"</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>df_canola <span class="op">=</span> df_canola.loc[(df_canola[<span class="st">"DryYield"</span>]<span class="op">-</span>df_canola[<span class="st">"DryYield"</span>].mean()).<span class="bu">abs</span>() <span class="op">&lt;</span> (<span class="dv">3</span><span class="op">*</span>df_canola[<span class="st">"DryYield"</span>].std()), :]</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"There are </span><span class="sc">{</span>df_canola<span class="sc">.</span>shape[<span class="dv">0</span>]<span class="sc">}</span><span class="ss"> canola rows AFTER dropping outliers"</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Wheat</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>df_wheat <span class="op">=</span> gdf.loc[gdf[<span class="st">"Variety"</span>] <span class="op">==</span> <span class="st">"Ninja"</span>, :]</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"There are </span><span class="sc">{</span>df_wheat<span class="sc">.</span>shape[<span class="dv">0</span>]<span class="sc">}</span><span class="ss"> wheat rows BEFORE dropping outliers"</span>)</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>df_wheat <span class="op">=</span> df_wheat.loc[(df_wheat[<span class="st">"DryYield"</span>]<span class="op">-</span>df_wheat[<span class="st">"DryYield"</span>].mean()).<span class="bu">abs</span>() <span class="op">&lt;</span> (<span class="dv">3</span><span class="op">*</span>df_wheat[<span class="st">"DryYield"</span>].std()), :]</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"There are </span><span class="sc">{</span>df_wheat<span class="sc">.</span>shape[<span class="dv">0</span>]<span class="sc">}</span><span class="ss"> wheat rows AFTER dropping outliers"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>There are 4038 canola rows BEFORE dropping outliers
 There are 4031 canola rows AFTER dropping outliers
@@ -794,24 +803,24 @@ There are 5340 wheat rows BEFORE dropping outliers
 There are 5334 wheat rows AFTER dropping outliers</code></pre>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># combine filtered dfs</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>gdf_clean <span class="op">=</span> pd.concat([df_canola, df_wheat], axis<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># combine filtered dfs</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>gdf_clean <span class="op">=</span> pd.concat([df_canola, df_wheat], axis<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.histogram(</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    data_frame<span class="op">=</span>gdf_clean, </span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">"DryYield"</span>, </span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    facet_col<span class="op">=</span><span class="st">"Variety"</span>, </span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    marginal<span class="op">=</span><span class="st">"box"</span>, </span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    hover_data<span class="op">=</span>[<span class="st">"DryYield"</span>, <span class="st">"Elevation"</span>, <span class="st">"WetMass"</span>])</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.histogram(</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    data_frame<span class="op">=</span>gdf_clean, </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">"DryYield"</span>, </span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    facet_col<span class="op">=</span><span class="st">"Variety"</span>, </span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    marginal<span class="op">=</span><span class="st">"box"</span>, </span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    hover_data<span class="op">=</span>[<span class="st">"DryYield"</span>, <span class="st">"Elevation"</span>, <span class="st">"WetMass"</span>])</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="lab-3-eda_files/figure-html/cell-12-output-1.png" class="img-fluid"></p>
+<p><img src="lab-3-eda_files/figure-html/cell-13-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p>Instead of dropping rows where there are extreme crop yield values, we can also replace outlier values with a more sensible value such as the mean.</p>
 <div class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>mean_yield <span class="op">=</span> gdf.loc[:, [<span class="st">"Variety"</span>, <span class="st">"DryYield"</span>]].groupby([<span class="st">"Variety"</span>]).mean()</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>mean_yield</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>mean_yield <span class="op">=</span> gdf.loc[:, [<span class="st">"Variety"</span>, <span class="st">"DryYield"</span>]].groupby([<span class="st">"Variety"</span>]).mean()</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>mean_yield</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="12">
 
 <div>
@@ -841,55 +850,55 @@ There are 5334 wheat rows AFTER dropping outliers</code></pre>
 </div>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df_canola <span class="op">=</span> gdf.loc[gdf[<span class="st">"Variety"</span>] <span class="op">==</span> <span class="st">"43Y23 RR"</span>, :]</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>df_canola.loc[(df_canola[<span class="st">"DryYield"</span>]<span class="op">-</span>df_canola[<span class="st">"DryYield"</span>].mean()).<span class="bu">abs</span>() <span class="op">&gt;</span> (<span class="dv">3</span><span class="op">*</span>df_canola[<span class="st">"DryYield"</span>].std()), <span class="st">"DryYield"</span>] <span class="op">=</span> mean_yield.iloc[<span class="dv">0</span>, <span class="dv">0</span>]</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>df_wheat <span class="op">=</span> gdf.loc[gdf[<span class="st">"Variety"</span>] <span class="op">==</span> <span class="st">"Ninja"</span>, :]</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>df_wheat.loc[(df_wheat[<span class="st">"DryYield"</span>]<span class="op">-</span>df_wheat[<span class="st">"DryYield"</span>].mean()).<span class="bu">abs</span>() <span class="op">&gt;</span> (<span class="dv">3</span><span class="op">*</span>df_wheat[<span class="st">"DryYield"</span>].std()), <span class="st">"DryYield"</span>] <span class="op">=</span> mean_yield.iloc[<span class="dv">1</span>, <span class="dv">0</span>]</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co"># combine filtered dfs</span></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>gdf_replaced <span class="op">=</span> pd.concat([df_canola, df_wheat], axis<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df_canola <span class="op">=</span> gdf.loc[gdf[<span class="st">"Variety"</span>] <span class="op">==</span> <span class="st">"43Y23 RR"</span>, :]</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>df_canola.loc[(df_canola[<span class="st">"DryYield"</span>]<span class="op">-</span>df_canola[<span class="st">"DryYield"</span>].mean()).<span class="bu">abs</span>() <span class="op">&gt;</span> (<span class="dv">3</span><span class="op">*</span>df_canola[<span class="st">"DryYield"</span>].std()), <span class="st">"DryYield"</span>] <span class="op">=</span> mean_yield.iloc[<span class="dv">0</span>, <span class="dv">0</span>]</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>df_wheat <span class="op">=</span> gdf.loc[gdf[<span class="st">"Variety"</span>] <span class="op">==</span> <span class="st">"Ninja"</span>, :]</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>df_wheat.loc[(df_wheat[<span class="st">"DryYield"</span>]<span class="op">-</span>df_wheat[<span class="st">"DryYield"</span>].mean()).<span class="bu">abs</span>() <span class="op">&gt;</span> (<span class="dv">3</span><span class="op">*</span>df_wheat[<span class="st">"DryYield"</span>].std()), <span class="st">"DryYield"</span>] <span class="op">=</span> mean_yield.iloc[<span class="dv">1</span>, <span class="dv">0</span>]</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co"># combine filtered dfs</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>gdf_replaced <span class="op">=</span> pd.concat([df_canola, df_wheat], axis<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.histogram(</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    data_frame<span class="op">=</span>gdf_replaced, </span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">"DryYield"</span>, </span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    facet_col<span class="op">=</span><span class="st">"Variety"</span>, </span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    marginal<span class="op">=</span><span class="st">"box"</span>, </span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    hover_data<span class="op">=</span>[<span class="st">"DryYield"</span>, <span class="st">"Elevation"</span>, <span class="st">"WetMass"</span>])</span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.histogram(</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    data_frame<span class="op">=</span>gdf_replaced, </span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">"DryYield"</span>, </span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    facet_col<span class="op">=</span><span class="st">"Variety"</span>, </span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    marginal<span class="op">=</span><span class="st">"box"</span>, </span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    hover_data<span class="op">=</span>[<span class="st">"DryYield"</span>, <span class="st">"Elevation"</span>, <span class="st">"WetMass"</span>])</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="lab-3-eda_files/figure-html/cell-15-output-1.png" class="img-fluid"></p>
+<p><img src="lab-3-eda_files/figure-html/cell-16-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p>Looking at the wheat yield histogram we can see there are a large number of zero or close to zero values. This is another strange artefact in the distribution of our data values. Are zero crop yield values actually no crop yield from the plant or a source of measurement error or other noise? If the latter, we should remove these noisy values.</p>
 <div class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>df_canola <span class="op">=</span> gdf_clean.loc[gdf_clean[<span class="st">"Variety"</span>] <span class="op">==</span> <span class="st">"43Y23 RR"</span>, :]</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The number of canola observations with yield values of zero or less is: </span><span class="sc">{</span>(df_canola[<span class="st">'DryYield'</span>] <span class="op">&lt;=</span> <span class="dv">0</span>)<span class="sc">.</span><span class="bu">sum</span>()<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>df_wheat <span class="op">=</span> gdf_clean.loc[gdf_clean[<span class="st">"Variety"</span>] <span class="op">==</span> <span class="st">"Ninja"</span>, :]</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The number of wheat observations with yield values of zero or less is: </span><span class="sc">{</span>(df_wheat[<span class="st">'DryYield'</span>] <span class="op">&lt;=</span> <span class="dv">0</span>)<span class="sc">.</span><span class="bu">sum</span>()<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>df_canola <span class="op">=</span> gdf_clean.loc[gdf_clean[<span class="st">"Variety"</span>] <span class="op">==</span> <span class="st">"43Y23 RR"</span>, :]</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The number of canola observations with yield values of zero or less is: </span><span class="sc">{</span>(df_canola[<span class="st">'DryYield'</span>] <span class="op">&lt;=</span> <span class="dv">0</span>)<span class="sc">.</span><span class="bu">sum</span>()<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>df_wheat <span class="op">=</span> gdf_clean.loc[gdf_clean[<span class="st">"Variety"</span>] <span class="op">==</span> <span class="st">"Ninja"</span>, :]</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The number of wheat observations with yield values of zero or less is: </span><span class="sc">{</span>(df_wheat[<span class="st">'DryYield'</span>] <span class="op">&lt;=</span> <span class="dv">0</span>)<span class="sc">.</span><span class="bu">sum</span>()<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>The number of canola observations with yield values of zero or less is: 13
 The number of wheat observations with yield values of zero or less is: 140</code></pre>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>df_canola.loc[df_canola[<span class="st">"DryYield"</span>] <span class="op">&lt;=</span> <span class="dv">0</span>, <span class="st">"DryYield"</span>] <span class="op">=</span> np.nan</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>df_wheat.loc[df_wheat[<span class="st">"DryYield"</span>] <span class="op">&lt;=</span> <span class="dv">0</span>, <span class="st">"DryYield"</span>] <span class="op">=</span> np.nan</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co"># combine filtered dfs</span></span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>gdf_with_nan <span class="op">=</span> pd.concat([df_canola, df_wheat], axis<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="co"># drop NAs</span></span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>gdf_dropped_nan <span class="op">=</span> gdf_with_nan.dropna(subset<span class="op">=</span>[<span class="st">"DryYield"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>df_canola.loc[df_canola[<span class="st">"DryYield"</span>] <span class="op">&lt;=</span> <span class="dv">0</span>, <span class="st">"DryYield"</span>] <span class="op">=</span> np.nan</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>df_wheat.loc[df_wheat[<span class="st">"DryYield"</span>] <span class="op">&lt;=</span> <span class="dv">0</span>, <span class="st">"DryYield"</span>] <span class="op">=</span> np.nan</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># combine filtered dfs</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>gdf_with_nan <span class="op">=</span> pd.concat([df_canola, df_wheat], axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="co"># drop NAs</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>gdf_dropped_nan <span class="op">=</span> gdf_with_nan.dropna(subset<span class="op">=</span>[<span class="st">"DryYield"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.histogram(</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    data_frame<span class="op">=</span>gdf_dropped_nan, </span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">"DryYield"</span>, </span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    facet_col<span class="op">=</span><span class="st">"Variety"</span>, </span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    marginal<span class="op">=</span><span class="st">"box"</span>, </span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    hover_data<span class="op">=</span>[<span class="st">"DryYield"</span>, <span class="st">"Elevation"</span>, <span class="st">"WetMass"</span>])</span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.histogram(</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    data_frame<span class="op">=</span>gdf_dropped_nan, </span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">"DryYield"</span>, </span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    facet_col<span class="op">=</span><span class="st">"Variety"</span>, </span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    marginal<span class="op">=</span><span class="st">"box"</span>, </span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    hover_data<span class="op">=</span>[<span class="st">"DryYield"</span>, <span class="st">"Elevation"</span>, <span class="st">"WetMass"</span>])</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="lab-3-eda_files/figure-html/cell-18-output-1.png" class="img-fluid"></p>
+<p><img src="lab-3-eda_files/figure-html/cell-19-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p>Now we’ve removed zero values the distribution of our crop yield values looks more sensible and relatively normally distributed.</p>
@@ -899,29 +908,29 @@ The number of wheat observations with yield values of zero or less is: 140</code
 <p>We can use 2D histograms or density heatmaps to look at the distribution of two variables together. 2D hisograms are a useful complement to scatter plots when you have a large number of observations. Here, colour is used to represent the distribution of data values as opposed to the height of rectangular bars on a histogram.</p>
 <p>Let’s create 2D histograms to visualise the relationship between vegetation indices and canola crop yield.</p>
 <div class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.density_heatmap(</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    data_frame<span class="op">=</span>gdf_dropped_nan.loc[gdf_dropped_nan[<span class="st">"Variety"</span>] <span class="op">==</span> <span class="st">"43Y23 RR"</span>, :], </span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">"DryYield"</span>, </span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">"gndvi"</span>, </span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    marginal_x<span class="op">=</span><span class="st">"box"</span>, </span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    marginal_y<span class="op">=</span><span class="st">"box"</span>,</span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>    range_y<span class="op">=</span>[<span class="fl">0.4</span>, <span class="fl">0.8</span>])</span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="lab-3-eda_files/figure-html/cell-19-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-<div class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.density_heatmap(</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    data_frame<span class="op">=</span>gdf_dropped_nan.loc[gdf_dropped_nan[<span class="st">"Variety"</span>] <span class="op">==</span> <span class="st">"43Y23 RR"</span>, :], </span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">"DryYield"</span>, </span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">"ndyi"</span>, </span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">"gndvi"</span>, </span>
 <span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    marginal_x<span class="op">=</span><span class="st">"box"</span>, </span>
 <span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    marginal_y<span class="op">=</span><span class="st">"box"</span>,</span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>    range_y<span class="op">=</span>[<span class="fl">0.1</span>, <span class="fl">0.5</span>])</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>    range_y<span class="op">=</span>[<span class="fl">0.4</span>, <span class="fl">0.8</span>])</span>
 <span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="lab-3-eda_files/figure-html/cell-20-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.density_heatmap(</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    data_frame<span class="op">=</span>gdf_dropped_nan.loc[gdf_dropped_nan[<span class="st">"Variety"</span>] <span class="op">==</span> <span class="st">"43Y23 RR"</span>, :], </span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">"DryYield"</span>, </span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">"ndyi"</span>, </span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    marginal_x<span class="op">=</span><span class="st">"box"</span>, </span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    marginal_y<span class="op">=</span><span class="st">"box"</span>,</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>    range_y<span class="op">=</span>[<span class="fl">0.1</span>, <span class="fl">0.5</span>])</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="lab-3-eda_files/figure-html/cell-21-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
@@ -930,17 +939,17 @@ The number of wheat observations with yield values of zero or less is: 140</code
 <p>One of the limits of using histograms to visualise distributions is the size of the bins affects the distribution of data values. An alternative approach to visualising a distribution is to use a violin plot.</p>
 <p>Violin plots display use density and box plots to visualise distributions, which look similar to violins. The density is the probability of an observation taking on a certain value and is plotted as a smooth curve. Areas where the curve is fatter indicate a higher probability that an observation will take that value. Box plots display the 25th, 50th, and 75th percentile values.</p>
 <div class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.violin(</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    gdf_dropped_nan, </span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">"DryYield"</span>, </span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">"Variety"</span>, </span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">"Variety"</span>, </span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    box<span class="op">=</span><span class="va">True</span>, </span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>    points<span class="op">=</span><span class="st">"outliers"</span>, </span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    hover_data<span class="op">=</span>[<span class="st">"DryYield"</span>, <span class="st">"gndvi"</span>])</span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.violin(</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>    gdf_dropped_nan, </span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">"DryYield"</span>, </span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">"Variety"</span>, </span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">"Variety"</span>, </span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>    box<span class="op">=</span><span class="va">True</span>, </span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>    points<span class="op">=</span><span class="st">"outliers"</span>, </span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>    hover_data<span class="op">=</span>[<span class="st">"DryYield"</span>, <span class="st">"gndvi"</span>])</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="lab-3-eda_files/figure-html/cell-21-output-1.png" class="img-fluid"></p>
+<p><img src="lab-3-eda_files/figure-html/cell-22-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
@@ -956,8 +965,8 @@ The number of wheat observations with yield values of zero or less is: 140</code
 <p>The correlation coefficient is bound between -1 and 1 with -1 indicating perfect negative correlation and 1 indicating perfect positive correlation.</p>
 <p>Pandas has a <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.corr.html" target="_blank"><code>corr</code></a> function that can be used to compute correlation coefficients between columns in a <code>DataFrame</code>. Let’s compute the correlation coefficients between crop yields and NDYI and GNDVI.</p>
 <div class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>gdf_corr <span class="op">=</span> gdf_dropped_nan.loc[:, [<span class="st">"Variety"</span>, <span class="st">"DryYield"</span>, <span class="st">"gndvi"</span>, <span class="st">"ndyi"</span>]].groupby([<span class="st">"Variety"</span>]).corr()</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>gdf_corr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>gdf_corr <span class="op">=</span> gdf_dropped_nan.loc[:, [<span class="st">"Variety"</span>, <span class="st">"DryYield"</span>, <span class="st">"gndvi"</span>, <span class="st">"ndyi"</span>]].groupby([<span class="st">"Variety"</span>]).corr()</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>gdf_corr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="21">
 
 <div>
@@ -1036,17 +1045,17 @@ The number of wheat observations with yield values of zero or less is: 140</code
 </ul>
 <p>We can visually explore the spatial correlation in our data by plotting it on a map and using a suitable colour scale to map data values to colours. Let’s visualise the canola crop yield values.</p>
 <div class="cell" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>df_canola <span class="op">=</span> gdf_dropped_nan.loc[gdf_dropped_nan[<span class="st">"Variety"</span>] <span class="op">==</span> <span class="st">"43Y23 RR"</span>, :].copy()</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.scatter_mapbox(</span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>    df_canola, </span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>    lat<span class="op">=</span>df_canola.geometry.y,</span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>    lon<span class="op">=</span>df_canola.geometry.x,</span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">"DryYield"</span>, </span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>    mapbox_style<span class="op">=</span><span class="st">"open-street-map"</span>)</span>
-<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>df_canola <span class="op">=</span> gdf_dropped_nan.loc[gdf_dropped_nan[<span class="st">"Variety"</span>] <span class="op">==</span> <span class="st">"43Y23 RR"</span>, :].copy()</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.scatter_mapbox(</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    df_canola, </span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>    lat<span class="op">=</span>df_canola.geometry.y,</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>    lon<span class="op">=</span>df_canola.geometry.x,</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">"DryYield"</span>, </span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>    mapbox_style<span class="op">=</span><span class="st">"open-street-map"</span>)</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="lab-3-eda_files/figure-html/cell-23-output-1.png" class="img-fluid"></p>
+<p><img src="lab-3-eda_files/figure-html/cell-24-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p>Visually, we can see some spatial patterns in our canola yield data. High yield values with yellow shades appear to be clustered together in the field.</p>
@@ -1057,14 +1066,14 @@ The number of wheat observations with yield values of zero or less is: 140</code
 <p>We do this by generating a spatial weights matrix. This is an object that keeps a record of the which data points are neighbours of a given observation in our <code>GeoDataFrame</code>. Here, we’re defining neighbours using the K nearest neighbour rule; specifically the four nearest neighbours.</p>
 <p>Here, we row standardise the weights in the spatial weights matrix so each neighbour contributes equal weight and the sum of the neighbour’s weights is one. This has the useful effect of the sum of each neighbours weight multiplied by its value returning the average value for all neighbours of an observation: its spatial lag.</p>
 <div class="cell" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create a spatial weights matrix to identify a locations neighbouring values</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>w_knn <span class="op">=</span> KNN.from_dataframe(df_canola, k<span class="op">=</span><span class="dv">4</span>)</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Row-standardization</span></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>w_knn.transform <span class="op">=</span> <span class="st">"R"</span></span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"the neighbours of the first observation in our dataset are </span><span class="sc">{</span>w_knn<span class="sc">.</span>neighbors[<span class="dv">0</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="co"># compute spatial lag of canola yield</span></span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>df_canola[<span class="st">"DryYield_SpatialLag"</span>] <span class="op">=</span> lag_spatial(w_knn, df_canola[<span class="st">"DryYield"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create a spatial weights matrix to identify a locations neighbouring values</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>w_knn <span class="op">=</span> KNN.from_dataframe(df_canola, k<span class="op">=</span><span class="dv">4</span>)</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Row-standardization</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>w_knn.transform <span class="op">=</span> <span class="st">"R"</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"the neighbours of the first observation in our dataset are </span><span class="sc">{</span>w_knn<span class="sc">.</span>neighbors[<span class="dv">0</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="co"># compute spatial lag of canola yield</span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>df_canola[<span class="st">"DryYield_SpatialLag"</span>] <span class="op">=</span> lag_spatial(w_knn, df_canola[<span class="st">"DryYield"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>the neighbours of the first observation in our dataset are [67, 1754, 3811, 2191]</code></pre>
 </div>
@@ -1073,32 +1082,32 @@ The number of wheat observations with yield values of zero or less is: 140</code
 <p>The Moran’s plot uses standardised values where the global mean for a variable is subtracted from each observation.</p>
 <p>The slope of the trend line on the scatter plot is the Moran’s I statistic, it indicates the sign and strength of spatial correlation in the dataset.</p>
 <div class="cell" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># standardise yield measurements</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>df_canola[<span class="st">"DryYield_std"</span>] <span class="op">=</span> df_canola[<span class="st">"DryYield"</span>] <span class="op">-</span> df_canola[<span class="st">"DryYield"</span>].mean()</span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>df_canola[<span class="st">"DryYield_SpatialLag_std"</span>] <span class="op">=</span> df_canola[<span class="st">"DryYield_SpatialLag"</span>] <span class="op">-</span> df_canola[<span class="st">"DryYield_SpatialLag"</span>].mean()</span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="co"># morans plot</span></span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.scatter(</span>
-<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>    df_canola,</span>
-<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> <span class="st">"DryYield_std"</span>,</span>
-<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> <span class="st">"DryYield_SpatialLag_std"</span>,</span>
-<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>    trendline <span class="op">=</span> <span class="st">"ols"</span>,</span>
-<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>    opacity<span class="op">=</span><span class="fl">0.05</span>,</span>
-<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>    labels<span class="op">=</span>{<span class="st">"DryYield_std"</span>: <span class="st">"Standardised Canola Yield"</span>,</span>
-<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>           <span class="st">"DryYield_SpatialLag_std"</span>: <span class="st">"Standardised Canola Yield (spatial lag)"</span>}</span>
-<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a>fig.add_hline(y<span class="op">=</span><span class="dv">0</span>, line_width<span class="op">=</span><span class="fl">0.5</span>)</span>
-<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a>fig.add_vline(x<span class="op">=</span><span class="dv">0</span>, line_width<span class="op">=</span><span class="fl">0.5</span>)</span>
-<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># standardise yield measurements</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>df_canola[<span class="st">"DryYield_std"</span>] <span class="op">=</span> df_canola[<span class="st">"DryYield"</span>] <span class="op">-</span> df_canola[<span class="st">"DryYield"</span>].mean()</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>df_canola[<span class="st">"DryYield_SpatialLag_std"</span>] <span class="op">=</span> df_canola[<span class="st">"DryYield_SpatialLag"</span>] <span class="op">-</span> df_canola[<span class="st">"DryYield_SpatialLag"</span>].mean()</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="co"># morans plot</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.scatter(</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>    df_canola,</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> <span class="st">"DryYield_std"</span>,</span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> <span class="st">"DryYield_SpatialLag_std"</span>,</span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>    trendline <span class="op">=</span> <span class="st">"ols"</span>,</span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>    opacity<span class="op">=</span><span class="fl">0.05</span>,</span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>    labels<span class="op">=</span>{<span class="st">"DryYield_std"</span>: <span class="st">"Standardised Canola Yield"</span>,</span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>           <span class="st">"DryYield_SpatialLag_std"</span>: <span class="st">"Standardised Canola Yield (spatial lag)"</span>}</span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>fig.add_hline(y<span class="op">=</span><span class="dv">0</span>, line_width<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a>fig.add_vline(x<span class="op">=</span><span class="dv">0</span>, line_width<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="lab-3-eda_files/figure-html/cell-25-output-1.png" class="img-fluid"></p>
+<p><img src="lab-3-eda_files/figure-html/cell-26-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p>We can also compute the Moran’s I statistic which is a statistical summary of the general level of spatial autocorrelation in the dataset.</p>
 <div class="cell" data-execution_count="25">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>moran <span class="op">=</span> esda.moran.Moran(df_canola[<span class="st">"DryYield"</span>], w_knn)</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Moran's I statistic is: </span><span class="sc">{</span><span class="bu">round</span>(moran.I, <span class="dv">3</span>)<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"P-value for Moran's I statistic is: </span><span class="sc">{</span>moran<span class="sc">.</span>p_sim<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>moran <span class="op">=</span> esda.moran.Moran(df_canola[<span class="st">"DryYield"</span>], w_knn)</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Moran's I statistic is: </span><span class="sc">{</span><span class="bu">round</span>(moran.I, <span class="dv">3</span>)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"P-value for Moran's I statistic is: </span><span class="sc">{</span>moran<span class="sc">.</span>p_sim<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Moran's I statistic is: 0.697
 P-value for Moran's I statistic is: 0.001</code></pre>
