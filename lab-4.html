@@ -223,10 +223,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#map-algebra" id="toc-map-algebra" class="nav-link" data-scroll-target="#map-algebra">Map algebra</a></li>
   <li><a href="#labels-and-field-id-bands" id="toc-labels-and-field-id-bands" class="nav-link" data-scroll-target="#labels-and-field-id-bands">Labels and field id bands</a></li>
   <li><a href="#reshaping-raster-data" id="toc-reshaping-raster-data" class="nav-link" data-scroll-target="#reshaping-raster-data">Reshaping raster data</a></li>
+  </ul></li>
+  <li><a href="#attribute-data-operations" id="toc-attribute-data-operations" class="nav-link" data-scroll-target="#attribute-data-operations">Attribute data operations</a>
+  <ul class="collapse">
   <li><a href="#pandas-dataframe-and-data-cleaning" id="toc-pandas-dataframe-and-data-cleaning" class="nav-link" data-scroll-target="#pandas-dataframe-and-data-cleaning">Pandas <code>DataFrame</code> and data cleaning</a></li>
   <li><a href="#grouped-summaries" id="toc-grouped-summaries" class="nav-link" data-scroll-target="#grouped-summaries">Grouped summaries</a></li>
+  </ul></li>
   <li><a href="#raster-vector-operations-and-vector-operations" id="toc-raster-vector-operations-and-vector-operations" class="nav-link" data-scroll-target="#raster-vector-operations-and-vector-operations">Raster-vector operations and vector operations</a></li>
-  <li><a href="#joins" id="toc-joins" class="nav-link" data-scroll-target="#joins">Joins</a></li>
+  <li><a href="#joins" id="toc-joins" class="nav-link" data-scroll-target="#joins">Joins</a>
+  <ul class="collapse">
+  <li><a href="#key-based-joins" id="toc-key-based-joins" class="nav-link" data-scroll-target="#key-based-joins">Key-based joins</a></li>
   <li><a href="#spatial-joins" id="toc-spatial-joins" class="nav-link" data-scroll-target="#spatial-joins">Spatial Joins</a></li>
   <li><a href="#save-file" id="toc-save-file" class="nav-link" data-scroll-target="#save-file">Save file</a></li>
   </ul></li>
@@ -1127,6 +1133,9 @@ stacking Sentinel-2 bands in ref_agrifieldnet_competition_v1_source_0b89a</code>
 </div>
 </div>
 </section>
+</section>
+<section id="attribute-data-operations" class="level2">
+<h2 class="anchored" data-anchor-id="attribute-data-operations">Attribute data operations</h2>
 <section id="pandas-dataframe-and-data-cleaning" class="level3">
 <h3 class="anchored" data-anchor-id="pandas-dataframe-and-data-cleaning">Pandas <code>DataFrame</code> and data cleaning</h3>
 <p>We have applied a series of transformation operations to raster data using NumPy <code>ndarray</code> objects. We read several raster datasets stored as GeoTIFF objects into a NumPy <code>ndarray</code> object initially creating a multiband raster-like object before reshaping to a tabular-like structure.</p>
@@ -2393,8 +2402,9 @@ stacking Sentinel-2 bands in ref_agrifieldnet_competition_v1_source_0b89a</code>
 </div>
 </div>
 </section>
-<section id="raster-vector-operations-and-vector-operations" class="level3">
-<h3 class="anchored" data-anchor-id="raster-vector-operations-and-vector-operations">Raster-vector operations and vector operations</h3>
+</section>
+<section id="raster-vector-operations-and-vector-operations" class="level2">
+<h2 class="anchored" data-anchor-id="raster-vector-operations-and-vector-operations">Raster-vector operations and vector operations</h2>
 <p>We’re almost at the stage where we’ve processed a number of GeoTIFF files stored across many directories into a tabular dataset in a <code>DataFrame</code> object ready for machine learning. However, there are two more columns we need to create and append to the <code>DataFrame</code>. The first is a <code>geometry</code> column recording the centroid of each field. This allows us to keep a record of each field’s geographic location. We’ll also use this centroid to identify the district (an administrative boundary below the State-level in India) each field is located in. We’ll use this geographic information to ensure training and test data are not spatially correlated in the machine learning workflows (but, that is a discussion for later).</p>
 <p>To compute the centroid for each field we need to perform some raster-vector operations where each raster dataset is converted to a vector dataset. This is called vectorisation and can be achieved using <code>rasterio</code>’s <a href="https://rasterio.readthedocs.io/en/latest/api/rasterio.features.html#rasterio.features.shapes" target="_blank"><code>shapes()</code></a> function which returns the shape and value of connected regions in a raster dataset. Pixels belonging the same field in a raster layer should be connected (i.e.&nbsp;their edges touch) and they should have the same value (field id). Thus, applying the <code>shapes()</code> function to the raster layer of field ids should return vector polygons for each field outline.</p>
 <p>To do this we’ll need to use the <code>field_ids.tif</code> files. Let’s quickly inspect these files again.</p>
@@ -2929,8 +2939,10 @@ dtype: geometry</code></pre>
 </div>
 </div>
 </section>
-<section id="joins" class="level3">
-<h3 class="anchored" data-anchor-id="joins">Joins</h3>
+<section id="joins" class="level2">
+<h2 class="anchored" data-anchor-id="joins">Joins</h2>
+<section id="key-based-joins" class="level3">
+<h3 class="anchored" data-anchor-id="key-based-joins">Key-based joins</h3>
 <p>We now have two separate data objects in our Python program. We have a <code>DataFrame</code> storing average spectral reflectance values for each field, field id, and crop type label attributes. We also have a <code>GeoDataFrame</code> storing the field id attribute and the field centroid as a point <code>Geometry</code>.</p>
 <p>When two tables have a matching column(s) we can use join operations to combine them. Rows in both tables are matched using common values in the matching column(s) and the joined table has columns from both tables.</p>
 <p>Joining tables is a common operation in relational databases using SQL and the same operations can be implemented in Pandas using <a href="https://pandas.pydata.org/docs/user_guide/merging.html#database-style-dataframe-or-named-series-joining-merging" target="_blank"><code>merge()</code></a> functions.</p>
