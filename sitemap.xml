@@ -2,30 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://data-analysis-3300-3003.github.io/coursebook/index.html</loc>
-    <lastmod>2022-12-21T09:57:17.290Z</lastmod>
+    <lastmod>2022-12-23T07:09:14.730Z</lastmod>
   </url>
   <url>
     <loc>https://data-analysis-3300-3003.github.io/coursebook/software.html</loc>
-    <lastmod>2022-12-21T09:57:17.291Z</lastmod>
+    <lastmod>2022-12-23T07:09:14.731Z</lastmod>
+  </url>
+  <url>
+    <loc>https://data-analysis-3300-3003.github.io/coursebook/readings.html</loc>
+    <lastmod>2022-12-23T07:09:14.732Z</lastmod>
   </url>
   <url>
     <loc>https://data-analysis-3300-3003.github.io/coursebook/lab-1.html</loc>
-    <lastmod>2022-12-21T09:57:17.312Z</lastmod>
+    <lastmod>2022-12-23T07:09:14.755Z</lastmod>
   </url>
   <url>
     <loc>https://data-analysis-3300-3003.github.io/coursebook/lab-2.html</loc>
-    <lastmod>2022-12-21T09:57:17.326Z</lastmod>
+    <lastmod>2022-12-23T07:09:14.762Z</lastmod>
   </url>
   <url>
     <loc>https://data-analysis-3300-3003.github.io/coursebook/lab-3-data-vis.html</loc>
-    <lastmod>2022-12-21T09:57:17.333Z</lastmod>
+    <lastmod>2022-12-23T07:09:14.767Z</lastmod>
   </url>
   <url>
     <loc>https://data-analysis-3300-3003.github.io/coursebook/lab-3-eda.html</loc>
-    <lastmod>2022-12-21T09:57:17.340Z</lastmod>
+    <lastmod>2022-12-23T07:09:14.773Z</lastmod>
   </url>
   <url>
     <loc>https://data-analysis-3300-3003.github.io/coursebook/lab-4.html</loc>
-    <lastmod>2022-12-21T09:57:17.366Z</lastmod>
+    <lastmod>2022-12-23T07:09:14.788Z</lastmod>
   </url>
 </urlset>
