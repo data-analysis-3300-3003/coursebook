@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>coursebook - 8&nbsp; Week 3 - Practice Exercises</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./lab-4.html" rel="next">
+<link href="./lab-3-self-guided.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Week 3 - Practice Exercises</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">coursebook</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Welcome</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./unit-overview.html" class="sidebar-item-text sidebar-link">Unit overview</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./software.html" class="sidebar-item-text sidebar-link">Software</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./readings.html" class="sidebar-item-text sidebar-link">Reading</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Week 1</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-1-practice-exercises.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Week 1 (practice)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Week 2</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-2-self-guided.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Week 2 (self-guided)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-2-practice-exercises.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Week 2 (practice)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Week 3</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-3-self-guided.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Week 3 (self-guided)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-3-practice-exercises.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Week 3 (practice)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-4.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Week 4</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-4-self-guided.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Week 4 (self-guided)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-5.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Week 5</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-5-self-guided.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Week 5 (self-guided)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-6-self-guided.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Week 6 (self-guided)</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#setup" id="toc-setup" class="nav-link active" data-scroll-target="#setup">Setup</a></li>
+  <li><a href="#download-data" id="toc-download-data" class="nav-link" data-scroll-target="#download-data">Download data</a></li>
+  <li><a href="#import-modules" id="toc-import-modules" class="nav-link" data-scroll-target="#import-modules">Import modules</a></li>
+  <li><a href="#population-growth" id="toc-population-growth" class="nav-link" data-scroll-target="#population-growth">Population growth</a></li>
+  <li><a href="#crop-yield-growth" id="toc-crop-yield-growth" class="nav-link" data-scroll-target="#crop-yield-growth">Crop yield growth</a></li>
+  <li><a href="#projected-change-in-cropland-area" id="toc-projected-change-in-cropland-area" class="nav-link" data-scroll-target="#projected-change-in-cropland-area">Projected change in cropland area</a></li>
+  <li><a href="#projected-habitat-loss" id="toc-projected-habitat-loss" class="nav-link" data-scroll-target="#projected-habitat-loss">Projected habitat loss</a></li>
+  <li><a href="#options-for-preventing-loss-of-wildlife-habitats" id="toc-options-for-preventing-loss-of-wildlife-habitats" class="nav-link" data-scroll-target="#options-for-preventing-loss-of-wildlife-habitats">Options for preventing loss of wildlife habitats</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-title">Week 3 - Practice Exercises</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<p>This notebook contains exercises related to week 3’s content on generating interactive visualisations using Plotly Express. These exercises are based on this Our World in Data article: <a href="https://ourworldindata.org/yields-habitat-loss" target="_blank"><em>To protect the world’s wildlife we must improve crop yields – especially across Africa</em></a>.</p>
+<p>This article contains several visualisations, based on the paper by <a href="https://www.nature.com/articles/s41893-020-00656-5" target="_blank">Williams et al.&nbsp;(2020)</a>, which illustrate that projected cropland expansion to meet future demands for food will result in substantial habitat loss, threats to biodiversity, and extinction. In part, this is due to growing populations in Africa where i) crop yields are low and so increasing the area under cultivation is required to generate more food, and ii) habitat for many key species is located. They also explore potential scenarios for meeting demand for food that avert the need for cropland expansion. Of the scenarios they explore, closing yield gaps in Africa looks most promising and with potential food security and economic co-benefits.</p>
+<section id="setup" class="level3">
+<h3 class="anchored" data-anchor-id="setup">Setup</h3>
+<p>You can run the labs locally on your machine or you can use cloud environments provided by Google Colab. If you’re working with Google Colab be aware that your sessions are temporary and you’ll need to take care to save, backup, and download your work.</p>
+<p><a href="https://colab.research.google.com/github/data-analysis-3300-3003/colab/blob/main/lab-3-practice-exercises.ipynb" target="_blank"> <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"> </a></p>
+</section>
+<section id="download-data" class="level3">
+<h3 class="anchored" data-anchor-id="download-data">Download data</h3>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">"week-3-practice"</span> <span class="kw">not</span> <span class="kw">in</span> os.listdir(os.getcwd()):</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    os.system(<span class="st">'wget "https://github.com/data-analysis-3300-3003/data/raw/main/data/week-3-practice.zip"'</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    os.system(<span class="st">'unzip "week-3-practice.zip"'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="import-modules" class="level3">
+<h3 class="anchored" data-anchor-id="import-modules">Import modules</h3>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.express <span class="im">as</span> px</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="population-growth" class="level2">
+<h2 class="anchored" data-anchor-id="population-growth">Population growth</h2>
+<p>Cropland expansion will result in habitat loss for many species. This cropland expansion is required to meet demand for food. One of the reasons for an increasing demand for food is population growth.</p>
+<p>Over the coming decades, population growth is projected to be greatest in Africa which is also the home to habitats for many key species.</p>
+<p>Read in the following CSV file which has annual population figures for each continent from 1800 through to 2100 (projections) and generate a line chart using Plotly Express visualising how each continents population has grown historically and is projected to grow into the future. This data is from Our World in Data with the source being Gapminder and the UN.</p>
+<p>You should use the <a href="https://plotly.com/python-api-reference/generated/plotly.express.line.html" target="_blank"><code>px.line()</code></a> function for this task and the <code>color</code> argument should be set to <code>"Continent"</code>.</p>
+<p>See what happens when you hover your cursor over each line.</p>
+<p>Can you spot Africa’s projected rapid population growth through till 2100?</p>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>pop_continents <span class="op">=</span> pd.read_csv(os.path.join(os.getcwd(), <span class="st">"week-3-practice"</span>, <span class="st">"population_projections_1800_2100_continents.csv"</span>))</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>pop_continents.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Make visualisation here ## </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>
+<b>answer</b>
+</summary>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>px.line(</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    pop_continents,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">"Year"</span>,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">"Population"</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">"Continent"</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</section>
+<section id="crop-yield-growth" class="level2">
+<h2 class="anchored" data-anchor-id="crop-yield-growth">Crop yield growth</h2>
+<p>Over the past few decades, as populations have grown so have crop yields. Crop yields are an indicator of agricultural productivity (i.e.&nbsp;how much food do we get from a unit area of land). Increasing the productivity of farms has reduced the need to expand the area under cultivation to meet demand from growing populations.</p>
+<p>Read in the following CSV file to plot the change in the average cereal crop yields (tonnes/ha) per continent since 1960 on a line chart. This data is downloaded from <a href="https://github.com/owid/owid-datasets" target="_blank">Our World in Data</a>.</p>
+<p>You should use the <a href="https://plotly.com/python-api-reference/generated/plotly.express.line.html" target="_blank"><code>px.line()</code></a> function for this task and the <code>color</code> argument should be set to <code>"Continent"</code>.</p>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>crop_yields_pop_continents <span class="op">=</span> pd.read_csv(os.path.join(os.getcwd(), <span class="st">"week-3-practice"</span>, <span class="st">"population_yield_continents.csv"</span>))</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>crop_yields_pop_continents.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">## ADD CODE HERE ##</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>
+<b>answer</b>
+</summary>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>px.line(</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    crop_yields_pop_continents,</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">"Year"</span>,</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">"Cereal_Yield_Tn/ha"</span>,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">"Continent"</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<p>You should note the flat line for Africa indicating that crop yields have not grown over the past few decades. This is concerning as Africa is where most population growth is projected to occur. Without increases in productivity, to ensure food demand it met natural habitats will need to be brought under cultivation.</p>
+<p>We can use Plotly Express’s visualisation tools to create animations that show how population growth and crop yields have changed over time.</p>
+<p>Can you create an animation of how the relationship between population growth and crop yields has changed for each continent since 1961?</p>
+<p>You will need to use <a href="https://plotly.com/python-api-reference/generated/plotly.express.scatter.html" target="_blank"><code>px.scatter()</code></a> for this task. Set the <code>x</code> argument to <code>"Population"</code>, <code>y</code> to <code>"Cereal_Yield_Tn/ha"</code>, <code>animation_frame</code> to <code>"Year"</code>, and <code>color</code> to <code>"Continent"</code>. To make sure the axes ranges are suitable set <code>range_x</code> to <code>[0, 5000000000]</code> and <code>range_y</code> to <code>[0, 6]</code>.</p>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">## ADD CODE HERE ## </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>
+<b>answer</b>
+</summary>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>px.scatter(</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    crop_yields_pop_continents, </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">"Population"</span>, </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">"Cereal_Yield_Tn/ha"</span>, </span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    size<span class="op">=</span><span class="st">"Cereal_Yield_Tn/ha"</span>,</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">"Continent"</span>,</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    animation_frame<span class="op">=</span><span class="st">"Year"</span>,</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    range_x<span class="op">=</span>[<span class="dv">0</span>, <span class="dv">5000000000</span>],</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    range_y<span class="op">=</span>[<span class="dv">0</span>, <span class="dv">6</span>]</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<p>Can you spot how Asia’s population grows and crop yields increase, how there is increasing crop yields but much less rapid population growth in Europe, and how Africa’s population is growing but crop yields remain low.</p>
+<p>Plotly Express also has a convenience function, <a href="https://plotly.com/python-api-reference/generated/plotly.express.choropleth.html" target="_blank"><code>px.chloropleth()</code></a>, that we can use to make animated chloropleth maps. We can read in the following CSV file of country-level crop yields since 1961 and make an animated map of changing global crop yields from 1961 until the present day.</p>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>crop_yields_pop_countries <span class="op">=</span> pd.read_csv(os.path.join(os.getcwd(), <span class="st">"week-3-practice"</span>, <span class="st">"population_yield_countries.csv"</span>))</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>crop_yields_pop_countries.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Can you use the <a href="https://plotly.com/python-api-reference/generated/plotly.express.choropleth.html" target="_blank"><code>px.chloropleth()</code></a> function to make animate changes in crop yields at the country-level since 1961?</p>
+<p>To get a good visualisation set the <code>range_color</code> argument to <code>[0,8]</code> and set the <code>height</code> argument to <code>500</code> (this makes the figure 500 pixels tall). <strong>Use the <code>px.chloropleth()</code> docs to look up what the <code>range_color</code> argument does.</strong></p>
+<p>The <a href="https://plotly.com/python-api-reference/generated/plotly.express.choropleth.html" target="_blank"><code>px.chloropleth()</code></a> function has a <code>locations</code> argument, set this to <code>"Code"</code> (<code>Code</code> in a country code to map rows in the <code>DataFrame</code> to country geometries on a map). Set the <code>color</code> argument to <code>"Cereal_Yield_Tn/ha"</code> so each country’s fill colour represents crop yield, set the <code>animation_frame</code> argument to <code>"Year"</code> and set the <code>color_continuous_scale</code> argument to <code>"viridis"</code>.</p>
+<p>Notice how over time the fill colour of countries in Europe, America, and Asia becomes lighter indicating increasing crop yields but Africa remains in darker purple shades.</p>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">## ADD CODE HERE ## </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>
+<b>answer</b>
+</summary>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>px.choropleth(</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    crop_yields_pop_countries, </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    locations<span class="op">=</span><span class="st">"Code"</span>, </span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">"Cereal_Yield_Tn/ha"</span>, </span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    hover_name<span class="op">=</span><span class="st">"Entity"</span>, </span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    animation_frame<span class="op">=</span><span class="st">"Year"</span>, </span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    color_continuous_scale<span class="op">=</span><span class="st">"viridis"</span>,</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    range_color<span class="op">=</span>[<span class="dv">0</span>,<span class="dv">8</span>],</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    height<span class="op">=</span><span class="dv">500</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</section>
+<section id="projected-change-in-cropland-area" class="level2">
+<h2 class="anchored" data-anchor-id="projected-change-in-cropland-area">Projected change in cropland area</h2>
+<p><a href="https://www.nature.com/articles/s41893-020-00656-5" target="_blank">Williams et al.&nbsp;(2020)</a> project the change in cropland area necessary to meet demand for food under a business as usual scenario (crop yields increasing following their historical rates of improvement and diets changing in line with projected income changes).</p>
+<p>Read in some of the data from the <a href="https://www.nature.com/articles/s41893-020-00656-5" target="_blank">Williams et al.&nbsp;(2020)</a> paper as used in Our World in Data (this data is downloaded from <a href="https://github.com/owid/owid-datasets" target="_blank">Our World in Data</a>).</p>
+<p>The column headers are:</p>
+<ul>
+<li><code>bau_habitat_loss_all</code> - business as usual % change in habitat due to cropland expansion by 2050</li>
+<li><code>bau_change_pct</code> - business as usual % change in cropland area to meet demand by 2050</li>
+<li><code>yields_change_pct</code> - % change in cropland area to meet demand by 2050 when closing yield gaps</li>
+<li><code>diets_change_pct</code> - % change in cropland area to meet demand by 2050 by transitioning to healthier and lower meat diets</li>
+<li><code>waste_change_pct</code> - % change in cropland area to meet demand by 2050 by halving food waste</li>
+<li><code>yields_habitat_loss_all</code> - % change in habitat loss for all species due to cropland expansion to meet demand by 2050 when closing yield gaps</li>
+<li><code>yields_habitat_loss_mammals</code> - % change in habitat loss for mammals due to cropland expansion to meet demand by 2050 when closing yield gaps</li>
+</ul>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>williams_2020_continents <span class="op">=</span> pd.read_csv(os.path.join(os.getcwd(), <span class="st">"week-3-practice"</span>, <span class="st">"williams_2020_continents.csv"</span>))</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>williams_2020_continents.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Can you make a bar plot using the <a href="https://plotly.com/python-api-reference/generated/plotly.express.bar.html" target="_blank"><code>px.bar()</code></a> function to show percentage change in cropland area by by 2050 to meet food demand under the business as usual scenario?</p>
+<p>You should set the <code>x</code> argument to <code>bau_change_pct</code> and the <code>y</code> argument to <code>"Continent"</code>.</p>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">## ADD CODE HERE ##</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>
+<b>answer</b>
+</summary>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>px.bar(</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    williams_2020_continents, </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">"bau_change_pct"</span>, </span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">"Continent"</span>, </span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    labels <span class="op">=</span> {</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">"bau_change_pct"</span>: <span class="st">"</span><span class="sc">% c</span><span class="st">hange in cropland area by 2050 (BAU)"</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<p>Note, the large increase in projected cropland expansion in Africa. The region where crop yields are lowest (i.e.&nbsp;where agricultural land is least productive). Let’s explore the same data on a map at the country level.</p>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>williams_2020_countries <span class="op">=</span> pd.read_csv(os.path.join(os.getcwd(), <span class="st">"week-3-practice"</span>, <span class="st">"williams_2020_countries.csv"</span>))</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>williams_2020_countries.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Can you make a chloropleth map that visulises the percentage change in cropland area by 2050 to meet food demand under the business as usual scenario?</p>
+<p>Use the <code>px.chloropleth()</code> function without setting the <code>animation_frame</code> argument. You should set the <code>location</code> argument to <code>"Code"</code>, <code>color</code> to <code>"bau_change_pct"</code>, <code>hover_name</code> to <code>"Entity"</code>, <code>range_color</code> to <code>[-10,120]</code>, and <code>height</code> to <code>500</code>.</p>
+<p>You should see in bright colours the countries of Africa where cropland area is projected to increase substantially over the coming decades.</p>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">## ADD CODE HERE ##</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>
+<b>answer</b>
+</summary>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>px.choropleth(</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    williams_2020_countries, </span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    locations<span class="op">=</span><span class="st">"Code"</span>, </span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">"bau_change_pct"</span>, </span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    hover_name<span class="op">=</span><span class="st">"Entity"</span>,  </span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    range_color<span class="op">=</span>[<span class="op">-</span><span class="dv">10</span>,<span class="dv">120</span>],</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    height<span class="op">=</span><span class="dv">500</span>,</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    labels <span class="op">=</span> {</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">"bau_change_pct"</span>: <span class="st">"</span><span class="sc">% c</span><span class="st">hange in cropland area by 2050 (BAU)"</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</section>
+<section id="projected-habitat-loss" class="level2">
+<h2 class="anchored" data-anchor-id="projected-habitat-loss">Projected habitat loss</h2>
+<p>We can repeat the above visualisations but swap out <code>bau_change_pct</code> for <code>bau_habitat_loss_all</code> to visualise the effect of business as usual cropland expansion on habitat loss for all species.</p>
+<p>Can you make a bar plot visualising the percentage change in habitat for all species under the business as usual cropland expansion scenario?</p>
+<p>You should use the <code>px.bar()</code> function and set the argument <code>x</code> to <code>"bau_habitat_loss_all"</code>, <code>y</code> to <code>"Continent"</code>, and set <code>range_x</code> to <code>[-11,11]</code>. Use the pandas <code>DataFrame</code> <code>williams_2020_continents</code> for this task. <strong>Why are we setting the <code>range_x</code> argument to these values?</strong></p>
+<p>You should see that a large proportion of projected habitat loss is going to occur on the African contient.</p>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">## ADD CODE HERE ##</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>
+<b>answer</b>
+</summary>
+<div class="sourceCode" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>px.bar(</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    williams_2020_continents, </span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">"bau_habitat_loss_all"</span>, </span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">"Continent"</span>, </span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    range_x<span class="op">=</span>[<span class="op">-</span><span class="dv">11</span>,<span class="dv">11</span>],</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    labels <span class="op">=</span> {</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">"bau_habitat_loss_all"</span>: <span class="st">"</span><span class="sc">% c</span><span class="st">hange in habitat area for all species by 2050 under BAU scenario"</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<p>Let’s map this data at the country level on a chloropleth map. Use the pandas <code>DataFrame</code> <code>williams_2020_countries</code> for this task. You should use the <code>px.chloropleth()</code> function, set the <code>locations</code> argument to <code>"Code"</code>, set the color argument to <code>"bau_habitat_loss_all"</code>, set the <code>hover_name</code> to <code>"Entity"</code>, set the <code>range_color</code> to <code>[-11, 0]</code>, and set <code>height</code> to <code>500</code>.</p>
+<p>You should see the Sub-Saharan African countries in darker purple shades indicating where most habitat loss will occur as a result of cropland expansion by 2050. There are also some countries in South America in moderate-dark purple shades where some habitat loss could occur. This is also concerning considering the important ecosystems in South America.</p>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">## ADD CODE HERE ##</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>
+<b>answer</b>
+</summary>
+<div class="sourceCode" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>px.choropleth(</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    williams_2020_countries, </span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    locations<span class="op">=</span><span class="st">"Code"</span>, </span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">"bau_habitat_loss_all"</span>, </span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    hover_name<span class="op">=</span><span class="st">"Entity"</span>,  </span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    range_color<span class="op">=</span>[<span class="op">-</span><span class="dv">11</span>,<span class="dv">0</span>],</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>    height<span class="op">=</span><span class="dv">500</span>,</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    labels <span class="op">=</span> {</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">"bau_habitat_loss_all"</span>: <span class="st">"</span><span class="sc">% c</span><span class="st">hange in habitat by 2050 (BAU)"</span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</section>
+<section id="options-for-preventing-loss-of-wildlife-habitats" class="level2">
+<h2 class="anchored" data-anchor-id="options-for-preventing-loss-of-wildlife-habitats">Options for preventing loss of wildlife habitats</h2>
+<p>The above visualisations tell us that growing populations increase demand for food. This extra demand can be met by i) increasing area under cultivation, or ii) increasing crop yields. Much of the projected population growth is expected to occur in Africa in the coming decades. The same continent where crop yields have remained persistently low and habitat is located for many species.</p>
+<p>However, what would cropland expansion and habitat loss scenarios in 2050 look like if <strong>crop yield gaps</strong> were closed. That is, bringing crop yields up to their potential limits under optimum management. Williams et al.&nbsp;(2020) looked into this scenario.</p>
+<p>Let’s make two bar plots to visualise i) projected change in cropland area through to 2050 under a business as usual, and ii) projected change in cropland area through to 2050 under a closing yield gaps scenario. Use the <code>williams_2020_continents</code> <code>DataFrame</code> for this task. The projected change in cropland area when yield gaps are closed is the column <code>yields_change_pct</code>.</p>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">## BAR PLOT: CHANGE IN CROPLAND AREA BAU ##</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>
+<b>answer</b>
+</summary>
+<div class="sourceCode" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>px.bar(</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>    williams_2020_continents, </span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">"bau_change_pct"</span>, </span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">"Continent"</span>, </span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>    labels <span class="op">=</span> {</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">"bau_change_pct"</span>: <span class="st">"</span><span class="sc">% c</span><span class="st">hange in cropland area by 2050 (BAU)"</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">## BAR PLOT: CHANGE IN CROPLAND AREA CLOSING YIELD GAPS ##</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>
+<b>answer</b>
+</summary>
+<div class="sourceCode" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>px.bar(</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>    williams_2020_continents, </span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">"yields_change_pct"</span>, </span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">"Continent"</span>, </span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>    labels <span class="op">=</span> {</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">"yields_change_pct"</span>: <span class="st">"</span><span class="sc">% c</span><span class="st">hange in cropland area by 2050 (Close yield gaps)"</span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<p>There are a few things to note when comparing these bar plots. One is that generally across all continents the change in area allocated to cropland when yield gaps close reduces. Second, that in some continents we can meet demand for food while taking land out of cultivation. Third, note the rapid drop in cropland expansion in Africa when closing yield gaps.</p>
+<p>Let’s viualise this with respect to change in habitat loss. Can you make a chloropleth map visualising the column <code>"yields_habitat_loss_all"</code> in the <code>DataFrame</code> <code>williams_2020_countries</code>? This will be a map showing the projected habitat loss for all species that will occur by 2050 due to cropland expansion if yield gaps are closed. Again, use the <code>px.chloropleth()</code> function. Set the <code>range_color</code> argument to <code>[-5,5]</code> (play around with changing this and see how this affects patterns visualised on the map). Also, set <code>height</code> to <code>500</code>, <code>color_continuous_scale</code> to <code>"RdYlGn"</code>, and <code>color_continuous_midpoint</code> to <code>0</code> (look up what the <code>color_continuous_midpoint</code> parameter does in the <a href="" target="_blank">docs</a> and think about why setting this to 0 makes sense).</p>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co">## ADD CODE HERE ##</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>
+<b>answer</b>
+</summary>
+<div class="sourceCode" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>px.choropleth(</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>    williams_2020_countries, </span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>    locations<span class="op">=</span><span class="st">"Code"</span>, </span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">"yields_habitat_loss_all"</span>, </span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>    hover_name<span class="op">=</span><span class="st">"Entity"</span>,  </span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>    range_color<span class="op">=</span>[<span class="op">-</span><span class="dv">5</span>,<span class="dv">5</span>],</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>    height<span class="op">=</span><span class="dv">500</span>,</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>    color_continuous_scale<span class="op">=</span><span class="st">"RdYlGn"</span>,</span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>    color_continuous_midpoint<span class="op">=</span><span class="dv">0</span>,</span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>    labels <span class="op">=</span> {</span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">"yields_habitat_loss_all"</span>: <span class="st">"</span><span class="sc">% c</span><span class="st">hange in habitat by 2050 (Close yield gaps)"</span></span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<p>Compare the habitat loss due to cropland expansion (particularly over Sub-Saharan Africa and South America) under a scenario of closing yield gaps to a business as usual scenario.</p>
+<p>Run the following code to generate the business as usual habitat loss figure for comparison and note the different colour scales used.</p>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>px.choropleth(</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>    williams_2020_countries, </span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    locations<span class="op">=</span><span class="st">"Code"</span>, </span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">"bau_habitat_loss_all"</span>, </span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>    hover_name<span class="op">=</span><span class="st">"Entity"</span>,  </span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>    range_color<span class="op">=</span>[<span class="op">-</span><span class="dv">10</span>,<span class="dv">10</span>],</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>    height<span class="op">=</span><span class="dv">500</span>,</span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>    color_continuous_scale<span class="op">=</span><span class="st">"RdYlGn"</span>,</span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>    color_continuous_midpoint<span class="op">=</span><span class="dv">0</span>,</span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>    labels <span class="op">=</span> {</span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">"bau_habitat_loss_all"</span>: <span class="st">"</span><span class="sc">% c</span><span class="st">hange in habitat by 2050 (BAU)"</span></span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Williams et al.&nbsp;(2020) also looked at other options for meeting demand for food which reduce the need for cropland expansion. Among the options they looked at were changing diets to a less meat intensive diet (the EAT-Lancet diet) and halving food waste.</p>
+<p>Let’s make bar plots to compare the effect of closing yield gaps, adopting healthy diets, or halving food waster on cropland expansion.</p>
+<p>Note how there is still a large increase in cropland area in Africa under scenarios of adopting healthy diets and halving food waste. Also note how different solutions might be appropriate on different continents.</p>
+<p><strong>Can you edit the below bar plots to use a consistent range of values on the x-axis to aid comparison?</strong></p>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>px.bar(</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>    williams_2020_continents, </span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">"yields_change_pct"</span>, </span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">"Continent"</span>, </span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>    labels <span class="op">=</span> {</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">"yields_change_pct"</span>: <span class="st">"</span><span class="sc">% c</span><span class="st">hange in cropland area by 2050 (Close yield gaps)"</span></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>px.bar(</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>    williams_2020_continents, </span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">"diets_change_pct"</span>, </span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">"Continent"</span>, </span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>    labels <span class="op">=</span> {</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">"diets_change_pct"</span>: <span class="st">"</span><span class="sc">% c</span><span class="st">hange in cropland area by 2050 (adopt healthy diets)"</span></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>px.bar(</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>    williams_2020_continents, </span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">"waste_change_pct"</span>, </span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">"Continent"</span>, </span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>    labels <span class="op">=</span> {</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">"waste_change_pct"</span>: <span class="st">"</span><span class="sc">% c</span><span class="st">hange in cropland area by 2050 (halve food waste)"</span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<p>These exercises demonstrate how we can use data visualisations and animations to combine datasets from a range of subject areas (population, agriculture, biodiversity), explore them, and identify solutions to complex problems.</p>
+<p>Here, these datasets highlight the challenge of meeting food demand while protecting the habitat of many species under business-as-usual agricultural and demographic scenarios. However, visualising this data spatially illustrates how closing crop yield gaps in Africa could realise many benefits simultaneously of meeting food demand, achieving food security and development goals, and protecting habitats from conversion to cropland.</p>
+<p>This exercise also demonstrates the importance of data visualisations as a communication tool (see the Our World in Data article: <a href="https://ourworldindata.org/yields-habitat-loss" target="_blank"><em>To protect the world’s wildlife we must improve crop yields – especially across Africa</em></a> as a good example of this ). Data visualisations can be used to summarise the complexity of big datasets to tell an important story to a range of audiences.</p>
+<p>Finally, think about all the datasets used in these exercises: global historical and projected population time-series, global crop yield time-series, data on cropland area, habitats for species, diets, and food waste. These datasets are derived from a range of underlying data sources and models. Considerable skills in (spatial) data processing and analysis are required to generate all these underlying datasets that permit analyses such as that in <a href="https://www.nature.com/articles/s41893-020-00656-5" target="_blank">Williams et al.&nbsp;(2020)</a>. This is where the skills you are learning in this course come in.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./lab-3-self-guided.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Week 3 (self-guided)</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./lab-4.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-title">Week 4</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

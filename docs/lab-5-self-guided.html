@@ -1,0 +1,1479 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>coursebook - 12&nbsp; Introduction</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./lab-6-self-guided.html" rel="next">
+<link href="./lab-5.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Introduction</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">coursebook</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Welcome</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./unit-overview.html" class="sidebar-item-text sidebar-link">Unit overview</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./software.html" class="sidebar-item-text sidebar-link">Software</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./readings.html" class="sidebar-item-text sidebar-link">Reading</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Week 1</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-1-practice-exercises.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Week 1 (practice)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Week 2</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-2-self-guided.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Week 2 (self-guided)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-2-practice-exercises.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Week 2 (practice)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Week 3</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-3-self-guided.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Week 3 (self-guided)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-3-practice-exercises.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Week 3 (practice)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-4.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Week 4</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-4-self-guided.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Week 4 (self-guided)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-5.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Week 5</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-5-self-guided.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Week 5 (self-guided)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-6-self-guided.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Week 6 (self-guided)</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#task" id="toc-task" class="nav-link active" data-scroll-target="#task">Task</a></li>
+  <li><a href="#cross-validation" id="toc-cross-validation" class="nav-link" data-scroll-target="#cross-validation">Cross-validation</a>
+  <ul class="collapse">
+  <li><a href="#maps-2016-data" id="toc-maps-2016-data" class="nav-link" data-scroll-target="#maps-2016-data">MAPS 2016 Data</a></li>
+  </ul></li>
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a>
+  <ul class="collapse">
+  <li><a href="#run-the-labs" id="toc-run-the-labs" class="nav-link" data-scroll-target="#run-the-labs">Run the labs</a></li>
+  <li><a href="#download-data" id="toc-download-data" class="nav-link" data-scroll-target="#download-data">Download data</a></li>
+  <li><a href="#working-in-colab" id="toc-working-in-colab" class="nav-link" data-scroll-target="#working-in-colab">Working in Colab</a></li>
+  <li><a href="#import-modules" id="toc-import-modules" class="nav-link" data-scroll-target="#import-modules">Import modules</a></li>
+  </ul></li>
+  <li><a href="#load-data" id="toc-load-data" class="nav-link" data-scroll-target="#load-data">Load data</a></li>
+  <li><a href="#explore-data" id="toc-explore-data" class="nav-link" data-scroll-target="#explore-data">Explore data</a></li>
+  <li><a href="#cross-validation-1" id="toc-cross-validation-1" class="nav-link" data-scroll-target="#cross-validation-1">Cross-validation</a></li>
+  <li><a href="#categorical-features" id="toc-categorical-features" class="nav-link" data-scroll-target="#categorical-features">Categorical features</a></li>
+  <li><a href="#controlling-randomness" id="toc-controlling-randomness" class="nav-link" data-scroll-target="#controlling-randomness">Controlling randomness</a></li>
+  <li><a href="#feature-importance" id="toc-feature-importance" class="nav-link" data-scroll-target="#feature-importance">Feature importance</a></li>
+  <li><a href="#final-activity" id="toc-final-activity" class="nav-link" data-scroll-target="#final-activity">Final activity</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-title">Introduction</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<p>Machine learning is the process of learning from data to make predictions. <strong>Supervised</strong> machine learning models are trained to predict an outcome based on input data (predictors or features). The model is trained to minimise the error in predictions using a training set where both the outcome labels and input data are known.</p>
+<p>A key part of the machine learning model development workflow is evaluating model performance. This should provide an assessment of how well a model will perform in making predictions on new or unseen data. Machine learning models are data hungry, the more examples the model sees during training the better it will be able to learn mappings that relate input features to outcome labels. However, we also want to test our model on a dataset that is representative of conditions the model might encounter “in-the-wild”; this results in setting aside a chunk of our ground truth dataset that cannot be used for model training. Thus, our model is not trained using all available ground truth data.</p>
+<p>One strategy that is deployed to maximise data available for model training and to provide an assessment of model performance is cross-validation.</p>
+<p>Previously, we demonstrated a workflow to develop a machine learning model for a classification task: predicting a field’s crop type. In this lab we will develop a machine learning model for a regression task (predicting a continuous number) and evaluate the model using k-fold cross-validation.</p>
+<section id="task" class="level3">
+<h3 class="anchored" data-anchor-id="task">Task</h3>
+<p>The task for this lab is to develop and evaluate a machine learning model that can predict smallholder farm maize crop yields in Uganda using remotely sensed vegetation indices as input features.</p>
+<p>In this lab you’ll learn how to use Scikit-learns tools for evaluating models using cross-validation. We’ll also introduce approaches for pre-processing categorical data to be used as features in machine learning models and techniques for interpreting the model and exploring how the model is making predictions.</p>
+</section>
+<section id="cross-validation" class="level2">
+<h2 class="anchored" data-anchor-id="cross-validation">Cross-validation</h2>
+<p>Before we explore our ground truth dataset for model development, let’s quickly introduce cross-validation. Previously, we evaluated the model’s performance by removing a random sample of the data prior to model training to use as a test set.</p>
+<section id="recap-quiz" class="level4">
+<h4 class="anchored" data-anchor-id="recap-quiz">Recap quiz</h4>
+<details>
+<summary>
+<b>Why is it important for the test dataset to be randomly sampled from the ground truth data?</b>
+</summary>
+We want the test dataset to be representative and unbiased to provide as realistic assessment of the model’s performance on new data as possible.
+</details>
+<p>
+</p>
+<details>
+<summary>
+<b>What is a potential limitation of using a single hold-out randomly sampled test set for evaluating model performance?</b>
+</summary>
+<p>With a randomly sampled test set, each time the machine learning model development workflow is repeated new training and test sets would be generated and the model will have different performance scores. Using a single test set means, that by chance, the model could have an overly optimistic or pessimistic assessment of its performance.</p>
+Further, by withholding a test set we reduce the amount of data available to train the model. A smaller training dataset can reduce the model’s performance. Thus, as we’re removing data to form the test set we’d expect the model’s error to be larger than if we’d trained the model on the entire dataset.
+</details>
+<p>
+</p>
+<p>In k-fold cross-validation there is not a single test set. Instead, the ground truth dataset is randomly split into <span class="math inline">\(k\)</span> folds. For example, if <span class="math inline">\(k=5\)</span> the ground truth dataset would be randomly split into 5 groups. Then, in turn, each fold is held out as a test set and the model is trained using data from the remaining four folds. Each fold takes a turn at being the test set. The model performance can be summarised using the average of the performance metrics generated using each fold. This means the model’s performance is less susceptible to being influenced by a chance split of the ground truth data into training and test splits. It also means we can use the whole dataset to train the model and evaluate its performance.</p>
+</section>
+<section id="maps-2016-data" class="level3">
+<h3 class="anchored" data-anchor-id="maps-2016-data">MAPS 2016 Data</h3>
+<p>The dataset we’re using is the data from <a href="https://web.stanford.edu/~mburke/papers/lobell_et_al_AJAE_2019.pdf" target="_blank">Lobell et al.&nbsp;(2019)</a>. Their analysis compared different approaches to estimating smallholder maize crop yields in Uganda: farmer reported yields, subplot crop cut samples, full plot crop cut samples, and satellite-based crop yield esimates.</p>
+<p>Boosting agricultural productivity in smallholder landscapes is important for improving a range of livelihood outcomes including food security and poverty alleviation. Accurate data on smallholder farmer crop production is a key ingredient to guiding development initiatives, government policies / programs, agricultural management and input use, and monitoring progress towards several Sustainable Development Goals.</p>
+<p>Traditionally, agricultural productivity in smallholder landscapes has been measured using farmer reported crop yields via surveys after harvests. These estimates are subject to considerable error impacting the quality of the data.</p>
+<p>More accurate measures of crop yield include physically harvesting a sub plot or full plot - crop cutting. However, crop cutting is more costly, time consuming, and requires liaising with farmers to generate large datasets of yield measurements.</p>
+<p><a href="https://web.stanford.edu/~mburke/papers/lobell_et_al_AJAE_2019.pdf" target="_blank">Lobell et al.&nbsp;(2019)</a> explore the potential for using satellite data to measure crop yields in smallholder fields to address i) the issue of error in farmer reported yields, and ii) the cost of crop cutting.</p>
+<p>We’re going to use the replication data from their paper and see if we can develop a machine learning model to accurately predict smallholder maize crop yield using satellite data as inputs. As this dataset only has a few hundred data points, we’ll use all the data to train the model and test its performance using cross-validation.</p>
+</section>
+</section>
+<section id="setup" class="level2">
+<h2 class="anchored" data-anchor-id="setup">Setup</h2>
+<section id="run-the-labs" class="level3">
+<h3 class="anchored" data-anchor-id="run-the-labs">Run the labs</h3>
+<p>You can run the labs locally on your machine or you can use cloud environments provided by Google Colab. <strong>If you’re working with Google Colab be aware that your sessions are temporary and you’ll need to take care to save, backup, and download your work.</strong></p>
+<p><a href="https://colab.research.google.com/github/data-analysis-3300-3003/colab/blob/main/lab-5-self-guided.ipynb" target="_blank"> <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"> </a></p>
+</section>
+<section id="download-data" class="level3">
+<h3 class="anchored" data-anchor-id="download-data">Download data</h3>
+<p>If you need to download the date for this lab, run the following code snippet.</p>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">"week-5"</span> <span class="kw">not</span> <span class="kw">in</span> os.listdir(os.getcwd()):</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    os.system(<span class="st">'wget "https://github.com/data-analysis-3300-3003/data/raw/main/data/week-5.zip"'</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    os.system(<span class="st">'unzip "week-5.zip"'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="working-in-colab" class="level3">
+<h3 class="anchored" data-anchor-id="working-in-colab">Working in Colab</h3>
+<p>If you’re working in Google Colab, you’ll need to install the required packages that don’t come with the colab environment.</p>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">'google.colab'</span> <span class="kw">in</span> <span class="bu">str</span>(get_ipython()):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">!</span>pip install geopandas</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">!</span>pip install pyarrow</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">!</span>pip install mapclassify</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">!</span>pip install rasterio</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="import-modules" class="level3">
+<h3 class="anchored" data-anchor-id="import-modules">Import modules</h3>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas <span class="im">as</span> gpd</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.express <span class="im">as</span> px</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.io <span class="im">as</span> pio</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> rasterio</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> RandomForestRegressor</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> classification_report</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> confusion_matrix, ConfusionMatrixDisplay</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> GroupShuffleSplit</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> cross_val_score</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> cross_validate</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> mean_absolute_error, mean_squared_error</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LinearRegression</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.inspection <span class="im">import</span> permutation_importance</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn <span class="im">import</span> tree</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="co"># setup renderer</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">'google.colab'</span> <span class="kw">in</span> <span class="bu">str</span>(get_ipython()):</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    pio.renderers.default <span class="op">=</span> <span class="st">"colab"</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    pio.renderers.default <span class="op">=</span> <span class="st">"jupyterlab"</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>rng <span class="op">=</span> np.random.RandomState(<span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="load-data" class="level2">
+<h2 class="anchored" data-anchor-id="load-data">Load data</h2>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(os.path.join(os.getcwd(), <span class="st">"week-5"</span>, <span class="st">"lobell_2019_maize.csv"</span>))</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"the shape of the DataFrame is </span><span class="sc">{</span>df<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>the shape of the DataFrame is (463, 16)</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>cc_yield</th>
+      <th>gcvi_doy_151</th>
+      <th>gcvi_doy_171</th>
+      <th>ndvi_doy_151</th>
+      <th>ndvi_doy_171</th>
+      <th>mtci_doy_151</th>
+      <th>mtci_doy_171</th>
+      <th>slope_sr</th>
+      <th>soiltype_sr</th>
+      <th>soilqual_sr</th>
+      <th>intercrop_legume</th>
+      <th>intercrop_cassava</th>
+      <th>crop_rotation</th>
+      <th>plot_area_GPS</th>
+      <th>tot_maize_area_ha</th>
+      <th>purestand</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.074381</td>
+      <td>1601.090909</td>
+      <td>1957.909091</td>
+      <td>470.818182</td>
+      <td>592.000000</td>
+      <td>4990.727273</td>
+      <td>5163.636364</td>
+      <td>FLAT</td>
+      <td>LOAM</td>
+      <td>GOOD</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1</td>
+      <td>0.098254</td>
+      <td>0.052609</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.188531</td>
+      <td>1670.774194</td>
+      <td>1889.129032</td>
+      <td>500.387097</td>
+      <td>602.838710</td>
+      <td>4665.322581</td>
+      <td>4317.838710</td>
+      <td>MODERATE SLOPE</td>
+      <td>LOAM</td>
+      <td>POOR</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>0.312110</td>
+      <td>0.416826</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1.848827</td>
+      <td>2394.454545</td>
+      <td>2321.090909</td>
+      <td>644.000000</td>
+      <td>665.545455</td>
+      <td>6014.818182</td>
+      <td>5643.272727</td>
+      <td>FLAT</td>
+      <td>LOAM</td>
+      <td>GOOD</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0.114050</td>
+      <td>0.133546</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2.175352</td>
+      <td>2130.333333</td>
+      <td>2082.666667</td>
+      <td>620.000000</td>
+      <td>651.000000</td>
+      <td>4708.000000</td>
+      <td>4502.000000</td>
+      <td>SLIGHT SLOPE</td>
+      <td>OTHER (SPECIFY)</td>
+      <td>GOOD</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0.133263</td>
+      <td>0.101171</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.090876</td>
+      <td>2661.375000</td>
+      <td>1993.437500</td>
+      <td>662.093750</td>
+      <td>618.437500</td>
+      <td>5494.000000</td>
+      <td>4010.187500</td>
+      <td>FLAT</td>
+      <td>LOAM</td>
+      <td>GOOD</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0.326660</td>
+      <td>0.404686</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="explore-data" class="level2">
+<h2 class="anchored" data-anchor-id="explore-data">Explore data</h2>
+<p>There data that we have read into <code>df</code> includes a range of variables related to crop yield outcomes, farm management and farm type, and satellite-derived vegetation indices from the Sentinel-2 sensor.</p>
+<p>We’ll be using the crop cut maize yield measures from sample sub plots in the fields as our outcome variable here - this is referenced by the column <code>cc_yield</code>. The units are Mg/ha.</p>
+<p>Let’s look at the distribution of yield values.</p>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.histogram(</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    data_frame<span class="op">=</span>df, </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">"cc_yield"</span>,  </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    marginal<span class="op">=</span><span class="st">"box"</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="lab-5-self-guided_files/figure-html/cell-6-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>The <code>DataFrame</code> stores Sentinel-2 derived vegetation indices in the following columns:</p>
+<ul>
+<li><code>gcvi_doy_151</code> - average field GCVI on day of year 151.</li>
+<li><code>gcvi_doy_171</code> - average field GCVI on day of year 171.</li>
+<li><code>ndvi_doy_151</code> - average field NDVI on day of year 151.</li>
+<li><code>ndvi_doy_171</code> - average field NDVI on day of year 171.</li>
+<li><code>mtci_doy_151</code> - average field MTCI on day of year 151.</li>
+<li><code>mtci_doy_171</code> - average field MTCI on day of year 171.</li>
+</ul>
+<p>NDVI is the normalised difference vegetation index. GCVI is the green chlorophyll index. MTCI is the meris terrestrial chlorophyll index. These will be the main features (predictors) in our model.</p>
+<section id="recap-quiz-1" class="level4">
+<h4 class="anchored" data-anchor-id="recap-quiz-1">Recap quiz</h4>
+<p><strong>Can you generate scatter plots to explore the correlation between vegetation index values and maize crop yield?</strong></p>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">## ADD CODE HERE ##</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>
+<b>answer</b>
+</summary>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.scatter(</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    df,</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> <span class="st">"gcvi_doy_151"</span>, <span class="co">## CHANGE THIS FOR DIFFERENT VEGETATION INDICES</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> <span class="st">"cc_yield"</span>,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    trendline <span class="op">=</span> <span class="st">"ols"</span>,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    opacity<span class="op">=</span><span class="fl">0.25</span>,</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    labels<span class="op">=</span>{<span class="st">"cc_yield"</span>: <span class="st">"Maize crop yield (Mg/ha)"</span>,</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>           <span class="st">"gcvi_doy_151"</span>: <span class="st">"GCVI (DOY 151)"</span>} <span class="co">## CHANGE THIS FOR DIFFERENT VEGETATION INDICES</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</section>
+</section>
+<section id="cross-validation-1" class="level2">
+<h2 class="anchored" data-anchor-id="cross-validation-1">Cross-validation</h2>
+<p>We’ll start by training a linear regression model that predicts maize crop yield as a function of vegetation indices and evaluate its performance using cross validation.</p>
+<p>Maize crop yield is a continuous variable and we need a metric to evaluate model performance. We’ll use the <code>mean_absolute_error</code> as the metric which is the mean absolute difference between predicted and observed crop yields. In this case, the mean absolute error will be computed using observations in the held out fold in cross-validation.</p>
+<p>We’ll need to create a linear regression estimator object that we can train (using its <code>fit()</code> method). To evaluate the model using cross validation you call the <code>cross_val_score()</code> function on the dataset and the estimator. You pass in the metric you wish to use to evaluate the model to the <code>scoring</code> argument.</p>
+<p>We’ll also need to use the <code>dropna()</code> method of pandas <code>DataFrame</code>s to remove missing data before training the model. Scikit-learn models cannot be trained on datasets with <code>NaN</code> values.</p>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get X and y data</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># drop nas as Linear Regression object cannot be trained on datasets with missing data</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>df_linear_reg <span class="op">=</span> df.loc[: , [</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"cc_yield"</span>,</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"gcvi_doy_151"</span>, </span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"gcvi_doy_171"</span>, </span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ndvi_doy_151"</span>, </span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ndvi_doy_171"</span>, </span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mtci_doy_151"</span>, </span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mtci_doy_171"</span>]].dropna()</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="co"># get X</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> df_linear_reg.loc[:, [</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">"gcvi_doy_151"</span>, </span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">"gcvi_doy_171"</span>, </span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ndvi_doy_151"</span>, </span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ndvi_doy_171"</span>, </span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mtci_doy_151"</span>, </span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mtci_doy_171"</span>]]</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a><span class="co"># get Y</span></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> df_linear_reg.loc[:, <span class="st">"cc_yield"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create a LinearRegression estimator object</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>reg <span class="op">=</span> LinearRegression()</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># evaluate using 5-fold cross validation</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>cv_scores <span class="op">=</span> cross_val_score(reg, X, y, cv<span class="op">=</span><span class="dv">5</span>, scoring<span class="op">=</span><span class="st">"neg_mean_absolute_error"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>cv_scores</code> should reference an array of values recording the mean absolute error for the predictions of maize crop yield for each fold. Scikit-learn returns negative mean absolute error values (becauase their convention is that a higher metric values are better than lower metric values which holds for metrics for categorical outcomes such as accuracy). Therefore, we’ll want to convert negative mean absolute error values to positive.</p>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># print cross validation test scores</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, mae <span class="kw">in</span> <span class="bu">enumerate</span>(cv_scores):</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"the mae for the </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">th fold is </span><span class="sc">{</span><span class="bu">round</span>(<span class="bu">abs</span>(mae), <span class="dv">4</span>)<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>the mae for the 0th fold is 0.3982
+the mae for the 1th fold is 0.4287
+the mae for the 2th fold is 0.3966
+the mae for the 3th fold is 0.4201
+the mae for the 4th fold is 0.3331</code></pre>
+</div>
+</div>
+<p>If we want to use more than one metric to evaluate the model, we can pass in a list of metrics to the <code>scoring</code> argument. Let’s also estimate the mean squared error value as well as the mean absolute error. The mean squared error penalises the model more for predictions with larger error.</p>
+<p>To use multiple metrics we need to use the <code>cross_validate()</code> function instead.</p>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># evaluate using 5-fold cross validation</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>cv_scores <span class="op">=</span> cross_validate(reg, X, y, cv<span class="op">=</span><span class="dv">5</span>, scoring<span class="op">=</span>[<span class="st">"neg_mean_absolute_error"</span>, <span class="st">"neg_mean_squared_error"</span>])</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>cv_scores</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<pre><code>{'fit_time': array([0.00634956, 0.00422311, 0.00304842, 0.00510287, 0.00359941]),
+ 'score_time': array([0.00296617, 0.00219154, 0.00176239, 0.00259161, 0.00240493]),
+ 'test_neg_mean_absolute_error': array([-0.3982209 , -0.42870653, -0.39656073, -0.42009901, -0.33312728]),
+ 'test_neg_mean_squared_error': array([-0.2645759 , -0.25151843, -0.24289755, -0.25937046, -0.18017087])}</code></pre>
+</div>
+</div>
+<section id="recap-quiz-2" class="level4">
+<h4 class="anchored" data-anchor-id="recap-quiz-2">Recap quiz</h4>
+<p><strong>Can you estimate the mean mean absolute error and mean mean squared error across the five test folds using the <code>cv_scores</code> dictionary object?</strong></p>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">## ADD CODE HERE ##</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>
+<b>answer</b>
+</summary>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"mean mae: </span><span class="sc">{</span><span class="bu">abs</span>(cv_scores[<span class="st">'test_neg_mean_absolute_error'</span>].mean())<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"mean mse: </span><span class="sc">{</span>cv_scores[<span class="st">'test_neg_mean_squared_error'</span>]<span class="sc">.</span>mean()<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<p>
+</p>
+<p><strong>Can you train and evaluate a random forests model using 5-fold cross-validation to see if it improves the predictive performance?</strong></p>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">## ADD CODE HERE ##</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>
+<b>answer</b>
+</summary>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>rf <span class="op">=</span> RandomForestRegressor(n_estimators<span class="op">=</span><span class="dv">20</span>, random_state<span class="op">=</span>rng)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>rf_cv_scores <span class="op">=</span> cross_validate(rf, X, y, cv<span class="op">=</span><span class="dv">5</span>, scoring<span class="op">=</span>[<span class="st">"neg_mean_absolute_error"</span>])</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>rf_cv_scores</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</section>
+</section>
+<section id="categorical-features" class="level2">
+<h2 class="anchored" data-anchor-id="categorical-features">Categorical features</h2>
+<p>In our <code>DataFrame</code> there are some categorical variables that could help improve our predictions of crop yield. These include the slope, soil type, and soil quality variables. These variables are <code>str</code> type. We can only pass numeric data into our models; therefore, we’ll need to recode the text data to a numeric representation.</p>
+<p>One approach for recoding categorical data is one hot encoding. Each unique value in a one hot encoded categorical variable is assigned a new column in the <code>DataFrame</code>. For rows when this value is present a value of one is assigned and zero otherwise.</p>
+<p>Let’s one hot encode the slope variable <code>slope_sr</code> to illustrate this concept.</p>
+<p>The pandas <code>get_dummies()</code> function can be used to one hot encode a column in a <code>DataFrame</code>. The <code>get_dummies()</code> function has a <code>columns</code> argument that takes a list of column names that will be one hot encoded.</p>
+<p>First, let’s visualise our <code>DataFrame</code> <code>df</code> and inspect the values in the <code>slope_sr</code> column. You should see the values “FLAT”, “MODERATE SLOPE”, “SLIGHT SLOPE”, “STEEP SLOPE” as <code>str</code> data.</p>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>cc_yield</th>
+      <th>gcvi_doy_151</th>
+      <th>gcvi_doy_171</th>
+      <th>ndvi_doy_151</th>
+      <th>ndvi_doy_171</th>
+      <th>mtci_doy_151</th>
+      <th>mtci_doy_171</th>
+      <th>slope_sr</th>
+      <th>soiltype_sr</th>
+      <th>soilqual_sr</th>
+      <th>intercrop_legume</th>
+      <th>intercrop_cassava</th>
+      <th>crop_rotation</th>
+      <th>plot_area_GPS</th>
+      <th>tot_maize_area_ha</th>
+      <th>purestand</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.074381</td>
+      <td>1601.090909</td>
+      <td>1957.909091</td>
+      <td>470.818182</td>
+      <td>592.000000</td>
+      <td>4990.727273</td>
+      <td>5163.636364</td>
+      <td>FLAT</td>
+      <td>LOAM</td>
+      <td>GOOD</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1</td>
+      <td>0.098254</td>
+      <td>0.052609</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.188531</td>
+      <td>1670.774194</td>
+      <td>1889.129032</td>
+      <td>500.387097</td>
+      <td>602.838710</td>
+      <td>4665.322581</td>
+      <td>4317.838710</td>
+      <td>MODERATE SLOPE</td>
+      <td>LOAM</td>
+      <td>POOR</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>0.312110</td>
+      <td>0.416826</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1.848827</td>
+      <td>2394.454545</td>
+      <td>2321.090909</td>
+      <td>644.000000</td>
+      <td>665.545455</td>
+      <td>6014.818182</td>
+      <td>5643.272727</td>
+      <td>FLAT</td>
+      <td>LOAM</td>
+      <td>GOOD</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0.114050</td>
+      <td>0.133546</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2.175352</td>
+      <td>2130.333333</td>
+      <td>2082.666667</td>
+      <td>620.000000</td>
+      <td>651.000000</td>
+      <td>4708.000000</td>
+      <td>4502.000000</td>
+      <td>SLIGHT SLOPE</td>
+      <td>OTHER (SPECIFY)</td>
+      <td>GOOD</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0.133263</td>
+      <td>0.101171</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.090876</td>
+      <td>2661.375000</td>
+      <td>1993.437500</td>
+      <td>662.093750</td>
+      <td>618.437500</td>
+      <td>5494.000000</td>
+      <td>4010.187500</td>
+      <td>FLAT</td>
+      <td>LOAM</td>
+      <td>GOOD</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0.326660</td>
+      <td>0.404686</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<p>Now, let’s one hot encode the <code>slope_sr</code> variable and see how it is represented as numeric data. (scroll to the far right of the displayed <code>DataFrame</code>).</p>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>df_cat <span class="op">=</span> pd.get_dummies(df, columns<span class="op">=</span>[<span class="st">"slope_sr"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>df_cat.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="13">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>cc_yield</th>
+      <th>gcvi_doy_151</th>
+      <th>gcvi_doy_171</th>
+      <th>ndvi_doy_151</th>
+      <th>ndvi_doy_171</th>
+      <th>mtci_doy_151</th>
+      <th>mtci_doy_171</th>
+      <th>soiltype_sr</th>
+      <th>soilqual_sr</th>
+      <th>intercrop_legume</th>
+      <th>intercrop_cassava</th>
+      <th>crop_rotation</th>
+      <th>plot_area_GPS</th>
+      <th>tot_maize_area_ha</th>
+      <th>purestand</th>
+      <th>slope_sr_FLAT</th>
+      <th>slope_sr_MODERATE SLOPE</th>
+      <th>slope_sr_SLIGHT SLOPE</th>
+      <th>slope_sr_STEEP SLOPE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.074381</td>
+      <td>1601.090909</td>
+      <td>1957.909091</td>
+      <td>470.818182</td>
+      <td>592.000000</td>
+      <td>4990.727273</td>
+      <td>5163.636364</td>
+      <td>LOAM</td>
+      <td>GOOD</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1</td>
+      <td>0.098254</td>
+      <td>0.052609</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.188531</td>
+      <td>1670.774194</td>
+      <td>1889.129032</td>
+      <td>500.387097</td>
+      <td>602.838710</td>
+      <td>4665.322581</td>
+      <td>4317.838710</td>
+      <td>LOAM</td>
+      <td>POOR</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>0.312110</td>
+      <td>0.416826</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1.848827</td>
+      <td>2394.454545</td>
+      <td>2321.090909</td>
+      <td>644.000000</td>
+      <td>665.545455</td>
+      <td>6014.818182</td>
+      <td>5643.272727</td>
+      <td>LOAM</td>
+      <td>GOOD</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0.114050</td>
+      <td>0.133546</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2.175352</td>
+      <td>2130.333333</td>
+      <td>2082.666667</td>
+      <td>620.000000</td>
+      <td>651.000000</td>
+      <td>4708.000000</td>
+      <td>4502.000000</td>
+      <td>OTHER (SPECIFY)</td>
+      <td>GOOD</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0.133263</td>
+      <td>0.101171</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.090876</td>
+      <td>2661.375000</td>
+      <td>1993.437500</td>
+      <td>662.093750</td>
+      <td>618.437500</td>
+      <td>5494.000000</td>
+      <td>4010.187500</td>
+      <td>LOAM</td>
+      <td>GOOD</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0.326660</td>
+      <td>0.404686</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>df_cat.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
+<pre><code>Index(['cc_yield', 'gcvi_doy_151', 'gcvi_doy_171', 'ndvi_doy_151',
+       'ndvi_doy_171', 'mtci_doy_151', 'mtci_doy_171', 'soiltype_sr',
+       'soilqual_sr', 'intercrop_legume', 'intercrop_cassava', 'crop_rotation',
+       'plot_area_GPS', 'tot_maize_area_ha', 'purestand', 'slope_sr_FLAT',
+       'slope_sr_MODERATE SLOPE', 'slope_sr_SLIGHT SLOPE',
+       'slope_sr_STEEP SLOPE'],
+      dtype='object')</code></pre>
+</div>
+</div>
+<p>Now, let’s retrain our linear regression model using slope as a feature.</p>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get X and y data</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co">## </span><span class="al">NOTE</span><span class="co"> WE ARE USING df_cat here!!</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co"># drop nas as Linear Regression object cannot be trained on datasets with missing data</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>df_linear_reg <span class="op">=</span> df_cat.loc[: , [</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"cc_yield"</span>,</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"gcvi_doy_151"</span>, </span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"gcvi_doy_171"</span>, </span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ndvi_doy_151"</span>, </span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ndvi_doy_171"</span>, </span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mtci_doy_151"</span>, </span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mtci_doy_171"</span>,</span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"slope_sr_FLAT"</span>,</span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">"slope_sr_MODERATE SLOPE"</span>,</span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">"slope_sr_SLIGHT SLOPE"</span>,</span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">"slope_sr_STEEP SLOPE"</span>]].dropna()</span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a><span class="co"># get X</span></span>
+<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> df_linear_reg.loc[:, [</span>
+<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">"gcvi_doy_151"</span>, </span>
+<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">"gcvi_doy_171"</span>, </span>
+<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ndvi_doy_151"</span>, </span>
+<span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ndvi_doy_171"</span>, </span>
+<span id="cb24-24"><a href="#cb24-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mtci_doy_151"</span>, </span>
+<span id="cb24-25"><a href="#cb24-25" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mtci_doy_171"</span>,</span>
+<span id="cb24-26"><a href="#cb24-26" aria-hidden="true" tabindex="-1"></a>    <span class="st">"slope_sr_FLAT"</span>,</span>
+<span id="cb24-27"><a href="#cb24-27" aria-hidden="true" tabindex="-1"></a>    <span class="st">"slope_sr_MODERATE SLOPE"</span>,</span>
+<span id="cb24-28"><a href="#cb24-28" aria-hidden="true" tabindex="-1"></a>    <span class="st">"slope_sr_SLIGHT SLOPE"</span>,</span>
+<span id="cb24-29"><a href="#cb24-29" aria-hidden="true" tabindex="-1"></a>    <span class="st">"slope_sr_STEEP SLOPE"</span>]]</span>
+<span id="cb24-30"><a href="#cb24-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-31"><a href="#cb24-31" aria-hidden="true" tabindex="-1"></a><span class="co"># get Y</span></span>
+<span id="cb24-32"><a href="#cb24-32" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> df_linear_reg.loc[:, <span class="st">"cc_yield"</span>]</span>
+<span id="cb24-33"><a href="#cb24-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-34"><a href="#cb24-34" aria-hidden="true" tabindex="-1"></a><span class="co"># create a LinearRegression estimator object</span></span>
+<span id="cb24-35"><a href="#cb24-35" aria-hidden="true" tabindex="-1"></a>reg <span class="op">=</span> LinearRegression()</span>
+<span id="cb24-36"><a href="#cb24-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-37"><a href="#cb24-37" aria-hidden="true" tabindex="-1"></a><span class="co"># evaluate using 5-fold cross validation</span></span>
+<span id="cb24-38"><a href="#cb24-38" aria-hidden="true" tabindex="-1"></a>cv_scores <span class="op">=</span> cross_validate(reg, X, y, cv<span class="op">=</span><span class="dv">5</span>, scoring<span class="op">=</span>[<span class="st">"neg_mean_absolute_error"</span>, <span class="st">"neg_mean_squared_error"</span>])</span>
+<span id="cb24-39"><a href="#cb24-39" aria-hidden="true" tabindex="-1"></a>cv_scores</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="15">
+<pre><code>{'fit_time': array([0.00371838, 0.00338173, 0.0025816 , 0.00310421, 0.00281858]),
+ 'score_time': array([0.0019598 , 0.00219989, 0.0025456 , 0.00225759, 0.00184798]),
+ 'test_neg_mean_absolute_error': array([-0.39742585, -0.42726256, -0.40607374, -0.44134232, -0.34829396]),
+ 'test_neg_mean_squared_error': array([-0.2604608 , -0.25148747, -0.24486727, -0.27746001, -0.18578002])}</code></pre>
+</div>
+</div>
+<section id="recap-quiz-3" class="level4">
+<h4 class="anchored" data-anchor-id="recap-quiz-3">Recap quiz</h4>
+<p><strong>Can you also recode the soil type <code>soiltype_sr</code> and <code>soilqual_sr</code> variables from categorical to numeric using one hot encoding? Reference the result with the variable <code>df_2</code>.</strong></p>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">## ADD CODE HERE ##</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>
+<b>answer</b>
+</summary>
+<div class="sourceCode" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>df_2 <span class="op">=</span> pd.get_dummies(df, columns<span class="op">=</span>[<span class="st">"slope_sr"</span>, <span class="st">"soiltype_sr"</span>, <span class="st">"soilqual_sr"</span>])</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>df_2.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<p><strong>Can you use <code>df_2</code> with <code>soiltype_sr</code>, <code>slope_sr</code>, and <code>soilqual_sr</code> as training data in a random forests model?</strong></p>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co">## ADD CODE HERE ##</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>
+<b>answer</b>
+</summary>
+<div class="sourceCode" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get X and y data</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">NOTE</span><span class="co"> WE USE df_2 here!!</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="co"># drop nas as Linear Regression object cannot be trained on datasets with missing data</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>df_linear_reg <span class="op">=</span> df_2.loc[: , [</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"cc_yield"</span>,</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"gcvi_doy_151"</span>, </span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"gcvi_doy_171"</span>, </span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ndvi_doy_151"</span>, </span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ndvi_doy_171"</span>, </span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mtci_doy_151"</span>, </span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mtci_doy_171"</span>,</span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"slope_sr_FLAT"</span>,</span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">"slope_sr_MODERATE SLOPE"</span>, </span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">"slope_sr_SLIGHT SLOPE"</span>,</span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">"slope_sr_STEEP SLOPE"</span>, </span>
+<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">"soiltype_sr_CLAY"</span>, </span>
+<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">"soiltype_sr_LOAM"</span>,</span>
+<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">"soiltype_sr_OTHER (SPECIFY)"</span>, </span>
+<span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">"soiltype_sr_SANDY"</span>, </span>
+<span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">"soilqual_sr_FAIR"</span>,</span>
+<span id="cb29-22"><a href="#cb29-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">"soilqual_sr_GOOD"</span>, </span>
+<span id="cb29-23"><a href="#cb29-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">"soilqual_sr_POOR"</span>]].dropna()</span>
+<span id="cb29-24"><a href="#cb29-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-25"><a href="#cb29-25" aria-hidden="true" tabindex="-1"></a><span class="co"># get X</span></span>
+<span id="cb29-26"><a href="#cb29-26" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> df_linear_reg.loc[:, [</span>
+<span id="cb29-27"><a href="#cb29-27" aria-hidden="true" tabindex="-1"></a>    <span class="st">"gcvi_doy_151"</span>, </span>
+<span id="cb29-28"><a href="#cb29-28" aria-hidden="true" tabindex="-1"></a>    <span class="st">"gcvi_doy_171"</span>, </span>
+<span id="cb29-29"><a href="#cb29-29" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ndvi_doy_151"</span>, </span>
+<span id="cb29-30"><a href="#cb29-30" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ndvi_doy_171"</span>, </span>
+<span id="cb29-31"><a href="#cb29-31" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mtci_doy_151"</span>, </span>
+<span id="cb29-32"><a href="#cb29-32" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mtci_doy_171"</span>,</span>
+<span id="cb29-33"><a href="#cb29-33" aria-hidden="true" tabindex="-1"></a>    <span class="st">"slope_sr_FLAT"</span>,</span>
+<span id="cb29-34"><a href="#cb29-34" aria-hidden="true" tabindex="-1"></a>    <span class="st">"slope_sr_MODERATE SLOPE"</span>, </span>
+<span id="cb29-35"><a href="#cb29-35" aria-hidden="true" tabindex="-1"></a>    <span class="st">"slope_sr_SLIGHT SLOPE"</span>,</span>
+<span id="cb29-36"><a href="#cb29-36" aria-hidden="true" tabindex="-1"></a>    <span class="st">"slope_sr_STEEP SLOPE"</span>, </span>
+<span id="cb29-37"><a href="#cb29-37" aria-hidden="true" tabindex="-1"></a>    <span class="st">"soiltype_sr_CLAY"</span>, </span>
+<span id="cb29-38"><a href="#cb29-38" aria-hidden="true" tabindex="-1"></a>    <span class="st">"soiltype_sr_LOAM"</span>,</span>
+<span id="cb29-39"><a href="#cb29-39" aria-hidden="true" tabindex="-1"></a>    <span class="st">"soiltype_sr_OTHER (SPECIFY)"</span>, </span>
+<span id="cb29-40"><a href="#cb29-40" aria-hidden="true" tabindex="-1"></a>    <span class="st">"soiltype_sr_SANDY"</span>, </span>
+<span id="cb29-41"><a href="#cb29-41" aria-hidden="true" tabindex="-1"></a>    <span class="st">"soilqual_sr_FAIR"</span>,</span>
+<span id="cb29-42"><a href="#cb29-42" aria-hidden="true" tabindex="-1"></a>    <span class="st">"soilqual_sr_GOOD"</span>, </span>
+<span id="cb29-43"><a href="#cb29-43" aria-hidden="true" tabindex="-1"></a>    <span class="st">"soilqual_sr_POOR"</span>]]</span>
+<span id="cb29-44"><a href="#cb29-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-45"><a href="#cb29-45" aria-hidden="true" tabindex="-1"></a><span class="co"># get Y</span></span>
+<span id="cb29-46"><a href="#cb29-46" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> df_linear_reg.loc[:, <span class="st">"cc_yield"</span>]</span>
+<span id="cb29-47"><a href="#cb29-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-48"><a href="#cb29-48" aria-hidden="true" tabindex="-1"></a>rf <span class="op">=</span> RandomForestRegressor(n_estimators<span class="op">=</span><span class="dv">20</span>, random_state<span class="op">=</span>rng)</span>
+<span id="cb29-49"><a href="#cb29-49" aria-hidden="true" tabindex="-1"></a>rf_cv_scores <span class="op">=</span> cross_validate(rf, X, y, cv<span class="op">=</span><span class="dv">5</span>, scoring<span class="op">=</span>[<span class="st">"neg_mean_absolute_error"</span>])</span>
+<span id="cb29-50"><a href="#cb29-50" aria-hidden="true" tabindex="-1"></a>rf_cv_scores</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</section>
+</section>
+<section id="controlling-randomness" class="level2">
+<h2 class="anchored" data-anchor-id="controlling-randomness">Controlling randomness</h2>
+<p>Some elements of the machine learning workflow are inherently random. For example, allocating data points to folds in k-fold cross-validation and bootstrap sampling of data to train decision trees in random forests.</p>
+<p>While this randomness is important (e.g.&nbsp;to ensure unbiased estimates of model performance when using cross-validation) it presents a challenge for reproducible results. The randomness of estimators (e.g.&nbsp;an instance of <code>RandomForestsRegressor()</code> or a cross-validation splitter is controlled by a <code>random_state</code> parameter.</p>
+<p>Some general tips on setting the <code>random_state</code> parameter:</p>
+<ul>
+<li>Never set <code>random_state</code> to <code>None</code> for reproducible results.</li>
+<li>Create a <code>RandomState</code> variable at the start of your program and pass it to all functions that accept a <code>random_state</code> argument. Look at the start of this notebook and see if you can sport where we create a <code>RandomState</code> variable just after we import the modules.</li>
+<li>If you’re generating cross validation splits, use an integer value instead of a <code>RandomState</code> instance.</li>
+</ul>
+<p>This is quite an advanced topic, but important to ensure your results are reproducible. Generally, following the guidelines above is the best way to go. However, you can read more about this topic <a href="https://scikit-learn.org/stable/common_pitfalls.html#general-recommendations" target="_blank">here</a>.</p>
+</section>
+<section id="feature-importance" class="level2">
+<h2 class="anchored" data-anchor-id="feature-importance">Feature importance</h2>
+<p>Machine learning models are often considered “black boxes”. That is, it is not clear how the model is using input features to make predictions and what relationships it has learnt to relate features to outcomes.</p>
+<p>One strategy to make machine learning models more interpretable is to compute feature importance (or permutation importance). The feature importance is a measure of how much the error in a model’s prediction increases when a feature is omitted from the model. Features with larger importance scores are therefore more important for making accurate predictions.</p>
+<p>The permutation feature importance score is computed as the decrease in a model’s performance when a feature is randomly shuffled (permuted). This should ensure there is no relationship between the feature and the outcome.</p>
+<p>You can read more about feature importance in the <a href="" target="_blank">Interpretable Machine Learning</a> book and in the Scikit-learn <a href="https://scikit-learn.org/stable/modules/permutation_importance.html#permutation-feature-importance" target="_blank">docs</a>.</p>
+<p>First, let’s set up and fit a linear regression model that predicts maize crop yield using vegetation indices and field characteristics.</p>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">NOTE</span><span class="co"> we use df_cat here!!</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="co"># drop nas as Linear Regression object cannot be trained on datasets with missing data</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>df_linear_reg <span class="op">=</span> df_cat.loc[: , [</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"cc_yield"</span>,</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"gcvi_doy_151"</span>, </span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"gcvi_doy_171"</span>, </span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ndvi_doy_151"</span>, </span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ndvi_doy_171"</span>, </span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mtci_doy_151"</span>, </span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mtci_doy_171"</span>,</span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"slope_sr_FLAT"</span>,</span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"slope_sr_MODERATE SLOPE"</span>, </span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">"slope_sr_SLIGHT SLOPE"</span>,</span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">"slope_sr_STEEP SLOPE"</span>]].dropna()</span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a><span class="co"># get X</span></span>
+<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> df_linear_reg.loc[:, [</span>
+<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">"gcvi_doy_151"</span>, </span>
+<span id="cb30-20"><a href="#cb30-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">"gcvi_doy_171"</span>, </span>
+<span id="cb30-21"><a href="#cb30-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ndvi_doy_151"</span>, </span>
+<span id="cb30-22"><a href="#cb30-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ndvi_doy_171"</span>, </span>
+<span id="cb30-23"><a href="#cb30-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mtci_doy_151"</span>, </span>
+<span id="cb30-24"><a href="#cb30-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mtci_doy_171"</span>,</span>
+<span id="cb30-25"><a href="#cb30-25" aria-hidden="true" tabindex="-1"></a>    <span class="st">"slope_sr_FLAT"</span>,</span>
+<span id="cb30-26"><a href="#cb30-26" aria-hidden="true" tabindex="-1"></a>    <span class="st">"slope_sr_MODERATE SLOPE"</span>, </span>
+<span id="cb30-27"><a href="#cb30-27" aria-hidden="true" tabindex="-1"></a>    <span class="st">"slope_sr_SLIGHT SLOPE"</span>,</span>
+<span id="cb30-28"><a href="#cb30-28" aria-hidden="true" tabindex="-1"></a>    <span class="st">"slope_sr_STEEP SLOPE"</span>]]</span>
+<span id="cb30-29"><a href="#cb30-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-30"><a href="#cb30-30" aria-hidden="true" tabindex="-1"></a><span class="co"># get Y</span></span>
+<span id="cb30-31"><a href="#cb30-31" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> df_linear_reg.loc[:, <span class="st">"cc_yield"</span>]</span>
+<span id="cb30-32"><a href="#cb30-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-33"><a href="#cb30-33" aria-hidden="true" tabindex="-1"></a><span class="co"># create a LinearRegression estimator object</span></span>
+<span id="cb30-34"><a href="#cb30-34" aria-hidden="true" tabindex="-1"></a>reg <span class="op">=</span> LinearRegression()</span>
+<span id="cb30-35"><a href="#cb30-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-36"><a href="#cb30-36" aria-hidden="true" tabindex="-1"></a><span class="co"># fit the model</span></span>
+<span id="cb30-37"><a href="#cb30-37" aria-hidden="true" tabindex="-1"></a>reg.fit(X, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
+<style>#sk-container-id-1 {color: black;background-color: white;}#sk-container-id-1 pre{padding: 0;}#sk-container-id-1 div.sk-toggleable {background-color: white;}#sk-container-id-1 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-1 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-1 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-1 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-1 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-1 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-1 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-1 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-1 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-1 div.sk-item {position: relative;z-index: 1;}#sk-container-id-1 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-1 div.sk-item::before, #sk-container-id-1 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-1 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-1 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-1 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-1 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-1 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-1 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-1 div.sk-label-container {text-align: center;}#sk-container-id-1 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-1 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LinearRegression()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked=""><label for="sk-estimator-id-1" class="sk-toggleable__label sk-toggleable__label-arrow">LinearRegression</label><div class="sk-toggleable__content"><pre>LinearRegression()</pre></div></div></div></div></div>
+</div>
+</div>
+<p>Now we compute permuation importance using 30 shuffles of each feature. The results referenced by <code>p_imp</code> is a dictionary object with arrays showing the model error when each feature was randomly shuffled and for each repeat of the random shuffling. It also has a property <code>importances_mean</code> which is the mean increase in error across all iterations when a feature was randomly shuffled.</p>
+<p>We use the <code>permutation_importance()</code> function and pass in the <code>LinearRegression()</code> estimator, the features and labels data (<code>X</code> and <code>y</code>), the metric to evaluate model performance to the <code>scoring</code> argument, and specify the number of repeats with the <code>n_repeats</code> argument.</p>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>p_imp <span class="op">=</span> permutation_importance(reg, X, y, scoring<span class="op">=</span><span class="st">"neg_mean_absolute_error"</span>, n_repeats<span class="op">=</span><span class="dv">30</span>, random_state<span class="op">=</span>rng)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>p_imp[<span class="st">"importances_mean"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="18">
+<pre><code>array([ 1.15861873e-01,  1.17595302e-01,  1.46321198e-01,  6.36841158e-02,
+        3.75817560e-02,  2.71901988e-02, -7.23502021e-04, -5.62591591e-06,
+        2.77529578e-05,  1.15896277e-04])</code></pre>
+</div>
+</div>
+<p>Let’s use this data to make a permutation importance plot that visualises the increase in error when a feature is randomly shuffled.</p>
+<p>First, let’s get a list of column headings for each feature and convert the negative mean absolute error values to positive.</p>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>columns <span class="op">=</span> X.columns</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>p_imp <span class="op">=</span> <span class="bu">abs</span>(p_imp[<span class="st">"importances_mean"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Now, let’s combine the feature labels and importance values into a <code>DataFrame</code>, sort the <code>DataFrame</code> by the importance scores, and generate a bar plot.</p>
+<div class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>p_imp_df <span class="op">=</span> pd.DataFrame({<span class="st">"feature"</span>: columns, <span class="st">"importance"</span>: p_imp})</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>p_imp_df <span class="op">=</span> p_imp_df.sort_values(by<span class="op">=</span>[<span class="st">"importance"</span>], ascending<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>p_imp_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="20">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>feature</th>
+      <th>importance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>7</th>
+      <td>slope_sr_MODERATE SLOPE</td>
+      <td>0.000006</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>slope_sr_SLIGHT SLOPE</td>
+      <td>0.000028</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>slope_sr_STEEP SLOPE</td>
+      <td>0.000116</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>slope_sr_FLAT</td>
+      <td>0.000724</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>mtci_doy_171</td>
+      <td>0.027190</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>mtci_doy_151</td>
+      <td>0.037582</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>ndvi_doy_171</td>
+      <td>0.063684</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>gcvi_doy_151</td>
+      <td>0.115862</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>gcvi_doy_171</td>
+      <td>0.117595</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>ndvi_doy_151</td>
+      <td>0.146321</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.bar(p_imp_df, y<span class="op">=</span><span class="st">"feature"</span>, x<span class="op">=</span><span class="st">"importance"</span>, height<span class="op">=</span><span class="dv">600</span>)</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="lab-5-self-guided_files/figure-html/cell-26-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<section id="recap-quiz-4" class="level4">
+<h4 class="anchored" data-anchor-id="recap-quiz-4">Recap quiz</h4>
+<details>
+<summary>
+<b>Do the feature importance results make sense? Can you explain them?</b>
+</summary>
+<p>The most important features for predictive importance are the vegetation indices. There is an established literature that vegetation indices are correlated with, and predictive of, crop yields.</p>
+However, we should be cautious in interpreting the differences between vegetation indices as it is likely that the vegetation indices are correlated (even if they’re designed to capture different information about vegetation growth and condition). When one of the vegetation indices is permuted (shuffled), it is likely the model will still have access to information about this feature through other features in the model which it is correlated with. You can read more about this <a href="https://scikit-learn.org/stable/modules/permutation_importance.html#misleading-values-on-strongly-correlated-features" target="_blank">here</a>.
+</details>
+<p>
+</p>
+<details>
+<summary>
+<b>Here, we computed the feature importance scores using the training data. Can you think of a limit to computing feature importance with the training set compared to using the test set?</b>
+</summary>
+Computing feature importance using a held-out test set would indicate which features are important for the model’s capacity to generalise well to unseen data. Features that are important for the training set migh be causing the model to overfit. You can read more about this <a href="https://scikit-learn.org/stable/modules/permutation_importance.html#permutation-feature-importance" target="_blank">here</a>.
+</details>
+</section>
+</section>
+<section id="final-activity" class="level2">
+<h2 class="anchored" data-anchor-id="final-activity">Final activity</h2>
+<p>You will notice in <code>df</code> that there are some columns related to mixed cropping in some of the maize fields (e.g.<code>intercrop_legume</code>, <code>intercrop_cassava</code>, <code>crop_rotation</code>, <code>purestand</code>). One issue that could be affecting model performance is that we’re using average vegetation indices across the whole field but not all of the field is maize cropping. This means that our vegetation index data is not purely capturing a maize crop signal but also the condition of other crops. We might be able to improve the model’s performance if we restrict our analysis to pure maize fields or control for the effect of mixed cropping.</p>
+<p><strong>Can you create a training set that will use one or more of the <code>intercrop_legume</code>, <code>intercrop_cassava</code>, <code>crop_rotation</code>, and <code>purestand</code> variables to train a model to predict maize yield that accounts for the mixed cropping practices inherent in smallholder systems in Uganda. Evaluate your model using cross-validation and justify the rationale for your approach.</strong></p>
+<details>
+<summary>
+<b>answer 1</b>
+</summary>
+<p>Here, we filter out any data points representing mixed cropping fields using the condition <code>df[purestand] == 1</code> where a value of 1 in the <code>purestand</code> column indicates pure maize cropping.</p>
+<p>This approach means our vegetation indices should just be capturing information about maize crop condition.</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get X and y data</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="co"># drop mixed cropping fields</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>df_pure <span class="op">=</span> df.loc[df[<span class="st">"purestand"</span>] <span class="op">==</span> <span class="dv">1</span>, :]</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a><span class="co"># one hot encode categorical predictors</span></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>df_pure <span class="op">=</span> pd.get_dummies(df_pure, columns<span class="op">=</span>[<span class="st">"slope_sr"</span>, <span class="st">"soiltype_sr"</span>, <span class="st">"soilqual_sr"</span>])</span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a><span class="co"># drop nas as Linear Regression object cannot be trained on datasets with missing data</span></span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>df_linear_reg <span class="op">=</span> df_pure.loc[: , [</span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"cc_yield"</span>,</span>
+<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"gcvi_doy_151"</span>, </span>
+<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"gcvi_doy_171"</span>, </span>
+<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ndvi_doy_151"</span>, </span>
+<span id="cb37-15"><a href="#cb37-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ndvi_doy_171"</span>, </span>
+<span id="cb37-16"><a href="#cb37-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mtci_doy_151"</span>, </span>
+<span id="cb37-17"><a href="#cb37-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mtci_doy_171"</span>,</span>
+<span id="cb37-18"><a href="#cb37-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">"slope_sr_FLAT"</span>,</span>
+<span id="cb37-19"><a href="#cb37-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">"slope_sr_MODERATE SLOPE"</span>,</span>
+<span id="cb37-20"><a href="#cb37-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">"slope_sr_SLIGHT SLOPE"</span>,</span>
+<span id="cb37-21"><a href="#cb37-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">"slope_sr_STEEP SLOPE"</span>]].dropna()</span>
+<span id="cb37-22"><a href="#cb37-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-23"><a href="#cb37-23" aria-hidden="true" tabindex="-1"></a><span class="co"># get X</span></span>
+<span id="cb37-24"><a href="#cb37-24" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> df_linear_reg.loc[:, [</span>
+<span id="cb37-25"><a href="#cb37-25" aria-hidden="true" tabindex="-1"></a>    <span class="st">"gcvi_doy_151"</span>, </span>
+<span id="cb37-26"><a href="#cb37-26" aria-hidden="true" tabindex="-1"></a>    <span class="st">"gcvi_doy_171"</span>, </span>
+<span id="cb37-27"><a href="#cb37-27" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ndvi_doy_151"</span>, </span>
+<span id="cb37-28"><a href="#cb37-28" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ndvi_doy_171"</span>, </span>
+<span id="cb37-29"><a href="#cb37-29" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mtci_doy_151"</span>, </span>
+<span id="cb37-30"><a href="#cb37-30" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mtci_doy_171"</span>,</span>
+<span id="cb37-31"><a href="#cb37-31" aria-hidden="true" tabindex="-1"></a>    <span class="st">"slope_sr_FLAT"</span>,</span>
+<span id="cb37-32"><a href="#cb37-32" aria-hidden="true" tabindex="-1"></a>    <span class="st">"slope_sr_MODERATE SLOPE"</span>,</span>
+<span id="cb37-33"><a href="#cb37-33" aria-hidden="true" tabindex="-1"></a>    <span class="st">"slope_sr_SLIGHT SLOPE"</span>,</span>
+<span id="cb37-34"><a href="#cb37-34" aria-hidden="true" tabindex="-1"></a>    <span class="st">"slope_sr_STEEP SLOPE"</span>]]</span>
+<span id="cb37-35"><a href="#cb37-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-36"><a href="#cb37-36" aria-hidden="true" tabindex="-1"></a><span class="co"># get Y</span></span>
+<span id="cb37-37"><a href="#cb37-37" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> df_linear_reg.loc[:, <span class="st">"cc_yield"</span>]</span>
+<span id="cb37-38"><a href="#cb37-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-39"><a href="#cb37-39" aria-hidden="true" tabindex="-1"></a><span class="co"># create a LinearRegression estimator object</span></span>
+<span id="cb37-40"><a href="#cb37-40" aria-hidden="true" tabindex="-1"></a>reg <span class="op">=</span> LinearRegression()</span>
+<span id="cb37-41"><a href="#cb37-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-42"><a href="#cb37-42" aria-hidden="true" tabindex="-1"></a><span class="co"># evaluate using 5-fold cross validation</span></span>
+<span id="cb37-43"><a href="#cb37-43" aria-hidden="true" tabindex="-1"></a>cv_scores <span class="op">=</span> cross_validate(reg, X, y, cv<span class="op">=</span><span class="dv">5</span>, scoring<span class="op">=</span>[<span class="st">"neg_mean_absolute_error"</span>])</span>
+<span id="cb37-44"><a href="#cb37-44" aria-hidden="true" tabindex="-1"></a>cv_scores</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<details>
+<summary>
+<b>answer 2</b>
+</summary>
+<p>Here, we control for the presence of mixed cropping by using intercropping and crop rotation variables as features in the model.</p>
+<p>This approach might be suited to generating a maize crop prediction model that’s applicable to the Ugandan context where mixed cropping is prevalent and pure maize fields are uncommon.</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get X and y data</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="co"># one hot encode categorical predictors</span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>df_2 <span class="op">=</span> pd.get_dummies(df, columns<span class="op">=</span>[<span class="st">"slope_sr"</span>, <span class="st">"soiltype_sr"</span>, <span class="st">"soilqual_sr"</span>])</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a><span class="co"># drop nas as Linear Regression object cannot be trained on datasets with missing data</span></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>df_linear_reg <span class="op">=</span> df_2.loc[: , [</span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"cc_yield"</span>,</span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"gcvi_doy_151"</span>, </span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"gcvi_doy_171"</span>, </span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ndvi_doy_151"</span>, </span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ndvi_doy_171"</span>, </span>
+<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mtci_doy_151"</span>, </span>
+<span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mtci_doy_171"</span>,</span>
+<span id="cb38-15"><a href="#cb38-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">"slope_sr_FLAT"</span>,</span>
+<span id="cb38-16"><a href="#cb38-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">"slope_sr_MODERATE SLOPE"</span>,</span>
+<span id="cb38-17"><a href="#cb38-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">"slope_sr_SLIGHT SLOPE"</span>,</span>
+<span id="cb38-18"><a href="#cb38-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">"slope_sr_STEEP SLOPE"</span>,</span>
+<span id="cb38-19"><a href="#cb38-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">"intercrop_legume"</span>,</span>
+<span id="cb38-20"><a href="#cb38-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">"intercrop_cassava"</span>,</span>
+<span id="cb38-21"><a href="#cb38-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">"crop_rotation"</span>]].dropna()</span>
+<span id="cb38-22"><a href="#cb38-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-23"><a href="#cb38-23" aria-hidden="true" tabindex="-1"></a><span class="co"># get X</span></span>
+<span id="cb38-24"><a href="#cb38-24" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> df_linear_reg.loc[:, [</span>
+<span id="cb38-25"><a href="#cb38-25" aria-hidden="true" tabindex="-1"></a>    <span class="st">"gcvi_doy_151"</span>, </span>
+<span id="cb38-26"><a href="#cb38-26" aria-hidden="true" tabindex="-1"></a>    <span class="st">"gcvi_doy_171"</span>, </span>
+<span id="cb38-27"><a href="#cb38-27" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ndvi_doy_151"</span>, </span>
+<span id="cb38-28"><a href="#cb38-28" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ndvi_doy_171"</span>, </span>
+<span id="cb38-29"><a href="#cb38-29" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mtci_doy_151"</span>, </span>
+<span id="cb38-30"><a href="#cb38-30" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mtci_doy_171"</span>,</span>
+<span id="cb38-31"><a href="#cb38-31" aria-hidden="true" tabindex="-1"></a>    <span class="st">"slope_sr_FLAT"</span>,</span>
+<span id="cb38-32"><a href="#cb38-32" aria-hidden="true" tabindex="-1"></a>    <span class="st">"slope_sr_MODERATE SLOPE"</span>,</span>
+<span id="cb38-33"><a href="#cb38-33" aria-hidden="true" tabindex="-1"></a>    <span class="st">"slope_sr_SLIGHT SLOPE"</span>,</span>
+<span id="cb38-34"><a href="#cb38-34" aria-hidden="true" tabindex="-1"></a>    <span class="st">"slope_sr_STEEP SLOPE"</span>,</span>
+<span id="cb38-35"><a href="#cb38-35" aria-hidden="true" tabindex="-1"></a>    <span class="st">"intercrop_legume"</span>,</span>
+<span id="cb38-36"><a href="#cb38-36" aria-hidden="true" tabindex="-1"></a>    <span class="st">"intercrop_cassava"</span>,</span>
+<span id="cb38-37"><a href="#cb38-37" aria-hidden="true" tabindex="-1"></a>    <span class="st">"crop_rotation"</span>]]</span>
+<span id="cb38-38"><a href="#cb38-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-39"><a href="#cb38-39" aria-hidden="true" tabindex="-1"></a><span class="co"># get Y</span></span>
+<span id="cb38-40"><a href="#cb38-40" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> df_linear_reg.loc[:, <span class="st">"cc_yield"</span>]</span>
+<span id="cb38-41"><a href="#cb38-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-42"><a href="#cb38-42" aria-hidden="true" tabindex="-1"></a><span class="co"># create a LinearRegression estimator object</span></span>
+<span id="cb38-43"><a href="#cb38-43" aria-hidden="true" tabindex="-1"></a>reg <span class="op">=</span> LinearRegression()</span>
+<span id="cb38-44"><a href="#cb38-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-45"><a href="#cb38-45" aria-hidden="true" tabindex="-1"></a><span class="co"># evaluate using 5-fold cross validation</span></span>
+<span id="cb38-46"><a href="#cb38-46" aria-hidden="true" tabindex="-1"></a>cv_scores <span class="op">=</span> cross_validate(reg, X, y, cv<span class="op">=</span><span class="dv">5</span>, scoring<span class="op">=</span>[<span class="st">"neg_mean_absolute_error"</span>])</span>
+<span id="cb38-47"><a href="#cb38-47" aria-hidden="true" tabindex="-1"></a>cv_scores</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./lab-5.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Week 5</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./lab-6-self-guided.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-title">Week 6 (self-guided)</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

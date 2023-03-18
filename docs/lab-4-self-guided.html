@@ -1,0 +1,1930 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>coursebook - 10&nbsp; Introduction</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./lab-5.html" rel="next">
+<link href="./lab-4.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Introduction</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">coursebook</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Welcome</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./unit-overview.html" class="sidebar-item-text sidebar-link">Unit overview</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./software.html" class="sidebar-item-text sidebar-link">Software</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./readings.html" class="sidebar-item-text sidebar-link">Reading</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Week 1</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-1-practice-exercises.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Week 1 (practice)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Week 2</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-2-self-guided.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Week 2 (self-guided)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-2-practice-exercises.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Week 2 (practice)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Week 3</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-3-self-guided.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Week 3 (self-guided)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-3-practice-exercises.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Week 3 (practice)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-4.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Week 4</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-4-self-guided.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Week 4 (self-guided)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-5.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Week 5</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-5-self-guided.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Week 5 (self-guided)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-6-self-guided.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Week 6 (self-guided)</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#data-wrangling-and-transformation" id="toc-data-wrangling-and-transformation" class="nav-link active" data-scroll-target="#data-wrangling-and-transformation">Data wrangling and transformation</a>
+  <ul class="collapse">
+  <li><a href="#task" id="toc-task" class="nav-link" data-scroll-target="#task">Task</a></li>
+  </ul></li>
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a>
+  <ul class="collapse">
+  <li><a href="#run-the-labs" id="toc-run-the-labs" class="nav-link" data-scroll-target="#run-the-labs">Run the labs</a></li>
+  <li><a href="#download-data" id="toc-download-data" class="nav-link" data-scroll-target="#download-data">Download data</a></li>
+  <li><a href="#working-in-colab" id="toc-working-in-colab" class="nav-link" data-scroll-target="#working-in-colab">Working in Colab</a></li>
+  <li><a href="#import-modules" id="toc-import-modules" class="nav-link" data-scroll-target="#import-modules">Import modules</a></li>
+  <li><a href="#preliminary-processing" id="toc-preliminary-processing" class="nav-link" data-scroll-target="#preliminary-processing">Preliminary processing</a></li>
+  </ul></li>
+  <li><a href="#attribute-data-operations" id="toc-attribute-data-operations" class="nav-link" data-scroll-target="#attribute-data-operations">Attribute data operations</a>
+  <ul class="collapse">
+  <li><a href="#pandas-dataframe-and-data-cleaning" id="toc-pandas-dataframe-and-data-cleaning" class="nav-link" data-scroll-target="#pandas-dataframe-and-data-cleaning">Pandas <code>DataFrame</code> and data cleaning</a></li>
+  <li><a href="#grouped-summaries" id="toc-grouped-summaries" class="nav-link" data-scroll-target="#grouped-summaries">Grouped summaries</a></li>
+  </ul></li>
+  <li><a href="#raster-vector-operations-and-vector-operations" id="toc-raster-vector-operations-and-vector-operations" class="nav-link" data-scroll-target="#raster-vector-operations-and-vector-operations">Raster-vector operations and vector operations</a></li>
+  <li><a href="#joins" id="toc-joins" class="nav-link" data-scroll-target="#joins">Joins</a>
+  <ul class="collapse">
+  <li><a href="#key-based-joins" id="toc-key-based-joins" class="nav-link" data-scroll-target="#key-based-joins">Key-based joins</a></li>
+  <li><a href="#spatial-joins" id="toc-spatial-joins" class="nav-link" data-scroll-target="#spatial-joins">Spatial Joins</a></li>
+  <li><a href="#save-file" id="toc-save-file" class="nav-link" data-scroll-target="#save-file">Save file</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-title">Introduction</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<section id="data-wrangling-and-transformation" class="level2">
+<h2 class="anchored" data-anchor-id="data-wrangling-and-transformation">Data wrangling and transformation</h2>
+<p>Often, datasets need to go through a series of data wrangling and transformation steps before they are ready for analysis or visualisation tasks. This lab will demonstrate several data wrangling and transformation operations for raster, vector, and tabular data.</p>
+<p>We will start with a subset of the AgriFieldNet Competition Dataset <a href="https://mlhub.earth/data/ref_agrifieldnet_competition_v1" target="_blank">(Radiant Earth Foundation and IDinsight, 2022)</a> which has been published to encourage people to develop machine learning models that classify a field’s crop type from satellite images. This dataset consists of a series of directories with each directory corresponding to a 256 x 256 pixel image footprint. Inside each directory are the following files:</p>
+<ul>
+<li>12 GeoTIFF files corresponding to spectral reflectance in different wavelengths from Sentinel-2 data.</li>
+<li>1 GeoTIFF file with non-zero pixels corresponding to a crop type label.</li>
+<li>1 GeoTIFF file with non-zero pixels corresponding to a field id.</li>
+<li>1 JSON metadata file.</li>
+</ul>
+<p>This data is subset from a larger dataset covering agricultural fields in four Indian states: Odisha, Uttar Pradesh, Bihar, and Rajasthan. The field boundaries and crop type labels were captured by data collectors from IDinsight’s Data on Demand team and the satellite image preparation was undertaken by the Radiant Earth Foundation.</p>
+<section id="task" class="level3">
+<h3 class="anchored" data-anchor-id="task">Task</h3>
+<p>Our task is to combine all the raster data in a folder into a tabular dataset that can be used for machine learning tasks to predict a field’s crop type. Specifically, we will transform a collection of GeoTiff files into a tabular dataset with columns for each field id, crop type, and field average spectral reflectance values. We will also store geometry data representing the location of each field in a geometry column.</p>
+<p><img src="https://github.com/data-analysis-3300-3003/figs/raw/main/week-4-overview.jpg" class="img-fluid"></p>
+<p>You will learn a range of common data transformation operations to wrangle datasets into a structure suitable for analysis and visualisation.</p>
+<p><strong>This lab will focus on transformation operations applied to tabular and vector data.</strong> This lab will cover:</p>
+<ul>
+<li><strong>attribute operations:</strong> data cleaning refresher (from week 3).</li>
+<li><strong>attribute operations:</strong> subsetting <code>DataFrame</code>s based on conditions.</li>
+<li><strong>attribute operations:</strong> appending (concatenating) rows to tabular <code>DataFrame</code> objects.</li>
+<li><strong>attribute operations:</strong> group-by and summarise operations of tabular <code>DataFrame</code> objects.</li>
+<li><strong>attribute operations:</strong> key-based relational joins between two tables.</li>
+<li><strong>raster-vector operations:</strong> vectorising raster data.</li>
+<li><strong>geometry operations:</strong> computing polygon geometry centroids.</li>
+<li><strong>attribute operations:</strong> key-based relational joins between two tables.</li>
+<li><strong>spatial data operations:</strong> spatial joins of two <code>GeoDataFrame</code> objects.</li>
+</ul>
+</section>
+</section>
+<section id="setup" class="level2">
+<h2 class="anchored" data-anchor-id="setup">Setup</h2>
+<section id="run-the-labs" class="level3">
+<h3 class="anchored" data-anchor-id="run-the-labs">Run the labs</h3>
+<p>You can run the labs locally on your machine or you can use cloud environments provided by Google Colab. <strong>If you’re working with Google Colab be aware that your sessions are temporary and you’ll need to take care to save, backup, and download your work.</strong></p>
+<p><a href="https://colab.research.google.com/github/data-analysis-3300-3003/colab/blob/main/lab-4-self-guided.ipynb" target="_blank"> <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"> </a></p>
+</section>
+<section id="download-data" class="level3">
+<h3 class="anchored" data-anchor-id="download-data">Download data</h3>
+<p>If you need to download the data for this lab, run the following code snippet.</p>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">"week-4"</span> <span class="kw">not</span> <span class="kw">in</span> os.listdir(os.getcwd()):</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    os.system(<span class="st">'wget "https://github.com/data-analysis-3300-3003/data/raw/main/data/week-4.zip"'</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    os.system(<span class="st">'unzip "week-4.zip"'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="working-in-colab" class="level3">
+<h3 class="anchored" data-anchor-id="working-in-colab">Working in Colab</h3>
+<p>If you’re working in Google Colab, you’ll need to install the required packages that don’t come with the colab environment.</p>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">'google.colab'</span> <span class="kw">in</span> <span class="bu">str</span>(get_ipython()):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">!</span>pip install geopandas</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">!</span>pip install pyarrow</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">!</span>pip install mapclassify</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">!</span>pip install rasterio</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="import-modules" class="level3">
+<h3 class="anchored" data-anchor-id="import-modules">Import modules</h3>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import modules</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas <span class="im">as</span> gpd</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.express <span class="im">as</span> px</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> rasterio</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.io <span class="im">as</span> pio</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> shapely.geometry</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pprint</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> rasterio <span class="im">import</span> features</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co"># setup renderer</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">'google.colab'</span> <span class="kw">in</span> <span class="bu">str</span>(get_ipython()):</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    pio.renderers.default <span class="op">=</span> <span class="st">"colab"</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    pio.renderers.default <span class="op">=</span> <span class="st">"jupyterlab"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="preliminary-processing" class="level3">
+<h3 class="anchored" data-anchor-id="preliminary-processing">Preliminary processing</h3>
+<p>This weeks self-guided lab will pick up from lab-4 where we’d created a program to:</p>
+<ol type="1">
+<li>read GeoTIFF files into NumPy <code>ndarray</code> objects</li>
+<li>stack the <code>ndarray</code> objects to create a multiband raster representation of the data</li>
+<li>reshape the multiband <code>ndarray</code> objects to a tabular-like structure</li>
+</ol>
+<p>In this lab we will extend this program by converting the <code>ndarray</code> representation of a table to <code>DataFrame</code> object which we will further process with a range of tabular attribute and vector operations.</p>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># path to data</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>image_dir_path <span class="op">=</span> os.path.join(os.getcwd(), <span class="st">"week-4"</span>, <span class="st">"images"</span>, <span class="st">"ref_agrifieldnet_competition_v1_source_0a664"</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># stacking bands </span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Sentinel-2 band names </span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>s2_bands <span class="op">=</span> [<span class="st">'B01'</span>, <span class="st">'B02'</span>, <span class="st">'B03'</span>, <span class="st">'B04'</span>, <span class="st">'B05'</span>, <span class="st">'B06'</span>, <span class="st">'B07'</span>, <span class="st">'B08'</span>, <span class="st">'B8A'</span>, <span class="st">'B09'</span>, <span class="st">'B11'</span>, <span class="st">'B12'</span>]</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># empty list to append ndarray of reflectance value for each band to</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>bands <span class="op">=</span> []</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co"># loop over each band, read in the data from the corresponding GeoTIFF file into an ndarray</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> b <span class="kw">in</span> s2_bands:</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"reading </span><span class="sc">{</span>b<span class="sc">}</span><span class="ss">.tif"</span>)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    band_path <span class="op">=</span> os.path.join(image_dir_path, b <span class="op">+</span> <span class="st">".tif"</span>)</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> rasterio.<span class="bu">open</span>(band_path) <span class="im">as</span> src:</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>        <span class="co"># append the ndarray storing the Sentinel-2 reflectance data for a band to a list</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>        bands.append(src.read(<span class="dv">1</span>))</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="co"># stack all bands in the list to create a multiband raster</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>multiband_raster <span class="op">=</span> np.stack(bands)</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="co"># make NDVI band</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>red <span class="op">=</span> multiband_raster[<span class="dv">3</span>,:,:].astype(<span class="st">"float64"</span>)</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>nir <span class="op">=</span> multiband_raster[<span class="dv">7</span>,:,:].astype(<span class="st">"float64"</span>)</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>ndvi <span class="op">=</span> (nir<span class="op">-</span>red)<span class="op">/</span>(nir<span class="op">+</span>red)</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>ndvi <span class="op">=</span> np.expand_dims(ndvi, axis<span class="op">=</span><span class="dv">0</span>) <span class="co"># add a bands axis</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>multiband_raster <span class="op">=</span> np.concatenate((multiband_raster, ndvi), axis<span class="op">=</span><span class="dv">0</span>) <span class="co"># stack the ndvi band</span></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a><span class="co">### HERE WE ARE STACKING THE FIELD ID BAND </span></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>field_id_path <span class="op">=</span> os.path.join(image_dir_path, <span class="st">"field/field_ids.tif"</span>)</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> rasterio.<span class="bu">open</span>(field_id_path) <span class="im">as</span> src:</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>    field_ids <span class="op">=</span> src.read().astype(<span class="st">"float64"</span>)</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>    field_ids[field_ids <span class="op">==</span> <span class="dv">0</span>] <span class="op">=</span> np.nan</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>    multiband_raster <span class="op">=</span> np.concatenate((multiband_raster, field_ids), axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a><span class="co">## HERE WE ARE STACKING THE CROP TYPE LABELS BAND </span></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>labels_path <span class="op">=</span> os.path.join(image_dir_path, <span class="st">"label/raster_labels.tif"</span>)</span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> rasterio.<span class="bu">open</span>(labels_path) <span class="im">as</span> src:</span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>    multiband_raster <span class="op">=</span> np.concatenate((multiband_raster, src.read()), axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a><span class="co"># reshape multiband raster to tabular format</span></span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>rows <span class="op">=</span> multiband_raster.shape[<span class="dv">1</span>]</span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>cols <span class="op">=</span> multiband_raster.shape[<span class="dv">2</span>]</span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>n_bands <span class="op">=</span> multiband_raster.shape[<span class="dv">0</span>]</span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>reshaped <span class="op">=</span> multiband_raster.reshape(n_bands, rows<span class="op">*</span>cols)</span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>tabular <span class="op">=</span> reshaped.T</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>reading B01.tif
+reading B02.tif
+reading B03.tif
+reading B04.tif
+reading B05.tif
+reading B06.tif
+reading B07.tif
+reading B08.tif
+reading B8A.tif
+reading B09.tif
+reading B11.tif
+reading B12.tif</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="attribute-data-operations" class="level2">
+<h2 class="anchored" data-anchor-id="attribute-data-operations">Attribute data operations</h2>
+<section id="pandas-dataframe-and-data-cleaning" class="level3">
+<h3 class="anchored" data-anchor-id="pandas-dataframe-and-data-cleaning">Pandas <code>DataFrame</code> and data cleaning</h3>
+<p>As our data is now in a tabular structure it makes sense to convert it from a NumPy <code>ndarray</code> object to Pandas a <code>DataFrame</code> object. Pandas <code>DataFrame</code> objects, and the pandas package more generally, are based on NumPy but have been tailored for working with tabular datasets. For example, a NumPy <code>ndarray</code> stores data of the same type in an array-like structure (e.g.&nbsp;all elements are integers). A pandas <code>DataFrame</code> can store different type data in different columns (e.g.&nbsp;column 0 is string, column 1 is floating point, etc.), but the values within each column are the same type and each column is typically a <code>PandasArray</code> which is based on a NumPy <code>ndarray</code>.</p>
+<p>Columns in a pandas <code>DataFrame</code> are called <code>Series</code> and a <code>Series</code> can be objects in your program independent of a <code>DataFrame</code>. A <code>Series</code> is an array-like sequence of values stored in a <code>PandasArray</code> which wraps a NumPy <code>ndarray</code>, and a <code>DataFrame</code> creates a tabular structure by combining one or more <code>Series</code>.</p>
+<p>Operations on Pandas <code>DataFrame</code>s also borrow from NumPy’s style such as avoiding for-loops; however, they also provide several features and functions geared towards working with tabular datasets. A selection of these features include:</p>
+<ul>
+<li>indexing using column names</li>
+<li>relational database style operations including key-based joins, conditional filtering and selection of data, and group-by and summarise</li>
+<li>support for working with time-series</li>
+<li>more tools for handling missing data</li>
+</ul>
+<p>Thus, Pandas <code>DataFrame</code> objects are useful for many attribute data transorfmation operations.</p>
+<p>To convert a NumPy <code>ndarray</code> to a Pandas <code>DataFrame</code> we pass the array into the <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" target="_blank"><code>DataFrame</code>’s constructor</a> function helpfully named <code>DataFrame()</code>. The constructor function expects the NumPy <code>ndarray</code> and a list of column labels as arguments.</p>
+<p>Let’s quickly recap our data structures after we have performed several raster transformation operations to the GeoTIFF files. We have an <code>ndarray</code> object, <code>tabular</code>, which is a 2-Dimensional NumPy <code>ndarray</code> representing 256 x 256 pixel images in a tabular structure with pixels aligned down the rows (0-axis) and bands aligned along the columns (1-axis).</p>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"tabular is of type </span><span class="sc">{</span><span class="bu">type</span>(tabular)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"tabular is an ndarray with shape </span><span class="sc">{</span>tabular<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>tabular is of type &lt;class 'numpy.ndarray'&gt;
+tabular is an ndarray with shape (65536, 15)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># convert ndarray to Pandas DataFrame</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>s2_bands <span class="op">=</span> [<span class="st">'B01'</span>, <span class="st">'B02'</span>, <span class="st">'B03'</span>, <span class="st">'B04'</span>,<span class="st">'B05'</span>, <span class="st">'B06'</span>, <span class="st">'B07'</span>, <span class="st">'B08'</span>,<span class="st">'B8A'</span>, <span class="st">'B09'</span>, <span class="st">'B11'</span>, <span class="st">'B12'</span>]</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># create a DataFrame object from the first element in tables</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>tmp_df <span class="op">=</span> pd.DataFrame(tabular, columns<span class="op">=</span>s2_bands <span class="op">+</span> [<span class="st">"ndvi"</span>, <span class="st">"field_id"</span>, <span class="st">"labels"</span>])</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>tmp_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>B01</th>
+      <th>B02</th>
+      <th>B03</th>
+      <th>B04</th>
+      <th>B05</th>
+      <th>B06</th>
+      <th>B07</th>
+      <th>B08</th>
+      <th>B8A</th>
+      <th>B09</th>
+      <th>B11</th>
+      <th>B12</th>
+      <th>ndvi</th>
+      <th>field_id</th>
+      <th>labels</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>43.0</td>
+      <td>37.0</td>
+      <td>36.0</td>
+      <td>32.0</td>
+      <td>36.0</td>
+      <td>61.0</td>
+      <td>74.0</td>
+      <td>67.0</td>
+      <td>80.0</td>
+      <td>13.0</td>
+      <td>56.0</td>
+      <td>31.0</td>
+      <td>0.353535</td>
+      <td>NaN</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>43.0</td>
+      <td>37.0</td>
+      <td>36.0</td>
+      <td>32.0</td>
+      <td>36.0</td>
+      <td>61.0</td>
+      <td>74.0</td>
+      <td>68.0</td>
+      <td>80.0</td>
+      <td>13.0</td>
+      <td>56.0</td>
+      <td>31.0</td>
+      <td>0.360000</td>
+      <td>NaN</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>43.0</td>
+      <td>38.0</td>
+      <td>37.0</td>
+      <td>33.0</td>
+      <td>37.0</td>
+      <td>62.0</td>
+      <td>75.0</td>
+      <td>70.0</td>
+      <td>82.0</td>
+      <td>13.0</td>
+      <td>59.0</td>
+      <td>35.0</td>
+      <td>0.359223</td>
+      <td>NaN</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>43.0</td>
+      <td>37.0</td>
+      <td>37.0</td>
+      <td>34.0</td>
+      <td>37.0</td>
+      <td>62.0</td>
+      <td>75.0</td>
+      <td>70.0</td>
+      <td>82.0</td>
+      <td>13.0</td>
+      <td>59.0</td>
+      <td>35.0</td>
+      <td>0.346154</td>
+      <td>NaN</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>43.0</td>
+      <td>38.0</td>
+      <td>38.0</td>
+      <td>35.0</td>
+      <td>39.0</td>
+      <td>64.0</td>
+      <td>76.0</td>
+      <td>70.0</td>
+      <td>83.0</td>
+      <td>13.0</td>
+      <td>65.0</td>
+      <td>40.0</td>
+      <td>0.333333</td>
+      <td>NaN</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<p>Looking at the <code>DataFrame</code> we can clearly see some <code>NaN</code> values in the <code>field_id</code> column. As each row in this <code>DataFrame</code> represents a pixel in the image, rows with <code>NaN</code> values in the <code>field_id</code> column are pixels which don’t have a crop type label. Therefore, we can drop them using the <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.dropna.html" target="_blank"><code>dropna()</code> method</a> - this will drop all rows from the <code>DataFrame</code> where there is a <code>NaN</code> value.</p>
+<p>Let’s inspect some metadata for the <code>DataFrame</code> we have created.</p>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>tmp_df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 65536 entries, 0 to 65535
+Data columns (total 15 columns):
+ #   Column    Non-Null Count  Dtype  
+---  ------    --------------  -----  
+ 0   B01       65536 non-null  float64
+ 1   B02       65536 non-null  float64
+ 2   B03       65536 non-null  float64
+ 3   B04       65536 non-null  float64
+ 4   B05       65536 non-null  float64
+ 5   B06       65536 non-null  float64
+ 6   B07       65536 non-null  float64
+ 7   B08       65536 non-null  float64
+ 8   B8A       65536 non-null  float64
+ 9   B09       65536 non-null  float64
+ 10  B11       65536 non-null  float64
+ 11  B12       65536 non-null  float64
+ 12  ndvi      65536 non-null  float64
+ 13  field_id  455 non-null    float64
+ 14  labels    65536 non-null  float64
+dtypes: float64(15)
+memory usage: 7.5 MB</code></pre>
+</div>
+</div>
+<p>The <code>DataFrame</code>’s <code>info()</code> method returns a summary of the column’s data types, count of non-null data, and the memory usage for the object. We can see that the <code>field_id</code> and <code>labels</code> columns are float64; however, these columns are storing categorical data so integer numbers would be a more appropriate type. Therefore, we can use the <code>astype()</code> method to convert these columns to integer type.</p>
+<section id="recap-quiz" class="level4">
+<h4 class="anchored" data-anchor-id="recap-quiz">Recap quiz</h4>
+<p><strong>Can you use the <code>dropna()</code> and <code>astype()</code> methods to i) drop all rows with <code>NaN</code> values, and ii) convert the <code>field_id</code> and <code>labels</code> columns to <code>int32</code> type? Use the pandas docs for example uses of the <code>dropna()</code> and <code>astype()</code> methods.</strong></p>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">## ADD CODE HERE ##</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>
+<b>answer</b>
+</summary>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>tmp_df <span class="op">=</span> tmp_df.dropna()</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>tmp_df <span class="op">=</span> tmp_df.astype({<span class="st">"field_id"</span>: <span class="st">"int32"</span>, <span class="st">"labels"</span>: <span class="st">"int32"</span>})</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Check the cast to integer type has worked. </span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Also, note the reduced memory usage after dropping all the nan rows</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>tmp_df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</section>
+</section>
+<section id="grouped-summaries" class="level3">
+<h3 class="anchored" data-anchor-id="grouped-summaries">Grouped summaries</h3>
+<p>Another common attribute operation when working with tabular data is performing grouped aggregations and summaries. For example, often we want to compute the mean, median, min, max, or sum of data values within groups in our dataset. This could be to generate summary tables for reporting purposes or an intermediate step in a data transformation workflow.</p>
+<p>Our goal for this data transformation workflow is to generate average spectral reflectance values in different wavelengths from Sentinel-2 images for each field with a crop type label. So far we have created a table where each row represents one pixel in a 256 x 256 image footprint and we have many pixels per field. We need to compute the average reflectance values for each field. This is a group-by and summarise operation - grouping by field and summarising using the mean.</p>
+<p>A group-by and summarise operation can be conceptualised as a sequence of split-apply-combine steps <a href="https://wesmckinney.com/book/data-aggregation.html#groupby_fundamentals" target="_blank">McKinney (2022)</a>:</p>
+<ul>
+<li><strong>Split</strong> your dataset into groups.</li>
+<li><strong>Apply</strong> a function to values in each group as a summary.</li>
+<li><strong>Combine</strong> the results of applying the function to each group.</li>
+</ul>
+<p>For our dataset we need to group-by <code>field_id</code> and <code>labels</code> (crop type column) and compute the mean of spectral reflectance values within each group.</p>
+<p>Pandas <code>DataFrame</code>s have a <code>groupby()</code> method that can take in a list of one or more column names. Calling this method returns a <code>GroupBy</code> object that creates groups from your dataset for each of the unique values of the grouping columns and can be used to apply summary operations to each group.</p>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create a group using field id and crop type</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>tmp_df_groups <span class="op">=</span> tmp_df.groupby([<span class="st">"field_id"</span>, <span class="st">"labels"</span>])</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(tmp_df_groups)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x7f6f56b5f580&gt;</code></pre>
+</div>
+</div>
+<p>Finally, we need to apply our summary operations to each group. We can do this by calling a function on the <code>GroupBy</code> object. A useful function for data exploration tasks is calling <code>size()</code> which tells us the number of observations in each group.</p>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># size of groups</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>tmp_df_groups.size()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<pre><code>field_id  labels
+80.0      6.0        59
+81.0      1.0        70
+771.0     6.0        27
+772.0     6.0         7
+1009.0    4.0         6
+1054.0    2.0        43
+1316.0    6.0       175
+1481.0    2.0        51
+1482.0    4.0        17
+dtype: int64</code></pre>
+</div>
+</div>
+<p>By calling <code>size()</code> on the <code>GroupBy</code> object we can see that we have a group with a <code>field_id</code> of <code>81</code> and a crop type label of <code>1</code> (wheat). There are 70 observations in this group.</p>
+<p>If we want to compute the mean of the spectral reflectance values within each group we can call <code>mean()</code> instead of <code>size()</code>.</p>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mean spectral reflectance values per group</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>tmp_df_groups.mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th>B01</th>
+      <th>B02</th>
+      <th>B03</th>
+      <th>B04</th>
+      <th>B05</th>
+      <th>B06</th>
+      <th>B07</th>
+      <th>B08</th>
+      <th>B8A</th>
+      <th>B09</th>
+      <th>B11</th>
+      <th>B12</th>
+      <th>ndvi</th>
+    </tr>
+    <tr>
+      <th>field_id</th>
+      <th>labels</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>80.0</th>
+      <th>6.0</th>
+      <td>42.186441</td>
+      <td>37.389831</td>
+      <td>35.881356</td>
+      <td>32.949153</td>
+      <td>37.322034</td>
+      <td>58.847458</td>
+      <td>69.711864</td>
+      <td>64.728814</td>
+      <td>76.474576</td>
+      <td>12.000000</td>
+      <td>60.101695</td>
+      <td>35.830508</td>
+      <td>0.325059</td>
+    </tr>
+    <tr>
+      <th>81.0</th>
+      <th>1.0</th>
+      <td>43.000000</td>
+      <td>39.671429</td>
+      <td>38.771429</td>
+      <td>40.771429</td>
+      <td>43.242857</td>
+      <td>56.771429</td>
+      <td>65.700000</td>
+      <td>61.185714</td>
+      <td>72.800000</td>
+      <td>12.000000</td>
+      <td>72.971429</td>
+      <td>49.371429</td>
+      <td>0.200899</td>
+    </tr>
+    <tr>
+      <th>771.0</th>
+      <th>6.0</th>
+      <td>43.000000</td>
+      <td>38.555556</td>
+      <td>37.074074</td>
+      <td>36.777778</td>
+      <td>40.444444</td>
+      <td>56.518519</td>
+      <td>66.259259</td>
+      <td>61.518519</td>
+      <td>72.888889</td>
+      <td>12.074074</td>
+      <td>67.111111</td>
+      <td>43.296296</td>
+      <td>0.251846</td>
+    </tr>
+    <tr>
+      <th>772.0</th>
+      <th>6.0</th>
+      <td>42.000000</td>
+      <td>37.142857</td>
+      <td>35.428571</td>
+      <td>32.142857</td>
+      <td>36.714286</td>
+      <td>60.142857</td>
+      <td>72.285714</td>
+      <td>66.285714</td>
+      <td>79.142857</td>
+      <td>12.000000</td>
+      <td>58.285714</td>
+      <td>33.142857</td>
+      <td>0.346986</td>
+    </tr>
+    <tr>
+      <th>1009.0</th>
+      <th>4.0</th>
+      <td>43.500000</td>
+      <td>39.833333</td>
+      <td>39.000000</td>
+      <td>40.000000</td>
+      <td>43.666667</td>
+      <td>59.833333</td>
+      <td>69.833333</td>
+      <td>64.500000</td>
+      <td>76.500000</td>
+      <td>12.166667</td>
+      <td>73.166667</td>
+      <td>50.000000</td>
+      <td>0.234912</td>
+    </tr>
+    <tr>
+      <th>1054.0</th>
+      <th>2.0</th>
+      <td>42.000000</td>
+      <td>36.883721</td>
+      <td>35.139535</td>
+      <td>31.720930</td>
+      <td>36.953488</td>
+      <td>59.674419</td>
+      <td>71.023256</td>
+      <td>66.116279</td>
+      <td>78.093023</td>
+      <td>12.255814</td>
+      <td>59.767442</td>
+      <td>34.581395</td>
+      <td>0.351325</td>
+    </tr>
+    <tr>
+      <th>1316.0</th>
+      <th>6.0</th>
+      <td>42.417143</td>
+      <td>37.691429</td>
+      <td>36.451429</td>
+      <td>34.285714</td>
+      <td>38.994286</td>
+      <td>60.651429</td>
+      <td>71.891429</td>
+      <td>66.817143</td>
+      <td>79.074286</td>
+      <td>12.840000</td>
+      <td>65.982857</td>
+      <td>40.862857</td>
+      <td>0.321599</td>
+    </tr>
+    <tr>
+      <th>1481.0</th>
+      <th>2.0</th>
+      <td>43.666667</td>
+      <td>39.000000</td>
+      <td>37.686275</td>
+      <td>38.549020</td>
+      <td>41.941176</td>
+      <td>54.960784</td>
+      <td>63.568627</td>
+      <td>59.274510</td>
+      <td>70.627451</td>
+      <td>12.000000</td>
+      <td>72.137255</td>
+      <td>48.196078</td>
+      <td>0.211922</td>
+    </tr>
+    <tr>
+      <th>1482.0</th>
+      <th>4.0</th>
+      <td>42.000000</td>
+      <td>37.176471</td>
+      <td>35.176471</td>
+      <td>32.411765</td>
+      <td>36.882353</td>
+      <td>56.705882</td>
+      <td>66.176471</td>
+      <td>60.647059</td>
+      <td>72.235294</td>
+      <td>12.000000</td>
+      <td>54.764706</td>
+      <td>32.470588</td>
+      <td>0.302352</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<p>We’re now in a position to update our data transformation routine to include converting the <code>ndarray</code> object in a tabular-like structure to Pandas <code>DataFrames</code>, data cleaning to drop <code>NaN</code> pixels, and computing the mean spectral reflectance values for each <code>field_id</code> and crop type <code>label</code> combination.</p>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># path to data</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>image_dir_path <span class="op">=</span> os.path.join(os.getcwd(), <span class="st">"week-4"</span>, <span class="st">"images"</span>, <span class="st">"ref_agrifieldnet_competition_v1_source_0a664"</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># stacking bands </span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Sentinel-2 band names </span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>s2_bands <span class="op">=</span> [<span class="st">'B01'</span>, <span class="st">'B02'</span>, <span class="st">'B03'</span>, <span class="st">'B04'</span>, <span class="st">'B05'</span>, <span class="st">'B06'</span>, <span class="st">'B07'</span>, <span class="st">'B08'</span>, <span class="st">'B8A'</span>, <span class="st">'B09'</span>, <span class="st">'B11'</span>, <span class="st">'B12'</span>]</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="co"># empty list to append ndarray of reflectance value for each band to</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>bands <span class="op">=</span> []</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="co"># loop over each band, read in the data from the corresponding GeoTIFF file into an ndarray</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> b <span class="kw">in</span> s2_bands:</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"reading </span><span class="sc">{</span>b<span class="sc">}</span><span class="ss">.tif"</span>)</span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>    band_path <span class="op">=</span> os.path.join(image_dir_path, b <span class="op">+</span> <span class="st">".tif"</span>)</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> rasterio.<span class="bu">open</span>(band_path) <span class="im">as</span> src:</span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>        <span class="co"># append the ndarray storing the Sentinel-2 reflectance data for a band to a list</span></span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>        bands.append(src.read(<span class="dv">1</span>))</span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a><span class="co"># stack all bands in the list to create a multiband raster</span></span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>multiband_raster <span class="op">=</span> np.stack(bands)</span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a><span class="co"># make NDVI band</span></span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>red <span class="op">=</span> multiband_raster[<span class="dv">3</span>,:,:].astype(<span class="st">"float64"</span>)</span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>nir <span class="op">=</span> multiband_raster[<span class="dv">7</span>,:,:].astype(<span class="st">"float64"</span>)</span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>ndvi <span class="op">=</span> (nir<span class="op">-</span>red)<span class="op">/</span>(nir<span class="op">+</span>red)</span>
+<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a>ndvi <span class="op">=</span> np.expand_dims(ndvi, axis<span class="op">=</span><span class="dv">0</span>) <span class="co"># add a bands axis</span></span>
+<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a>multiband_raster <span class="op">=</span> np.concatenate((multiband_raster, ndvi), axis<span class="op">=</span><span class="dv">0</span>) <span class="co"># stack the ndvi band</span></span>
+<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a><span class="co">### HERE WE ARE STACKING THE FIELD ID BAND </span></span>
+<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a>field_id_path <span class="op">=</span> os.path.join(image_dir_path, <span class="st">"field/field_ids.tif"</span>)</span>
+<span id="cb18-32"><a href="#cb18-32" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> rasterio.<span class="bu">open</span>(field_id_path) <span class="im">as</span> src:</span>
+<span id="cb18-33"><a href="#cb18-33" aria-hidden="true" tabindex="-1"></a>    field_ids <span class="op">=</span> src.read().astype(<span class="st">"float64"</span>)</span>
+<span id="cb18-34"><a href="#cb18-34" aria-hidden="true" tabindex="-1"></a>    field_ids[field_ids <span class="op">==</span> <span class="dv">0</span>] <span class="op">=</span> np.nan</span>
+<span id="cb18-35"><a href="#cb18-35" aria-hidden="true" tabindex="-1"></a>    multiband_raster <span class="op">=</span> np.concatenate((multiband_raster, field_ids), axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb18-36"><a href="#cb18-36" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb18-37"><a href="#cb18-37" aria-hidden="true" tabindex="-1"></a><span class="co">## HERE WE ARE STACKING THE CROP TYPE LABELS BAND </span></span>
+<span id="cb18-38"><a href="#cb18-38" aria-hidden="true" tabindex="-1"></a>labels_path <span class="op">=</span> os.path.join(image_dir_path, <span class="st">"label/raster_labels.tif"</span>)</span>
+<span id="cb18-39"><a href="#cb18-39" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> rasterio.<span class="bu">open</span>(labels_path) <span class="im">as</span> src:</span>
+<span id="cb18-40"><a href="#cb18-40" aria-hidden="true" tabindex="-1"></a>    multiband_raster <span class="op">=</span> np.concatenate((multiband_raster, src.read()), axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb18-41"><a href="#cb18-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-42"><a href="#cb18-42" aria-hidden="true" tabindex="-1"></a><span class="co"># reshape multiband raster to tabular format</span></span>
+<span id="cb18-43"><a href="#cb18-43" aria-hidden="true" tabindex="-1"></a>rows <span class="op">=</span> multiband_raster.shape[<span class="dv">1</span>]</span>
+<span id="cb18-44"><a href="#cb18-44" aria-hidden="true" tabindex="-1"></a>cols <span class="op">=</span> multiband_raster.shape[<span class="dv">2</span>]</span>
+<span id="cb18-45"><a href="#cb18-45" aria-hidden="true" tabindex="-1"></a>n_bands <span class="op">=</span> multiband_raster.shape[<span class="dv">0</span>]</span>
+<span id="cb18-46"><a href="#cb18-46" aria-hidden="true" tabindex="-1"></a>reshaped <span class="op">=</span> multiband_raster.reshape(n_bands, rows<span class="op">*</span>cols)</span>
+<span id="cb18-47"><a href="#cb18-47" aria-hidden="true" tabindex="-1"></a>tabular <span class="op">=</span> reshaped.T</span>
+<span id="cb18-48"><a href="#cb18-48" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb18-49"><a href="#cb18-49" aria-hidden="true" tabindex="-1"></a><span class="co">### HERE WE CONVERT TO DATAFRAMES AND DROP NAN VALUES</span></span>
+<span id="cb18-50"><a href="#cb18-50" aria-hidden="true" tabindex="-1"></a>tmp_df <span class="op">=</span> pd.DataFrame(tabular, columns<span class="op">=</span>s2_bands <span class="op">+</span> [<span class="st">"ndvi"</span>, <span class="st">"field_id"</span>, <span class="st">"labels"</span>])</span>
+<span id="cb18-51"><a href="#cb18-51" aria-hidden="true" tabindex="-1"></a>dfs <span class="op">=</span> tmp_df.dropna()</span>
+<span id="cb18-52"><a href="#cb18-52" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb18-53"><a href="#cb18-53" aria-hidden="true" tabindex="-1"></a>dfs <span class="op">=</span> dfs.astype({<span class="st">"field_id"</span>: <span class="st">"int32"</span>, <span class="st">"labels"</span>: <span class="st">"int32"</span>})</span>
+<span id="cb18-54"><a href="#cb18-54" aria-hidden="true" tabindex="-1"></a>dfs <span class="op">=</span> dfs.groupby([<span class="st">"field_id"</span>, <span class="st">"labels"</span>]).mean().reset_index()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>reading B01.tif
+reading B02.tif
+reading B03.tif
+reading B04.tif
+reading B05.tif
+reading B06.tif
+reading B07.tif
+reading B08.tif
+reading B8A.tif
+reading B09.tif
+reading B11.tif
+reading B12.tif</code></pre>
+</div>
+</div>
+<p>Let’s quickly inspect the output. We should have one row per <code>field_id</code> and crop type <code>label</code> group. The <code>DataFrame</code> storing the results of this routine are referenced by the variable <code>dfs</code>.</p>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>dfs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="13">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>field_id</th>
+      <th>labels</th>
+      <th>B01</th>
+      <th>B02</th>
+      <th>B03</th>
+      <th>B04</th>
+      <th>B05</th>
+      <th>B06</th>
+      <th>B07</th>
+      <th>B08</th>
+      <th>B8A</th>
+      <th>B09</th>
+      <th>B11</th>
+      <th>B12</th>
+      <th>ndvi</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>80</td>
+      <td>6</td>
+      <td>42.186441</td>
+      <td>37.389831</td>
+      <td>35.881356</td>
+      <td>32.949153</td>
+      <td>37.322034</td>
+      <td>58.847458</td>
+      <td>69.711864</td>
+      <td>64.728814</td>
+      <td>76.474576</td>
+      <td>12.000000</td>
+      <td>60.101695</td>
+      <td>35.830508</td>
+      <td>0.325059</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>81</td>
+      <td>1</td>
+      <td>43.000000</td>
+      <td>39.671429</td>
+      <td>38.771429</td>
+      <td>40.771429</td>
+      <td>43.242857</td>
+      <td>56.771429</td>
+      <td>65.700000</td>
+      <td>61.185714</td>
+      <td>72.800000</td>
+      <td>12.000000</td>
+      <td>72.971429</td>
+      <td>49.371429</td>
+      <td>0.200899</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>771</td>
+      <td>6</td>
+      <td>43.000000</td>
+      <td>38.555556</td>
+      <td>37.074074</td>
+      <td>36.777778</td>
+      <td>40.444444</td>
+      <td>56.518519</td>
+      <td>66.259259</td>
+      <td>61.518519</td>
+      <td>72.888889</td>
+      <td>12.074074</td>
+      <td>67.111111</td>
+      <td>43.296296</td>
+      <td>0.251846</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>772</td>
+      <td>6</td>
+      <td>42.000000</td>
+      <td>37.142857</td>
+      <td>35.428571</td>
+      <td>32.142857</td>
+      <td>36.714286</td>
+      <td>60.142857</td>
+      <td>72.285714</td>
+      <td>66.285714</td>
+      <td>79.142857</td>
+      <td>12.000000</td>
+      <td>58.285714</td>
+      <td>33.142857</td>
+      <td>0.346986</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1009</td>
+      <td>4</td>
+      <td>43.500000</td>
+      <td>39.833333</td>
+      <td>39.000000</td>
+      <td>40.000000</td>
+      <td>43.666667</td>
+      <td>59.833333</td>
+      <td>69.833333</td>
+      <td>64.500000</td>
+      <td>76.500000</td>
+      <td>12.166667</td>
+      <td>73.166667</td>
+      <td>50.000000</td>
+      <td>0.234912</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>1054</td>
+      <td>2</td>
+      <td>42.000000</td>
+      <td>36.883721</td>
+      <td>35.139535</td>
+      <td>31.720930</td>
+      <td>36.953488</td>
+      <td>59.674419</td>
+      <td>71.023256</td>
+      <td>66.116279</td>
+      <td>78.093023</td>
+      <td>12.255814</td>
+      <td>59.767442</td>
+      <td>34.581395</td>
+      <td>0.351325</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>1316</td>
+      <td>6</td>
+      <td>42.417143</td>
+      <td>37.691429</td>
+      <td>36.451429</td>
+      <td>34.285714</td>
+      <td>38.994286</td>
+      <td>60.651429</td>
+      <td>71.891429</td>
+      <td>66.817143</td>
+      <td>79.074286</td>
+      <td>12.840000</td>
+      <td>65.982857</td>
+      <td>40.862857</td>
+      <td>0.321599</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>1481</td>
+      <td>2</td>
+      <td>43.666667</td>
+      <td>39.000000</td>
+      <td>37.686275</td>
+      <td>38.549020</td>
+      <td>41.941176</td>
+      <td>54.960784</td>
+      <td>63.568627</td>
+      <td>59.274510</td>
+      <td>70.627451</td>
+      <td>12.000000</td>
+      <td>72.137255</td>
+      <td>48.196078</td>
+      <td>0.211922</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>1482</td>
+      <td>4</td>
+      <td>42.000000</td>
+      <td>37.176471</td>
+      <td>35.176471</td>
+      <td>32.411765</td>
+      <td>36.882353</td>
+      <td>56.705882</td>
+      <td>66.176471</td>
+      <td>60.647059</td>
+      <td>72.235294</td>
+      <td>12.000000</td>
+      <td>54.764706</td>
+      <td>32.470588</td>
+      <td>0.302352</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="raster-vector-operations-and-vector-operations" class="level2">
+<h2 class="anchored" data-anchor-id="raster-vector-operations-and-vector-operations">Raster-vector operations and vector operations</h2>
+<p>We’re almost at the stage where we’ve processed a number of GeoTIFF files stored across many directories into a tabular dataset in a <code>DataFrame</code> object ready for machine learning. However, there are two more columns we need to create and append to the <code>DataFrame</code>. The first is a <code>geometry</code> column recording the centroid of each field. This allows us to keep a record of each field’s geographic location. We’ll also use this centroid to identify the district (an administrative boundary below the State-level in India) each field is located in.</p>
+<p>To compute the centroid for each field we need to perform some raster-vector operations where each raster dataset is converted to a vector dataset. This is called vectorisation and can be achieved using <code>rasterio</code>’s <a href="https://rasterio.readthedocs.io/en/latest/api/rasterio.features.html#rasterio.features.shapes" target="_blank"><code>shapes()</code> function</a> which returns the shape and value of connected regions in a raster dataset. Pixels belonging the same field in a raster layer should be connected (i.e.&nbsp;their edges touch) and they should have the same value (field id). Thus, applying the <code>shapes()</code> function to the raster layer of field ids should return vector polygons for each field outline.</p>
+<p>To do this we’ll need to use the <code>field_ids.tif</code> file. Let’s quickly inspect this files again.</p>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>field_id_path <span class="op">=</span> os.path.join(image_dir_path, <span class="st">"field/field_ids.tif"</span>)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> rasterio.<span class="bu">open</span>(field_id_path) <span class="im">as</span> src:</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Printing metadata for field_ids.tif"</span>)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    pprint.pprint(src.meta)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Printing metadata for field_ids.tif
+{'count': 1,
+ 'crs': CRS.from_epsg(32644),
+ 'driver': 'GTiff',
+ 'dtype': 'uint16',
+ 'height': 256,
+ 'nodata': 0.0,
+ 'transform': Affine(10.0, 0.0, 622880.0,
+       0.0, -10.0, 3010560.0),
+ 'width': 256}
+</code></pre>
+</div>
+</div>
+<p>We have printed a dictionary objects of metadata for the <code>field_ids.tif</code> file.</p>
+<p>Let’s look at what the <code>shapes()</code> function returns for <code>field_ids.tif</code>.</p>
+<p>The <code>shapes()</code> function takes in a NumPy <code>ndarray</code> of raster values (generated by <code>src.read()</code> which reads the raster values from the GeoTIFF file into a NumPy <code>ndarray</code> in memory) and returns a generator object which generates a tuple for each shape in the raster data. The first element of the tuple is a dictionary object of coordinates and the type of geometry (e.g.&nbsp;point, line, polygon). The second element of the tuple is the attribute value that corresponds to the geometry. We can convert the generator into a list of tuples.</p>
+<p><img src="https://github.com/data-analysis-3300-3003/figs/raw/main/week-4-raster-to-vector.jpg" class="img-fluid"></p>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>field_id_path <span class="op">=</span> os.path.join(image_dir_path, <span class="st">"field/field_ids.tif"</span>)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> rasterio.<span class="bu">open</span>(field_id_path) <span class="im">as</span> src:</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># shapes is a generator</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    shapes <span class="op">=</span> features.shapes(src.read(), transform<span class="op">=</span>src.transform)</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># list of geometry and shape value</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>    field_shapes <span class="op">=</span> <span class="bu">list</span>(shapes)</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># pretty print the first two elements of field_shapes</span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>    pprint.pprint(field_shapes[<span class="dv">0</span>:<span class="dv">2</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[({'coordinates': [[(625350.0, 3010380.0),
+                    (625370.0, 3010380.0),
+                    (625370.0, 3010370.0),
+                    (625390.0, 3010370.0),
+                    (625390.0, 3010360.0),
+                    (625410.0, 3010360.0),
+                    (625410.0, 3010350.0),
+                    (625430.0, 3010350.0),
+                    (625430.0, 3010320.0),
+                    (625420.0, 3010320.0),
+                    (625420.0, 3010300.0),
+                    (625410.0, 3010300.0),
+                    (625410.0, 3010280.0),
+                    (625400.0, 3010280.0),
+                    (625400.0, 3010270.0),
+                    (625390.0, 3010270.0),
+                    (625390.0, 3010250.0),
+                    (625380.0, 3010250.0),
+                    (625380.0, 3010230.0),
+                    (625370.0, 3010230.0),
+                    (625370.0, 3010220.0),
+                    (625360.0, 3010220.0),
+                    (625360.0, 3010200.0),
+                    (625350.0, 3010200.0),
+                    (625350.0, 3010180.0),
+                    (625310.0, 3010180.0),
+                    (625310.0, 3010190.0),
+                    (625290.0, 3010190.0),
+                    (625290.0, 3010200.0),
+                    (625270.0, 3010200.0),
+                    (625270.0, 3010240.0),
+                    (625280.0, 3010240.0),
+                    (625280.0, 3010250.0),
+                    (625290.0, 3010250.0),
+                    (625290.0, 3010270.0),
+                    (625300.0, 3010270.0),
+                    (625300.0, 3010290.0),
+                    (625310.0, 3010290.0),
+                    (625310.0, 3010310.0),
+                    (625320.0, 3010310.0),
+                    (625320.0, 3010330.0),
+                    (625330.0, 3010330.0),
+                    (625330.0, 3010350.0),
+                    (625340.0, 3010350.0),
+                    (625340.0, 3010360.0),
+                    (625350.0, 3010360.0),
+                    (625350.0, 3010380.0)]],
+   'type': 'Polygon'},
+  1316.0),
+ ({'coordinates': [[(625430.0, 3010120.0),
+                    (625440.0, 3010120.0),
+                    (625440.0, 3010070.0),
+                    (625430.0, 3010070.0),
+                    (625430.0, 3010080.0),
+                    (625420.0, 3010080.0),
+                    (625420.0, 3010100.0),
+                    (625430.0, 3010100.0),
+                    (625430.0, 3010120.0)]],
+   'type': 'Polygon'},
+  772.0)]</code></pre>
+</div>
+</div>
+<p>At this stage, we’ve converted our raster data to a list of numbers representing coordinates for the shape. We now need to turn this list of coordinates into a geometry object. In Python, geometries are represented as <a href="https://shapely.readthedocs.io/en/stable/geometry.html" target="_blank">Shapely</a> <code>Geometry</code> objects. The <code>geometry</code> column in a GeoPandas <code>GeoDataFrame</code> is a <code>Series</code> of Shapely <code>Geometry</code> objects.</p>
+<p>To create a <a href="https://shapely.readthedocs.io/en/stable/geometry.html" target="_blank">Shapely</a> <code>Geometry</code> object we extract the list of coordinates and pass them into the <code>shapely.geometry.shape()</code> function.</p>
+<p>Printing <code>geom</code> should return a list of Shapely <code>Geometry</code> objects.</p>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>field_id_path <span class="op">=</span> os.path.join(image_dir_path, <span class="st">"field/field_ids.tif"</span>)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> rasterio.<span class="bu">open</span>(field_id_path) <span class="im">as</span> src:</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># shapes is a generator</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>    shapes <span class="op">=</span> features.shapes(src.read(), transform<span class="op">=</span>src.transform)</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># list of geometry and shape value</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>    field_shapes <span class="op">=</span> <span class="bu">list</span>(shapes)</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># create a list of Shapely Geometry objects</span></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>    geom <span class="op">=</span> []</span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> s <span class="kw">in</span> field_shapes:</span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>        geom.append(shapely.geometry.shape(s[<span class="dv">0</span>]))</span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(geom)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[&lt;shapely.geometry.polygon.Polygon object at 0x7f6fc5216b60&gt;, &lt;shapely.geometry.polygon.Polygon object at 0x7f6fc5217e50&gt;, &lt;shapely.geometry.polygon.Polygon object at 0x7f6fc5216920&gt;, &lt;shapely.geometry.polygon.Polygon object at 0x7f6fc5217280&gt;, &lt;shapely.geometry.polygon.Polygon object at 0x7f6fc52178e0&gt;, &lt;shapely.geometry.polygon.Polygon object at 0x7f6f56b5cb50&gt;, &lt;shapely.geometry.polygon.Polygon object at 0x7f6f56b5f820&gt;, &lt;shapely.geometry.polygon.Polygon object at 0x7f6f56b5e830&gt;, &lt;shapely.geometry.polygon.Polygon object at 0x7f6f56b5f520&gt;, &lt;shapely.geometry.polygon.Polygon object at 0x7f6f56b5c100&gt;]</code></pre>
+</div>
+</div>
+<p>We can also plot an element of <code>geom</code> to show it is a Shapely <code>Geometry</code> object.</p>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>geom[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
+<p><img src="lab-4-self-guided_files/figure-html/cell-18-output-1.svg" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>geom[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="18">
+<p><img src="lab-4-self-guided_files/figure-html/cell-19-output-1.svg" class="img-fluid"></p>
+</div>
+</div>
+<section id="recap-quiz-1" class="level4">
+<h4 class="anchored" data-anchor-id="recap-quiz-1">Recap quiz</h4>
+<details>
+<summary>
+<b>What object are we creating with <code>[]</code>?</b>
+</summary>
+An empty list object.
+</details>
+<p>
+</p>
+<details>
+<summary>
+<b>What type of object is <code>geom</code> and what elements does it store?</b>
+</summary>
+It is a list object which is storing a list of Shapely <code>Geometry</code> objects.
+</details>
+<p>Next, we compute the centroid for the polygon shape of the field. Computing a centroid is a geometry operation where the shape’s geometry is converted from a polygon to a point feature. To efficiently compute the centroid for the shapes returned by <code>shapes()</code> we can convert the list of <code>Geometry</code> objects to a <code>GeoSeries</code> and then use the <a href="https://geopandas.org/en/stable/docs/reference/api/geopandas.GeoSeries.centroid.html" target="_blank"><code>GeoSeries</code> <code>centroid</code> attribute</a> to return a <code>GeoSeries</code> of centroids.</p>
+<p>Inspecting this <code>GeoSeries</code> should reveal a sequence of point <code>Geometry</code> objects have been computed. This <code>GeoSeries</code> object is now referenced by <code>geom</code>.</p>
+<div class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>field_id_path <span class="op">=</span> os.path.join(image_dir_path, <span class="st">"field/field_ids.tif"</span>)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> rasterio.<span class="bu">open</span>(field_id_path) <span class="im">as</span> src:</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># shapes is a generator</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>    shapes <span class="op">=</span> features.shapes(src.read(), transform<span class="op">=</span>src.transform)</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># list of geometry and shape value</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>    field_shapes <span class="op">=</span> <span class="bu">list</span>(shapes)</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># create a list of Shapely Geometry objects</span></span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>    geom <span class="op">=</span> []</span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> s <span class="kw">in</span> field_shapes:</span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>        geom.append(shapely.geometry.shape(s[<span class="dv">0</span>]))</span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># compute centroids</span></span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>    geom <span class="op">=</span> gpd.GeoSeries(geom, crs<span class="op">=</span>src.crs).centroid</span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(geom)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0    POINT (625348.886 3010277.629)
+1    POINT (625432.143 3010093.571)
+2    POINT (624427.353 3010055.588)
+3    POINT (624406.860 3010018.721)
+4    POINT (623445.678 3009850.593)
+5    POINT (625380.000 3009830.000)
+6    POINT (623763.857 3009644.143)
+7    POINT (623465.980 3009577.157)
+8    POINT (625155.370 3009447.222)
+9    POINT (624157.525 3009275.277)
+dtype: geometry</code></pre>
+</div>
+</div>
+<p>Now we have computed the centroid for each field, we can convert the points to a common coordinate reference system (<code>EPSG:4326</code>) using GeoPandas <code>to_crs()</code> method. We convert the points to a new coordinate system, <code>EPSG:4326</code> which uses latitude and longitude values, to be able to perform vector operations using two vector datasets in future tasks (it is important that vector datasets have the same coordinate reference system to get correct and intended results).</p>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>field_id_path <span class="op">=</span> os.path.join(image_dir_path, <span class="st">"field/field_ids.tif"</span>)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> rasterio.<span class="bu">open</span>(field_id_path) <span class="im">as</span> src:</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># shapes is a generator</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>    shapes <span class="op">=</span> features.shapes(src.read(), transform<span class="op">=</span>src.transform)</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># list of geometry and shape value</span></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>    field_shapes <span class="op">=</span> <span class="bu">list</span>(shapes)</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># create a list of Shapely Geometry objects</span></span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>    geom <span class="op">=</span> []</span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> s <span class="kw">in</span> field_shapes:</span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>        geom.append(shapely.geometry.shape(s[<span class="dv">0</span>]))</span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># compute centroids</span></span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>    geom <span class="op">=</span> gpd.GeoSeries(geom, crs<span class="op">=</span>src.crs).centroid</span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># reproject to EPSG 4326</span></span>
+<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a>    geom <span class="op">=</span> geom.to_crs(<span class="st">"EPSG:4326"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If we look at the object returned by the <code>features.shapes()</code>, it’s a tuple with coordinates for connected raster pixels with the same value in the first element and the second element is the value of those raster pixels.</p>
+<pre><code>({'coordinates': [[(625350.0, 3010380.0),
+                    (625370.0, 3010380.0),
+                    (625370.0, 3010370.0),
+                    (625390.0, 3010370.0),
+                    (625390.0, 3010360.0),
+                    (625410.0, 3010360.0),
+                    (625410.0, 3010350.0),
+                    (625430.0, 3010350.0),
+                    (625430.0, 3010320.0),
+                    (625420.0, 3010320.0),
+                    (625420.0, 3010300.0),
+                    (625410.0, 3010300.0),
+                    (625410.0, 3010280.0),
+                    (625400.0, 3010280.0),
+                    (625400.0, 3010270.0),
+                    (625390.0, 3010270.0),
+                    (625390.0, 3010250.0),
+                    (625380.0, 3010250.0),
+                    (625380.0, 3010230.0),
+                    (625370.0, 3010230.0),
+                    (625370.0, 3010220.0),
+                    (625360.0, 3010220.0),
+                    (625360.0, 3010200.0),
+                    (625350.0, 3010200.0),
+                    (625350.0, 3010180.0),
+                    (625310.0, 3010180.0),
+                    (625310.0, 3010190.0),
+                    (625290.0, 3010190.0),
+                    (625290.0, 3010200.0),
+                    (625270.0, 3010200.0),
+                    (625270.0, 3010240.0),
+                    (625280.0, 3010240.0),
+                    (625280.0, 3010250.0),
+                    (625290.0, 3010250.0),
+                    (625290.0, 3010270.0),
+                    (625300.0, 3010270.0),
+                    (625300.0, 3010290.0),
+                    (625310.0, 3010290.0),
+                    (625310.0, 3010310.0),
+                    (625320.0, 3010310.0),
+                    (625320.0, 3010330.0),
+                    (625330.0, 3010330.0),
+                    (625330.0, 3010350.0),
+                    (625340.0, 3010350.0),
+                    (625340.0, 3010360.0),
+                    (625350.0, 3010360.0),
+                    (625350.0, 3010380.0)]],
+   'type': 'Polygon'},
+  1316.0)</code></pre>
+</section>
+<section id="recap-quiz-2" class="level4">
+<h4 class="anchored" data-anchor-id="recap-quiz-2">Recap quiz</h4>
+<p>This is a challenging quiz question, have a go at each of the steps and follow the pointers to previous code snippets or docs before reviewing the answer.</p>
+<p><strong>1. We need create another <code>Series</code> of field ids using the value of raster pixels corresponding to the coordinates in a tuple. We can do this by looping over <code>field_shapes</code> (the list of tuples) and accessing the element at index position one in the tuple.</strong> <em>Have a look at how we looped over <code>field_shapes</code> and accessed the coordinates at index position 0 in <code>s</code> and appended the object to the list <code>geom</code>. Use this logic as a template for how you could access the value in index position 1 and append it to a list.</em></p>
+<p><strong>2. Once you have created this <code>Series</code>, you should set its type to <code>int32</code> using the <code>astype()</code> method.</strong> <em>These are the <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.astype.html" target="_blank">docs</a> for <code>astype()</code>.</em></p>
+<p><strong>3. Then we need to combine the <code>Series</code> of field ids with the <code>GeoSeries</code> of field centroids in a <code>GeoDataFrame</code>. You can do this using the <code>GeoDataFrame()</code> constructor function: <code>field_id_df = gpd.GeoDataFrame({'field_id': field_ids, 'geometry': geom})</code> (<code>field_ids</code> is a <code>Series</code> of field id values and <code>geom</code> is a <code>GeoSeries</code> of points.</strong></p>
+<p><strong>4. Finally, we need to drop rows in the <code>GeoDataFrame</code> with 0 values in the <code>field_id</code> column as 0 as these shapes don’t have a crop type label.</strong> <em>You can use the <code>loc[]</code> method for this and refer back to the <strong>Subsetting pandas <code>DataFrame</code>s</strong> section from the self-guided lab in week 3</em>.</p>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>field_id_path <span class="op">=</span> os.path.join(image_dir_path, <span class="st">"field/field_ids.tif"</span>)</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> rasterio.<span class="bu">open</span>(field_id_path) <span class="im">as</span> src:</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># shapes is a generator</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>    shapes <span class="op">=</span> features.shapes(src.read(), transform<span class="op">=</span>src.transform)</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># list of geometry and shape value</span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>    field_shapes <span class="op">=</span> <span class="bu">list</span>(shapes)</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># create a list of Shapely Geometry objects</span></span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>    geom <span class="op">=</span> []</span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> s <span class="kw">in</span> field_shapes:</span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>        geom.append(shapely.geometry.shape(s[<span class="dv">0</span>]))</span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># compute centroids</span></span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>    geom <span class="op">=</span> gpd.GeoSeries(geom, crs<span class="op">=</span>src.crs).centroid</span>
+<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># reproject to EPSG 4326</span></span>
+<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a>    geom <span class="op">=</span> geom.to_crs(<span class="st">"EPSG:4326"</span>)</span>
+<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a>    <span class="co">## ADD CODE HERE ##</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>
+<b>answer</b>
+</summary>
+<div class="sourceCode" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>field_id_path <span class="op">=</span> os.path.join(image_dir_path, <span class="st">"field/field_ids.tif"</span>)</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> rasterio.<span class="bu">open</span>(field_id_path) <span class="im">as</span> src:</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># shapes is a generator</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>    shapes <span class="op">=</span> features.shapes(src.read(), transform<span class="op">=</span>src.transform)</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># list of geometry and shape value</span></span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>    field_shapes <span class="op">=</span> <span class="bu">list</span>(shapes)</span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># create a list of Shapely Geometry objects</span></span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>    geom <span class="op">=</span> []</span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> s <span class="kw">in</span> field_shapes:</span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a>        geom.append(shapely.geometry.shape(s[<span class="dv">0</span>]))</span>
+<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># compute centroids</span></span>
+<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a>    geom <span class="op">=</span> gpd.GeoSeries(geom, crs<span class="op">=</span>src.crs).centroid</span>
+<span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-17"><a href="#cb34-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># reproject to EPSG 4326</span></span>
+<span id="cb34-18"><a href="#cb34-18" aria-hidden="true" tabindex="-1"></a>    geom <span class="op">=</span> geom.to_crs(<span class="st">"EPSG:4326"</span>)</span>
+<span id="cb34-19"><a href="#cb34-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-20"><a href="#cb34-20" aria-hidden="true" tabindex="-1"></a>    <span class="co"># create a Series of field ids</span></span>
+<span id="cb34-21"><a href="#cb34-21" aria-hidden="true" tabindex="-1"></a>    field_ids <span class="op">=</span> []</span>
+<span id="cb34-22"><a href="#cb34-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> f <span class="kw">in</span> field_shapes:</span>
+<span id="cb34-23"><a href="#cb34-23" aria-hidden="true" tabindex="-1"></a>        field_ids.append(f[<span class="dv">1</span>])</span>
+<span id="cb34-24"><a href="#cb34-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-25"><a href="#cb34-25" aria-hidden="true" tabindex="-1"></a>    field_ids <span class="op">=</span> pd.Series(field_ids).astype(<span class="st">"int32"</span>)</span>
+<span id="cb34-26"><a href="#cb34-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-27"><a href="#cb34-27" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Combine the Series and GeoSeries into a DataFrame</span></span>
+<span id="cb34-28"><a href="#cb34-28" aria-hidden="true" tabindex="-1"></a>    field_id_df <span class="op">=</span> gpd.GeoDataFrame({<span class="st">'field_id'</span>: field_ids, <span class="st">'geometry'</span>: geom})</span>
+<span id="cb34-29"><a href="#cb34-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-30"><a href="#cb34-30" aria-hidden="true" tabindex="-1"></a>    <span class="co"># drop shapes with value 0</span></span>
+<span id="cb34-31"><a href="#cb34-31" aria-hidden="true" tabindex="-1"></a>    field_id_df <span class="op">=</span> field_id_df.loc[field_id_df[<span class="st">"field_id"</span>] <span class="op">&gt;</span> <span class="dv">0</span>, :]</span>
+<span id="cb34-32"><a href="#cb34-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-33"><a href="#cb34-33" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(field_id_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<p>If you’ve successfully completed the recap quiz, you should have a variable <code>field_id_df</code> that references a <code>GeoDataFrame</code> with a column of <code>field_id</code> values and a <code>geometry</code> column of field centroids.</p>
+<div class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>field_id_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="22">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>field_id</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1316</td>
+      <td>POINT (82.26570 27.20954)</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>772</td>
+      <td>POINT (82.26652 27.20787)</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1482</td>
+      <td>POINT (82.25637 27.20762)</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1054</td>
+      <td>POINT (82.25616 27.20729)</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>80</td>
+      <td>POINT (82.24644 27.20586)</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>1009</td>
+      <td>POINT (82.26597 27.20550)</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>81</td>
+      <td>POINT (82.24963 27.20397)</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>1481</td>
+      <td>POINT (82.24662 27.20339)</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>771</td>
+      <td>POINT (82.26366 27.20207)</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="joins" class="level2">
+<h2 class="anchored" data-anchor-id="joins">Joins</h2>
+<section id="key-based-joins" class="level3">
+<h3 class="anchored" data-anchor-id="key-based-joins">Key-based joins</h3>
+<p>We now have two separate data objects in our Python program. We have a <code>DataFrame</code> storing average spectral reflectance values for each field, field id, and crop type label attributes (this is referenced by the variable <code>dfs</code>). We also have a <code>GeoDataFrame</code> storing the field id attribute and the field centroid as a point <code>Geometry</code> (this is referenced by the variable <code>field_id_df</code>).</p>
+<p>When two tables have a matching column(s) we can use join operations to combine them. Rows in both tables are matched using common values in the matching column(s) and the joined table has columns from both tables.</p>
+<p>Joining tables is a common operation in relational databases using SQL and the same operations can be implemented in Pandas using <a href="https://pandas.pydata.org/docs/user_guide/merging.html#database-style-dataframe-or-named-series-joining-merging" target="_blank"><code>merge()</code></a> functions.</p>
+<p>Some important concepts for join operations:</p>
+<ul>
+<li>The columns with values used to match rows are called often called <strong>keys</strong>.</li>
+<li><strong>one-to-one</strong> joins are where there is exactly one match between rows in the two tables being joined.</li>
+<li><strong>many-to-one</strong> joins are where a row in one table can match one or more rows in another table.</li>
+<li><strong>left joins</strong> keep all rows in the left table and only matching rows in the right table.</li>
+<li><strong>inner joins</strong> keep only matching rows in the left and right tables.</li>
+</ul>
+<p>The Pandas <a href="https://pandas.pydata.org/docs/user_guide/merging.html#database-style-dataframe-or-named-series-joining-merging" target="_blank"><code>merge()</code></a> docs and <a href="https://wesmckinney.com/book/data-wrangling.html#prep_merge_join" target="_blank">McKinney (2022)</a> provide useful explanations for how join operations work.</p>
+<p><img src="https://github.com/data-analysis-3300-3003/figs/raw/main/week-4-joins.jpg" class="img-fluid"></p>
+<p>Let’s use consider these concepts in the context of joining our <code>DataFrame</code> <code>dfs</code> storing average spectral reflectance values and crop type labels and our <code>GeoDataFrame</code> <code>field_id_df</code> which stores the field centroids.</p>
+<p>The matching column in both tables is <code>field_id</code>. This the joining key.</p>
+<p>We are joining the two tables on <code>field_id</code> which should be unique to each field. Therefore, we are implementing a one-to-one join.</p>
+<p>As we’re using the field centroids for subsequent operations, we only want to keep fields that have a centroid value. Therefore, we’ll use an inner join.</p>
+<p>Pandas <code>merge()</code> function expects the following arguments:</p>
+<ul>
+<li><code>left</code> - left table in the join.</li>
+<li><code>right</code> - right table in the join.</li>
+<li><code>how</code> - whether to use a left or inner join.</li>
+<li><code>left_on</code> - columns in left table to use as keys.</li>
+<li><code>right_on</code> - columns in the right table to use as keys.</li>
+</ul>
+<section id="recap-quiz-3" class="level4">
+<h4 class="anchored" data-anchor-id="recap-quiz-3">Recap quiz</h4>
+<p><strong>Can you use the <code>merge()</code> function to perform an inner join using the <code>field_id</code> column combining <code>dfs</code> and <code>field_id_df</code>? If the join is successful you should see a <code>geometry</code> column appended to the columns in <code>dfs</code>. Assign the result of this <code>merge()</code> to the variable <code>joined_df</code>.</strong></p>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co">## ADD CODE HERE ##</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>
+<b>answer</b>
+</summary>
+<div class="sourceCode" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>joined_df <span class="op">=</span> pd.merge(left<span class="op">=</span>dfs, right<span class="op">=</span>field_id_df, how<span class="op">=</span><span class="st">"inner"</span>, left_on<span class="op">=</span>[<span class="st">"field_id"</span>], right_on<span class="op">=</span>[<span class="st">"field_id"</span>])</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="co"># display on the first few rows</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>joined_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># convert joined_df to GeoDataFrame</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>joined_df <span class="op">=</span> gpd.GeoDataFrame(joined_df, geometry<span class="op">=</span>joined_df.geometry, crs<span class="op">=</span><span class="st">"EPSG:4326"</span>)</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(joined_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="25">
+<pre><code>geopandas.geodataframe.GeoDataFrame</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="spatial-joins" class="level3">
+<h3 class="anchored" data-anchor-id="spatial-joins">Spatial Joins</h3>
+<p>Spatial join operations join the attributes of two vector layers based on their relationship in space. For example, if we have a <code>GeoDataFrame</code> storing field boundaries (polygon geometries) and field attributes and another <code>GeoDataFrame</code> storing shire boundaries (polygon geometries) and a shire name as an attribute, we can join the the two tables based on the largest intersection (overlap) between field boundaries and shire boundaries. If the field boundaries <code>GeoDataFrame</code> was the left table in the spatial join, for each row (or geometry feature) the shire name from the shire with largest intersection would be joined to that table in a new column.</p>
+<p>GeoPandas provides an <a href="https://geopandas.org/en/stable/docs/user_guide/mergingdata.html#spatial-joins" target="_blank"><code>sjoin()</code> function</a> that can be used for spatial joins of two <code>GeoDataFrames</code>. The <code>sjoin()</code> function expects the following as arguments:</p>
+<ul>
+<li><code>left_df</code> - left <code>GeoDataFrame</code> in the spatial join.</li>
+<li><code>right_df</code> - right <code>GeoDataFrame</code> in the spatial join - columns from the <code>right_df</code> will be joined to <code>left_df</code>.</li>
+<li><code>how</code> - whether to use a left, inner, or right join.</li>
+<li><code>predicate</code> - a binary predicate that defines the spatial relationship between features in <code>right_df</code> and <code>left_df</code>.</li>
+</ul>
+<p>Binary predicates that can be used are:</p>
+<ul>
+<li>intersects</li>
+<li>contains</li>
+<li>crosses</li>
+<li>within</li>
+<li>touches</li>
+<li>overlaps</li>
+</ul>
+<p>Intersects is the default predicate for spatial joins in GeoPandas.</p>
+<p><img src="https://github.com/data-analysis-3300-3003/figs/raw/main/week-4-spatial-join.jpg" class="img-fluid"></p>
+<p>To complete our data transformation routine we need to add a column to <code>joined_df</code> that stores the District that the field is located in. We can do this using a spatial join based on the intersect of the field’s centroid (point geometry) and the shape of the District (polygon geometry).</p>
+<p>But, we need to read in District geometries for India obtained from <a href="https://www.geoboundaries.org" target="_blank">geoBoundaries</a>.</p>
+<div class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>india_districts <span class="op">=</span> gpd.read_file(os.path.join(os.getcwd(), <span class="st">"week-4"</span>, <span class="st">"india-adm"</span>, <span class="st">"geoBoundaries-IND-ADM2_simplified.topojson"</span>))</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>india_districts.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="28">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>id</th>
+      <th>OBJECTID</th>
+      <th>shapeName</th>
+      <th>Level</th>
+      <th>Shape_Length</th>
+      <th>Shape_Area</th>
+      <th>shapeID</th>
+      <th>shapeGroup</th>
+      <th>shapeType</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>None</td>
+      <td>1</td>
+      <td>Ashoknagar</td>
+      <td>ADM2</td>
+      <td>3.925451</td>
+      <td>0.421664</td>
+      <td>IND-ADM2-76128533B24212364</td>
+      <td>IND</td>
+      <td>ADM2</td>
+      <td>POLYGON ((78.17492 24.84254, 78.19372 24.83812...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>None</td>
+      <td>2</td>
+      <td>Raisen</td>
+      <td>ADM2</td>
+      <td>7.526803</td>
+      <td>0.748785</td>
+      <td>IND-ADM2-76128533B65758206</td>
+      <td>IND</td>
+      <td>ADM2</td>
+      <td>POLYGON ((77.38164 23.07007, 77.38918 23.07290...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>None</td>
+      <td>3</td>
+      <td>Chhindwara</td>
+      <td>ADM2</td>
+      <td>7.724320</td>
+      <td>1.033143</td>
+      <td>IND-ADM2-76128533B77651862</td>
+      <td>IND</td>
+      <td>ADM2</td>
+      <td>POLYGON ((79.23985 22.79130, 79.24010 22.78983...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>None</td>
+      <td>4</td>
+      <td>Betul</td>
+      <td>ADM2</td>
+      <td>6.736091</td>
+      <td>0.875211</td>
+      <td>IND-ADM2-76128533B14961718</td>
+      <td>IND</td>
+      <td>ADM2</td>
+      <td>POLYGON ((78.27227 22.39968, 78.27821 22.39640...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>None</td>
+      <td>5</td>
+      <td>Hoshangabad</td>
+      <td>ADM2</td>
+      <td>5.467521</td>
+      <td>0.586915</td>
+      <td>IND-ADM2-76128533B94465219</td>
+      <td>IND</td>
+      <td>ADM2</td>
+      <td>POLYGON ((78.03032 22.79956, 78.03799 22.79956...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<p>Let’s quickly tidy up the India Districts <code>GeoDataFrame</code> to keep only the District name and <code>geometry</code> columns.</p>
+<div class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>india_districts <span class="op">=</span> india_districts.loc[:, [<span class="st">"shapeName"</span>, <span class="st">"geometry"</span>]]</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>india_districts.columns <span class="op">=</span> [<span class="st">"district"</span>, <span class="st">"geometry"</span>]</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>india_districts <span class="op">=</span> india_districts.set_crs(<span class="st">"EPSG:4326"</span>)</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>india_districts.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="29">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>district</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Ashoknagar</td>
+      <td>POLYGON ((78.17492 24.84254, 78.19372 24.83812...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Raisen</td>
+      <td>POLYGON ((77.38164 23.07007, 77.38918 23.07290...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Chhindwara</td>
+      <td>POLYGON ((79.23985 22.79130, 79.24010 22.78983...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Betul</td>
+      <td>POLYGON ((78.27227 22.39968, 78.27821 22.39640...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Hoshangabad</td>
+      <td>POLYGON ((78.03032 22.79956, 78.03799 22.79956...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>india_districts.plot(column<span class="op">=</span><span class="st">"district"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="30">
+<pre><code>&lt;AxesSubplot: &gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="lab-4-self-guided_files/figure-html/cell-28-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<p>That looks like India. Let’s implement our final data transformation step and perform a spatial join to add a District column to <code>joined_df</code>.</p>
+<section id="recap-quiz-4" class="level4">
+<h4 class="anchored" data-anchor-id="recap-quiz-4">Recap quiz</h4>
+<p><strong>Use the GeoPandas docs to implement a spatial join with the <a href="https://geopandas.org/en/stable/docs/reference/api/geopandas.sjoin.html" target="_blank"><code>sjoin()</code> function</a> that joins <code>india_districts</code> (as <code>right_df</code>) to <code>joined_df</code> (as <code>left_df</code>) using an inner join and <code>intersects</code> predicate. Assign the result to the variable <code>joined_df_district</code>.</strong></p>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co">## ADD CODE HERE ##</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>
+<b>answer</b>
+</summary>
+<div class="sourceCode" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># spatial join</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>joined_df_district <span class="op">=</span> gpd.sjoin(</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>    left_df<span class="op">=</span>joined_df, </span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>    right_df<span class="op">=</span>india_districts, </span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>    how<span class="op">=</span><span class="st">"inner"</span>, </span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>    predicate<span class="op">=</span><span class="st">"intersects"</span></span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a>joined_df_district.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</section>
+</section>
+<section id="save-file" class="level3">
+<h3 class="anchored" data-anchor-id="save-file">Save file</h3>
+<p>Finally, let’s write our processed data ready for training and testing a machine learning model to file.</p>
+<section id="recap-quiz-5" class="level4">
+<h4 class="anchored" data-anchor-id="recap-quiz-5">Recap quiz</h4>
+<p><strong>Can you save the data referenced by <code>joined_df_district</code> to a GeoJSON file on disk? Save the data with the filename <code>processed_data.geojson</code> at the path created by <code>os.path.join(os.getcwd(), "week-4", "processed_data.geojson")</code>.</strong></p>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co">## ADD CODE HERE ##</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>
+<b>answer</b>
+</summary>
+<div class="sourceCode" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># save file</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>out_path <span class="op">=</span> os.path.join(os.getcwd(), <span class="st">"week-4"</span>, <span class="st">"processed_data.geojson"</span>)</span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>joined_df_district.to_file(out_path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./lab-4.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Week 4</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./lab-5.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-title">Week 5</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
