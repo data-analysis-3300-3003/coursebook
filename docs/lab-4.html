@@ -438,7 +438,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>In week 2 we showed that files are organised within a hierarchy of directories and sub-directories (or folders) in a computer system. Here, each sample (a 256 x 256 pixel image footprint) is stored in its own sub-directory. We can explore the structure of these directories and how files are arranged within them.</p>
 <p>First, let’s list the first level of sub-directories within the <code>week-4</code> folder. Each of these sub-directories corresponds to a 256 x 256 pixel image.</p>
 <p>To recap, we can use functions provided by the <code>os</code> package to help us explore directories. The <code>os.path.join()</code> function takes a sequence of string data representing directory names or file names and combines them into a path. The <code>os.listdir()</code> function lists all files or sub-directories in a directory pointed to by a path.</p>
-<div class="cell" data-execution_count="9">
+<div class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the image and labels data</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>data_path <span class="op">=</span> os.path.join(os.getcwd(), <span class="st">"week-4"</span>, <span class="st">"images"</span>)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -469,13 +469,14 @@ ref_agrifieldnet_competition_v1_source_0b89a</code></pre>
 <li>A <code>field</code> sub-directory which contains a <code>field_ids.tif</code> file. This file stores field ids as pixel values.</li>
 <li>A <code>label</code> sub-directory which contains a <code>raster_labels.tif</code> file. This file stores a numeric indicator of crop type as pixel values. These files store target labels used to train and test a machine learning model that predicts crop type from spectral reflectance data.</li>
 </ul>
-<div class="cell" data-execution_count="10">
+<div class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> root, dirs, files <span class="kw">in</span> os.walk(os.path.join(data_path, image_dirs[<span class="dv">1</span>]), topdown<span class="op">=</span><span class="va">True</span>):</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(root)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> f <span class="kw">in</span> files:</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"    </span><span class="sc">{</span>f<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>/home/jovyan/work/week-4/images/ref_agrifieldnet_competition_v1_source_0a664
+    .DS_Store
     B01.tif
     B02.tif
     B03.tif
@@ -499,7 +500,7 @@ ref_agrifieldnet_competition_v1_source_0b89a</code></pre>
 <h3 class="anchored" data-anchor-id="data-visualisation">Data visualisation</h3>
 <p>Let’s quickly visualise some of this data to get an idea of its structure. First, let’s visualise the Sentinel-2 satellite image data starting with the image storing reflectance in the green visible portion of the electromagnetic spectrum.</p>
 <p>We can see that the image shape is 256 x 256 pixels.</p>
-<div class="cell" data-execution_count="15">
+<div class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># path to the green band GeoTIFF file</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>s2_green_path <span class="op">=</span> os.path.join(os.getcwd(), <span class="st">"week-4"</span>, <span class="st">"images"</span>, <span class="st">"ref_agrifieldnet_competition_v1_source_0a664"</span>, <span class="st">"B03.tif"</span>)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -518,7 +519,7 @@ ref_agrifieldnet_competition_v1_source_0b89a</code></pre>
 </div>
 </div>
 <p>Let’s also create a true colour composite image using the red, green, and blue band images.</p>
-<div class="cell" data-execution_count="14">
+<div class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># path to the red band GeoTIFF file</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>s2_red_path <span class="op">=</span> os.path.join(os.getcwd(), <span class="st">"week-4"</span>, <span class="st">"images"</span>, <span class="st">"ref_agrifieldnet_competition_v1_source_0a664"</span>, <span class="st">"B04.tif"</span>)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -550,7 +551,7 @@ ref_agrifieldnet_competition_v1_source_0b89a</code></pre>
 </div>
 </div>
 <p>Now, let’s explore the field id images. We can see that the image contains a few fields with ids assigned to them. Hover over each field and you can see its numeric id value. However, we can also see that a large portion of the image is covered by pixels with the value 0. These locations are not labelled fields and we will need to drop them from our dataset.</p>
-<div class="cell" data-execution_count="16">
+<div class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># path to the GeoTIFF file</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>field_id_path <span class="op">=</span> os.path.join(os.getcwd(), <span class="st">"week-4"</span>, <span class="st">"images"</span>, <span class="st">"ref_agrifieldnet_competition_v1_source_0a664"</span>, <span class="st">"field/field_ids.tif"</span>)</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -580,7 +581,7 @@ ref_agrifieldnet_competition_v1_source_0b89a</code></pre>
 <li>16 - Bersem</li>
 <li>36 - Rice</li>
 </ul>
-<div class="cell" data-execution_count="17">
+<div class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># path to the GeoTIFF file</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>label_path <span class="op">=</span> os.path.join(os.getcwd(), <span class="st">"week-4"</span>, <span class="st">"images"</span>, image_dirs[<span class="dv">1</span>], <span class="st">"label/raster_labels.tif"</span>)</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -604,7 +605,7 @@ ref_agrifieldnet_competition_v1_source_0b89a</code></pre>
 <p>The dimensions of a NumPy <code>ndarray</code> are called axes. A single band raster layer would have two axes, rows (height) would be arranged along the 0th axis and columns (width) along the 1st axis. The shape of an <code>ndarray</code> refers to the number of elements along each axis.</p>
 <p><img src="https://github.com/data-analysis-3300-3003/figs/raw/main/week-4-numpy-ndarray.jpg" class="img-fluid"></p>
 <p>Let’s quickly revise these concepts by working with a raster layer with 3 rows and 3 columns.</p>
-<div class="cell" data-execution_count="18">
+<div class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>demo_raster <span class="op">=</span> np.array(</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    [[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>],</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>],</span>
@@ -617,7 +618,7 @@ ref_agrifieldnet_competition_v1_source_0b89a</code></pre>
 </div>
 </div>
 <p>This <code>ndarray</code> object should have 2 axes corresponding to rows (0 axis) and columns (1 axis) with 3 elements along each axis.</p>
-<div class="cell" data-execution_count="19">
+<div class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"the shape of demo_raster is </span><span class="sc">{</span>demo_raster<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"the number of elements on the 0 axis (rows) is </span><span class="sc">{</span>demo_raster<span class="sc">.</span>shape[<span class="dv">0</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"the number of elements on the 1 axis (columns) is </span><span class="sc">{</span>demo_raster<span class="sc">.</span>shape[<span class="dv">1</span>]<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -633,7 +634,7 @@ the number of elements on the 1 axis (columns) is 3</code></pre>
 <p>This is a form of subsetting opertation where you select values from a NumPy <code>ndarray</code> object based on their index locations. These operations are generally referred to as <strong>indexing</strong> and <strong>slicing</strong> when working with NumPy <code>ndarray</code> objects. <a href="https://geocompr.robinlovelace.net/index.html" target="_blank">Lovelace et al.&nbsp;(2022)</a> refer to these operations on raster data as <em>row-column subsetting</em>.</p>
 <p><img src="https://github.com/data-analysis-3300-3003/figs/raw/main/week-4-subset-numpy-ndarray.jpg" class="img-fluid"></p>
 <p>We can extract a value from a NumPy <code>ndarray</code> based on its index location. For example, the first element of a 2-Dimensional <code>ndarray</code> is at location <code>[0, 0]</code> (i.e.&nbsp;the 0th row and 0th column).</p>
-<div class="cell" data-execution_count="20">
+<div class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>first_element <span class="op">=</span> demo_raster[<span class="dv">0</span>, <span class="dv">0</span>]</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(first_element)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -642,7 +643,7 @@ the number of elements on the 1 axis (columns) is 3</code></pre>
 </div>
 <p>We can use the <code>:</code> symbol to specify slices of a NumPy <code>ndarray</code> to subset. For example, the following are three different ways of slicing the first two rows.</p>
 <p>Note that the slice is not inclusive of the index location after the <code>:</code> symbol. So, <code>demo_raster[0:2, ]</code> would select the first two rows of <code>demo_raster</code> - row 0 and row 1 (remember Python indexes from 0).</p>
-<div class="cell" data-execution_count="21">
+<div class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>two_rows_1 <span class="op">=</span> demo_raster[<span class="dv">0</span>:<span class="dv">2</span>, ]</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(two_rows_1)</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -661,7 +662,7 @@ the number of elements on the 1 axis (columns) is 3</code></pre>
 </div>
 </div>
 <p>We can use multiple slices for different axes. For example, if we wanted to subset values from a selection of rows and columns.</p>
-<div class="cell" data-execution_count="22">
+<div class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>two_rows_cols <span class="op">=</span> demo_raster[:<span class="dv">2</span>, <span class="dv">1</span>:]</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(two_rows_cols)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -682,55 +683,55 @@ the number of elements on the 1 axis (columns) is 3</code></pre>
 <b>Detailed step-by-step notes on the band stacking routine</b>
 </summary>
 <p>Create an empty list which we’ll use to store <code>ndarray</code> objects of data read from the <code>B*.tif</code> GeoTIFF files. This is defined as <code>bands = []</code>, the <code>[]</code> creates an empty list:</p>
-<pre class="{python}"><code># empty list to append ndarray of reflectance value for each band to
-bands = []</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># empty list to append ndarray of reflectance value for each band to</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>bands <span class="op">=</span> []</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>
 </p>
 <p>Now, iterate over the list of band names referenced by <code>s2_bands</code> and for each band read the data stored in the corresponding <code>B*.tif</code> file into a <code>ndarray</code> and append the <code>ndarray</code> to the <code>bands</code> list using the <code>bands.append(src.read(1))</code> command.</p>
-<pre class="{python}"><code># loop over each band, read in the data from the corresponding GeoTIFF file into an ndarray
-for b in s2_bands:
-    band_path = os.path.join(image_dir_path, b + ".tif")
-    with rasterio.open(band_path) as src:
-        # append the ndarray storing the Sentinel-2 reflectance data for a band to a list
-        bands.append(src.read(1))</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># loop over each band, read in the data from the corresponding GeoTIFF file into an ndarray</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> b <span class="kw">in</span> s2_bands:</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    band_path <span class="op">=</span> os.path.join(image_dir_path, b <span class="op">+</span> <span class="st">".tif"</span>)</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> rasterio.<span class="bu">open</span>(band_path) <span class="im">as</span> src:</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>        <span class="co"># append the ndarray storing the Sentinel-2 reflectance data for a band to a list</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>        bands.append(src.read(<span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>
 </p>
 <p>You will notice the use of the context manager denoted by the <code>with</code> block to read data from GeoTIFF files into a NumPy <code>ndarray</code>. This was covered in week 2, but let’s revise this quickly:</p>
-<pre class="{python}"><code>with rasterio.open(band_path) as src:</code></pre>
+<div class="sourceCode" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> rasterio.<span class="bu">open</span>(band_path) <span class="im">as</span> src:</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>
 </p>
 <p>Creates a file object referenced by <code>src</code> which points to the file at the path referenced by <code>band_path</code> (here a GeoTIFF file). The use of the <code>with</code> block as a context manager takes care of closing the connection <code>src</code> when we have finished reading data from the file. The file object <code>src</code> has a <code>read()</code> method which can be used to read data from the file it connects to into our Python program.</p>
-<pre class="{python}"><code>src.read(1)</code></pre>
+<div class="sourceCode" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>src.read(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>
 </p>
 <p>For each <code>B*.tif</code> file in a directory, we read it’s data into our program as:</p>
-<pre class="{python}"><code># loop over each band, read in the data from the corresponding GeoTIFF file into an ndarray
-for b in s2_bands:
-    band_path = os.path.join(image_dir_path, b + ".tif")
-    with rasterio.open(band_path) as src:
-        # append the ndarray storing the Sentinel-2 reflectance data for a band to a list
-        bands.append(src.read(1))</code></pre>
+<div class="sourceCode" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># loop over each band, read in the data from the corresponding GeoTIFF file into an ndarray</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> b <span class="kw">in</span> s2_bands:</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    band_path <span class="op">=</span> os.path.join(image_dir_path, b <span class="op">+</span> <span class="st">".tif"</span>)</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> rasterio.<span class="bu">open</span>(band_path) <span class="im">as</span> src:</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>        <span class="co"># append the ndarray storing the Sentinel-2 reflectance data for a band to a list</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>        bands.append(src.read(<span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>
 </p>
 <p>Once we have finished looping over the bands in the directory <code>i</code>, we can stack the <code>ndarray</code> objects in the list <code>bands</code> to form a NumPy <code>ndarray</code> representation of a multiband raster. We do this by passing the list of <code>ndarray</code> objects into the NumPy <code>stack()</code> function.</p>
-<pre class="{python}"><code># empty list to append ndarray of reflectance value for each band to
-bands = []
-    
-# loop over each band, read in the data from the corresponding GeoTIFF file into an ndarray
-for b in s2_bands:
-    band_path = os.path.join(image_dir_path, b + ".tif")
-    with rasterio.open(band_path) as src:
-        # append the ndarray storing the Sentinel-2 reflectance data for a band to a list
-        bands.append(src.read(1))
-
-# stack all bands in the list to create a multiband raster
-multiband_raster = np.stack(bands)</code></pre>
+<div class="sourceCode" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># empty list to append ndarray of reflectance value for each band to</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>bands <span class="op">=</span> []</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="co"># loop over each band, read in the data from the corresponding GeoTIFF file into an ndarray</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> b <span class="kw">in</span> s2_bands:</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>    band_path <span class="op">=</span> os.path.join(image_dir_path, b <span class="op">+</span> <span class="st">".tif"</span>)</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> rasterio.<span class="bu">open</span>(band_path) <span class="im">as</span> src:</span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>        <span class="co"># append the ndarray storing the Sentinel-2 reflectance data for a band to a list</span></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>        bands.append(src.read(<span class="dv">1</span>))</span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a><span class="co"># stack all bands in the list to create a multiband raster</span></span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>multiband_raster <span class="op">=</span> np.stack(bands)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>
 </p>
 </details>
 <p>Here, we’ll keep working the GeoTIFF files in the following directory:</p>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>image_dir_path <span class="op">=</span> os.path.join(os.getcwd(), <span class="st">"week-4"</span>, <span class="st">"images"</span>, <span class="st">"ref_agrifieldnet_competition_v1_source_0a664"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell" data-execution_count="24">
+<div class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># stacking bands </span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Sentinel-2 band names </span></span>
@@ -765,8 +766,8 @@ reading B11.tif
 reading B12.tif</code></pre>
 </div>
 </div>
-<p>Let’s inspect the output of the band stacking workflow. <code>multiband_raster</code> should be a <code>ndarray</code> objects with rank 3 with three axes (bands, rows, columns).</p>
-<div class="cell" data-execution_count="25">
+<p>Let’s inspect the output of the band stacking workflow. <code>multiband_raster</code> should be a <code>ndarray</code> objects of rank 3 with three axes (bands, rows, columns).</p>
+<div class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"the shape of the bands is </span><span class="sc">{</span>multiband_raster<span class="sc">.</span>shape<span class="sc">}</span><span class="ss"> with rank </span><span class="sc">{</span><span class="bu">len</span>(multiband_raster.shape)<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>the shape of the bands is (12, 256, 256) with rank 3</code></pre>
@@ -785,7 +786,7 @@ reading B12.tif</code></pre>
 <p>Thus, the NDVI is computed via division, subtraction, and addition operations computed on a pixel by pixel basis using raster data corresponding to red and near infrared reflectance.</p>
 <p>NumPy provides tools for fast mathematical operations on <code>ndarray</code> objects. If <code>ndarray</code> objects have the same shape, a mathematical combination of two or more <code>ndarray</code> objects will be computed on an element by element (i.e.&nbsp;pixel by pixel) basis without needing to write for loops to iterate over <code>ndarray</code> elements. This feature of NumPy is called <em>vectorisation</em> and makes NumPy a useful tool for processing and analysing large amounts of image data.</p>
 <p>For example, if we wanted to add two NumPy <code>ndarray</code> objects together on a pixelwise basis we could do this using for loops in Python:</p>
-<div class="cell" data-execution_count="26">
+<div class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># slow array addition using for loops</span></span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> np.array(</span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>    [[<span class="dv">1</span>, <span class="dv">2</span>],</span>
@@ -818,7 +819,7 @@ processing column 1
 </div>
 <p>However, this approach will be slow if we are working with large raster datasets in NumPy <code>ndarray</code>s. It is also quite verbose, we need to write two for loops just to perform element-wise addition of two arrays. These element-wise operations can be computed in isolation. In other words adding the elements in pixel location <code>0, 0</code> does not depend on the result of adding elements in pixel location <code>0, 1</code>. This means that element-wise operations can be performed in parallel, which is termed vectorised computation in NumPy, and you can use NumPy’s element-wise operations to perform mathematical operations on <code>ndarray</code>s in parallel.</p>
 <p>This has two advantages: speed (particularly when working with large or many images) and cleaner code. The NumPy element-wise approach to adding the <code>ndarray</code>s <code>a</code> and <code>b</code> above is:</p>
-<div class="cell" data-execution_count="27">
+<div class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># vectorised addition using for loops</span></span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> np.array(</span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>    [[<span class="dv">1</span>, <span class="dv">2</span>],</span>
@@ -836,10 +837,10 @@ processing column 1
  [6 8]]</code></pre>
 </div>
 </div>
-<p>Now we’re ready to use NumPy’s element wise operations to compute the NDVI. First, let’s do this for a single image before extending the routine to automate the generation of NDVI bands for all images. We’ll get the first <code>ndarray</code> object from <code>stacked_bands</code>, a list of rank 3 (bands, rows, cols) <code>ndarray</code> objects with each band storing reflectance in different wavelengths.</p>
+<p>Now we’re ready to use NumPy’s element wise operations to compute the NDVI. <code>multiband_raster</code> is an <code>ndarray</code> objects with each band storing reflectance in different wavelengths.</p>
 <p>Red reflectance is stored in band 4 of Sentinel-2 images. Thus, red reflectance would be located at index position 3 (the fourth element as we start indexing at 0) on axis 0.</p>
 <p>Near infrared reflectance is stored in band 8 of Sentinel-2 images. By the same logic near infrared reflectance is located at index position 7 on axis 0.</p>
-<div class="cell" data-execution_count="28">
+<div class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># compute NDVI</span></span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="co"># get the red band - cast to float</span></span>
@@ -857,7 +858,7 @@ processing column 1
 </div>
 </div>
 <p>NDVI values fall between -1 and 1 with values closer to 1 indicating greener vegetation and values less than 0 indicating an absence of vegetation. Let’s visualise the NDVI band and check the values fall within this range.</p>
-<div class="cell" data-execution_count="29">
+<div class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># visualise the ndvi image</span></span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>px.imshow(ndvi, color_continuous_scale<span class="op">=</span><span class="st">"viridis"</span>, contrast_rescaling<span class="op">=</span><span class="st">"minmax"</span>, height<span class="op">=</span><span class="dv">600</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -1103,7 +1104,7 @@ reading B12.tif</code></pre>
 <p>The next stage in our data transformation routine is to reshape the data from an image-style structure (i.e.&nbsp;where variables are stored along the bands or 0 axis) to a tabular style format where variables are stored along the columns axis. A tabular style dataset can be represented as a rank 2 <code>ndarray</code> (axis 0 for rows and axis 1 for columns). Therefore, we need a reshaping operation that will transform a rank 3 <code>ndarray</code> object to a rank 2 <code>ndarray</code> object and arrange variables along the 1 axis.</p>
 <p><img src="https://github.com/data-analysis-3300-3003/figs/raw/main/week-4-reshaping.jpg" class="img-fluid"></p>
 <p>An <code>ndarray</code> object has a <a href="https://numpy.org/doc/stable/reference/generated/numpy.reshape.html" target="_blank"><code>reshape()</code></a> method. This method takes in a tuple of integers that describe the shape of the new <code>ndarray</code>. For example, let’s demonstrate reshaping a <code>3 x 3</code> <code>ndarray</code> to a <code>9 x 1</code> <code>ndarray</code>.</p>
-<div class="cell" data-execution_count="43">
+<div class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> np.array([[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], </span>
 <span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>             [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>],</span>
 <span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>             [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]])</span>
@@ -1123,7 +1124,7 @@ reading B12.tif</code></pre>
 </div>
 </div>
 <p>The transpose is another common operation used for reshaping array-like objects. The transpose operation flips the rows and columns of an array. The transpose of a <code>5 x 4</code> array is a <code>4 x 5</code> array. NumPy <code>ndarray</code> objects have a transpose property <code>T</code> which returns the transpose of the array. We can demonstrate a few examples of viewing the transpose of an <code>ndarray</code> so you can build up an intuition of how it works.</p>
-<div class="cell" data-execution_count="44">
+<div class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> np.array([[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>], </span>
 <span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>             [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>],</span>
 <span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>             [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>]])</span>
@@ -1139,7 +1140,7 @@ reading B12.tif</code></pre>
  [4 4 4]]</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="45">
+<div class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> np.array([[<span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>], </span>
 <span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>             [<span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>],</span>
 <span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>             [<span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>]])</span>
@@ -1156,7 +1157,7 @@ reading B12.tif</code></pre>
 </div>
 <p>We’ll need to reshape the <code>ndarray</code> object from rank 3 with shape <code>(bands, rows, cols)</code> to a rank 2 array with shape <code>(bands, (rows * cols))</code>. Instead of arranging the elements for each variable (i.e.&nbsp;reflectance values in different wavelengths, crop type, field id) in an image-style format (like a rank 2 array), the reshape operation will transform the <code>ndarray</code> so bands remain on the 0-axis but become rows and the the data values will be arranged along the 1 axis (columns).</p>
 <p>Let’s demonstrate this with the the <code>ndarray</code> in <code>multiband_raster</code>.</p>
-<div class="cell" data-execution_count="46">
+<div class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb59"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"the shape of multiband raster is </span><span class="sc">{</span>multiband_raster<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>rows <span class="op">=</span> multiband_raster.shape[<span class="dv">1</span>]</span>
@@ -1170,7 +1171,7 @@ the shape of the reshaped raster is (15, 65536)</code></pre>
 </div>
 </div>
 <p>Now the we have reshaped the multiband raster to a tabular format, but the variables are arranged down the 0 axis (rows) and we want them arranged as columns. We can use a transpose operation to flip our now reshaped rank 2 <code>ndarray</code> to the desired tabular format structure.</p>
-<div class="cell" data-execution_count="47">
+<div class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb61"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>tabular_array <span class="op">=</span> multiband_reshaped.reshape(n_bands, rows<span class="op">*</span>cols).T</span>
 <span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"the shape of the transposed array is </span><span class="sc">{</span>tabular_array<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1178,7 +1179,7 @@ the shape of the reshaped raster is (15, 65536)</code></pre>
 </div>
 </div>
 <p>Now we know how to transform our rank 3 <code>ndarray</code> objects representing multiband rasters to an <code>ndarray</code> representing a tabular format, we can extend our routine to perform the reshaping operations after the band stacking operations.</p>
-<div class="cell" data-execution_count="48">
+<div class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb63"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="co"># stacking bands </span></span>
 <span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Sentinel-2 band names </span></span>
