@@ -88,7 +88,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./lab-5.html" rel="next">
+<link href="./lab-4-practice-exercises.html" rel="next">
 <link href="./lab-4.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -222,6 +222,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./lab-4-self-guided.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Week 4 (self-guided)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab-4-practice-exercises.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Week 4 (practice)</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -460,7 +465,7 @@ reading B12.tif</code></pre>
 </ul>
 <p>Thus, Pandas <code>DataFrame</code> objects are useful for many attribute data transorfmation operations.</p>
 <p>To convert a NumPy <code>ndarray</code> to a Pandas <code>DataFrame</code> we pass the array into the <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" target="_blank"><code>DataFrame</code>’s constructor</a> function helpfully named <code>DataFrame()</code>. The constructor function expects the NumPy <code>ndarray</code> and a list of column labels as arguments.</p>
-<p>Let’s quickly recap our data structures after we have performed several raster transformation operations to the GeoTIFF files. We have an <code>ndarray</code> object, <code>tabular</code>, which is a 2-Dimensional NumPy <code>ndarray</code> representing 256 x 256 pixel images in a tabular structure with pixels aligned down the rows (0-axis) and bands aligned along the columns (1-axis).</p>
+<p>Let’s quickly recap our data structures after we have performed several raster transformation operations on the GeoTIFF files. We have an <code>ndarray</code> object, <code>tabular</code>, which is a 2-Dimensional NumPy <code>ndarray</code> representing 256 x 256 pixel images in a tabular structure with pixels aligned down the rows (0-axis) and bands aligned along the columns (1-axis).</p>
 <div class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"tabular is of type </span><span class="sc">{</span><span class="bu">type</span>(tabular)<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"tabular is an ndarray with shape </span><span class="sc">{</span>tabular<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -660,7 +665,7 @@ memory usage: 7.5 MB</code></pre>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>tmp_df_groups <span class="op">=</span> tmp_df.groupby([<span class="st">"field_id"</span>, <span class="st">"labels"</span>])</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(tmp_df_groups)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x7f6f56b5f580&gt;</code></pre>
+<pre><code>&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x7f6bc8f335e0&gt;</code></pre>
 </div>
 </div>
 <p>Finally, we need to apply our summary operations to each group. We can do this by calling a function on the <code>GroupBy</code> object. A useful function for data exploration tasks is calling <code>size()</code> which tells us the number of observations in each group.</p>
@@ -669,15 +674,15 @@ memory usage: 7.5 MB</code></pre>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>tmp_df_groups.size()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="10">
 <pre><code>field_id  labels
-80.0      6.0        59
-81.0      1.0        70
-771.0     6.0        27
-772.0     6.0         7
-1009.0    4.0         6
-1054.0    2.0        43
-1316.0    6.0       175
-1481.0    2.0        51
-1482.0    4.0        17
+80        6          59
+81        1          70
+771       6          27
+772       6           7
+1009      4           6
+1054      2          43
+1316      6         175
+1481      2          51
+1482      4          17
 dtype: int64</code></pre>
 </div>
 </div>
@@ -729,8 +734,8 @@ dtype: int64</code></pre>
   </thead>
   <tbody>
     <tr>
-      <th>80.0</th>
-      <th>6.0</th>
+      <th>80</th>
+      <th>6</th>
       <td>42.186441</td>
       <td>37.389831</td>
       <td>35.881356</td>
@@ -746,8 +751,8 @@ dtype: int64</code></pre>
       <td>0.325059</td>
     </tr>
     <tr>
-      <th>81.0</th>
-      <th>1.0</th>
+      <th>81</th>
+      <th>1</th>
       <td>43.000000</td>
       <td>39.671429</td>
       <td>38.771429</td>
@@ -763,8 +768,8 @@ dtype: int64</code></pre>
       <td>0.200899</td>
     </tr>
     <tr>
-      <th>771.0</th>
-      <th>6.0</th>
+      <th>771</th>
+      <th>6</th>
       <td>43.000000</td>
       <td>38.555556</td>
       <td>37.074074</td>
@@ -780,8 +785,8 @@ dtype: int64</code></pre>
       <td>0.251846</td>
     </tr>
     <tr>
-      <th>772.0</th>
-      <th>6.0</th>
+      <th>772</th>
+      <th>6</th>
       <td>42.000000</td>
       <td>37.142857</td>
       <td>35.428571</td>
@@ -797,8 +802,8 @@ dtype: int64</code></pre>
       <td>0.346986</td>
     </tr>
     <tr>
-      <th>1009.0</th>
-      <th>4.0</th>
+      <th>1009</th>
+      <th>4</th>
       <td>43.500000</td>
       <td>39.833333</td>
       <td>39.000000</td>
@@ -814,8 +819,8 @@ dtype: int64</code></pre>
       <td>0.234912</td>
     </tr>
     <tr>
-      <th>1054.0</th>
-      <th>2.0</th>
+      <th>1054</th>
+      <th>2</th>
       <td>42.000000</td>
       <td>36.883721</td>
       <td>35.139535</td>
@@ -831,8 +836,8 @@ dtype: int64</code></pre>
       <td>0.351325</td>
     </tr>
     <tr>
-      <th>1316.0</th>
-      <th>6.0</th>
+      <th>1316</th>
+      <th>6</th>
       <td>42.417143</td>
       <td>37.691429</td>
       <td>36.451429</td>
@@ -848,8 +853,8 @@ dtype: int64</code></pre>
       <td>0.321599</td>
     </tr>
     <tr>
-      <th>1481.0</th>
-      <th>2.0</th>
+      <th>1481</th>
+      <th>2</th>
       <td>43.666667</td>
       <td>39.000000</td>
       <td>37.686275</td>
@@ -865,8 +870,8 @@ dtype: int64</code></pre>
       <td>0.211922</td>
     </tr>
     <tr>
-      <th>1482.0</th>
-      <th>4.0</th>
+      <th>1482</th>
+      <th>4</th>
       <td>42.000000</td>
       <td>37.176471</td>
       <td>35.176471</td>
@@ -1180,11 +1185,11 @@ reading B12.tif</code></pre>
 </code></pre>
 </div>
 </div>
-<p>We have printed a dictionary objects of metadata for the <code>field_ids.tif</code> file.</p>
+<p>We have printed a dictionary object of metadata for the <code>field_ids.tif</code> file.</p>
 <p>Let’s look at what the <code>shapes()</code> function returns for <code>field_ids.tif</code>.</p>
 <p>The <code>shapes()</code> function takes in a NumPy <code>ndarray</code> of raster values (generated by <code>src.read()</code> which reads the raster values from the GeoTIFF file into a NumPy <code>ndarray</code> in memory) and returns a generator object which generates a tuple for each shape in the raster data. The first element of the tuple is a dictionary object of coordinates and the type of geometry (e.g.&nbsp;point, line, polygon). The second element of the tuple is the attribute value that corresponds to the geometry. We can convert the generator into a list of tuples.</p>
 <p><img src="https://github.com/data-analysis-3300-3003/figs/raw/main/week-4-raster-to-vector.jpg" class="img-fluid"></p>
-<div class="cell" data-execution_count="15">
+<div class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>field_id_path <span class="op">=</span> os.path.join(image_dir_path, <span class="st">"field/field_ids.tif"</span>)</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> rasterio.<span class="bu">open</span>(field_id_path) <span class="im">as</span> src:</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># shapes is a generator</span></span>
@@ -1419,7 +1424,7 @@ dtype: geometry</code></pre>
 <p><strong>1. We need create another <code>Series</code> of field ids using the value of raster pixels corresponding to the coordinates in a tuple. We can do this by looping over <code>field_shapes</code> (the list of tuples) and accessing the element at index position one in the tuple.</strong> <em>Have a look at how we looped over <code>field_shapes</code> and accessed the coordinates at index position 0 in <code>s</code> and appended the object to the list <code>geom</code>. Use this logic as a template for how you could access the value in index position 1 and append it to a list.</em></p>
 <p><strong>2. Once you have created this <code>Series</code>, you should set its type to <code>int32</code> using the <code>astype()</code> method.</strong> <em>These are the <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.astype.html" target="_blank">docs</a> for <code>astype()</code>.</em></p>
 <p><strong>3. Then we need to combine the <code>Series</code> of field ids with the <code>GeoSeries</code> of field centroids in a <code>GeoDataFrame</code>. You can do this using the <code>GeoDataFrame()</code> constructor function: <code>field_id_df = gpd.GeoDataFrame({'field_id': field_ids, 'geometry': geom})</code> (<code>field_ids</code> is a <code>Series</code> of field id values and <code>geom</code> is a <code>GeoSeries</code> of points.</strong></p>
-<p><strong>4. Finally, we need to drop rows in the <code>GeoDataFrame</code> with 0 values in the <code>field_id</code> column as 0 as these shapes don’t have a crop type label.</strong> <em>You can use the <code>loc[]</code> method for this and refer back to the <strong>Subsetting pandas <code>DataFrame</code>s</strong> section from the self-guided lab in week 3</em>.</p>
+<p><strong>4. Finally, we need to drop rows in the <code>GeoDataFrame</code> with 0 values in the <code>field_id</code> column as these shapes don’t have a crop type label.</strong> <em>You can use the <code>loc[]</code> method for this and refer back to the <strong>Subsetting pandas <code>DataFrame</code>s</strong> section from the self-guided lab in week 3</em>.</p>
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>field_id_path <span class="op">=</span> os.path.join(image_dir_path, <span class="st">"field/field_ids.tif"</span>)</span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> rasterio.<span class="bu">open</span>(field_id_path) <span class="im">as</span> src:</span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># shapes is a generator</span></span>
@@ -1479,9 +1484,9 @@ dtype: geometry</code></pre>
 <span id="cb34-33"><a href="#cb34-33" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(field_id_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <p>If you’ve successfully completed the recap quiz, you should have a variable <code>field_id_df</code> that references a <code>GeoDataFrame</code> with a column of <code>field_id</code> values and a <code>geometry</code> column of field centroids.</p>
-<div class="cell" data-execution_count="22">
+<div class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>field_id_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="22">
+<div class="cell-output cell-output-display" data-execution_count="16">
 
 <div>
 
@@ -1555,7 +1560,7 @@ dtype: geometry</code></pre>
 <p>Joining tables is a common operation in relational databases using SQL and the same operations can be implemented in Pandas using <a href="https://pandas.pydata.org/docs/user_guide/merging.html#database-style-dataframe-or-named-series-joining-merging" target="_blank"><code>merge()</code></a> functions.</p>
 <p>Some important concepts for join operations:</p>
 <ul>
-<li>The columns with values used to match rows are called often called <strong>keys</strong>.</li>
+<li>The columns with values used to match rows are called <strong>keys</strong>.</li>
 <li><strong>one-to-one</strong> joins are where there is exactly one match between rows in the two tables being joined.</li>
 <li><strong>many-to-one</strong> joins are where a row in one table can match one or more rows in another table.</li>
 <li><strong>left joins</strong> keep all rows in the left table and only matching rows in the right table.</li>
@@ -1587,11 +1592,11 @@ dtype: geometry</code></pre>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="co"># display on the first few rows</span></span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>joined_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell" data-execution_count="25">
+<div class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># convert joined_df to GeoDataFrame</span></span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>joined_df <span class="op">=</span> gpd.GeoDataFrame(joined_df, geometry<span class="op">=</span>joined_df.geometry, crs<span class="op">=</span><span class="st">"EPSG:4326"</span>)</span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(joined_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="25">
+<div class="cell-output cell-output-display" data-execution_count="18">
 <pre><code>geopandas.geodataframe.GeoDataFrame</code></pre>
 </div>
 </div>
@@ -1620,10 +1625,10 @@ dtype: geometry</code></pre>
 <p><img src="https://github.com/data-analysis-3300-3003/figs/raw/main/week-4-spatial-join.jpg" class="img-fluid"></p>
 <p>To complete our data transformation routine we need to add a column to <code>joined_df</code> that stores the District that the field is located in. We can do this using a spatial join based on the intersect of the field’s centroid (point geometry) and the shape of the District (polygon geometry).</p>
 <p>But, we need to read in District geometries for India obtained from <a href="https://www.geoboundaries.org" target="_blank">geoBoundaries</a>.</p>
-<div class="cell" data-execution_count="28">
+<div class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>india_districts <span class="op">=</span> gpd.read_file(os.path.join(os.getcwd(), <span class="st">"week-4"</span>, <span class="st">"india-adm"</span>, <span class="st">"geoBoundaries-IND-ADM2_simplified.topojson"</span>))</span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>india_districts.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="28">
+<div class="cell-output cell-output-display" data-execution_count="19">
 
 <div>
 
@@ -1715,12 +1720,12 @@ dtype: geometry</code></pre>
 </div>
 </div>
 <p>Let’s quickly tidy up the India Districts <code>GeoDataFrame</code> to keep only the District name and <code>geometry</code> columns.</p>
-<div class="cell" data-execution_count="29">
+<div class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>india_districts <span class="op">=</span> india_districts.loc[:, [<span class="st">"shapeName"</span>, <span class="st">"geometry"</span>]]</span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>india_districts.columns <span class="op">=</span> [<span class="st">"district"</span>, <span class="st">"geometry"</span>]</span>
 <span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>india_districts <span class="op">=</span> india_districts.set_crs(<span class="st">"EPSG:4326"</span>)</span>
 <span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>india_districts.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="29">
+<div class="cell-output cell-output-display" data-execution_count="20">
 
 <div>
 
@@ -1763,9 +1768,9 @@ dtype: geometry</code></pre>
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="30">
+<div class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>india_districts.plot(column<span class="op">=</span><span class="st">"district"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="30">
+<div class="cell-output cell-output-display" data-execution_count="21">
 <pre><code>&lt;AxesSubplot: &gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
@@ -1918,8 +1923,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./lab-5.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-title">Week 5</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./lab-4-practice-exercises.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-title">Week 4 (practice)</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
