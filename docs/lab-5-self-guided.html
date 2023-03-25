@@ -614,7 +614,7 @@ Further, by withholding a test set we reduce the amount of data available to tra
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># evaluate using 5-fold cross validation</span></span>
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>cv_scores <span class="op">=</span> cross_val_score(reg, X, y, cv<span class="op">=</span><span class="dv">5</span>, scoring<span class="op">=</span><span class="st">"neg_mean_absolute_error"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><code>cv_scores</code> should reference an array of values recording the mean absolute error for the predictions of maize crop yield for each fold. Scikit-learn returns negative mean absolute error values (becauase their convention is that a higher metric values are better than lower metric values which holds for metrics for categorical outcomes such as accuracy). Therefore, we’ll want to convert negative mean absolute error values to positive.</p>
-<div class="cell" data-execution_count="8">
+<div class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># print cross validation test scores</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, mae <span class="kw">in</span> <span class="bu">enumerate</span>(cv_scores):</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"the mae for the </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">th fold is </span><span class="sc">{</span><span class="bu">round</span>(<span class="bu">abs</span>(mae), <span class="dv">4</span>)<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -628,13 +628,13 @@ the mae for the 4th fold is 0.3331</code></pre>
 </div>
 <p>If we want to use more than one metric to evaluate the model, we can pass in a list of metrics to the <code>scoring</code> argument. Let’s also estimate the mean squared error value as well as the mean absolute error. The mean squared error penalises the model more for predictions with larger error.</p>
 <p>To use multiple metrics we need to use the <code>cross_validate()</code> function instead.</p>
-<div class="cell" data-execution_count="9">
+<div class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># evaluate using 5-fold cross validation</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>cv_scores <span class="op">=</span> cross_validate(reg, X, y, cv<span class="op">=</span><span class="dv">5</span>, scoring<span class="op">=</span>[<span class="st">"neg_mean_absolute_error"</span>, <span class="st">"neg_mean_squared_error"</span>])</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>cv_scores</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="9">
-<pre><code>{'fit_time': array([0.00634956, 0.00422311, 0.00304842, 0.00510287, 0.00359941]),
- 'score_time': array([0.00296617, 0.00219154, 0.00176239, 0.00259161, 0.00240493]),
+<div class="cell-output cell-output-display" data-execution_count="10">
+<pre><code>{'fit_time': array([0.0068543 , 0.00327873, 0.00305223, 0.00431228, 0.00296426]),
+ 'score_time': array([0.00248051, 0.00176215, 0.00227189, 0.00180149, 0.00164938]),
  'test_neg_mean_absolute_error': array([-0.3982209 , -0.42870653, -0.39656073, -0.42009901, -0.33312728]),
  'test_neg_mean_squared_error': array([-0.2645759 , -0.25151843, -0.24289755, -0.25937046, -0.18017087])}</code></pre>
 </div>
@@ -671,9 +671,9 @@ the mae for the 4th fold is 0.3331</code></pre>
 <p>Let’s one hot encode the slope variable <code>slope_sr</code> to illustrate this concept.</p>
 <p>The pandas <code>get_dummies()</code> function can be used to one hot encode a column in a <code>DataFrame</code>. The <code>get_dummies()</code> function has a <code>columns</code> argument that takes a list of column names that will be one hot encoded.</p>
 <p>First, let’s visualise our <code>DataFrame</code> <code>df</code> and inspect the values in the <code>slope_sr</code> column. You should see the values “FLAT”, “MODERATE SLOPE”, “SLIGHT SLOPE”, “STEEP SLOPE” as <code>str</code> data.</p>
-<div class="cell" data-execution_count="11">
+<div class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="11">
+<div class="cell-output cell-output-display" data-execution_count="13">
 
 <div>
 
@@ -802,9 +802,9 @@ the mae for the 4th fold is 0.3331</code></pre>
 </div>
 <p>Now, let’s one hot encode the <code>slope_sr</code> variable and see how it is represented as numeric data. (scroll to the far right of the displayed <code>DataFrame</code>).</p>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>df_cat <span class="op">=</span> pd.get_dummies(df, columns<span class="op">=</span>[<span class="st">"slope_sr"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell" data-execution_count="13">
+<div class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>df_cat.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="13">
+<div class="cell-output cell-output-display" data-execution_count="15">
 
 <div>
 
@@ -949,9 +949,9 @@ the mae for the 4th fold is 0.3331</code></pre>
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="14">
+<div class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>df_cat.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="14">
+<div class="cell-output cell-output-display" data-execution_count="16">
 <pre><code>Index(['cc_yield', 'gcvi_doy_151', 'gcvi_doy_171', 'ndvi_doy_151',
        'ndvi_doy_171', 'mtci_doy_151', 'mtci_doy_171', 'soiltype_sr',
        'soilqual_sr', 'intercrop_legume', 'intercrop_cassava', 'crop_rotation',
@@ -962,7 +962,7 @@ the mae for the 4th fold is 0.3331</code></pre>
 </div>
 </div>
 <p>Now, let’s retrain our linear regression model using slope as a feature.</p>
-<div class="cell" data-execution_count="15">
+<div class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get X and y data</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co">## </span><span class="al">NOTE</span><span class="co"> WE ARE USING df_cat here!!</span></span>
@@ -1002,9 +1002,9 @@ the mae for the 4th fold is 0.3331</code></pre>
 <span id="cb24-37"><a href="#cb24-37" aria-hidden="true" tabindex="-1"></a><span class="co"># evaluate using 5-fold cross validation</span></span>
 <span id="cb24-38"><a href="#cb24-38" aria-hidden="true" tabindex="-1"></a>cv_scores <span class="op">=</span> cross_validate(reg, X, y, cv<span class="op">=</span><span class="dv">5</span>, scoring<span class="op">=</span>[<span class="st">"neg_mean_absolute_error"</span>, <span class="st">"neg_mean_squared_error"</span>])</span>
 <span id="cb24-39"><a href="#cb24-39" aria-hidden="true" tabindex="-1"></a>cv_scores</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="15">
-<pre><code>{'fit_time': array([0.00371838, 0.00338173, 0.0025816 , 0.00310421, 0.00281858]),
- 'score_time': array([0.0019598 , 0.00219989, 0.0025456 , 0.00225759, 0.00184798]),
+<div class="cell-output cell-output-display" data-execution_count="18">
+<pre><code>{'fit_time': array([0.00681114, 0.00426888, 0.00718737, 0.00391626, 0.00374627]),
+ 'score_time': array([0.00377417, 0.00322437, 0.00226974, 0.00315666, 0.00251698]),
  'test_neg_mean_absolute_error': array([-0.39742585, -0.42726256, -0.40607374, -0.44134232, -0.34829396]),
  'test_neg_mean_squared_error': array([-0.2604608 , -0.25148747, -0.24486727, -0.27746001, -0.18578002])}</code></pre>
 </div>
@@ -1098,7 +1098,7 @@ the mae for the 4th fold is 0.3331</code></pre>
 <p>The permutation feature importance score is computed as the decrease in a model’s performance when a feature is randomly shuffled (permuted). This should ensure there is no relationship between the feature and the outcome.</p>
 <p>You can read more about feature importance in the <a href="" target="_blank">Interpretable Machine Learning</a> book and in the Scikit-learn <a href="https://scikit-learn.org/stable/modules/permutation_importance.html#permutation-feature-importance" target="_blank">docs</a>.</p>
 <p>First, let’s set up and fit a linear regression model that predicts maize crop yield using vegetation indices and field characteristics.</p>
-<div class="cell" data-execution_count="16">
+<div class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">NOTE</span><span class="co"> we use df_cat here!!</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="co"># drop nas as Linear Regression object cannot be trained on datasets with missing data</span></span>
@@ -1136,16 +1136,16 @@ the mae for the 4th fold is 0.3331</code></pre>
 <span id="cb30-35"><a href="#cb30-35" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-36"><a href="#cb30-36" aria-hidden="true" tabindex="-1"></a><span class="co"># fit the model</span></span>
 <span id="cb30-37"><a href="#cb30-37" aria-hidden="true" tabindex="-1"></a>reg.fit(X, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="16">
+<div class="cell-output cell-output-display" data-execution_count="21">
 <style>#sk-container-id-1 {color: black;background-color: white;}#sk-container-id-1 pre{padding: 0;}#sk-container-id-1 div.sk-toggleable {background-color: white;}#sk-container-id-1 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-1 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-1 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-1 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-1 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-1 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-1 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-1 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-1 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-1 div.sk-item {position: relative;z-index: 1;}#sk-container-id-1 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-1 div.sk-item::before, #sk-container-id-1 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-1 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-1 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-1 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-1 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-1 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-1 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-1 div.sk-label-container {text-align: center;}#sk-container-id-1 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-1 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LinearRegression()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked=""><label for="sk-estimator-id-1" class="sk-toggleable__label sk-toggleable__label-arrow">LinearRegression</label><div class="sk-toggleable__content"><pre>LinearRegression()</pre></div></div></div></div></div>
 </div>
 </div>
 <p>Now we compute permuation importance using 30 shuffles of each feature. The results referenced by <code>p_imp</code> is a dictionary object with arrays showing the model error when each feature was randomly shuffled and for each repeat of the random shuffling. It also has a property <code>importances_mean</code> which is the mean increase in error across all iterations when a feature was randomly shuffled.</p>
 <p>We use the <code>permutation_importance()</code> function and pass in the <code>LinearRegression()</code> estimator, the features and labels data (<code>X</code> and <code>y</code>), the metric to evaluate model performance to the <code>scoring</code> argument, and specify the number of repeats with the <code>n_repeats</code> argument.</p>
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>p_imp <span class="op">=</span> permutation_importance(reg, X, y, scoring<span class="op">=</span><span class="st">"neg_mean_absolute_error"</span>, n_repeats<span class="op">=</span><span class="dv">30</span>, random_state<span class="op">=</span>rng)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell" data-execution_count="18">
+<div class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>p_imp[<span class="st">"importances_mean"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="18">
+<div class="cell-output cell-output-display" data-execution_count="23">
 <pre><code>array([ 1.15861873e-01,  1.17595302e-01,  1.46321198e-01,  6.36841158e-02,
         3.75817560e-02,  2.71901988e-02, -7.23502021e-04, -5.62591591e-06,
         2.77529578e-05,  1.15896277e-04])</code></pre>
@@ -1156,11 +1156,11 @@ the mae for the 4th fold is 0.3331</code></pre>
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>columns <span class="op">=</span> X.columns</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>p_imp <span class="op">=</span> <span class="bu">abs</span>(p_imp[<span class="st">"importances_mean"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Now, let’s combine the feature labels and importance values into a <code>DataFrame</code>, sort the <code>DataFrame</code> by the importance scores, and generate a bar plot.</p>
-<div class="cell" data-execution_count="20">
+<div class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>p_imp_df <span class="op">=</span> pd.DataFrame({<span class="st">"feature"</span>: columns, <span class="st">"importance"</span>: p_imp})</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>p_imp_df <span class="op">=</span> p_imp_df.sort_values(by<span class="op">=</span>[<span class="st">"importance"</span>], ascending<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>p_imp_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="20">
+<div class="cell-output cell-output-display" data-execution_count="25">
 
 <div>
 
@@ -1228,7 +1228,7 @@ the mae for the 4th fold is 0.3331</code></pre>
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="21">
+<div class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.bar(p_imp_df, y<span class="op">=</span><span class="st">"feature"</span>, x<span class="op">=</span><span class="st">"importance"</span>, height<span class="op">=</span><span class="dv">600</span>)</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
