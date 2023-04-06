@@ -266,6 +266,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul class="collapse">
   <li><a href="#run-the-labs" id="toc-run-the-labs" class="nav-link" data-scroll-target="#run-the-labs">Run the labs</a></li>
   <li><a href="#download-data" id="toc-download-data" class="nav-link" data-scroll-target="#download-data">Download data</a></li>
+  <li><a href="#working-in-colab" id="toc-working-in-colab" class="nav-link" data-scroll-target="#working-in-colab">Working in Colab</a></li>
   <li><a href="#import-modules" id="toc-import-modules" class="nav-link" data-scroll-target="#import-modules">Import modules</a></li>
   <li><a href="#load-data" id="toc-load-data" class="nav-link" data-scroll-target="#load-data">Load data</a></li>
   <li><a href="#bounding-box" id="toc-bounding-box" class="nav-link" data-scroll-target="#bounding-box">Bounding box</a></li>
@@ -312,33 +313,44 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    os.system(<span class="st">'wget "https://github.com/data-analysis-3300-3003/data/raw/main/data/week-6-practice.zip"'</span>)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    os.system(<span class="st">'unzip "week-6-practice.zip"'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
+<section id="working-in-colab" class="level3">
+<h3 class="anchored" data-anchor-id="working-in-colab">Working in Colab</h3>
+<p>If you’re working in Google Colab, you’ll need to install the required packages that don’t come with the colab environment.</p>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">'google.colab'</span> <span class="kw">in</span> <span class="bu">str</span>(get_ipython()):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">!</span>pip install geopandas</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">!</span>pip install pyarrow</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">!</span>pip install mapclassify</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">!</span>pip install rasterio</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">!</span>pip install planetary<span class="op">-</span>computer</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">!</span>pip install pystac<span class="op">-</span>client</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
 <section id="import-modules" class="level3">
 <h3 class="anchored" data-anchor-id="import-modules">Import modules</h3>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas <span class="im">as</span> gpd</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pystac_client</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> planetary_computer <span class="im">as</span> pc</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.express <span class="im">as</span> px</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.io <span class="im">as</span> pio</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> rasterio</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> rasterio <span class="im">import</span> windows</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> rasterio <span class="im">import</span> features</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> rasterio <span class="im">import</span> warp</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> skimage <span class="im">import</span> io</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pystac.extensions.eo <span class="im">import</span> EOExtension <span class="im">as</span> eo</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co"># setup renderer</span></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">'google.colab'</span> <span class="kw">in</span> <span class="bu">str</span>(get_ipython()):</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    pio.renderers.default <span class="op">=</span> <span class="st">"colab"</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    pio.renderers.default <span class="op">=</span> <span class="st">"jupyterlab"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas <span class="im">as</span> gpd</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pystac_client</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> planetary_computer <span class="im">as</span> pc</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.express <span class="im">as</span> px</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.io <span class="im">as</span> pio</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> rasterio</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> rasterio <span class="im">import</span> windows</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> rasterio <span class="im">import</span> features</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> rasterio <span class="im">import</span> warp</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> skimage <span class="im">import</span> io</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pystac.extensions.eo <span class="im">import</span> EOExtension <span class="im">as</span> eo</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co"># setup renderer</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">'google.colab'</span> <span class="kw">in</span> <span class="bu">str</span>(get_ipython()):</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    pio.renderers.default <span class="op">=</span> <span class="st">"colab"</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    pio.renderers.default <span class="op">=</span> <span class="st">"jupyterlab"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install rasterstats</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install rasterstats</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Requirement already satisfied: rasterstats in /opt/conda/lib/python3.10/site-packages (0.18.0)
 Requirement already satisfied: simplejson in /opt/conda/lib/python3.10/site-packages (from rasterstats) (3.18.3)
@@ -359,15 +371,15 @@ Requirement already satisfied: snuggs&gt;=1.4.1 in /opt/conda/lib/python3.10/sit
 Requirement already satisfied: pyparsing&gt;=2.1.6 in /opt/conda/lib/python3.10/site-packages (from snuggs&gt;=1.4.1-&gt;rasterio&gt;=1.0-&gt;rasterstats) (3.0.9)</code></pre>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> rasterstats <span class="im">import</span> zonal_stats</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> rasterstats <span class="im">import</span> zonal_stats</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="load-data" class="level3">
 <h3 class="anchored" data-anchor-id="load-data">Load data</h3>
 <p>Load a small vector dataset of tree crop plantations near Carnarvon, Western Australia, derived from the <a href="https://www.agriculture.gov.au/abares/aclump/land-use/catchment-scale-land-use-of-australia-commodities-update-december-2020" target="_blank">Catchment scale land use of Australia (CLUM) dataset</a>.</p>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>clum_demo_path <span class="op">=</span> os.path.join(os.getcwd(), <span class="st">"week-6-practice"</span>, <span class="st">"clum_demo_aoi.gpkg"</span>)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>clum_aoi <span class="op">=</span> gpd.read_file(clum_demo_path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>clum_demo_path <span class="op">=</span> os.path.join(os.getcwd(), <span class="st">"week-6-practice"</span>, <span class="st">"clum_demo_aoi.gpkg"</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>clum_aoi <span class="op">=</span> gpd.read_file(clum_demo_path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>clum_aoi.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>clum_aoi.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
 
 <div>
@@ -454,7 +466,7 @@ Requirement already satisfied: pyparsing&gt;=2.1.6 in /opt/conda/lib/python3.10/
 </div>
 </div>
 <div class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>clum_aoi.explore(column<span class="op">=</span><span class="st">"Commod_dsc"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>clum_aoi.explore(column<span class="op">=</span><span class="st">"Commod_dsc"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 
 <div style="width:100%;"><div style="position:relative;width:100%;height:0;padding-bottom:60%;"><span style="color:#565656">Make this Notebook Trusted to load map: File -&gt; Trust Notebook</span><iframe srcdoc="<!DOCTYPE html>
@@ -730,21 +742,21 @@ Requirement already satisfied: pyparsing&gt;=2.1.6 in /opt/conda/lib/python3.10/
 <li>get the <code>envelope</code> of the <code>GeoSeries</code> of the <code>unary_union</code> result. The envelope is the smallest rectangular bounding box that surrounds a geometry.</li>
 </ol>
 <p>If we did not perform the <code>unary_union</code> operation to combine all the polygon geometries in <code>clum_aoi</code> into a single multipolygon object, we’d end up computing the envelope for each of the separate polygon objects that comprise the <code>GeoDataFrame</code>. This would not return to us a bounding box surrounding all the polygons in our <code>GeoDataFrame</code>.</p>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>clum_bbox <span class="op">=</span> gpd.GeoSeries(clum_aoi.geometry.unary_union).envelope</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>clum_bbox <span class="op">=</span> gpd.GeoSeries(clum_aoi.geometry.unary_union).envelope</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="coordinate-reference-systems" class="level3">
 <h3 class="anchored" data-anchor-id="coordinate-reference-systems">Coordinate Reference Systems</h3>
 <p>We can inspect the coordinate reference system (CRS) of the CLUM geometry data that we read into our program by printing its <code>crs</code> property. We can see the CLUM data has a CRS of <code>epsg:4283</code> in <code>AUTHORITY:CODE</code> format - <code>epsg</code> stands for European Petroleum Survey Group which publishes a list of CRS and <code>4283</code> is the CRS code. You can look up the CRS here: https://spatialreference.org/ and find a more detailed explanation of CRS in the <a href="https://r.geocompx.org/reproj-geo-data.html#crs-in-r" target="_blank">Geocomputation with R book’s section on Coordinate Reference Systems</a>.</p>
 <div class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The CRS of the clum_gpd GeoDataFrame is:"</span>)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(clum_aoi.crs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The CRS of the clum_gpd GeoDataFrame is:"</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(clum_aoi.crs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>The CRS of the clum_gpd GeoDataFrame is:
 epsg:4283</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>clum_aoi.crs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>clum_aoi.crs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
 <pre><code>&lt;Geographic 2D CRS: EPSG:4283&gt;
 Name: GDA94
@@ -760,9 +772,9 @@ Datum: Geocentric Datum of Australia 1994
 </div>
 </div>
 <p>The bounding box <code>GeoSeries</code> that we generated has lost its <code>crs</code> property. We can use the <code>set_crs()</code> method to pass in a CRS code and reset the CRS for the spatial data.</p>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>clum_bbox <span class="op">=</span> clum_bbox.set_crs(<span class="st">"EPSG:4283"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>clum_bbox <span class="op">=</span> clum_bbox.set_crs(<span class="st">"EPSG:4283"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>If we want to transform the CRS of a <code>GeoSeries</code> or <code>GeoDataFrame</code> object, we can use the <code>to_crs()</code> method. <code>EPSG:4326</code> is a commonly used format for latitude and longitude data.</p>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>clum_bbox <span class="op">=</span> clum_bbox.to_crs(<span class="st">"EPSG:4326"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>clum_bbox <span class="op">=</span> clum_bbox.to_crs(<span class="st">"EPSG:4326"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <section id="task" class="level4">
 <h4 class="anchored" data-anchor-id="task">Task</h4>
 <p><strong>Head to the GeoPandas docs and make sure you’re familiar with the <code>unary_union</code>, <code>envelope</code>, <code>set_crs()</code>, and <code>to_crs()</code> properties and operations.</strong></p>
@@ -772,11 +784,11 @@ Datum: Geocentric Datum of Australia 1994
 <h3 class="anchored" data-anchor-id="generate-monthly-ndvi-rasters">Generate monthly NDVI rasters</h3>
 <p>Now we have a bounding box geometry for our <code>GeoDataFrame</code> of polygons denoting tree crop plantations, we can use this bounding box to download images data from satellites intersecting this location for each month of the year and compute an NDVI raster for each month.</p>
 <p>First, we need to create a <code>pystac_client.Client</code> object for the Microsoft Planetary Computer STAC API.</p>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># open a connection to the Microsoft Planetary Computer's root STAC catalog</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>pc_catalog <span class="op">=</span> pystac_client.Client.<span class="bu">open</span>(</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    url<span class="op">=</span><span class="st">"https://planetarycomputer.microsoft.com/api/stac/v1"</span>,</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># modifier=planetary_computer.sign_inplace</span></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># open a connection to the Microsoft Planetary Computer's root STAC catalog</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>pc_catalog <span class="op">=</span> pystac_client.Client.<span class="bu">open</span>(</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    url<span class="op">=</span><span class="st">"https://planetarycomputer.microsoft.com/api/stac/v1"</span>,</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># modifier=planetary_computer.sign_inplace</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Next, we’ll create a small routine that will loop over a sequence of months (numbers 1 to 12).</p>
 <p>For each month, we’ll use the <code>pc_catalog</code> object’s <code>search()</code> method to query the Microsoft Planetary Computer STAC API for all Landsat <a href="https://planetarycomputer.microsoft.com/dataset/landsat-c2-l2" target="_blank">Landsat Collection 2 Level 2</a> images that intersect our bounding box.</p>
 <p>You will notice we pass a query into the <code>search()</code> method:</p>
@@ -808,139 +820,139 @@ Datum: Geocentric Datum of Australia 1994
 <p>We are reading Landsat data from images that form a STAC Item Collection - the <a href="https://planetarycomputer.microsoft.com/dataset/landsat-c2-l2" target="_blank">Landsat Collection 2 Level 2</a> collection. The images in the collection can come from different sensors, have different coordinate reference systems, and overlap. Thus, to ensure that the data we read from different images to match our <code>Window</code> has the same shape, we can pass a shape into the <code>out_shape</code> argument of rasterio’s <code>read()</code> method.</p>
 <p>Here, we get the shape of the first NumPy <code>ndarray</code> that we read from a COG file. Then, for all other <code>read()</code> operations we pass this shape into the <code>out_shape</code> argument. You can see this implemented below in the <code>if</code> and <code>else</code> blocks.</p>
 <div class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>months <span class="op">=</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">13</span>)</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>year <span class="op">=</span> <span class="dv">2016</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>year_next <span class="op">=</span> <span class="dv">2016</span></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co"># get the bounding box as a shapely object</span></span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>clum_bbox_shapely <span class="op">=</span> clum_bbox[<span class="dv">0</span>]</span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="co"># empty list to store ndarray of monthly ndvi values</span></span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>ndvi_arr <span class="op">=</span> []</span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> months:</span>
-<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"processing month </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># here we convert numeric month indicators which can be single digit (e.g. Jan = 1) </span></span>
-<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># to string month indicators which are two digits (e.g. Jan = "01")</span></span>
-<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> i <span class="op">&lt;</span> <span class="dv">10</span>:</span>
-<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>        mnth <span class="op">=</span> <span class="bu">str</span>(<span class="dv">0</span>) <span class="op">+</span> <span class="bu">str</span>(i)</span>
-<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>        mnth <span class="op">=</span> <span class="bu">str</span>(i)</span>
-<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># create month and year indicators for the start of the next month</span></span>
-<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>    <span class="co"># we do this to constrain the search to one month at a time</span></span>
-<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> i <span class="op">&lt;</span> <span class="dv">9</span>:</span>
-<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>        mnth_next <span class="op">=</span> <span class="bu">str</span>(<span class="dv">0</span>) <span class="op">+</span> <span class="bu">str</span>(i <span class="op">+</span> <span class="dv">1</span>)</span>
-<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>        mnth_next <span class="op">=</span> <span class="bu">str</span>(i <span class="op">+</span> <span class="dv">1</span>)</span>
-<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> mnth_next <span class="op">==</span> <span class="st">"13"</span>:</span>
-<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a>        mnth_next <span class="op">=</span> <span class="st">"01"</span></span>
-<span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a>        year_next <span class="op">=</span> year <span class="op">+</span> <span class="dv">1</span></span>
-<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb18-32"><a href="#cb18-32" aria-hidden="true" tabindex="-1"></a>    <span class="co"># create a time of interest search for each month in turn</span></span>
-<span id="cb18-33"><a href="#cb18-33" aria-hidden="true" tabindex="-1"></a>    time_of_interest <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>year<span class="sc">}</span><span class="ss">-</span><span class="sc">{</span>mnth<span class="sc">}</span><span class="ss">-01/</span><span class="sc">{</span>year_next<span class="sc">}</span><span class="ss">-</span><span class="sc">{</span>mnth_next<span class="sc">}</span><span class="ss">-01"</span></span>
-<span id="cb18-34"><a href="#cb18-34" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb18-35"><a href="#cb18-35" aria-hidden="true" tabindex="-1"></a>    <span class="co"># search the Microsoft Planetary computer to find Landsat assets matching our bounding box and time of interest</span></span>
-<span id="cb18-36"><a href="#cb18-36" aria-hidden="true" tabindex="-1"></a>    search <span class="op">=</span> pc_catalog.search(</span>
-<span id="cb18-37"><a href="#cb18-37" aria-hidden="true" tabindex="-1"></a>        collections<span class="op">=</span>[<span class="st">"landsat-c2-l2"</span>],</span>
-<span id="cb18-38"><a href="#cb18-38" aria-hidden="true" tabindex="-1"></a>        intersects<span class="op">=</span>clum_bbox_shapely, <span class="co"># use shapely object</span></span>
-<span id="cb18-39"><a href="#cb18-39" aria-hidden="true" tabindex="-1"></a>        datetime<span class="op">=</span>time_of_interest,</span>
-<span id="cb18-40"><a href="#cb18-40" aria-hidden="true" tabindex="-1"></a>        query<span class="op">=</span>{</span>
-<span id="cb18-41"><a href="#cb18-41" aria-hidden="true" tabindex="-1"></a>            <span class="st">"platform"</span>: {<span class="st">"in"</span>: [<span class="st">"landsat-8"</span>]},</span>
-<span id="cb18-42"><a href="#cb18-42" aria-hidden="true" tabindex="-1"></a>        }</span>
-<span id="cb18-43"><a href="#cb18-43" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb18-44"><a href="#cb18-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-45"><a href="#cb18-45" aria-hidden="true" tabindex="-1"></a>    <span class="co"># items is an item collection of Landsat assets that matched the search criteria</span></span>
-<span id="cb18-46"><a href="#cb18-46" aria-hidden="true" tabindex="-1"></a>    items <span class="op">=</span> search.item_collection()</span>
-<span id="cb18-47"><a href="#cb18-47" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb18-48"><a href="#cb18-48" aria-hidden="true" tabindex="-1"></a>    <span class="co"># get item with lowest cloud cover per-month</span></span>
-<span id="cb18-49"><a href="#cb18-49" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb18-50"><a href="#cb18-50" aria-hidden="true" tabindex="-1"></a>    <span class="co"># empty list - append the cloud cover each Landsat asset in the item collection to the list</span></span>
-<span id="cb18-51"><a href="#cb18-51" aria-hidden="true" tabindex="-1"></a>    cloud_cover <span class="op">=</span> []</span>
-<span id="cb18-52"><a href="#cb18-52" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> cld <span class="kw">in</span> items:</span>
-<span id="cb18-53"><a href="#cb18-53" aria-hidden="true" tabindex="-1"></a>        cloud_cover.append(eo.ext(cld).cloud_cover)</span>
-<span id="cb18-54"><a href="#cb18-54" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb18-55"><a href="#cb18-55" aria-hidden="true" tabindex="-1"></a>    <span class="co"># find the index location in the list of the asset with lowest cloud cover</span></span>
-<span id="cb18-56"><a href="#cb18-56" aria-hidden="true" tabindex="-1"></a>    min_cloud_cover <span class="op">=</span> <span class="bu">min</span>(cloud_cover)</span>
-<span id="cb18-57"><a href="#cb18-57" aria-hidden="true" tabindex="-1"></a>    min_cloud_cover_idx <span class="op">=</span> cloud_cover.index(min_cloud_cover)</span>
-<span id="cb18-58"><a href="#cb18-58" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb18-59"><a href="#cb18-59" aria-hidden="true" tabindex="-1"></a>    <span class="co"># get the Landsat asset with the lowest cloud cover</span></span>
-<span id="cb18-60"><a href="#cb18-60" aria-hidden="true" tabindex="-1"></a>    least_cloudy <span class="op">=</span> items[min_cloud_cover_idx]</span>
-<span id="cb18-61"><a href="#cb18-61" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb18-62"><a href="#cb18-62" aria-hidden="true" tabindex="-1"></a>    <span class="co"># get the signed URL for the red and nir least cloudy Landsat assets</span></span>
-<span id="cb18-63"><a href="#cb18-63" aria-hidden="true" tabindex="-1"></a>    least_cloudy_red_href <span class="op">=</span> pc.sign(least_cloudy.assets[<span class="st">"red"</span>].href)</span>
-<span id="cb18-64"><a href="#cb18-64" aria-hidden="true" tabindex="-1"></a>    least_cloudy_nir08_href <span class="op">=</span> pc.sign(least_cloudy.assets[<span class="st">"nir08"</span>].href)</span>
-<span id="cb18-65"><a href="#cb18-65" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb18-66"><a href="#cb18-66" aria-hidden="true" tabindex="-1"></a>    <span class="co"># for the first month get the shape of the array</span></span>
-<span id="cb18-67"><a href="#cb18-67" aria-hidden="true" tabindex="-1"></a>    <span class="co"># for subequent months resample all arrays to this shape</span></span>
-<span id="cb18-68"><a href="#cb18-68" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> i <span class="op">==</span> <span class="dv">1</span>:</span>
-<span id="cb18-69"><a href="#cb18-69" aria-hidden="true" tabindex="-1"></a>        <span class="co"># read red band</span></span>
-<span id="cb18-70"><a href="#cb18-70" aria-hidden="true" tabindex="-1"></a>        <span class="co"># open a connection to the COG using its signed link</span></span>
-<span id="cb18-71"><a href="#cb18-71" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> rasterio.<span class="bu">open</span>(least_cloudy_red_href) <span class="im">as</span> src:</span>
-<span id="cb18-72"><a href="#cb18-72" aria-hidden="true" tabindex="-1"></a>            aoi_bounds <span class="op">=</span> features.bounds(clum_bbox_shapely)</span>
-<span id="cb18-73"><a href="#cb18-73" aria-hidden="true" tabindex="-1"></a>            warped_aoi_bounds <span class="op">=</span> warp.transform_bounds(<span class="st">"epsg:4326"</span>, src.crs, <span class="op">*</span>aoi_bounds)</span>
-<span id="cb18-74"><a href="#cb18-74" aria-hidden="true" tabindex="-1"></a>            aoi_window <span class="op">=</span> windows.from_bounds(transform<span class="op">=</span>src.transform, <span class="op">*</span>warped_aoi_bounds)</span>
-<span id="cb18-75"><a href="#cb18-75" aria-hidden="true" tabindex="-1"></a>            red <span class="op">=</span> src.read(<span class="dv">1</span>, window<span class="op">=</span>aoi_window)</span>
-<span id="cb18-76"><a href="#cb18-76" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb18-77"><a href="#cb18-77" aria-hidden="true" tabindex="-1"></a>            <span class="co"># get affine transform for the windowed read</span></span>
-<span id="cb18-78"><a href="#cb18-78" aria-hidden="true" tabindex="-1"></a>            <span class="co"># this allows us to reproject the windowed read of data from COG file</span></span>
-<span id="cb18-79"><a href="#cb18-79" aria-hidden="true" tabindex="-1"></a>            src_transform <span class="op">=</span> src.transform</span>
-<span id="cb18-80"><a href="#cb18-80" aria-hidden="true" tabindex="-1"></a>            win_transform <span class="op">=</span> src.window_transform(aoi_window)</span>
-<span id="cb18-81"><a href="#cb18-81" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb18-82"><a href="#cb18-82" aria-hidden="true" tabindex="-1"></a>            <span class="co"># create a copy of the metadata for saving later</span></span>
-<span id="cb18-83"><a href="#cb18-83" aria-hidden="true" tabindex="-1"></a>            out_meta <span class="op">=</span> src.meta</span>
-<span id="cb18-84"><a href="#cb18-84" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb18-85"><a href="#cb18-85" aria-hidden="true" tabindex="-1"></a>            <span class="co"># get the shape of the red ndarray</span></span>
-<span id="cb18-86"><a href="#cb18-86" aria-hidden="true" tabindex="-1"></a>            <span class="co"># force all other rasters to match this shape</span></span>
-<span id="cb18-87"><a href="#cb18-87" aria-hidden="true" tabindex="-1"></a>            out_shape <span class="op">=</span> red.shape</span>
-<span id="cb18-88"><a href="#cb18-88" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb18-89"><a href="#cb18-89" aria-hidden="true" tabindex="-1"></a>        <span class="co"># read nir band</span></span>
-<span id="cb18-90"><a href="#cb18-90" aria-hidden="true" tabindex="-1"></a>        <span class="co"># open a connection to the COG using its signed link</span></span>
-<span id="cb18-91"><a href="#cb18-91" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> rasterio.<span class="bu">open</span>(least_cloudy_nir08_href) <span class="im">as</span> src:</span>
-<span id="cb18-92"><a href="#cb18-92" aria-hidden="true" tabindex="-1"></a>            aoi_bounds <span class="op">=</span> features.bounds(clum_bbox_shapely)</span>
-<span id="cb18-93"><a href="#cb18-93" aria-hidden="true" tabindex="-1"></a>            warped_aoi_bounds <span class="op">=</span> warp.transform_bounds(<span class="st">"epsg:4326"</span>, src.crs, <span class="op">*</span>aoi_bounds)</span>
-<span id="cb18-94"><a href="#cb18-94" aria-hidden="true" tabindex="-1"></a>            aoi_window <span class="op">=</span> windows.from_bounds(transform<span class="op">=</span>src.transform, <span class="op">*</span>warped_aoi_bounds)</span>
-<span id="cb18-95"><a href="#cb18-95" aria-hidden="true" tabindex="-1"></a>            nir <span class="op">=</span> src.read(<span class="dv">1</span>, out_shape<span class="op">=</span>out_shape, window<span class="op">=</span>aoi_window)</span>
-<span id="cb18-96"><a href="#cb18-96" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb18-97"><a href="#cb18-97" aria-hidden="true" tabindex="-1"></a>        <span class="co"># compute NDVI</span></span>
-<span id="cb18-98"><a href="#cb18-98" aria-hidden="true" tabindex="-1"></a>        <span class="co"># cast to float as NDVI is bound between -1 and 1 </span></span>
-<span id="cb18-99"><a href="#cb18-99" aria-hidden="true" tabindex="-1"></a>        nir <span class="op">=</span> nir.astype(<span class="st">"float32"</span>)</span>
-<span id="cb18-100"><a href="#cb18-100" aria-hidden="true" tabindex="-1"></a>        red <span class="op">=</span> red.astype(<span class="st">"float32"</span>)</span>
-<span id="cb18-101"><a href="#cb18-101" aria-hidden="true" tabindex="-1"></a>        ndvi <span class="op">=</span> (nir <span class="op">-</span> red) <span class="op">/</span> (nir <span class="op">+</span> red)</span>
-<span id="cb18-102"><a href="#cb18-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-103"><a href="#cb18-103" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb18-104"><a href="#cb18-104" aria-hidden="true" tabindex="-1"></a>        <span class="co"># read red band</span></span>
-<span id="cb18-105"><a href="#cb18-105" aria-hidden="true" tabindex="-1"></a>        <span class="co"># open a connection to the COG using its signed link</span></span>
-<span id="cb18-106"><a href="#cb18-106" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> rasterio.<span class="bu">open</span>(least_cloudy_red_href) <span class="im">as</span> src:</span>
-<span id="cb18-107"><a href="#cb18-107" aria-hidden="true" tabindex="-1"></a>            aoi_bounds <span class="op">=</span> features.bounds(clum_bbox_shapely)</span>
-<span id="cb18-108"><a href="#cb18-108" aria-hidden="true" tabindex="-1"></a>            warped_aoi_bounds <span class="op">=</span> warp.transform_bounds(<span class="st">"epsg:4326"</span>, src.crs, <span class="op">*</span>aoi_bounds)</span>
-<span id="cb18-109"><a href="#cb18-109" aria-hidden="true" tabindex="-1"></a>            aoi_window <span class="op">=</span> windows.from_bounds(transform<span class="op">=</span>src.transform, <span class="op">*</span>warped_aoi_bounds)</span>
-<span id="cb18-110"><a href="#cb18-110" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Here we pass out_shape into read to define the shape of the array data is read into</span></span>
-<span id="cb18-111"><a href="#cb18-111" aria-hidden="true" tabindex="-1"></a>            red <span class="op">=</span> src.read(<span class="dv">1</span>, out_shape<span class="op">=</span>out_shape, window<span class="op">=</span>aoi_window)</span>
-<span id="cb18-112"><a href="#cb18-112" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb18-113"><a href="#cb18-113" aria-hidden="true" tabindex="-1"></a>        <span class="co"># read nir band</span></span>
-<span id="cb18-114"><a href="#cb18-114" aria-hidden="true" tabindex="-1"></a>        <span class="co"># open a connection to the COG using its signed link</span></span>
-<span id="cb18-115"><a href="#cb18-115" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> rasterio.<span class="bu">open</span>(least_cloudy_nir08_href) <span class="im">as</span> src:</span>
-<span id="cb18-116"><a href="#cb18-116" aria-hidden="true" tabindex="-1"></a>            aoi_bounds <span class="op">=</span> features.bounds(clum_bbox_shapely)</span>
-<span id="cb18-117"><a href="#cb18-117" aria-hidden="true" tabindex="-1"></a>            warped_aoi_bounds <span class="op">=</span> warp.transform_bounds(<span class="st">"epsg:4326"</span>, src.crs, <span class="op">*</span>aoi_bounds)</span>
-<span id="cb18-118"><a href="#cb18-118" aria-hidden="true" tabindex="-1"></a>            aoi_window <span class="op">=</span> windows.from_bounds(transform<span class="op">=</span>src.transform, <span class="op">*</span>warped_aoi_bounds)</span>
-<span id="cb18-119"><a href="#cb18-119" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Here we pass out_shape into read to define the shape of the array data is read into</span></span>
-<span id="cb18-120"><a href="#cb18-120" aria-hidden="true" tabindex="-1"></a>            nir <span class="op">=</span> src.read(<span class="dv">1</span>, out_shape<span class="op">=</span>out_shape, window<span class="op">=</span>aoi_window)</span>
-<span id="cb18-121"><a href="#cb18-121" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb18-122"><a href="#cb18-122" aria-hidden="true" tabindex="-1"></a>        <span class="co"># compute NDVI</span></span>
-<span id="cb18-123"><a href="#cb18-123" aria-hidden="true" tabindex="-1"></a>        <span class="co"># cast to float as NDVI is bound between -1 and 1 </span></span>
-<span id="cb18-124"><a href="#cb18-124" aria-hidden="true" tabindex="-1"></a>        nir <span class="op">=</span> nir.astype(<span class="st">"float32"</span>)</span>
-<span id="cb18-125"><a href="#cb18-125" aria-hidden="true" tabindex="-1"></a>        red <span class="op">=</span> red.astype(<span class="st">"float32"</span>)</span>
-<span id="cb18-126"><a href="#cb18-126" aria-hidden="true" tabindex="-1"></a>        ndvi <span class="op">=</span> (nir <span class="op">-</span> red) <span class="op">/</span> (nir <span class="op">+</span> red)</span>
-<span id="cb18-127"><a href="#cb18-127" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb18-128"><a href="#cb18-128" aria-hidden="true" tabindex="-1"></a>    <span class="co"># append NDVI ndarray to list</span></span>
-<span id="cb18-129"><a href="#cb18-129" aria-hidden="true" tabindex="-1"></a>    ndvi_arr.append(ndvi)</span>
-<span id="cb18-130"><a href="#cb18-130" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-131"><a href="#cb18-131" aria-hidden="true" tabindex="-1"></a><span class="co"># stack the ndvi ndarray's to create a multiband raster</span></span>
-<span id="cb18-132"><a href="#cb18-132" aria-hidden="true" tabindex="-1"></a>ndvi_stacked <span class="op">=</span> np.stack(ndvi_arr, axis<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb18-133"><a href="#cb18-133" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"the shape of ndvi_arr is </span><span class="sc">{</span>ndvi_stacked<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>months <span class="op">=</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">13</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>year <span class="op">=</span> <span class="dv">2016</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>year_next <span class="op">=</span> <span class="dv">2016</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="co"># get the bounding box as a shapely object</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>clum_bbox_shapely <span class="op">=</span> clum_bbox[<span class="dv">0</span>]</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="co"># empty list to store ndarray of monthly ndvi values</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>ndvi_arr <span class="op">=</span> []</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> months:</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"processing month </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># here we convert numeric month indicators which can be single digit (e.g. Jan = 1) </span></span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># to string month indicators which are two digits (e.g. Jan = "01")</span></span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> i <span class="op">&lt;</span> <span class="dv">10</span>:</span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>        mnth <span class="op">=</span> <span class="bu">str</span>(<span class="dv">0</span>) <span class="op">+</span> <span class="bu">str</span>(i)</span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>        mnth <span class="op">=</span> <span class="bu">str</span>(i)</span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># create month and year indicators for the start of the next month</span></span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a>    <span class="co"># we do this to constrain the search to one month at a time</span></span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> i <span class="op">&lt;</span> <span class="dv">9</span>:</span>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a>        mnth_next <span class="op">=</span> <span class="bu">str</span>(<span class="dv">0</span>) <span class="op">+</span> <span class="bu">str</span>(i <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a>        mnth_next <span class="op">=</span> <span class="bu">str</span>(i <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> mnth_next <span class="op">==</span> <span class="st">"13"</span>:</span>
+<span id="cb19-29"><a href="#cb19-29" aria-hidden="true" tabindex="-1"></a>        mnth_next <span class="op">=</span> <span class="st">"01"</span></span>
+<span id="cb19-30"><a href="#cb19-30" aria-hidden="true" tabindex="-1"></a>        year_next <span class="op">=</span> year <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb19-31"><a href="#cb19-31" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb19-32"><a href="#cb19-32" aria-hidden="true" tabindex="-1"></a>    <span class="co"># create a time of interest search for each month in turn</span></span>
+<span id="cb19-33"><a href="#cb19-33" aria-hidden="true" tabindex="-1"></a>    time_of_interest <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>year<span class="sc">}</span><span class="ss">-</span><span class="sc">{</span>mnth<span class="sc">}</span><span class="ss">-01/</span><span class="sc">{</span>year_next<span class="sc">}</span><span class="ss">-</span><span class="sc">{</span>mnth_next<span class="sc">}</span><span class="ss">-01"</span></span>
+<span id="cb19-34"><a href="#cb19-34" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb19-35"><a href="#cb19-35" aria-hidden="true" tabindex="-1"></a>    <span class="co"># search the Microsoft Planetary computer to find Landsat assets matching our bounding box and time of interest</span></span>
+<span id="cb19-36"><a href="#cb19-36" aria-hidden="true" tabindex="-1"></a>    search <span class="op">=</span> pc_catalog.search(</span>
+<span id="cb19-37"><a href="#cb19-37" aria-hidden="true" tabindex="-1"></a>        collections<span class="op">=</span>[<span class="st">"landsat-c2-l2"</span>],</span>
+<span id="cb19-38"><a href="#cb19-38" aria-hidden="true" tabindex="-1"></a>        intersects<span class="op">=</span>clum_bbox_shapely, <span class="co"># use shapely object</span></span>
+<span id="cb19-39"><a href="#cb19-39" aria-hidden="true" tabindex="-1"></a>        datetime<span class="op">=</span>time_of_interest,</span>
+<span id="cb19-40"><a href="#cb19-40" aria-hidden="true" tabindex="-1"></a>        query<span class="op">=</span>{</span>
+<span id="cb19-41"><a href="#cb19-41" aria-hidden="true" tabindex="-1"></a>            <span class="st">"platform"</span>: {<span class="st">"in"</span>: [<span class="st">"landsat-8"</span>]},</span>
+<span id="cb19-42"><a href="#cb19-42" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb19-43"><a href="#cb19-43" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb19-44"><a href="#cb19-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-45"><a href="#cb19-45" aria-hidden="true" tabindex="-1"></a>    <span class="co"># items is an item collection of Landsat assets that matched the search criteria</span></span>
+<span id="cb19-46"><a href="#cb19-46" aria-hidden="true" tabindex="-1"></a>    items <span class="op">=</span> search.item_collection()</span>
+<span id="cb19-47"><a href="#cb19-47" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb19-48"><a href="#cb19-48" aria-hidden="true" tabindex="-1"></a>    <span class="co"># get item with lowest cloud cover per-month</span></span>
+<span id="cb19-49"><a href="#cb19-49" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb19-50"><a href="#cb19-50" aria-hidden="true" tabindex="-1"></a>    <span class="co"># empty list - append the cloud cover each Landsat asset in the item collection to the list</span></span>
+<span id="cb19-51"><a href="#cb19-51" aria-hidden="true" tabindex="-1"></a>    cloud_cover <span class="op">=</span> []</span>
+<span id="cb19-52"><a href="#cb19-52" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> cld <span class="kw">in</span> items:</span>
+<span id="cb19-53"><a href="#cb19-53" aria-hidden="true" tabindex="-1"></a>        cloud_cover.append(eo.ext(cld).cloud_cover)</span>
+<span id="cb19-54"><a href="#cb19-54" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb19-55"><a href="#cb19-55" aria-hidden="true" tabindex="-1"></a>    <span class="co"># find the index location in the list of the asset with lowest cloud cover</span></span>
+<span id="cb19-56"><a href="#cb19-56" aria-hidden="true" tabindex="-1"></a>    min_cloud_cover <span class="op">=</span> <span class="bu">min</span>(cloud_cover)</span>
+<span id="cb19-57"><a href="#cb19-57" aria-hidden="true" tabindex="-1"></a>    min_cloud_cover_idx <span class="op">=</span> cloud_cover.index(min_cloud_cover)</span>
+<span id="cb19-58"><a href="#cb19-58" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb19-59"><a href="#cb19-59" aria-hidden="true" tabindex="-1"></a>    <span class="co"># get the Landsat asset with the lowest cloud cover</span></span>
+<span id="cb19-60"><a href="#cb19-60" aria-hidden="true" tabindex="-1"></a>    least_cloudy <span class="op">=</span> items[min_cloud_cover_idx]</span>
+<span id="cb19-61"><a href="#cb19-61" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb19-62"><a href="#cb19-62" aria-hidden="true" tabindex="-1"></a>    <span class="co"># get the signed URL for the red and nir least cloudy Landsat assets</span></span>
+<span id="cb19-63"><a href="#cb19-63" aria-hidden="true" tabindex="-1"></a>    least_cloudy_red_href <span class="op">=</span> pc.sign(least_cloudy.assets[<span class="st">"red"</span>].href)</span>
+<span id="cb19-64"><a href="#cb19-64" aria-hidden="true" tabindex="-1"></a>    least_cloudy_nir08_href <span class="op">=</span> pc.sign(least_cloudy.assets[<span class="st">"nir08"</span>].href)</span>
+<span id="cb19-65"><a href="#cb19-65" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb19-66"><a href="#cb19-66" aria-hidden="true" tabindex="-1"></a>    <span class="co"># for the first month get the shape of the array</span></span>
+<span id="cb19-67"><a href="#cb19-67" aria-hidden="true" tabindex="-1"></a>    <span class="co"># for subequent months resample all arrays to this shape</span></span>
+<span id="cb19-68"><a href="#cb19-68" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> i <span class="op">==</span> <span class="dv">1</span>:</span>
+<span id="cb19-69"><a href="#cb19-69" aria-hidden="true" tabindex="-1"></a>        <span class="co"># read red band</span></span>
+<span id="cb19-70"><a href="#cb19-70" aria-hidden="true" tabindex="-1"></a>        <span class="co"># open a connection to the COG using its signed link</span></span>
+<span id="cb19-71"><a href="#cb19-71" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> rasterio.<span class="bu">open</span>(least_cloudy_red_href) <span class="im">as</span> src:</span>
+<span id="cb19-72"><a href="#cb19-72" aria-hidden="true" tabindex="-1"></a>            aoi_bounds <span class="op">=</span> features.bounds(clum_bbox_shapely)</span>
+<span id="cb19-73"><a href="#cb19-73" aria-hidden="true" tabindex="-1"></a>            warped_aoi_bounds <span class="op">=</span> warp.transform_bounds(<span class="st">"epsg:4326"</span>, src.crs, <span class="op">*</span>aoi_bounds)</span>
+<span id="cb19-74"><a href="#cb19-74" aria-hidden="true" tabindex="-1"></a>            aoi_window <span class="op">=</span> windows.from_bounds(transform<span class="op">=</span>src.transform, <span class="op">*</span>warped_aoi_bounds)</span>
+<span id="cb19-75"><a href="#cb19-75" aria-hidden="true" tabindex="-1"></a>            red <span class="op">=</span> src.read(<span class="dv">1</span>, window<span class="op">=</span>aoi_window)</span>
+<span id="cb19-76"><a href="#cb19-76" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb19-77"><a href="#cb19-77" aria-hidden="true" tabindex="-1"></a>            <span class="co"># get affine transform for the windowed read</span></span>
+<span id="cb19-78"><a href="#cb19-78" aria-hidden="true" tabindex="-1"></a>            <span class="co"># this allows us to reproject the windowed read of data from COG file</span></span>
+<span id="cb19-79"><a href="#cb19-79" aria-hidden="true" tabindex="-1"></a>            src_transform <span class="op">=</span> src.transform</span>
+<span id="cb19-80"><a href="#cb19-80" aria-hidden="true" tabindex="-1"></a>            win_transform <span class="op">=</span> src.window_transform(aoi_window)</span>
+<span id="cb19-81"><a href="#cb19-81" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb19-82"><a href="#cb19-82" aria-hidden="true" tabindex="-1"></a>            <span class="co"># create a copy of the metadata for saving later</span></span>
+<span id="cb19-83"><a href="#cb19-83" aria-hidden="true" tabindex="-1"></a>            out_meta <span class="op">=</span> src.meta</span>
+<span id="cb19-84"><a href="#cb19-84" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb19-85"><a href="#cb19-85" aria-hidden="true" tabindex="-1"></a>            <span class="co"># get the shape of the red ndarray</span></span>
+<span id="cb19-86"><a href="#cb19-86" aria-hidden="true" tabindex="-1"></a>            <span class="co"># force all other rasters to match this shape</span></span>
+<span id="cb19-87"><a href="#cb19-87" aria-hidden="true" tabindex="-1"></a>            out_shape <span class="op">=</span> red.shape</span>
+<span id="cb19-88"><a href="#cb19-88" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb19-89"><a href="#cb19-89" aria-hidden="true" tabindex="-1"></a>        <span class="co"># read nir band</span></span>
+<span id="cb19-90"><a href="#cb19-90" aria-hidden="true" tabindex="-1"></a>        <span class="co"># open a connection to the COG using its signed link</span></span>
+<span id="cb19-91"><a href="#cb19-91" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> rasterio.<span class="bu">open</span>(least_cloudy_nir08_href) <span class="im">as</span> src:</span>
+<span id="cb19-92"><a href="#cb19-92" aria-hidden="true" tabindex="-1"></a>            aoi_bounds <span class="op">=</span> features.bounds(clum_bbox_shapely)</span>
+<span id="cb19-93"><a href="#cb19-93" aria-hidden="true" tabindex="-1"></a>            warped_aoi_bounds <span class="op">=</span> warp.transform_bounds(<span class="st">"epsg:4326"</span>, src.crs, <span class="op">*</span>aoi_bounds)</span>
+<span id="cb19-94"><a href="#cb19-94" aria-hidden="true" tabindex="-1"></a>            aoi_window <span class="op">=</span> windows.from_bounds(transform<span class="op">=</span>src.transform, <span class="op">*</span>warped_aoi_bounds)</span>
+<span id="cb19-95"><a href="#cb19-95" aria-hidden="true" tabindex="-1"></a>            nir <span class="op">=</span> src.read(<span class="dv">1</span>, out_shape<span class="op">=</span>out_shape, window<span class="op">=</span>aoi_window)</span>
+<span id="cb19-96"><a href="#cb19-96" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb19-97"><a href="#cb19-97" aria-hidden="true" tabindex="-1"></a>        <span class="co"># compute NDVI</span></span>
+<span id="cb19-98"><a href="#cb19-98" aria-hidden="true" tabindex="-1"></a>        <span class="co"># cast to float as NDVI is bound between -1 and 1 </span></span>
+<span id="cb19-99"><a href="#cb19-99" aria-hidden="true" tabindex="-1"></a>        nir <span class="op">=</span> nir.astype(<span class="st">"float32"</span>)</span>
+<span id="cb19-100"><a href="#cb19-100" aria-hidden="true" tabindex="-1"></a>        red <span class="op">=</span> red.astype(<span class="st">"float32"</span>)</span>
+<span id="cb19-101"><a href="#cb19-101" aria-hidden="true" tabindex="-1"></a>        ndvi <span class="op">=</span> (nir <span class="op">-</span> red) <span class="op">/</span> (nir <span class="op">+</span> red)</span>
+<span id="cb19-102"><a href="#cb19-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-103"><a href="#cb19-103" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb19-104"><a href="#cb19-104" aria-hidden="true" tabindex="-1"></a>        <span class="co"># read red band</span></span>
+<span id="cb19-105"><a href="#cb19-105" aria-hidden="true" tabindex="-1"></a>        <span class="co"># open a connection to the COG using its signed link</span></span>
+<span id="cb19-106"><a href="#cb19-106" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> rasterio.<span class="bu">open</span>(least_cloudy_red_href) <span class="im">as</span> src:</span>
+<span id="cb19-107"><a href="#cb19-107" aria-hidden="true" tabindex="-1"></a>            aoi_bounds <span class="op">=</span> features.bounds(clum_bbox_shapely)</span>
+<span id="cb19-108"><a href="#cb19-108" aria-hidden="true" tabindex="-1"></a>            warped_aoi_bounds <span class="op">=</span> warp.transform_bounds(<span class="st">"epsg:4326"</span>, src.crs, <span class="op">*</span>aoi_bounds)</span>
+<span id="cb19-109"><a href="#cb19-109" aria-hidden="true" tabindex="-1"></a>            aoi_window <span class="op">=</span> windows.from_bounds(transform<span class="op">=</span>src.transform, <span class="op">*</span>warped_aoi_bounds)</span>
+<span id="cb19-110"><a href="#cb19-110" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Here we pass out_shape into read to define the shape of the array data is read into</span></span>
+<span id="cb19-111"><a href="#cb19-111" aria-hidden="true" tabindex="-1"></a>            red <span class="op">=</span> src.read(<span class="dv">1</span>, out_shape<span class="op">=</span>out_shape, window<span class="op">=</span>aoi_window)</span>
+<span id="cb19-112"><a href="#cb19-112" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb19-113"><a href="#cb19-113" aria-hidden="true" tabindex="-1"></a>        <span class="co"># read nir band</span></span>
+<span id="cb19-114"><a href="#cb19-114" aria-hidden="true" tabindex="-1"></a>        <span class="co"># open a connection to the COG using its signed link</span></span>
+<span id="cb19-115"><a href="#cb19-115" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> rasterio.<span class="bu">open</span>(least_cloudy_nir08_href) <span class="im">as</span> src:</span>
+<span id="cb19-116"><a href="#cb19-116" aria-hidden="true" tabindex="-1"></a>            aoi_bounds <span class="op">=</span> features.bounds(clum_bbox_shapely)</span>
+<span id="cb19-117"><a href="#cb19-117" aria-hidden="true" tabindex="-1"></a>            warped_aoi_bounds <span class="op">=</span> warp.transform_bounds(<span class="st">"epsg:4326"</span>, src.crs, <span class="op">*</span>aoi_bounds)</span>
+<span id="cb19-118"><a href="#cb19-118" aria-hidden="true" tabindex="-1"></a>            aoi_window <span class="op">=</span> windows.from_bounds(transform<span class="op">=</span>src.transform, <span class="op">*</span>warped_aoi_bounds)</span>
+<span id="cb19-119"><a href="#cb19-119" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Here we pass out_shape into read to define the shape of the array data is read into</span></span>
+<span id="cb19-120"><a href="#cb19-120" aria-hidden="true" tabindex="-1"></a>            nir <span class="op">=</span> src.read(<span class="dv">1</span>, out_shape<span class="op">=</span>out_shape, window<span class="op">=</span>aoi_window)</span>
+<span id="cb19-121"><a href="#cb19-121" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb19-122"><a href="#cb19-122" aria-hidden="true" tabindex="-1"></a>        <span class="co"># compute NDVI</span></span>
+<span id="cb19-123"><a href="#cb19-123" aria-hidden="true" tabindex="-1"></a>        <span class="co"># cast to float as NDVI is bound between -1 and 1 </span></span>
+<span id="cb19-124"><a href="#cb19-124" aria-hidden="true" tabindex="-1"></a>        nir <span class="op">=</span> nir.astype(<span class="st">"float32"</span>)</span>
+<span id="cb19-125"><a href="#cb19-125" aria-hidden="true" tabindex="-1"></a>        red <span class="op">=</span> red.astype(<span class="st">"float32"</span>)</span>
+<span id="cb19-126"><a href="#cb19-126" aria-hidden="true" tabindex="-1"></a>        ndvi <span class="op">=</span> (nir <span class="op">-</span> red) <span class="op">/</span> (nir <span class="op">+</span> red)</span>
+<span id="cb19-127"><a href="#cb19-127" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb19-128"><a href="#cb19-128" aria-hidden="true" tabindex="-1"></a>    <span class="co"># append NDVI ndarray to list</span></span>
+<span id="cb19-129"><a href="#cb19-129" aria-hidden="true" tabindex="-1"></a>    ndvi_arr.append(ndvi)</span>
+<span id="cb19-130"><a href="#cb19-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-131"><a href="#cb19-131" aria-hidden="true" tabindex="-1"></a><span class="co"># stack the ndvi ndarray's to create a multiband raster</span></span>
+<span id="cb19-132"><a href="#cb19-132" aria-hidden="true" tabindex="-1"></a>ndvi_stacked <span class="op">=</span> np.stack(ndvi_arr, axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb19-133"><a href="#cb19-133" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"the shape of ndvi_arr is </span><span class="sc">{</span>ndvi_stacked<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>processing month 1
 processing month 2
@@ -959,8 +971,8 @@ the shape of ndvi_arr is (12, 46, 59)</code></pre>
 </div>
 <p>We can inspect the metadata of the COG file we are reading data from. We can see that its width and height are far greater than width and height of the windowed read of data that corresponded to our bounding box (width = 59, and height = 46). This is because the metadata corresponds to the entire Landsat scene, but we extracted a small subset of this data that intersects with our bounding box. This is why we computed the <code>win_transform</code> object above as this affine transform object allows us to reproject the <code>ndarray</code> generated by the windowed read (i.e.&nbsp;relate elements in the NumPy <code>ndarray</code> to positions on the Earth’s surface). You can read about affine transforms in GIS <a href="https://pygis.io/docs/d_affine.html" target="_blank">here</a>.</p>
 <div class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># inspect the metadata</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>out_meta</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># inspect the metadata</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>out_meta</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="19">
 <pre><code>{'driver': 'GTiff',
  'dtype': 'uint16',
@@ -975,13 +987,13 @@ the shape of ndvi_arr is (12, 46, 59)</code></pre>
 </div>
 <p>To save our monthly multiband representation of NDVI rasters, we need to create new metadata that describes the data. We can do this by updating the various fields in the metadata dictionary object. We can then save the multiband raster to file using the standard Python / rasterio approach of opening a file connection object in write mode.</p>
 <div class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># update meta for saving</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>out_meta[<span class="st">"dtype"</span>] <span class="op">=</span> <span class="st">"float32"</span></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>out_meta[<span class="st">"count"</span>] <span class="op">=</span> <span class="dv">12</span></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>out_meta[<span class="st">"height"</span>] <span class="op">=</span> ndvi_arr[<span class="dv">0</span>].shape[<span class="dv">0</span>]</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>out_meta[<span class="st">"width"</span>] <span class="op">=</span> ndvi_arr[<span class="dv">0</span>].shape[<span class="dv">1</span>]</span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>out_meta[<span class="st">"transform"</span>] <span class="op">=</span> win_transform</span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>out_meta</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># update meta for saving</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>out_meta[<span class="st">"dtype"</span>] <span class="op">=</span> <span class="st">"float32"</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>out_meta[<span class="st">"count"</span>] <span class="op">=</span> <span class="dv">12</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>out_meta[<span class="st">"height"</span>] <span class="op">=</span> ndvi_arr[<span class="dv">0</span>].shape[<span class="dv">0</span>]</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>out_meta[<span class="st">"width"</span>] <span class="op">=</span> ndvi_arr[<span class="dv">0</span>].shape[<span class="dv">1</span>]</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>out_meta[<span class="st">"transform"</span>] <span class="op">=</span> win_transform</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>out_meta</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="20">
 <pre><code>{'driver': 'GTiff',
  'dtype': 'float32',
@@ -994,11 +1006,11 @@ the shape of ndvi_arr is (12, 46, 59)</code></pre>
         0.0, -30.0, -2750124.472408598)}</code></pre>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># save multiband NDVI raster</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>ndvi_out_path <span class="op">=</span> os.path.join(os.getcwd(), <span class="st">"week-6-practice"</span>, <span class="st">"ndvi_by_month.tif"</span>)</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> rasterio.<span class="bu">open</span>(ndvi_out_path, <span class="st">"w"</span>, <span class="op">**</span>out_meta) <span class="im">as</span> dst:</span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>        dst.write(ndvi_stacked, [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># save multiband NDVI raster</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>ndvi_out_path <span class="op">=</span> os.path.join(os.getcwd(), <span class="st">"week-6-practice"</span>, <span class="st">"ndvi_by_month.tif"</span>)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> rasterio.<span class="bu">open</span>(ndvi_out_path, <span class="st">"w"</span>, <span class="op">**</span>out_meta) <span class="im">as</span> dst:</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>        dst.write(ndvi_stacked, [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="zonal-statistics" class="level3">
@@ -1007,27 +1019,27 @@ the shape of ndvi_arr is (12, 46, 59)</code></pre>
 <p>To do this, we can loop over the list of <code>ndarray</code>s which store monthly NDVI values and compute the mean NDVI for all pixels that intersect with a plantation geometry. For each call to the <code>zonal_stats()</code> function we need to pass in the <code>GeoDataFrame</code> of plantation boundaries, <code>clum_aoi</code> transformed to the CRS of the NDVI data. We also need to pass in the NumPy <code>ndarray</code> of NDVI values and the affine transform that relates <code>ndarray</code> elements to locations on the Earth’s surface.</p>
 <p>For each month, we can create a new column in the <code>GeoDataFrame</code> <code>clum_aoi_ndvi</code> and append the results of the zonal statistics operation.</p>
 <div class="cell" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># zonal stats</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>zstats_meta <span class="op">=</span> out_meta</span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>zstats_meta[<span class="st">"count"</span>] <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co"># create a copy of clum_aoi to save zonal_stats results to</span></span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>clum_aoi_ndvi <span class="op">=</span> clum_aoi.copy()</span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>month_idx <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> ndvi_arr:  </span>
-<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"computing ndvi zonal stats for month </span><span class="sc">{</span>month_idx<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>    zstats <span class="op">=</span> zonal_stats(</span>
-<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>        clum_aoi.to_crs(zstats_meta[<span class="st">"crs"</span>]), </span>
-<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>        i, </span>
-<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>        affine<span class="op">=</span>zstats_meta[<span class="st">"transform"</span>], </span>
-<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>        stats<span class="op">=</span>[<span class="st">"mean"</span>], </span>
-<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a>        all_touched<span class="op">=</span><span class="va">True</span></span>
-<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a>    df_zstats <span class="op">=</span> pd.DataFrame(zstats)</span>
-<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a>    clum_aoi_ndvi[<span class="ss">f"ndvi_</span><span class="sc">{</span>month_idx<span class="sc">}</span><span class="ss">"</span>] <span class="op">=</span> df_zstats.iloc[:, <span class="dv">0</span>] </span>
-<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a>    month_idx <span class="op">+=</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># zonal stats</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>zstats_meta <span class="op">=</span> out_meta</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>zstats_meta[<span class="st">"count"</span>] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co"># create a copy of clum_aoi to save zonal_stats results to</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>clum_aoi_ndvi <span class="op">=</span> clum_aoi.copy()</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>month_idx <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> ndvi_arr:  </span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"computing ndvi zonal stats for month </span><span class="sc">{</span>month_idx<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>    zstats <span class="op">=</span> zonal_stats(</span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>        clum_aoi.to_crs(zstats_meta[<span class="st">"crs"</span>]), </span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>        i, </span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>        affine<span class="op">=</span>zstats_meta[<span class="st">"transform"</span>], </span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>        stats<span class="op">=</span>[<span class="st">"mean"</span>], </span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>        all_touched<span class="op">=</span><span class="va">True</span></span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a>    df_zstats <span class="op">=</span> pd.DataFrame(zstats)</span>
+<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a>    clum_aoi_ndvi[<span class="ss">f"ndvi_</span><span class="sc">{</span>month_idx<span class="sc">}</span><span class="ss">"</span>] <span class="op">=</span> df_zstats.iloc[:, <span class="dv">0</span>] </span>
+<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a>    month_idx <span class="op">+=</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>computing ndvi zonal stats for month 1</code></pre>
 </div>
@@ -1052,7 +1064,7 @@ computing ndvi zonal stats for month 12</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>clum_aoi_ndvi.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>clum_aoi_ndvi.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="23">
 
 <div>
@@ -1212,214 +1224,214 @@ computing ndvi zonal stats for month 12</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># visualise average monthly NDVI for row 4</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>px.line(</span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span>[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>],</span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span>clum_aoi_ndvi.loc[<span class="dv">3</span>, <span class="st">"ndvi_1"</span>:<span class="st">"ndvi_12"</span>].tolist(),</span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>    labels <span class="op">=</span> {</span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">"y"</span>: <span class="st">"NDVI"</span>,</span>
-<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">"x"</span>: <span class="st">"month"</span></span>
-<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>    }   </span>
-<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># visualise average monthly NDVI for row 4</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>px.line(</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span>[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>],</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span>clum_aoi_ndvi.loc[<span class="dv">3</span>, <span class="st">"ndvi_1"</span>:<span class="st">"ndvi_12"</span>].tolist(),</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>    labels <span class="op">=</span> {</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">"y"</span>: <span class="st">"NDVI"</span>,</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">"x"</span>: <span class="st">"month"</span></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>    }   </span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="lab-6-practice-exercises_files/figure-html/cell-21-output-1.png" class="img-fluid"></p>
+<p><img src="lab-6-practice-exercises_files/figure-html/cell-22-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <section id="recap-quiz" class="level4">
 <h4 class="anchored">Recap quiz</h4>
 <p><strong>Can you repeat the above process of generating monthly NDVI arrays and computing zonal statistics for plantation boundaries using data from the Sentinel-2 sensor?</strong></p>
 <p><strong>Things to note: the name of the Sentinel-2 STAC Item Collection and the band names for red and near infrared reflectance.</strong></p>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co">## ADD CODE HERE ##</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co">## ADD CODE HERE ##</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <details>
 <summary>
 <b>answer - download S2 assets</b>
 </summary>
-<div class="sourceCode" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>months <span class="op">=</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">13</span>)</span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>year <span class="op">=</span> <span class="dv">2016</span></span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>year_next <span class="op">=</span> <span class="dv">2016</span></span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="co"># get the bounding box as a shapely object</span></span>
-<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>clum_bbox_shapely <span class="op">=</span> clum_bbox[<span class="dv">0</span>]</span>
-<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="co"># empty list to store ndarray of monthly ndvi values</span></span>
-<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>s2_ndvi_arr <span class="op">=</span> []</span>
-<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> months:</span>
-<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"processing month </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># here we convert numeric month indicators which can be single digit (e.g. Jan = 1) </span></span>
-<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># to string month indicators which are two digits (e.g. Jan = "01")</span></span>
-<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> i <span class="op">&lt;</span> <span class="dv">10</span>:</span>
-<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a>        mnth <span class="op">=</span> <span class="bu">str</span>(<span class="dv">0</span>) <span class="op">+</span> <span class="bu">str</span>(i)</span>
-<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a>        mnth <span class="op">=</span> <span class="bu">str</span>(i)</span>
-<span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># create month and year indicators for the start of the next month</span></span>
-<span id="cb32-22"><a href="#cb32-22" aria-hidden="true" tabindex="-1"></a>    <span class="co"># we do this to constrain the search to one month at a time</span></span>
-<span id="cb32-23"><a href="#cb32-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> i <span class="op">&lt;</span> <span class="dv">9</span>:</span>
-<span id="cb32-24"><a href="#cb32-24" aria-hidden="true" tabindex="-1"></a>        mnth_next <span class="op">=</span> <span class="bu">str</span>(<span class="dv">0</span>) <span class="op">+</span> <span class="bu">str</span>(i <span class="op">+</span> <span class="dv">1</span>)</span>
-<span id="cb32-25"><a href="#cb32-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb32-26"><a href="#cb32-26" aria-hidden="true" tabindex="-1"></a>        mnth_next <span class="op">=</span> <span class="bu">str</span>(i <span class="op">+</span> <span class="dv">1</span>)</span>
-<span id="cb32-27"><a href="#cb32-27" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb32-28"><a href="#cb32-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> mnth_next <span class="op">==</span> <span class="st">"13"</span>:</span>
-<span id="cb32-29"><a href="#cb32-29" aria-hidden="true" tabindex="-1"></a>        mnth_next <span class="op">=</span> <span class="st">"01"</span></span>
-<span id="cb32-30"><a href="#cb32-30" aria-hidden="true" tabindex="-1"></a>        year_next <span class="op">=</span> year <span class="op">+</span> <span class="dv">1</span></span>
-<span id="cb32-31"><a href="#cb32-31" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb32-32"><a href="#cb32-32" aria-hidden="true" tabindex="-1"></a>    <span class="co"># create a time of interest search for each month in turn</span></span>
-<span id="cb32-33"><a href="#cb32-33" aria-hidden="true" tabindex="-1"></a>    time_of_interest <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>year<span class="sc">}</span><span class="ss">-</span><span class="sc">{</span>mnth<span class="sc">}</span><span class="ss">-01/</span><span class="sc">{</span>year_next<span class="sc">}</span><span class="ss">-</span><span class="sc">{</span>mnth_next<span class="sc">}</span><span class="ss">-01"</span></span>
-<span id="cb32-34"><a href="#cb32-34" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb32-35"><a href="#cb32-35" aria-hidden="true" tabindex="-1"></a>    <span class="co"># search the Microsoft Planetary computer to find Sentinel-2 assets matching our bounding box and time of interest</span></span>
-<span id="cb32-36"><a href="#cb32-36" aria-hidden="true" tabindex="-1"></a>    search <span class="op">=</span> pc_catalog.search(</span>
-<span id="cb32-37"><a href="#cb32-37" aria-hidden="true" tabindex="-1"></a>        collections<span class="op">=</span>[<span class="st">"sentinel-2-l2a"</span>],</span>
-<span id="cb32-38"><a href="#cb32-38" aria-hidden="true" tabindex="-1"></a>        intersects<span class="op">=</span>clum_bbox_shapely, <span class="co"># use shapely object</span></span>
-<span id="cb32-39"><a href="#cb32-39" aria-hidden="true" tabindex="-1"></a>        datetime<span class="op">=</span>time_of_interest</span>
-<span id="cb32-40"><a href="#cb32-40" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb32-41"><a href="#cb32-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-42"><a href="#cb32-42" aria-hidden="true" tabindex="-1"></a>    <span class="co"># items is an item collection of S2 assets that matched the search criteria</span></span>
-<span id="cb32-43"><a href="#cb32-43" aria-hidden="true" tabindex="-1"></a>    items <span class="op">=</span> search.item_collection()</span>
-<span id="cb32-44"><a href="#cb32-44" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb32-45"><a href="#cb32-45" aria-hidden="true" tabindex="-1"></a>    <span class="co"># get item with lowest cloud cover per-month</span></span>
-<span id="cb32-46"><a href="#cb32-46" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb32-47"><a href="#cb32-47" aria-hidden="true" tabindex="-1"></a>    <span class="co"># empty list - append the cloud cover each S2 asset in the item collection to the list</span></span>
-<span id="cb32-48"><a href="#cb32-48" aria-hidden="true" tabindex="-1"></a>    cloud_cover <span class="op">=</span> []</span>
-<span id="cb32-49"><a href="#cb32-49" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> cld <span class="kw">in</span> items:</span>
-<span id="cb32-50"><a href="#cb32-50" aria-hidden="true" tabindex="-1"></a>        cloud_cover.append(eo.ext(cld).cloud_cover)</span>
-<span id="cb32-51"><a href="#cb32-51" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb32-52"><a href="#cb32-52" aria-hidden="true" tabindex="-1"></a>    <span class="co"># find the index location in the list of the asset with lowest cloud cover</span></span>
-<span id="cb32-53"><a href="#cb32-53" aria-hidden="true" tabindex="-1"></a>    min_cloud_cover <span class="op">=</span> <span class="bu">min</span>(cloud_cover)</span>
-<span id="cb32-54"><a href="#cb32-54" aria-hidden="true" tabindex="-1"></a>    min_cloud_cover_idx <span class="op">=</span> cloud_cover.index(min_cloud_cover)</span>
-<span id="cb32-55"><a href="#cb32-55" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb32-56"><a href="#cb32-56" aria-hidden="true" tabindex="-1"></a>    <span class="co"># get the S2 asset with the lowest cloud cover</span></span>
-<span id="cb32-57"><a href="#cb32-57" aria-hidden="true" tabindex="-1"></a>    least_cloudy <span class="op">=</span> items[min_cloud_cover_idx]</span>
-<span id="cb32-58"><a href="#cb32-58" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb32-59"><a href="#cb32-59" aria-hidden="true" tabindex="-1"></a>    <span class="co"># get the signed URL for the red and nir least cloudy S2 assets</span></span>
-<span id="cb32-60"><a href="#cb32-60" aria-hidden="true" tabindex="-1"></a>    least_cloudy_red_href <span class="op">=</span> pc.sign(least_cloudy.assets[<span class="st">"B04"</span>].href)</span>
-<span id="cb32-61"><a href="#cb32-61" aria-hidden="true" tabindex="-1"></a>    least_cloudy_nir08_href <span class="op">=</span> pc.sign(least_cloudy.assets[<span class="st">"B08"</span>].href)</span>
-<span id="cb32-62"><a href="#cb32-62" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb32-63"><a href="#cb32-63" aria-hidden="true" tabindex="-1"></a>    <span class="co"># for the first month get the shape of the array</span></span>
-<span id="cb32-64"><a href="#cb32-64" aria-hidden="true" tabindex="-1"></a>    <span class="co"># for subequent months resample all arrays to this shape</span></span>
-<span id="cb32-65"><a href="#cb32-65" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> i <span class="op">==</span> <span class="dv">1</span>:</span>
-<span id="cb32-66"><a href="#cb32-66" aria-hidden="true" tabindex="-1"></a>        <span class="co"># read red band</span></span>
-<span id="cb32-67"><a href="#cb32-67" aria-hidden="true" tabindex="-1"></a>        <span class="co"># open a connection to the COG using its signed link</span></span>
-<span id="cb32-68"><a href="#cb32-68" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> rasterio.<span class="bu">open</span>(least_cloudy_red_href) <span class="im">as</span> src:</span>
-<span id="cb32-69"><a href="#cb32-69" aria-hidden="true" tabindex="-1"></a>            aoi_bounds <span class="op">=</span> features.bounds(clum_bbox_shapely)</span>
-<span id="cb32-70"><a href="#cb32-70" aria-hidden="true" tabindex="-1"></a>            warped_aoi_bounds <span class="op">=</span> warp.transform_bounds(<span class="st">"epsg:4326"</span>, src.crs, <span class="op">*</span>aoi_bounds)</span>
-<span id="cb32-71"><a href="#cb32-71" aria-hidden="true" tabindex="-1"></a>            aoi_window <span class="op">=</span> windows.from_bounds(transform<span class="op">=</span>src.transform, <span class="op">*</span>warped_aoi_bounds)</span>
-<span id="cb32-72"><a href="#cb32-72" aria-hidden="true" tabindex="-1"></a>            red <span class="op">=</span> src.read(<span class="dv">1</span>, window<span class="op">=</span>aoi_window)</span>
-<span id="cb32-73"><a href="#cb32-73" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb32-74"><a href="#cb32-74" aria-hidden="true" tabindex="-1"></a>            <span class="co"># get affine transform for the windowed read</span></span>
-<span id="cb32-75"><a href="#cb32-75" aria-hidden="true" tabindex="-1"></a>            <span class="co"># this allows us to reproject the windowed read of data from COG file</span></span>
-<span id="cb32-76"><a href="#cb32-76" aria-hidden="true" tabindex="-1"></a>            src_transform <span class="op">=</span> src.transform</span>
-<span id="cb32-77"><a href="#cb32-77" aria-hidden="true" tabindex="-1"></a>            win_transform <span class="op">=</span> src.window_transform(aoi_window)</span>
-<span id="cb32-78"><a href="#cb32-78" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb32-79"><a href="#cb32-79" aria-hidden="true" tabindex="-1"></a>            <span class="co"># create a copy of the metadata for saving later</span></span>
-<span id="cb32-80"><a href="#cb32-80" aria-hidden="true" tabindex="-1"></a>            out_meta <span class="op">=</span> src.meta</span>
-<span id="cb32-81"><a href="#cb32-81" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb32-82"><a href="#cb32-82" aria-hidden="true" tabindex="-1"></a>            <span class="co"># get the shape of the red ndarray</span></span>
-<span id="cb32-83"><a href="#cb32-83" aria-hidden="true" tabindex="-1"></a>            <span class="co"># force all other rasters to match this shape</span></span>
-<span id="cb32-84"><a href="#cb32-84" aria-hidden="true" tabindex="-1"></a>            out_shape <span class="op">=</span> red.shape</span>
-<span id="cb32-85"><a href="#cb32-85" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb32-86"><a href="#cb32-86" aria-hidden="true" tabindex="-1"></a>        <span class="co"># read nir band</span></span>
-<span id="cb32-87"><a href="#cb32-87" aria-hidden="true" tabindex="-1"></a>        <span class="co"># open a connection to the COG using its signed link</span></span>
-<span id="cb32-88"><a href="#cb32-88" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> rasterio.<span class="bu">open</span>(least_cloudy_nir08_href) <span class="im">as</span> src:</span>
-<span id="cb32-89"><a href="#cb32-89" aria-hidden="true" tabindex="-1"></a>            aoi_bounds <span class="op">=</span> features.bounds(clum_bbox_shapely)</span>
-<span id="cb32-90"><a href="#cb32-90" aria-hidden="true" tabindex="-1"></a>            warped_aoi_bounds <span class="op">=</span> warp.transform_bounds(<span class="st">"epsg:4326"</span>, src.crs, <span class="op">*</span>aoi_bounds)</span>
-<span id="cb32-91"><a href="#cb32-91" aria-hidden="true" tabindex="-1"></a>            aoi_window <span class="op">=</span> windows.from_bounds(transform<span class="op">=</span>src.transform, <span class="op">*</span>warped_aoi_bounds)</span>
-<span id="cb32-92"><a href="#cb32-92" aria-hidden="true" tabindex="-1"></a>            nir <span class="op">=</span> src.read(<span class="dv">1</span>, out_shape<span class="op">=</span>out_shape, window<span class="op">=</span>aoi_window)</span>
-<span id="cb32-93"><a href="#cb32-93" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb32-94"><a href="#cb32-94" aria-hidden="true" tabindex="-1"></a>        <span class="co"># compute NDVI</span></span>
-<span id="cb32-95"><a href="#cb32-95" aria-hidden="true" tabindex="-1"></a>        <span class="co"># cast to float as NDVI is bound between -1 and 1 </span></span>
-<span id="cb32-96"><a href="#cb32-96" aria-hidden="true" tabindex="-1"></a>        nir <span class="op">=</span> nir.astype(<span class="st">"float32"</span>)</span>
-<span id="cb32-97"><a href="#cb32-97" aria-hidden="true" tabindex="-1"></a>        red <span class="op">=</span> red.astype(<span class="st">"float32"</span>)</span>
-<span id="cb32-98"><a href="#cb32-98" aria-hidden="true" tabindex="-1"></a>        ndvi <span class="op">=</span> (nir <span class="op">-</span> red) <span class="op">/</span> (nir <span class="op">+</span> red)</span>
-<span id="cb32-99"><a href="#cb32-99" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-100"><a href="#cb32-100" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb32-101"><a href="#cb32-101" aria-hidden="true" tabindex="-1"></a>        <span class="co"># read red band</span></span>
-<span id="cb32-102"><a href="#cb32-102" aria-hidden="true" tabindex="-1"></a>        <span class="co"># open a connection to the COG using its signed link</span></span>
-<span id="cb32-103"><a href="#cb32-103" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> rasterio.<span class="bu">open</span>(least_cloudy_red_href) <span class="im">as</span> src:</span>
-<span id="cb32-104"><a href="#cb32-104" aria-hidden="true" tabindex="-1"></a>            aoi_bounds <span class="op">=</span> features.bounds(clum_bbox_shapely)</span>
-<span id="cb32-105"><a href="#cb32-105" aria-hidden="true" tabindex="-1"></a>            warped_aoi_bounds <span class="op">=</span> warp.transform_bounds(<span class="st">"epsg:4326"</span>, src.crs, <span class="op">*</span>aoi_bounds)</span>
-<span id="cb32-106"><a href="#cb32-106" aria-hidden="true" tabindex="-1"></a>            aoi_window <span class="op">=</span> windows.from_bounds(transform<span class="op">=</span>src.transform, <span class="op">*</span>warped_aoi_bounds)</span>
-<span id="cb32-107"><a href="#cb32-107" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Here we pass out_shape into read to define the shape of the array data is read into</span></span>
-<span id="cb32-108"><a href="#cb32-108" aria-hidden="true" tabindex="-1"></a>            red <span class="op">=</span> src.read(<span class="dv">1</span>, out_shape<span class="op">=</span>out_shape, window<span class="op">=</span>aoi_window)</span>
-<span id="cb32-109"><a href="#cb32-109" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb32-110"><a href="#cb32-110" aria-hidden="true" tabindex="-1"></a>        <span class="co"># read nir band</span></span>
-<span id="cb32-111"><a href="#cb32-111" aria-hidden="true" tabindex="-1"></a>        <span class="co"># open a connection to the COG using its signed link</span></span>
-<span id="cb32-112"><a href="#cb32-112" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> rasterio.<span class="bu">open</span>(least_cloudy_nir08_href) <span class="im">as</span> src:</span>
-<span id="cb32-113"><a href="#cb32-113" aria-hidden="true" tabindex="-1"></a>            aoi_bounds <span class="op">=</span> features.bounds(clum_bbox_shapely)</span>
-<span id="cb32-114"><a href="#cb32-114" aria-hidden="true" tabindex="-1"></a>            warped_aoi_bounds <span class="op">=</span> warp.transform_bounds(<span class="st">"epsg:4326"</span>, src.crs, <span class="op">*</span>aoi_bounds)</span>
-<span id="cb32-115"><a href="#cb32-115" aria-hidden="true" tabindex="-1"></a>            aoi_window <span class="op">=</span> windows.from_bounds(transform<span class="op">=</span>src.transform, <span class="op">*</span>warped_aoi_bounds)</span>
-<span id="cb32-116"><a href="#cb32-116" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Here we pass out_shape into read to define the shape of the array data is read into</span></span>
-<span id="cb32-117"><a href="#cb32-117" aria-hidden="true" tabindex="-1"></a>            nir <span class="op">=</span> src.read(<span class="dv">1</span>, out_shape<span class="op">=</span>out_shape, window<span class="op">=</span>aoi_window)</span>
-<span id="cb32-118"><a href="#cb32-118" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb32-119"><a href="#cb32-119" aria-hidden="true" tabindex="-1"></a>        <span class="co"># compute NDVI</span></span>
-<span id="cb32-120"><a href="#cb32-120" aria-hidden="true" tabindex="-1"></a>        <span class="co"># cast to float as NDVI is bound between -1 and 1 </span></span>
-<span id="cb32-121"><a href="#cb32-121" aria-hidden="true" tabindex="-1"></a>        nir <span class="op">=</span> nir.astype(<span class="st">"float32"</span>)</span>
-<span id="cb32-122"><a href="#cb32-122" aria-hidden="true" tabindex="-1"></a>        red <span class="op">=</span> red.astype(<span class="st">"float32"</span>)</span>
-<span id="cb32-123"><a href="#cb32-123" aria-hidden="true" tabindex="-1"></a>        ndvi <span class="op">=</span> (nir <span class="op">-</span> red) <span class="op">/</span> (nir <span class="op">+</span> red)</span>
-<span id="cb32-124"><a href="#cb32-124" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb32-125"><a href="#cb32-125" aria-hidden="true" tabindex="-1"></a>    <span class="co"># append NDVI ndarray to list</span></span>
-<span id="cb32-126"><a href="#cb32-126" aria-hidden="true" tabindex="-1"></a>    s2_ndvi_arr.append(ndvi)</span>
-<span id="cb32-127"><a href="#cb32-127" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-128"><a href="#cb32-128" aria-hidden="true" tabindex="-1"></a><span class="co"># stack the ndvi ndarray's to create a multiband raster</span></span>
-<span id="cb32-129"><a href="#cb32-129" aria-hidden="true" tabindex="-1"></a>s2_ndvi_stacked <span class="op">=</span> np.stack(s2_ndvi_arr, axis<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb32-130"><a href="#cb32-130" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"the shape of ndvi_arr is </span><span class="sc">{</span>s2_ndvi_stacked<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>months <span class="op">=</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">13</span>)</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>year <span class="op">=</span> <span class="dv">2016</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>year_next <span class="op">=</span> <span class="dv">2016</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="co"># get the bounding box as a shapely object</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>clum_bbox_shapely <span class="op">=</span> clum_bbox[<span class="dv">0</span>]</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a><span class="co"># empty list to store ndarray of monthly ndvi values</span></span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>s2_ndvi_arr <span class="op">=</span> []</span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> months:</span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"processing month </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># here we convert numeric month indicators which can be single digit (e.g. Jan = 1) </span></span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># to string month indicators which are two digits (e.g. Jan = "01")</span></span>
+<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> i <span class="op">&lt;</span> <span class="dv">10</span>:</span>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a>        mnth <span class="op">=</span> <span class="bu">str</span>(<span class="dv">0</span>) <span class="op">+</span> <span class="bu">str</span>(i)</span>
+<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a>        mnth <span class="op">=</span> <span class="bu">str</span>(i)</span>
+<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># create month and year indicators for the start of the next month</span></span>
+<span id="cb33-22"><a href="#cb33-22" aria-hidden="true" tabindex="-1"></a>    <span class="co"># we do this to constrain the search to one month at a time</span></span>
+<span id="cb33-23"><a href="#cb33-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> i <span class="op">&lt;</span> <span class="dv">9</span>:</span>
+<span id="cb33-24"><a href="#cb33-24" aria-hidden="true" tabindex="-1"></a>        mnth_next <span class="op">=</span> <span class="bu">str</span>(<span class="dv">0</span>) <span class="op">+</span> <span class="bu">str</span>(i <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb33-25"><a href="#cb33-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb33-26"><a href="#cb33-26" aria-hidden="true" tabindex="-1"></a>        mnth_next <span class="op">=</span> <span class="bu">str</span>(i <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb33-27"><a href="#cb33-27" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb33-28"><a href="#cb33-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> mnth_next <span class="op">==</span> <span class="st">"13"</span>:</span>
+<span id="cb33-29"><a href="#cb33-29" aria-hidden="true" tabindex="-1"></a>        mnth_next <span class="op">=</span> <span class="st">"01"</span></span>
+<span id="cb33-30"><a href="#cb33-30" aria-hidden="true" tabindex="-1"></a>        year_next <span class="op">=</span> year <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb33-31"><a href="#cb33-31" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb33-32"><a href="#cb33-32" aria-hidden="true" tabindex="-1"></a>    <span class="co"># create a time of interest search for each month in turn</span></span>
+<span id="cb33-33"><a href="#cb33-33" aria-hidden="true" tabindex="-1"></a>    time_of_interest <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>year<span class="sc">}</span><span class="ss">-</span><span class="sc">{</span>mnth<span class="sc">}</span><span class="ss">-01/</span><span class="sc">{</span>year_next<span class="sc">}</span><span class="ss">-</span><span class="sc">{</span>mnth_next<span class="sc">}</span><span class="ss">-01"</span></span>
+<span id="cb33-34"><a href="#cb33-34" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb33-35"><a href="#cb33-35" aria-hidden="true" tabindex="-1"></a>    <span class="co"># search the Microsoft Planetary computer to find Sentinel-2 assets matching our bounding box and time of interest</span></span>
+<span id="cb33-36"><a href="#cb33-36" aria-hidden="true" tabindex="-1"></a>    search <span class="op">=</span> pc_catalog.search(</span>
+<span id="cb33-37"><a href="#cb33-37" aria-hidden="true" tabindex="-1"></a>        collections<span class="op">=</span>[<span class="st">"sentinel-2-l2a"</span>],</span>
+<span id="cb33-38"><a href="#cb33-38" aria-hidden="true" tabindex="-1"></a>        intersects<span class="op">=</span>clum_bbox_shapely, <span class="co"># use shapely object</span></span>
+<span id="cb33-39"><a href="#cb33-39" aria-hidden="true" tabindex="-1"></a>        datetime<span class="op">=</span>time_of_interest</span>
+<span id="cb33-40"><a href="#cb33-40" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb33-41"><a href="#cb33-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-42"><a href="#cb33-42" aria-hidden="true" tabindex="-1"></a>    <span class="co"># items is an item collection of S2 assets that matched the search criteria</span></span>
+<span id="cb33-43"><a href="#cb33-43" aria-hidden="true" tabindex="-1"></a>    items <span class="op">=</span> search.item_collection()</span>
+<span id="cb33-44"><a href="#cb33-44" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb33-45"><a href="#cb33-45" aria-hidden="true" tabindex="-1"></a>    <span class="co"># get item with lowest cloud cover per-month</span></span>
+<span id="cb33-46"><a href="#cb33-46" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb33-47"><a href="#cb33-47" aria-hidden="true" tabindex="-1"></a>    <span class="co"># empty list - append the cloud cover each S2 asset in the item collection to the list</span></span>
+<span id="cb33-48"><a href="#cb33-48" aria-hidden="true" tabindex="-1"></a>    cloud_cover <span class="op">=</span> []</span>
+<span id="cb33-49"><a href="#cb33-49" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> cld <span class="kw">in</span> items:</span>
+<span id="cb33-50"><a href="#cb33-50" aria-hidden="true" tabindex="-1"></a>        cloud_cover.append(eo.ext(cld).cloud_cover)</span>
+<span id="cb33-51"><a href="#cb33-51" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb33-52"><a href="#cb33-52" aria-hidden="true" tabindex="-1"></a>    <span class="co"># find the index location in the list of the asset with lowest cloud cover</span></span>
+<span id="cb33-53"><a href="#cb33-53" aria-hidden="true" tabindex="-1"></a>    min_cloud_cover <span class="op">=</span> <span class="bu">min</span>(cloud_cover)</span>
+<span id="cb33-54"><a href="#cb33-54" aria-hidden="true" tabindex="-1"></a>    min_cloud_cover_idx <span class="op">=</span> cloud_cover.index(min_cloud_cover)</span>
+<span id="cb33-55"><a href="#cb33-55" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb33-56"><a href="#cb33-56" aria-hidden="true" tabindex="-1"></a>    <span class="co"># get the S2 asset with the lowest cloud cover</span></span>
+<span id="cb33-57"><a href="#cb33-57" aria-hidden="true" tabindex="-1"></a>    least_cloudy <span class="op">=</span> items[min_cloud_cover_idx]</span>
+<span id="cb33-58"><a href="#cb33-58" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb33-59"><a href="#cb33-59" aria-hidden="true" tabindex="-1"></a>    <span class="co"># get the signed URL for the red and nir least cloudy S2 assets</span></span>
+<span id="cb33-60"><a href="#cb33-60" aria-hidden="true" tabindex="-1"></a>    least_cloudy_red_href <span class="op">=</span> pc.sign(least_cloudy.assets[<span class="st">"B04"</span>].href)</span>
+<span id="cb33-61"><a href="#cb33-61" aria-hidden="true" tabindex="-1"></a>    least_cloudy_nir08_href <span class="op">=</span> pc.sign(least_cloudy.assets[<span class="st">"B08"</span>].href)</span>
+<span id="cb33-62"><a href="#cb33-62" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb33-63"><a href="#cb33-63" aria-hidden="true" tabindex="-1"></a>    <span class="co"># for the first month get the shape of the array</span></span>
+<span id="cb33-64"><a href="#cb33-64" aria-hidden="true" tabindex="-1"></a>    <span class="co"># for subequent months resample all arrays to this shape</span></span>
+<span id="cb33-65"><a href="#cb33-65" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> i <span class="op">==</span> <span class="dv">1</span>:</span>
+<span id="cb33-66"><a href="#cb33-66" aria-hidden="true" tabindex="-1"></a>        <span class="co"># read red band</span></span>
+<span id="cb33-67"><a href="#cb33-67" aria-hidden="true" tabindex="-1"></a>        <span class="co"># open a connection to the COG using its signed link</span></span>
+<span id="cb33-68"><a href="#cb33-68" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> rasterio.<span class="bu">open</span>(least_cloudy_red_href) <span class="im">as</span> src:</span>
+<span id="cb33-69"><a href="#cb33-69" aria-hidden="true" tabindex="-1"></a>            aoi_bounds <span class="op">=</span> features.bounds(clum_bbox_shapely)</span>
+<span id="cb33-70"><a href="#cb33-70" aria-hidden="true" tabindex="-1"></a>            warped_aoi_bounds <span class="op">=</span> warp.transform_bounds(<span class="st">"epsg:4326"</span>, src.crs, <span class="op">*</span>aoi_bounds)</span>
+<span id="cb33-71"><a href="#cb33-71" aria-hidden="true" tabindex="-1"></a>            aoi_window <span class="op">=</span> windows.from_bounds(transform<span class="op">=</span>src.transform, <span class="op">*</span>warped_aoi_bounds)</span>
+<span id="cb33-72"><a href="#cb33-72" aria-hidden="true" tabindex="-1"></a>            red <span class="op">=</span> src.read(<span class="dv">1</span>, window<span class="op">=</span>aoi_window)</span>
+<span id="cb33-73"><a href="#cb33-73" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb33-74"><a href="#cb33-74" aria-hidden="true" tabindex="-1"></a>            <span class="co"># get affine transform for the windowed read</span></span>
+<span id="cb33-75"><a href="#cb33-75" aria-hidden="true" tabindex="-1"></a>            <span class="co"># this allows us to reproject the windowed read of data from COG file</span></span>
+<span id="cb33-76"><a href="#cb33-76" aria-hidden="true" tabindex="-1"></a>            src_transform <span class="op">=</span> src.transform</span>
+<span id="cb33-77"><a href="#cb33-77" aria-hidden="true" tabindex="-1"></a>            win_transform <span class="op">=</span> src.window_transform(aoi_window)</span>
+<span id="cb33-78"><a href="#cb33-78" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb33-79"><a href="#cb33-79" aria-hidden="true" tabindex="-1"></a>            <span class="co"># create a copy of the metadata for saving later</span></span>
+<span id="cb33-80"><a href="#cb33-80" aria-hidden="true" tabindex="-1"></a>            out_meta <span class="op">=</span> src.meta</span>
+<span id="cb33-81"><a href="#cb33-81" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb33-82"><a href="#cb33-82" aria-hidden="true" tabindex="-1"></a>            <span class="co"># get the shape of the red ndarray</span></span>
+<span id="cb33-83"><a href="#cb33-83" aria-hidden="true" tabindex="-1"></a>            <span class="co"># force all other rasters to match this shape</span></span>
+<span id="cb33-84"><a href="#cb33-84" aria-hidden="true" tabindex="-1"></a>            out_shape <span class="op">=</span> red.shape</span>
+<span id="cb33-85"><a href="#cb33-85" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb33-86"><a href="#cb33-86" aria-hidden="true" tabindex="-1"></a>        <span class="co"># read nir band</span></span>
+<span id="cb33-87"><a href="#cb33-87" aria-hidden="true" tabindex="-1"></a>        <span class="co"># open a connection to the COG using its signed link</span></span>
+<span id="cb33-88"><a href="#cb33-88" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> rasterio.<span class="bu">open</span>(least_cloudy_nir08_href) <span class="im">as</span> src:</span>
+<span id="cb33-89"><a href="#cb33-89" aria-hidden="true" tabindex="-1"></a>            aoi_bounds <span class="op">=</span> features.bounds(clum_bbox_shapely)</span>
+<span id="cb33-90"><a href="#cb33-90" aria-hidden="true" tabindex="-1"></a>            warped_aoi_bounds <span class="op">=</span> warp.transform_bounds(<span class="st">"epsg:4326"</span>, src.crs, <span class="op">*</span>aoi_bounds)</span>
+<span id="cb33-91"><a href="#cb33-91" aria-hidden="true" tabindex="-1"></a>            aoi_window <span class="op">=</span> windows.from_bounds(transform<span class="op">=</span>src.transform, <span class="op">*</span>warped_aoi_bounds)</span>
+<span id="cb33-92"><a href="#cb33-92" aria-hidden="true" tabindex="-1"></a>            nir <span class="op">=</span> src.read(<span class="dv">1</span>, out_shape<span class="op">=</span>out_shape, window<span class="op">=</span>aoi_window)</span>
+<span id="cb33-93"><a href="#cb33-93" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb33-94"><a href="#cb33-94" aria-hidden="true" tabindex="-1"></a>        <span class="co"># compute NDVI</span></span>
+<span id="cb33-95"><a href="#cb33-95" aria-hidden="true" tabindex="-1"></a>        <span class="co"># cast to float as NDVI is bound between -1 and 1 </span></span>
+<span id="cb33-96"><a href="#cb33-96" aria-hidden="true" tabindex="-1"></a>        nir <span class="op">=</span> nir.astype(<span class="st">"float32"</span>)</span>
+<span id="cb33-97"><a href="#cb33-97" aria-hidden="true" tabindex="-1"></a>        red <span class="op">=</span> red.astype(<span class="st">"float32"</span>)</span>
+<span id="cb33-98"><a href="#cb33-98" aria-hidden="true" tabindex="-1"></a>        ndvi <span class="op">=</span> (nir <span class="op">-</span> red) <span class="op">/</span> (nir <span class="op">+</span> red)</span>
+<span id="cb33-99"><a href="#cb33-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-100"><a href="#cb33-100" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb33-101"><a href="#cb33-101" aria-hidden="true" tabindex="-1"></a>        <span class="co"># read red band</span></span>
+<span id="cb33-102"><a href="#cb33-102" aria-hidden="true" tabindex="-1"></a>        <span class="co"># open a connection to the COG using its signed link</span></span>
+<span id="cb33-103"><a href="#cb33-103" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> rasterio.<span class="bu">open</span>(least_cloudy_red_href) <span class="im">as</span> src:</span>
+<span id="cb33-104"><a href="#cb33-104" aria-hidden="true" tabindex="-1"></a>            aoi_bounds <span class="op">=</span> features.bounds(clum_bbox_shapely)</span>
+<span id="cb33-105"><a href="#cb33-105" aria-hidden="true" tabindex="-1"></a>            warped_aoi_bounds <span class="op">=</span> warp.transform_bounds(<span class="st">"epsg:4326"</span>, src.crs, <span class="op">*</span>aoi_bounds)</span>
+<span id="cb33-106"><a href="#cb33-106" aria-hidden="true" tabindex="-1"></a>            aoi_window <span class="op">=</span> windows.from_bounds(transform<span class="op">=</span>src.transform, <span class="op">*</span>warped_aoi_bounds)</span>
+<span id="cb33-107"><a href="#cb33-107" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Here we pass out_shape into read to define the shape of the array data is read into</span></span>
+<span id="cb33-108"><a href="#cb33-108" aria-hidden="true" tabindex="-1"></a>            red <span class="op">=</span> src.read(<span class="dv">1</span>, out_shape<span class="op">=</span>out_shape, window<span class="op">=</span>aoi_window)</span>
+<span id="cb33-109"><a href="#cb33-109" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb33-110"><a href="#cb33-110" aria-hidden="true" tabindex="-1"></a>        <span class="co"># read nir band</span></span>
+<span id="cb33-111"><a href="#cb33-111" aria-hidden="true" tabindex="-1"></a>        <span class="co"># open a connection to the COG using its signed link</span></span>
+<span id="cb33-112"><a href="#cb33-112" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> rasterio.<span class="bu">open</span>(least_cloudy_nir08_href) <span class="im">as</span> src:</span>
+<span id="cb33-113"><a href="#cb33-113" aria-hidden="true" tabindex="-1"></a>            aoi_bounds <span class="op">=</span> features.bounds(clum_bbox_shapely)</span>
+<span id="cb33-114"><a href="#cb33-114" aria-hidden="true" tabindex="-1"></a>            warped_aoi_bounds <span class="op">=</span> warp.transform_bounds(<span class="st">"epsg:4326"</span>, src.crs, <span class="op">*</span>aoi_bounds)</span>
+<span id="cb33-115"><a href="#cb33-115" aria-hidden="true" tabindex="-1"></a>            aoi_window <span class="op">=</span> windows.from_bounds(transform<span class="op">=</span>src.transform, <span class="op">*</span>warped_aoi_bounds)</span>
+<span id="cb33-116"><a href="#cb33-116" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Here we pass out_shape into read to define the shape of the array data is read into</span></span>
+<span id="cb33-117"><a href="#cb33-117" aria-hidden="true" tabindex="-1"></a>            nir <span class="op">=</span> src.read(<span class="dv">1</span>, out_shape<span class="op">=</span>out_shape, window<span class="op">=</span>aoi_window)</span>
+<span id="cb33-118"><a href="#cb33-118" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb33-119"><a href="#cb33-119" aria-hidden="true" tabindex="-1"></a>        <span class="co"># compute NDVI</span></span>
+<span id="cb33-120"><a href="#cb33-120" aria-hidden="true" tabindex="-1"></a>        <span class="co"># cast to float as NDVI is bound between -1 and 1 </span></span>
+<span id="cb33-121"><a href="#cb33-121" aria-hidden="true" tabindex="-1"></a>        nir <span class="op">=</span> nir.astype(<span class="st">"float32"</span>)</span>
+<span id="cb33-122"><a href="#cb33-122" aria-hidden="true" tabindex="-1"></a>        red <span class="op">=</span> red.astype(<span class="st">"float32"</span>)</span>
+<span id="cb33-123"><a href="#cb33-123" aria-hidden="true" tabindex="-1"></a>        ndvi <span class="op">=</span> (nir <span class="op">-</span> red) <span class="op">/</span> (nir <span class="op">+</span> red)</span>
+<span id="cb33-124"><a href="#cb33-124" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb33-125"><a href="#cb33-125" aria-hidden="true" tabindex="-1"></a>    <span class="co"># append NDVI ndarray to list</span></span>
+<span id="cb33-126"><a href="#cb33-126" aria-hidden="true" tabindex="-1"></a>    s2_ndvi_arr.append(ndvi)</span>
+<span id="cb33-127"><a href="#cb33-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-128"><a href="#cb33-128" aria-hidden="true" tabindex="-1"></a><span class="co"># stack the ndvi ndarray's to create a multiband raster</span></span>
+<span id="cb33-129"><a href="#cb33-129" aria-hidden="true" tabindex="-1"></a>s2_ndvi_stacked <span class="op">=</span> np.stack(s2_ndvi_arr, axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb33-130"><a href="#cb33-130" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"the shape of ndvi_arr is </span><span class="sc">{</span>s2_ndvi_stacked<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <details>
 <summary>
 <b>answer - S2 zonal stats</b>
 </summary>
-<div class="sourceCode" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># update meta for saving</span></span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>out_meta[<span class="st">"dtype"</span>] <span class="op">=</span> <span class="st">"float32"</span></span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>out_meta[<span class="st">"count"</span>] <span class="op">=</span> <span class="dv">12</span></span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>out_meta[<span class="st">"height"</span>] <span class="op">=</span> s2_ndvi_arr[<span class="dv">0</span>].shape[<span class="dv">0</span>] <span class="co">## </span><span class="al">NOTE</span><span class="co"> - using S2 output here</span></span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>out_meta[<span class="st">"width"</span>] <span class="op">=</span> s2_ndvi_arr[<span class="dv">0</span>].shape[<span class="dv">1</span>]</span>
-<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>out_meta[<span class="st">"transform"</span>] <span class="op">=</span> win_transform</span>
-<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>out_meta</span>
-<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a><span class="co"># zonal stats</span></span>
-<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>zstats_meta <span class="op">=</span> out_meta</span>
-<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>zstats_meta[<span class="st">"count"</span>] <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a><span class="co"># create a copy of clum_aoi to save zonal_stats results to</span></span>
-<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>s2_clum_aoi_ndvi <span class="op">=</span> clum_aoi.copy()</span>
-<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>month_idx <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a><span class="co">## </span><span class="al">NOTE</span><span class="co"> - loop over S2 ndvi arrays</span></span>
-<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> s2_ndvi_arr:  </span>
-<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"computing ndvi zonal stats for month </span><span class="sc">{</span>month_idx<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a>    zstats <span class="op">=</span> zonal_stats(</span>
-<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a>        clum_aoi.to_crs(zstats_meta[<span class="st">"crs"</span>]), </span>
-<span id="cb33-22"><a href="#cb33-22" aria-hidden="true" tabindex="-1"></a>        i, </span>
-<span id="cb33-23"><a href="#cb33-23" aria-hidden="true" tabindex="-1"></a>        affine<span class="op">=</span>zstats_meta[<span class="st">"transform"</span>], </span>
-<span id="cb33-24"><a href="#cb33-24" aria-hidden="true" tabindex="-1"></a>        stats<span class="op">=</span>[<span class="st">"mean"</span>], </span>
-<span id="cb33-25"><a href="#cb33-25" aria-hidden="true" tabindex="-1"></a>        all_touched<span class="op">=</span><span class="va">True</span></span>
-<span id="cb33-26"><a href="#cb33-26" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb33-27"><a href="#cb33-27" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb33-28"><a href="#cb33-28" aria-hidden="true" tabindex="-1"></a>    df_zstats <span class="op">=</span> pd.DataFrame(zstats)</span>
-<span id="cb33-29"><a href="#cb33-29" aria-hidden="true" tabindex="-1"></a>    s2_clum_aoi_ndvi[<span class="ss">f"ndvi_</span><span class="sc">{</span>month_idx<span class="sc">}</span><span class="ss">"</span>] <span class="op">=</span> df_zstats.iloc[:, <span class="dv">0</span>] </span>
-<span id="cb33-30"><a href="#cb33-30" aria-hidden="true" tabindex="-1"></a>    month_idx <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb33-31"><a href="#cb33-31" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb33-32"><a href="#cb33-32" aria-hidden="true" tabindex="-1"></a>s2_clum_aoi_ndvi.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># update meta for saving</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>out_meta[<span class="st">"dtype"</span>] <span class="op">=</span> <span class="st">"float32"</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>out_meta[<span class="st">"count"</span>] <span class="op">=</span> <span class="dv">12</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>out_meta[<span class="st">"height"</span>] <span class="op">=</span> s2_ndvi_arr[<span class="dv">0</span>].shape[<span class="dv">0</span>] <span class="co">## </span><span class="al">NOTE</span><span class="co"> - using S2 output here</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>out_meta[<span class="st">"width"</span>] <span class="op">=</span> s2_ndvi_arr[<span class="dv">0</span>].shape[<span class="dv">1</span>]</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>out_meta[<span class="st">"transform"</span>] <span class="op">=</span> win_transform</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>out_meta</span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a><span class="co"># zonal stats</span></span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>zstats_meta <span class="op">=</span> out_meta</span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>zstats_meta[<span class="st">"count"</span>] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a><span class="co"># create a copy of clum_aoi to save zonal_stats results to</span></span>
+<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a>s2_clum_aoi_ndvi <span class="op">=</span> clum_aoi.copy()</span>
+<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a>month_idx <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a><span class="co">## </span><span class="al">NOTE</span><span class="co"> - loop over S2 ndvi arrays</span></span>
+<span id="cb34-17"><a href="#cb34-17" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> s2_ndvi_arr:  </span>
+<span id="cb34-18"><a href="#cb34-18" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"computing ndvi zonal stats for month </span><span class="sc">{</span>month_idx<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb34-19"><a href="#cb34-19" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb34-20"><a href="#cb34-20" aria-hidden="true" tabindex="-1"></a>    zstats <span class="op">=</span> zonal_stats(</span>
+<span id="cb34-21"><a href="#cb34-21" aria-hidden="true" tabindex="-1"></a>        clum_aoi.to_crs(zstats_meta[<span class="st">"crs"</span>]), </span>
+<span id="cb34-22"><a href="#cb34-22" aria-hidden="true" tabindex="-1"></a>        i, </span>
+<span id="cb34-23"><a href="#cb34-23" aria-hidden="true" tabindex="-1"></a>        affine<span class="op">=</span>zstats_meta[<span class="st">"transform"</span>], </span>
+<span id="cb34-24"><a href="#cb34-24" aria-hidden="true" tabindex="-1"></a>        stats<span class="op">=</span>[<span class="st">"mean"</span>], </span>
+<span id="cb34-25"><a href="#cb34-25" aria-hidden="true" tabindex="-1"></a>        all_touched<span class="op">=</span><span class="va">True</span></span>
+<span id="cb34-26"><a href="#cb34-26" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb34-27"><a href="#cb34-27" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb34-28"><a href="#cb34-28" aria-hidden="true" tabindex="-1"></a>    df_zstats <span class="op">=</span> pd.DataFrame(zstats)</span>
+<span id="cb34-29"><a href="#cb34-29" aria-hidden="true" tabindex="-1"></a>    s2_clum_aoi_ndvi[<span class="ss">f"ndvi_</span><span class="sc">{</span>month_idx<span class="sc">}</span><span class="ss">"</span>] <span class="op">=</span> df_zstats.iloc[:, <span class="dv">0</span>] </span>
+<span id="cb34-30"><a href="#cb34-30" aria-hidden="true" tabindex="-1"></a>    month_idx <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb34-31"><a href="#cb34-31" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb34-32"><a href="#cb34-32" aria-hidden="true" tabindex="-1"></a>s2_clum_aoi_ndvi.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <p>
 </p>
 <p>If you inspect the above NDVI time-series generated from Sentinel-2 data, you can spot that for some months there is missing data. We might want to explore why this is the case. STAC Items often have <em>preview</em> or <em>thumbnail</em> assets that we can use to quickly inspect the data. Let’s look into why there is missing data for the month of May.</p>
 <p>First, let’s create a search of the Sentinel-2 data for May. This will return to us an Item Collection object.</p>
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create a time of interest search for each month in turn</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>time_of_interest <span class="op">=</span> <span class="ss">f"2016-05-01/2016-06-01"</span></span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="co"># search the Microsoft Planetary computer to find Sentinel-2 assets matching our bounding box and time of interest</span></span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>search <span class="op">=</span> pc_catalog.search(</span>
-<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>    collections<span class="op">=</span>[<span class="st">"sentinel-2-l2a"</span>],</span>
-<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>    intersects<span class="op">=</span>clum_bbox_shapely, <span class="co"># use shapely object</span></span>
-<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>    datetime<span class="op">=</span>time_of_interest</span>
-<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a><span class="co"># items is an item collection of S2 assets that matched the search criteria</span></span>
-<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a>items <span class="op">=</span> search.item_collection()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create a time of interest search for each month in turn</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>time_of_interest <span class="op">=</span> <span class="ss">f"2016-05-01/2016-06-01"</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="co"># search the Microsoft Planetary computer to find Sentinel-2 assets matching our bounding box and time of interest</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>search <span class="op">=</span> pc_catalog.search(</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>    collections<span class="op">=</span>[<span class="st">"sentinel-2-l2a"</span>],</span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>    intersects<span class="op">=</span>clum_bbox_shapely, <span class="co"># use shapely object</span></span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>    datetime<span class="op">=</span>time_of_interest</span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a><span class="co"># items is an item collection of S2 assets that matched the search criteria</span></span>
+<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a>items <span class="op">=</span> search.item_collection()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell" data-execution_count="90">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>items</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>items</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="90">
 
 
@@ -9692,7 +9704,7 @@ computing ndvi zonal stats for month 12</code></pre>
 </div>
 <p>Now, let’s see what assets are available for each Item in the Item Collection.</p>
 <div class="cell" data-execution_count="91">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>items[<span class="dv">0</span>].assets</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>items[<span class="dv">0</span>].assets</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="91">
 <pre><code>{'AOT': &lt;Asset href=https://sentinel2l2a01.blob.core.windows.net/sentinel2-l2/49/J/GN/2016/05/28/S2A_MSIL2A_20160528T024452_N0212_R003_T49JGN_20210211T145537.SAFE/GRANULE/L2A_T49JGN_A004862_20160528T024447/IMG_DATA/R10m/T49JGN_20160528T024452_AOT_10m.tif&gt;,
  'B01': &lt;Asset href=https://sentinel2l2a01.blob.core.windows.net/sentinel2-l2/49/J/GN/2016/05/28/S2A_MSIL2A_20160528T024452_N0212_R003_T49JGN_20210211T145537.SAFE/GRANULE/L2A_T49JGN_A004862_20160528T024447/IMG_DATA/R60m/T49JGN_20160528T024452_B01_60m.tif&gt;,
@@ -9722,10 +9734,10 @@ computing ndvi zonal stats for month 12</code></pre>
 </div>
 <p>We can see there is a <code>rendered_preview</code> asset that’s a PNG file. We can load that file into our program and quickly visualise it. To look at other Item’s preview change the index location into <code>items</code>.</p>
 <div class="cell" data-execution_count="88">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>img <span class="op">=</span> io.imread(pc.sign(items[<span class="dv">5</span>].assets[<span class="st">"rendered_preview"</span>].href))</span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>px.imshow(img, height<span class="op">=</span><span class="dv">600</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>img <span class="op">=</span> io.imread(pc.sign(items[<span class="dv">5</span>].assets[<span class="st">"rendered_preview"</span>].href))</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>px.imshow(img, height<span class="op">=</span><span class="dv">600</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="lab-6-practice-exercises_files/figure-html/cell-26-output-1.png" class="img-fluid"></p>
+<p><img src="lab-6-practice-exercises_files/figure-html/cell-27-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 
