@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>coursebook - Software</title>
+<title>coursebook - 1&nbsp; Mounting Google Drive in Colab</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -15,6 +15,69 @@ span.underline{text-decoration: underline;}
 div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -25,8 +88,8 @@ ul.task-list{list-style: none;}
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./readings.html" rel="next">
-<link href="./unit-overview.html" rel="prev">
+<link href="./lab-1.html" rel="next">
+<link href="./readings.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -65,7 +128,7 @@ ul.task-list{list-style: none;}
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Software</h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Mounting Google Drive in Colab</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -100,7 +163,7 @@ ul.task-list{list-style: none;}
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./software.html" class="sidebar-item-text sidebar-link active">Software</a>
+  <a href="./software.html" class="sidebar-item-text sidebar-link">Software</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -110,7 +173,7 @@ ul.task-list{list-style: none;}
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./mounting_google_drive_in_colab.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Google Drive in Colab</span></a>
+  <a href="./mounting_google_drive_in_colab.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Google Drive in Colab</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -203,33 +266,14 @@ ul.task-list{list-style: none;}
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#uni-machines" id="toc-uni-machines" class="nav-link active" data-scroll-target="#uni-machines">Uni machines</a></li>
-  <li><a href="#personal-devices" id="toc-personal-devices" class="nav-link" data-scroll-target="#personal-devices">Personal devices</a>
-  <ul class="collapse">
-  <li><a href="#google-colab" id="toc-google-colab" class="nav-link" data-scroll-target="#google-colab">Google Colab</a></li>
-  <li><a href="#docker" id="toc-docker" class="nav-link" data-scroll-target="#docker">Docker</a></li>
-  <li><a href="#windows" id="toc-windows" class="nav-link" data-scroll-target="#windows">Windows</a></li>
-  <li><a href="#mac" id="toc-mac" class="nav-link" data-scroll-target="#mac">Mac</a></li>
-  </ul></li>
-  <li><a href="#download-the-course-image" id="toc-download-the-course-image" class="nav-link" data-scroll-target="#download-the-course-image">Download the course image</a>
-  <ul class="collapse">
-  <li><a href="#windows-1" id="toc-windows-1" class="nav-link" data-scroll-target="#windows-1">Windows</a></li>
-  <li><a href="#mac-1" id="toc-mac-1" class="nav-link" data-scroll-target="#mac-1">Mac</a></li>
-  </ul></li>
-  <li><a href="#run-the-course-image" id="toc-run-the-course-image" class="nav-link" data-scroll-target="#run-the-course-image">Run the course image</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Software</h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-title">Mounting Google Drive in Colab</span></h1>
 </div>
 
 
@@ -243,116 +287,37 @@ ul.task-list{list-style: none;}
 
 </header>
 
-<p>A course specific Python-enabled docker image will be provided for students to run on their own machines / uni machines with all the software and dependencies pre-installed.</p>
-<p>Python 3.X will be used throughout the course (unless specialist GUI software is required).</p>
-<p>All labs will be delivered using Jupyter notebooks via JupyterLab.</p>
-<section id="uni-machines" class="level2">
-<h2 class="anchored" data-anchor-id="uni-machines">Uni machines</h2>
-<p>This is the recommended environment for running the lab environment. Detailed instructions for launching the lab environment on the uni machines can be found in LMS. However, you need to login to the ubuntu image on the uni machines. Then open the terminal and run <code>launch geog300agri3003</code>.</p>
-</section>
-<section id="personal-devices" class="level2">
-<h2 class="anchored" data-anchor-id="personal-devices">Personal devices</h2>
-<section id="google-colab" class="level3">
-<h3 class="anchored" data-anchor-id="google-colab">Google Colab</h3>
-<p>You can run each week’s lab using Google colab - a cloud based environment to run Jupyter notebooks. Click the colab button at the top of each lab’s notebook. It looks like:</p>
-<p><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></p>
-<p>Using Google Colab is the recommended approach to run the labs if you’re working on your own computer.</p>
-</section>
-<section id="docker" class="level3">
-<h3 class="anchored" data-anchor-id="docker">Docker</h3>
-<p>If you want to run the lab’s notebooks locally in the same environment as on the uni machines, you can <strong>install docker</strong> which will let you run the lab environment.</p>
-</section>
-<section id="windows" class="level3">
-<h3 class="anchored" data-anchor-id="windows">Windows</h3>
-<p>Install docker desktop for Windows <a href="https://docs.docker.com/desktop/install/windows-install/" class="external" target="_blank">here</a> and follow the instructions.</p>
-<p>System requirements for Windows devices:</p>
-<ul>
-<li>Windows 11 64-bit: Home or Pro version 21H2 or higher, or Enterprise or Education version 21H2 or higher.</li>
-<li>Windows 10 64-bit: Home or Pro 21H1 (build 19043) or higher, or Enterprise or Education 20H2 (build 19042) or higher.</li>
-<li>64-bit processor.</li>
-<li>4GB of RAM.</li>
-</ul>
-<p>If the installation has completed successfully, you should see this screen:</p>
-<p><img src="img/docker-windows-2.png" class="img-fluid"></p>
-<section id="possible-extra-steps" class="level4">
-<h4 class="anchored" data-anchor-id="possible-extra-steps">Possible extra steps</h4>
-<p>You may see a prompt to install or update WSL2, if this does appear click the link in the message:</p>
-<p><img src="img/docker-windows-wsl2-1.png" class="img-fluid"></p>
-<p>Then download the WSL2 Linux Kernel Package by clicking on the link:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/docker-windows-wsl2-2.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-<p>Then follow the installation steps to install or update WSL 2:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/docker-windows-wsl2-3.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-<p>Then restart your computer.</p>
-<p>If it’s not installed, you will need to install WSL2 must be installed. For more information about installing WSL2, see <a href="https://learn.microsoft.com/en-gb/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package" class="external" target="_blank">here</a> for instructions.</p>
-</section>
-<section id="admin-and-user-permissions" class="level4">
-<h4 class="anchored" data-anchor-id="admin-and-user-permissions">Admin and user permissions</h4>
-<p>If the admin account is different to the user account on your Windows machine, follow these steps from <a href="https://docs.docker.com/desktop/install/windows-install/#install-interactively" class="external" target="blank">docker - install interactively</a>:</p>
-<ol type="1">
-<li>Run <strong>Computer Management</strong> as an administrator</li>
-<li>Go to <strong>Local Users and Groups &gt; Groups &gt; docker-users</strong></li>
-<li>Right-click to add the user to the docker-users group.</li>
-<li>Log out and login (or restart) for the changes to take effect.</li>
-</ol>
-</section>
-</section>
-<section id="mac" class="level3">
-<h3 class="anchored" data-anchor-id="mac">Mac</h3>
-<p>Install docker desktop for Mac <a href="https://docs.docker.com/desktop/install/mac-install/" class="external" target="_blank">here</a> and follow the instructions.</p>
-<p>Select the correct installer for your Mac depending on whether you have an intel or silicon chip.</p>
-<p>System requirements for Mac devices:</p>
-<ul>
-<li>macOS must be version 10.15 or newer</li>
-<li>4 GB of RAM</li>
-</ul>
-</section>
-</section>
-<section id="download-the-course-image" class="level2">
-<h2 class="anchored" data-anchor-id="download-the-course-image">Download the course image</h2>
-<section id="windows-1" class="level3">
-<h3 class="anchored" data-anchor-id="windows-1">Windows</h3>
-<p>Open the command prompt or powershell and run:</p>
-<pre><code>docker pull jmad1v07/geog3300agri3003</code></pre>
-<!-- If it's working, you should see the image downloading: -->
-<!-- ![](img/docker-windows-cmd-2.png)
-
-and, when it's downloaded:
-
-![](img/docker-windows-cmd-3.png) -->
-</section>
-<section id="mac-1" class="level3">
-<h3 class="anchored" data-anchor-id="mac-1">Mac</h3>
-<p>Open the terminal and run:</p>
-<pre><code>docker pull jmad1v07/geog3300agri3003</code></pre>
-</section>
-</section>
-<section id="run-the-course-image" class="level2">
-<h2 class="anchored" data-anchor-id="run-the-course-image">Run the course image</h2>
-<p>Open docker desktop and head to the <strong>Images</strong> tab.</p>
-<p><img src="img/docker-1-labels.jpg" class="img-fluid"></p>
-<p>Find the <code>jmad1v07/geog3300agri3003</code> image and click on <strong>Run</strong>.</p>
-<p><img src="img/docker-2-labels.jpg" class="img-fluid"></p>
-<p>This should bring up an <strong>Optional settings</strong> dialog. Here, we need to do two things.</p>
-<p>First of all we need to set a port, in most cases you can set this to 8888 (or any number above 1024 safely).</p>
-<p>Second of all we need to mount a directory on our computer where the lab data and notebooks are stored to a directory inside the container. This means we can work with the data and notebook stored on our computer inside the containers environment (which has Python and relevant libraries installed) and all changes we make will be saved back to the directory on our machine. Hit <strong>Run</strong> to launch the container.</p>
-<p><img src="img/docker-3-labels.jpg" class="img-fluid"></p>
-<p>Now, go to the <strong>Containers</strong> tab. Find the container we have just launched and click on the three vertical dots symbol <code>⋮</code> and then click <strong>View details</strong>.</p>
-<p><img src="img/docker-4-labels.jpg" class="img-fluid"></p>
-<p>Finally, to access the container and our notebook environment click on the link which looks like <code>http://127.0.0.1:8888/lab?token=fXBXBXBXBXBXBXBXBXBXXBXBBXX</code>.</p>
-<p><img src="img/docker-5-labels.jpg" class="img-fluid"></p>
-<p>This should load the Jupyterlab environment in your browser. If it doesn’t, copy the link and paste it into your browser. If all has gone well you should see the Jupyterlab environment:</p>
-<p><img src="img/jupyterlab-landing.png" class="img-fluid"></p>
+<p>Run the following code to mount your Google Drive to write and read files there.</p>
+<p>You will need to follow the authentication flow.</p>
+<p><a href="https://colab.research.google.com/github/data-analysis-3300-3003/colab/blob/main/mounting_google_drive_in_colab.ipynb" target="_blank"> <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"> </a></p>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> google.colab <span class="im">import</span> drive</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>drive.mount(<span class="st">'/content/drive'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Let’s check the current directory for the notebook.</p>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>os.getcwd()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Let’s check if <code>drive</code> (i.e.&nbsp;your Google Drive) is mounted as a directory in your Colab instance.</p>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>os.listdir(os.getcwd())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Let’s check the contents of <code>drive</code>.</p>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>os.listdir(os.path.join(os.getcwd(), <span class="st">"drive"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If you print the contents of <code>MyDrive</code> you should see that directory contains your personal Google Drive folders.</p>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>os.listdir(os.path.join(os.getcwd(), <span class="st">"drive"</span>, <span class="st">"MyDrive"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We can save data to Google Drive. Let’s download some data from week 2’s labs.</p>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">"week-1"</span> <span class="kw">not</span> <span class="kw">in</span> os.listdir(os.getcwd()):</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    os.system(<span class="st">'wget "https://github.com/data-analysis-3300-3003/data/raw/main/data/week-2.zip"'</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    os.system(<span class="st">'unzip "week-2.zip"'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>os.listdir(<span class="st">"week-2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Let’s load the CSV file into our Colab Python environment.</p>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(os.path.join(<span class="st">"week-2"</span>, <span class="st">"week-2-bf66-canola-yield.csv"</span>))</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Let’s save the CSV file to Google Drive.</p>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>path_to_gdrive <span class="op">=</span> os.path.join(os.getcwd(), <span class="st">"drive"</span>, <span class="st">"MyDrive"</span>, <span class="st">"demo_save_to_gdrive.csv"</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>df.to_csv(path_to_gdrive)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Finally, let’s check we can read the file from Google Drive.</p>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df_from_gdrive <span class="op">=</span> pd.read_csv(path_to_gdrive)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>df_from_gdrive.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -454,13 +419,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./unit-overview.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Unit overview</span>
+      <a href="./readings.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Reading</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./readings.html" class="pagination-link">
-        <span class="nav-page-text">Reading</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./lab-1.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-title">Week 1</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
