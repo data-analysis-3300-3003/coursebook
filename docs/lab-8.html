@@ -282,10 +282,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul class="collapse">
   <li><a href="#run-the-labs" id="toc-run-the-labs" class="nav-link" data-scroll-target="#run-the-labs">Run the labs</a></li>
   </ul></li>
-  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background">Background</a>
-  <ul class="collapse">
+  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background">Background</a></li>
   <li><a href="#background-reading" id="toc-background-reading" class="nav-link" data-scroll-target="#background-reading">Background Reading</a></li>
-  </ul></li>
   <li><a href="#simple-radiometric-correction-of-swan-valley-imagery" id="toc-simple-radiometric-correction-of-swan-valley-imagery" class="nav-link" data-scroll-target="#simple-radiometric-correction-of-swan-valley-imagery">Simple radiometric correction of Swan Valley imagery</a>
   <ul class="collapse">
   <li><a href="#download-data" id="toc-download-data" class="nav-link" data-scroll-target="#download-data">Download data</a></li>
@@ -324,7 +322,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <section id="using-remotely-piloted-aircraft-systems-rpas-for-environmental-monitoring" class="level2">
 <h2 class="anchored" data-anchor-id="using-remotely-piloted-aircraft-systems-rpas-for-environmental-monitoring">Using Remotely Piloted Aircraft Systems (RPAS) for environmental monitoring</h2>
-<p>Week 8 is focused on using drones for science and demonstrating what is required to go from images to data you can use to answer agricultural questions.</p>
+<p>Week 8 is focused on using drones for science and demonstrating what is required to go from drone images to science-ready data you can use to answer agricultural questions.</p>
 </section>
 <section id="setup" class="level2">
 <h2 class="anchored" data-anchor-id="setup">Setup</h2>
@@ -336,7 +334,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="background" class="level2">
 <h2 class="anchored" data-anchor-id="background">Background</h2>
-<p>A background to drone remote sensing will be provided as a short lecture, along with a show and tell of the platforms and cameras used by researchers within the Centre for Water and Spatial Science (CWSS) before using this notebook to demonstrate analysis techniques for working with drone data.</p>
+<p>A background to drone remote sensing will be provided as a short lecture, along with a <em>show and tell</em> of the platforms and cameras used by researchers within the Centre for Water and Spatial Science (CWSS). Then, we’ll work through this notebook to demonstrate analysis techniques for working with drone data.</p>
 <p>The lecture will provide a high-level overview of:</p>
 <ol type="1">
 <li><strong>Remote sensing- When are drones the right tool for the job?</strong>
@@ -397,7 +395,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 </ol>
-<p><img src="lab-8_files/figure-html/image.png" class="img-fluid" alt="image.png"> Figure 1:https://doi.org/10.1139/juvs-2018-0018</p>
+<p><img src="https://cdnsciencepub.com/cms/10.1139/juvs-2018-0018/asset/images/large/juvs-2018-0018f1.jpeg" class="img-fluid"></p>
+<p>Source: <a href="https://doi.org/10.1139/juvs-2018-0018" target="_blank">Vegetation monitoring using multispectral sensors — best practices and lessons learned from high latitudes - Assmann et al.&nbsp;(2018)</a></p>
 <p>
 </p>
 <ol start="6" type="1">
@@ -406,8 +405,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>On the day you are flying, you should. Check the weather to ensure it is within drone limitations and won’t adversely impact your data. If the light condition changes a lot across flights (i.e.&nbsp;clouds), rescheduling may be better. It is much easier to get good data than to try and correct for variance across the flight.</li>
 </ul></li>
 </ol>
-<section id="background-reading" class="level3">
-<h3 class="anchored" data-anchor-id="background-reading">Background Reading</h3>
+</section>
+<section id="background-reading" class="level2">
+<h2 class="anchored" data-anchor-id="background-reading">Background Reading</h2>
 <p><a href="https://cdnsciencepub.com/doi/10.1139/juvs-2018-0018" target="_blank">Vegetation monitoring using multispectral sensors — best practices and lessons learned from high latitudes - Assmann et al.&nbsp;(2018)</a></p>
 <section id="recap-quiz" class="level4">
 <h4 class="anchored" data-anchor-id="recap-quiz">Recap quiz</h4>
@@ -420,13 +420,13 @@ Weather changes, sun angle. Calibration is essential to compare changes in spect
 </details>
 </section>
 </section>
-</section>
 <section id="simple-radiometric-correction-of-swan-valley-imagery" class="level2">
 <h2 class="anchored" data-anchor-id="simple-radiometric-correction-of-swan-valley-imagery">Simple radiometric correction of Swan Valley imagery</h2>
-<p>You will use the skills you learnt across weeks 1-6 (working with GeoTIFF files, raster geoprocessing operations, band stacking, navigating directories and file systems with imagery stored different folders ect).</p>
-<p>Our post-processing will focus on the radiometric calibration of drone imagery to produce comparable vegetation indices across flights and days.</p>
+<p>You will use the skills you learnt across weeks 1-6 (working with GeoTIFF files, raster geoprocessing operations, band stacking, navigating directories and file systems with imagery stored different folders etc.).</p>
+<p>Our post-processing will focus on the radiometric calibration of drone imagery. This allows us to produce comparable images and vegetation indices across flights and days. Radiometric calibration is the process of converting digital numbers captured by the camera sensor to physical units such as surface reflectance (the ratio of incoming solar radiation to reflected light across different spectral wavebands).</p>
+<p><strong>Why do want to convert our image data to spectral reflectance values?</strong></p>
 <p><strong>The key objective for this week is to show the importance of calibration when working with drone imagery</strong>. The satellite data we have worked with so far across weeks 1-6 has already had radiometric, spectral and geometric calibration applied by the data providers. For example, you can view the <a href="https://sentinels.copernicus.eu/web/sentinel/user-guides/sentinel-2-msi/document-library" target="_blank">Sentinel data quality report</a>.</p>
-<p>This notebook is focused on simple radiometric calibration of 5-band multispectral imagery. The imagery you will be using was collected over the Swan Valley on by MicaSense RedEdge mounted on a DJI Phantom 4. For this lab, the imagery has been clipped to a small subsection containing some grapevines and the calibration panels to speed up processing.</p>
+<p>This notebook is focused on simple radiometric calibration of 5-band multispectral imagery. The imagery you will be using was collected over the Swan Valley a by MicaSense RedEdge-MX camera mounted on a DJI Phantom 4. For this lab, the imagery has been clipped to a small subsection containing some grapevines and the calibration panels to speed up processing.</p>
 <p>Imagery bands:</p>
 <ul>
 <li>1: Blue<br>
@@ -438,13 +438,13 @@ Weather changes, sun angle. Calibration is essential to compare changes in spect
 </ul>
 <p>You will provided with:</p>
 <ol type="1">
-<li>A tif file for each camera band</li>
-<li>A shape file that cover the calibration panels</li>
+<li>A GeoTIFF file for each camera band.</li>
+<li>A shapefile of the calibration panel’s extent.</li>
 <li>A CSV file that contains the MicaSense RedEdge-MX band parmeters (you would normally need to look up wavelength centre and band width for each of the sensor bands in the camera specificaions).</li>
 </ol>
 <section id="download-data" class="level3">
 <h3 class="anchored" data-anchor-id="download-data">Download data</h3>
-<p>If you need to download the date for this lab, run the following code snippet.</p>
+<p>If you need to download the data for this lab, run the following code snippet.</p>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">"week-8"</span> <span class="kw">not</span> <span class="kw">in</span> os.listdir(os.getcwd()):</span>
@@ -453,24 +453,50 @@ Weather changes, sun angle. Calibration is essential to compare changes in spect
 </section>
 <section id="import-modules" class="level3">
 <h3 class="anchored" data-anchor-id="import-modules">Import modules</h3>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas <span class="im">as</span> gpd</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> rasterio</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.io <span class="im">as</span> pio</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.express <span class="im">as</span> px</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> fiona</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> rasterio.mask <span class="im">import</span> mask</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LinearRegression</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># setup renderer</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">'google.colab'</span> <span class="kw">in</span> <span class="bu">str</span>(get_ipython()):</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    pio.renderers.default <span class="op">=</span> <span class="st">"colab"</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    pio.renderers.default <span class="op">=</span> <span class="st">"jupyterlab"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install rasterstats</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> rasterstats <span class="im">import</span> zonal_stats</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">'google.colab'</span> <span class="kw">in</span> <span class="bu">str</span>(get_ipython()):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">!</span>pip install geopandas</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">!</span>pip install pyarrow</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">!</span>pip install mapclassify</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">!</span>pip install rasterio</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas <span class="im">as</span> gpd</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> rasterio</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.io <span class="im">as</span> pio</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.express <span class="im">as</span> px</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> fiona</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> rasterio.mask <span class="im">import</span> mask</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LinearRegression</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co"># setup renderer</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">'google.colab'</span> <span class="kw">in</span> <span class="bu">str</span>(get_ipython()):</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    pio.renderers.default <span class="op">=</span> <span class="st">"colab"</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    pio.renderers.default <span class="op">=</span> <span class="st">"jupyterlab"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="95">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install rasterstats</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Requirement already satisfied: rasterstats in /opt/conda/lib/python3.10/site-packages (0.18.0)
+Requirement already satisfied: click&gt;7.1 in /opt/conda/lib/python3.10/site-packages (from rasterstats) (8.1.3)
+Requirement already satisfied: rasterio&gt;=1.0 in /opt/conda/lib/python3.10/site-packages (from rasterstats) (1.3.4)
+Requirement already satisfied: numpy&gt;=1.9 in /opt/conda/lib/python3.10/site-packages (from rasterstats) (1.23.5)
+Requirement already satisfied: shapely in /opt/conda/lib/python3.10/site-packages (from rasterstats) (1.8.5.post1)
+Requirement already satisfied: affine&lt;3.0 in /opt/conda/lib/python3.10/site-packages (from rasterstats) (2.4.0)
+Requirement already satisfied: simplejson in /opt/conda/lib/python3.10/site-packages (from rasterstats) (3.18.3)
+Requirement already satisfied: cligj&gt;=0.4 in /opt/conda/lib/python3.10/site-packages (from rasterstats) (0.7.2)
+Requirement already satisfied: fiona&lt;1.9 in /opt/conda/lib/python3.10/site-packages (from rasterstats) (1.8.22)
+Requirement already satisfied: munch in /opt/conda/lib/python3.10/site-packages (from fiona&lt;1.9-&gt;rasterstats) (2.5.0)
+Requirement already satisfied: attrs&gt;=17 in /opt/conda/lib/python3.10/site-packages (from fiona&lt;1.9-&gt;rasterstats) (22.2.0)
+Requirement already satisfied: click-plugins&gt;=1.0 in /opt/conda/lib/python3.10/site-packages (from fiona&lt;1.9-&gt;rasterstats) (1.1.1)
+Requirement already satisfied: certifi in /opt/conda/lib/python3.10/site-packages (from fiona&lt;1.9-&gt;rasterstats) (2022.12.7)
+Requirement already satisfied: setuptools in /opt/conda/lib/python3.10/site-packages (from fiona&lt;1.9-&gt;rasterstats) (65.6.3)
+Requirement already satisfied: six&gt;=1.7 in /opt/conda/lib/python3.10/site-packages (from fiona&lt;1.9-&gt;rasterstats) (1.16.0)
+Requirement already satisfied: snuggs&gt;=1.4.1 in /opt/conda/lib/python3.10/site-packages (from rasterio&gt;=1.0-&gt;rasterstats) (1.4.7)
+Requirement already satisfied: pyparsing&gt;=2.1.6 in /opt/conda/lib/python3.10/site-packages (from snuggs&gt;=1.4.1-&gt;rasterio&gt;=1.0-&gt;rasterstats) (3.0.9)</code></pre>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> rasterstats <span class="im">import</span> zonal_stats</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="inspect-data" class="level3">
 <h3 class="anchored" data-anchor-id="inspect-data">Inspect data</h3>
@@ -478,69 +504,128 @@ Weather changes, sun angle. Calibration is essential to compare changes in spect
 <p>Let’s also visualise the near infrared and red images captured by the MicaSense RedEdge-MX camera.</p>
 <p><strong>Can you spot the calibration panels in the images?</strong></p>
 <p><strong>Can you explain why the vines appear bright in the near infrared image and dark in the red image?</strong></p>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>path_to_week8_data <span class="op">=</span> os.path.join(os.getcwd(), <span class="st">"week-8"</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>os.listdir(path_to_week8_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell" data-execution_count="82">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># visualise NIR data</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>swan_nir_path <span class="op">=</span> os.path.join(path_to_week8_data, <span class="st">"swan_nir.tif"</span>)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> rasterio.<span class="bu">open</span>(swan_nir_path) <span class="im">as</span> src:</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    nir <span class="op">=</span> src.read(<span class="dv">1</span>)</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>px.imshow(nir, height<span class="op">=</span><span class="dv">500</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="lab-8_files/figure-html/cell-7-output-1.png" class="img-fluid"></p>
+<div class="cell" data-execution_count="97">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>path_to_week8_data <span class="op">=</span> os.path.join(os.getcwd(), <span class="st">"week-8"</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>os.listdir(path_to_week8_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="97">
+<pre><code>['calibration_panels.cpg',
+ 'calibration_panels.dbf',
+ 'calibration_panels.prj',
+ 'calibration_panels.shp',
+ 'calibration_panels.shx',
+ 'panels_reflectance_values.csv',
+ 'pannelarea_clip.dbf',
+ 'pannelarea_clip.prj',
+ 'pannelarea_clip.shp',
+ 'pannelarea_clip.shx',
+ 'rededgemx_bands.csv',
+ 'swan_blue.tif',
+ 'swan_green.tif',
+ 'swan_nir.tif',
+ 'swan_red.tif',
+ 'swan_rededge.tif']</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="83">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># visualise RED data</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>swan_red_path <span class="op">=</span> os.path.join(path_to_week8_data, <span class="st">"swan_red.tif"</span>)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> rasterio.<span class="bu">open</span>(swan_red_path) <span class="im">as</span> src:</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    red <span class="op">=</span> src.read(<span class="dv">1</span>)</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>px.imshow(red, height<span class="op">=</span><span class="dv">500</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="108">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># visualise NIR data</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>swan_nir_path <span class="op">=</span> os.path.join(path_to_week8_data, <span class="st">"swan_nir.tif"</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> rasterio.<span class="bu">open</span>(swan_nir_path) <span class="im">as</span> src:</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    nir <span class="op">=</span> src.read(<span class="dv">1</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>px.imshow(nir, height<span class="op">=</span><span class="dv">550</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="lab-8_files/figure-html/cell-8-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="109">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># visualise RED data</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>swan_red_path <span class="op">=</span> os.path.join(path_to_week8_data, <span class="st">"swan_red.tif"</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> rasterio.<span class="bu">open</span>(swan_red_path) <span class="im">as</span> src:</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    red <span class="op">=</span> src.read(<span class="dv">1</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>px.imshow(red, height<span class="op">=</span><span class="dv">550</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="lab-8_files/figure-html/cell-9-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
 <section id="task-1" class="level3">
 <h3 class="anchored" data-anchor-id="task-1">Task 1</h3>
 <p>Write some code to read in the calibration panel data stored in the shapefile <code>calibration_panels.shp</code>. Reference this data with a variable called <code>panel_gdf</code>.</p>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">## ADD CODE HERE ##</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<details>
-<summary>
-<b>answer</b>
-</summary>
-<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Import shape file for panels</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>panel_path <span class="op">=</span> os.path.join(os.getcwd(), <span class="st">"week-8"</span>, <span class="st">"calibration_panels.shp"</span>)</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>panel_gdf <span class="op">=</span> gpd.read_file(panel_path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<p>Before moving on we need to reverse the ordering of the data in the <code>panel</code> column so it has a black-to-white ordering. Let’s do this and also inspect the data.</p>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#reverse b-w instead w-b </span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>panel_gdf <span class="op">=</span> panel_gdf.iloc[::<span class="op">-</span><span class="dv">1</span>]</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>panel_gdf <span class="op">=</span> panel_gdf.reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>panel_gdf.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="task-2" class="level3">
-<h3 class="anchored" data-anchor-id="task-2">Task 2</h3>
-<p>Write some code to read in the asd data (measured spectra of the panels). This data is stored in the CSV file <code>panels_reflectance_values.csv</code> and you should read it into a pandas <code>DataFrame</code> referenced by the variable <code>asd</code>. An ASD spectroradiometer is used to accurately measure the spectral reflectance of each of the calibration panels.</p>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">## ADD CODE HERE ##</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <details>
 <summary>
 <b>answer</b>
 </summary>
-<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#import asd data</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>asd_fp <span class="op">=</span> os.path.join(os.getcwd(), <span class="st">"week-8"</span>, <span class="st">"panels_reflectance_values.csv"</span>)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>asd <span class="op">=</span> pd.read_csv(asd_fp)</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>asd.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Import shape file for panels</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>panel_path <span class="op">=</span> os.path.join(os.getcwd(), <span class="st">"week-8"</span>, <span class="st">"calibration_panels.shp"</span>)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>panel_gdf <span class="op">=</span> gpd.read_file(panel_path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell" data-execution_count="84">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># summary of asd data</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>asd.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="84">
+<p>Before moving on we need to reverse the ordering of the data in the <code>panel</code> column so it has a black-to-white ordering. Let’s do this and also inspect the data.</p>
+<div class="cell" data-execution_count="101">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#reverse b-w instead w-b </span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>panel_gdf <span class="op">=</span> panel_gdf.iloc[::<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>panel_gdf <span class="op">=</span> panel_gdf.reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>panel_gdf.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="101">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>panel</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>black</td>
+      <td>POLYGON ((405357.703 6478231.029, 405357.703 6...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>darkgrey</td>
+      <td>POLYGON ((405358.314 6478231.069, 405358.314 6...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>lightgrey</td>
+      <td>POLYGON ((405358.907 6478231.172, 405358.911 6...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>white</td>
+      <td>POLYGON ((405359.865 6478231.612, 405359.863 6...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="task-2" class="level3">
+<h3 class="anchored" data-anchor-id="task-2">Task 2</h3>
+<p>Write some code to read in the asd data (measured spectra of the calibration panels). This data is stored in the CSV file <code>panels_reflectance_values.csv</code> and you should read it into a pandas <code>DataFrame</code> referenced by the variable <code>asd</code>. An ASD spectroradiometer is used to accurately measure the spectral reflectance of each of the calibration panels.</p>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">## ADD CODE HERE ##</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>
+<b>answer</b>
+</summary>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#import asd data</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>asd_fp <span class="op">=</span> os.path.join(os.getcwd(), <span class="st">"week-8"</span>, <span class="st">"panels_reflectance_values.csv"</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>asd <span class="op">=</span> pd.read_csv(asd_fp)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>asd.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell" data-execution_count="102">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># summary of asd data</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>asd.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="102">
 
 <div>
 
@@ -629,51 +714,51 @@ Weather changes, sun angle. Calibration is essential to compare changes in spect
 <section id="task-3" class="level3">
 <h3 class="anchored" data-anchor-id="task-3">Task 3</h3>
 <p>Write some code to read in camera band values for the MicaSense RedEdge-MX band parmeters. This data is stored in the file <code>rededgemx_bands.csv</code>. Read this data into a pandas <code>DataFrame</code> referenced by the variable <code>mica_mx</code>.</p>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">## ADD CODE HERE ##</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">## ADD CODE HERE ##</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <details>
 <summary>
 <b>answer</b>
 </summary>
-<div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#read in camera band values</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>mica_mx_fp <span class="op">=</span> os.path.join(os.getcwd(), <span class="st">"week-8"</span>, <span class="st">"rededgemx_bands.csv"</span>)</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>mica_mx <span class="op">=</span> pd.read_csv(mica_mx_fp)</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>mica_mx.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#read in camera band values</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>mica_mx_fp <span class="op">=</span> os.path.join(os.getcwd(), <span class="st">"week-8"</span>, <span class="st">"rededgemx_bands.csv"</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>mica_mx <span class="op">=</span> pd.read_csv(mica_mx_fp)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>mica_mx.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </section>
 <section id="task-4" class="level3">
 <h3 class="anchored" data-anchor-id="task-4">Task 4</h3>
-<p>Write some code to get known panel values for each of the MicaSense RedEdge-MX camera bands. There are a few steps to this task. So, take a few minutes to work through what is happenning in the below code snippet. We loop over each spectral waveband in the MicaSense RedEdge-MX camera band:</p>
+<p>Write some code to retrieve the known spectral reflectance values of the calibration panels for each of the MicaSense RedEdge-MX camera bands. There are a few steps to this task. So, take a few minutes to work through what is happenning in the below code snippet. We loop over each spectral waveband in the MicaSense RedEdge-MX camera band:</p>
 <ol type="1">
-<li>subset the upper and lower spectral reflectance values for each band</li>
-<li>subset the asd measured spectral reflectance of calibration panels within the wavelength range corresponding to MicaSense RedEdge-MX camera bands</li>
-<li>compute the mean of the asd measured spectral reflectance of calibration panels within the wavelength range corresponding to MicaSense RedEdge-MX camera bands</li>
+<li>subset the upper and lower spectral reflectance values for each band.</li>
+<li>subset the asd measured spectral reflectance of the calibration panels within the wavelength range corresponding to each of the MicaSense RedEdge-MX camera bands.</li>
+<li>compute the mean of the asd measured spectral reflectance of calibration panels within the wavelength range corresponding to each of the MicaSense RedEdge-MX camera bands.</li>
 </ol>
 <p>We assume that the asd measured spectral reflectance for each of the calibration panels is accurate and we implement these steps to compute what the asd measured spectral reflectance is for each of the MicaSense RedEdge-MX camera bands. Thus, we expect our drone imagery’s spectral reflectance values over the calibration panels to match the asd data. If there are discrepancies, we adjust the drone imagery so it matches the asd measured spectral reflectance. This is radiometrically calibrating drone images.</p>
 <p>Remember you can use <code>print()</code> statements to help visualise what your code is doing.</p>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">## ADD CODE HERE ##</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">## ADD CODE HERE ##</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <details>
 <summary>
 <b>answer</b>
 </summary>
-<div class="sourceCode" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>asd_panels <span class="op">=</span> []</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> mica_mx[<span class="st">"band"</span>]:</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"processing MicaSense RedEdge-MX camera band: </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># For each band, subset the lower and upper band reflectance from the DataFrame mica_mx</span></span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    band_lowerlim <span class="op">=</span> pd.Series(mica_mx[mica_mx[<span class="st">"band"</span>] <span class="op">==</span> i][<span class="st">"band_low"</span>]).item()</span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    band_upperlim <span class="op">=</span> pd.Series(mica_mx[mica_mx[<span class="st">"band"</span>] <span class="op">==</span> i][<span class="st">"band_up"</span>]).item()</span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># get asd values between the mica_mx band limits</span></span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>    mx_asd <span class="op">=</span> asd[(asd[<span class="st">"Wavelength"</span>] <span class="op">&gt;=</span> band_lowerlim) <span class="op">&amp;</span> (asd[<span class="st">"Wavelength"</span>] <span class="op">&lt;=</span> band_upperlim)]</span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># compute the mean of asd values between mica_mx band limits</span></span>
-<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>    mx_asd_panel_mean <span class="op">=</span> mx_asd.mean() </span>
-<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>    asd_panels.append(mx_asd_panel_mean.iloc[<span class="dv">1</span>:].values)</span>
-<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>surface_reflectance <span class="op">=</span> pd.DataFrame(asd_panels, columns<span class="op">=</span>panel_gdf[<span class="st">"panel"</span>])   </span>
-<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>surface_reflectance.index<span class="op">=</span> mica_mx[<span class="st">"band"</span>]</span>
-<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>surface_reflectance.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>asd_panels <span class="op">=</span> []</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> mica_mx[<span class="st">"band"</span>]:</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"processing MicaSense RedEdge-MX camera band: </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># For each band, subset the lower and upper band reflectance from the DataFrame mica_mx</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    band_lowerlim <span class="op">=</span> pd.Series(mica_mx[mica_mx[<span class="st">"band"</span>] <span class="op">==</span> i][<span class="st">"band_low"</span>]).item()</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>    band_upperlim <span class="op">=</span> pd.Series(mica_mx[mica_mx[<span class="st">"band"</span>] <span class="op">==</span> i][<span class="st">"band_up"</span>]).item()</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># get asd values between the mica_mx band limits</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>    mx_asd <span class="op">=</span> asd[(asd[<span class="st">"Wavelength"</span>] <span class="op">&gt;=</span> band_lowerlim) <span class="op">&amp;</span> (asd[<span class="st">"Wavelength"</span>] <span class="op">&lt;=</span> band_upperlim)]</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># compute the mean of asd values between mica_mx band limits</span></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>    mx_asd_panel_mean <span class="op">=</span> mx_asd.mean() </span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>    asd_panels.append(mx_asd_panel_mean.iloc[<span class="dv">1</span>:].values)</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>surface_reflectance <span class="op">=</span> pd.DataFrame(asd_panels, columns<span class="op">=</span>panel_gdf[<span class="st">"panel"</span>])   </span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>surface_reflectance.index<span class="op">=</span> mica_mx[<span class="st">"band"</span>]</span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>surface_reflectance.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </section>
 <section id="task-5" class="level3">
@@ -681,125 +766,127 @@ Weather changes, sun angle. Calibration is essential to compare changes in spect
 <p>Write some code to extract the mean digital number for the extent of each calibration panel in the drone imagery for each camera band. You will need to use the locations of the calibration panels that you read into your program in <em>Task 1</em> and are stored as polygons in the <code>GeoDataFrame</code> <code>panel_gdf</code>. You will need to use these polygons in a zonal statistics operation for each of the drone imagery’s camera bands. Each band is stored in a separate GeoTIFF file.</p>
 <p>You can use the <code>zonal_stats()</code> function from the rasterstats package for this task (examples in the <em>lab-4-practice-exercises.ipynb</em> and <em>lab-6-practice-exercises.ipynb</em> notebooks).</p>
 <p>Try and use a for loop to iterate over the GeoTIFF files and apply the <code>zonal_stats()</code> function. This is a good example of how we can use a for loop to automate a repetitive task. Store the mean band digital numbers for the extent of each calibration panel in the drone imagery as a pandas <code>DataFrame</code>.</p>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">## ADD CODE HERE ##</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">## ADD CODE HERE ##</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <details>
 <summary>
 <b>answer</b>
 </summary>
-<div class="sourceCode" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>dn_panels <span class="op">=</span> []</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co">#extract digital number mean for each pannel </span></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> mica_mx[<span class="st">"band"</span>]:</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"zonal stats for MicaSense RedEdge-MX camera band: </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># update path to GeoTIFF file for each camera band</span></span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    mg_fp<span class="op">=</span> os.path.join(os.getcwd(), <span class="st">"week-8"</span>, <span class="ss">f"swan_</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">.tif"</span>)</span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># open the drone imagery for each camera band</span></span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># read the drone imagery to a NumPy ndarray and get the georeferencing information (affine)</span></span>
-<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> rasterio.<span class="bu">open</span>(mg_fp) <span class="im">as</span> src:</span>
-<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>        <span class="co"># NumPy ndarray of image digital number values</span></span>
-<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>        band <span class="op">=</span> src.read(<span class="dv">1</span>)</span>
-<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>        affine <span class="op">=</span> src.transform</span>
-<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>        <span class="co"># use the zonal_stats function to compute mean digital number values for each of the calibration panels</span></span>
-<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>        zs <span class="op">=</span> zonal_stats(panel_gdf, band, stats<span class="op">=</span><span class="st">"mean"</span>, affine<span class="op">=</span>affine)</span>
-<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>        zs <span class="op">=</span> pd.DataFrame(zs)</span>
-<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a>        band_panel_dn <span class="op">=</span> zs[<span class="st">"mean"</span>].values</span>
-<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a>        dn_panels.append(band_panel_dn)</span>
-<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a>mx_dn_panels <span class="op">=</span> pd.DataFrame(dn_panels, columns<span class="op">=</span>panel_gdf[<span class="st">"panel"</span>])</span>
-<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a>mx_dn_panels.index<span class="op">=</span> mica_mx[<span class="st">"band"</span>]</span>
-<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a>mx_dn_panels.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>dn_panels <span class="op">=</span> []</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co">#extract digital number mean for each pannel </span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> mica_mx[<span class="st">"band"</span>]:</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"zonal stats for MicaSense RedEdge-MX camera band: </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># update path to GeoTIFF file for each camera band</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>    mg_fp<span class="op">=</span> os.path.join(os.getcwd(), <span class="st">"week-8"</span>, <span class="ss">f"swan_</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">.tif"</span>)</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># open the drone imagery for each camera band</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># read the drone imagery to a NumPy ndarray and get the georeferencing information (affine)</span></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> rasterio.<span class="bu">open</span>(mg_fp) <span class="im">as</span> src:</span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>        <span class="co"># NumPy ndarray of image digital number values</span></span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>        band <span class="op">=</span> src.read(<span class="dv">1</span>)</span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>        affine <span class="op">=</span> src.transform</span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>        <span class="co"># use the zonal_stats function to compute mean digital number values for each of the calibration panels</span></span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>        zs <span class="op">=</span> zonal_stats(panel_gdf, band, stats<span class="op">=</span><span class="st">"mean"</span>, affine<span class="op">=</span>affine)</span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>        zs <span class="op">=</span> pd.DataFrame(zs)</span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>        band_panel_dn <span class="op">=</span> zs[<span class="st">"mean"</span>].values</span>
+<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a>        dn_panels.append(band_panel_dn)</span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a>mx_dn_panels <span class="op">=</span> pd.DataFrame(dn_panels, columns<span class="op">=</span>panel_gdf[<span class="st">"panel"</span>])</span>
+<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a>mx_dn_panels.index<span class="op">=</span> mica_mx[<span class="st">"band"</span>]</span>
+<span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-28"><a href="#cb22-28" aria-hidden="true" tabindex="-1"></a>mx_dn_panels.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </section>
 <section id="task-6" class="level3">
 <h3 class="anchored" data-anchor-id="task-6">Task 6</h3>
 <p>Can you generate scatter plots that visualise the relationship between calibration panel’s surface reflectance and their digital numbers in the drone images? The drone image digital numbers for the panels are stored in the <code>DataFrame</code> <code>mx_dn_panels</code> and the calibration panel’s surface reflectance is stored in the <code>DataFrame</code> <code>surface_reflectance</code>. Remember you can use the <code>head()</code> function to glimpse at the structure of the data in these <code>DataFrame</code>s. Also, remember you can look up reference information for creating scatter plots in the Plotly Express docs.</p>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">## ADD CODE HERE ##</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">## ADD CODE HERE ##</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <details>
 <summary>
 <b>answer</b>
 </summary>
-<div class="sourceCode" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> mica_mx[<span class="st">"band"</span>]:</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    fig<span class="op">=</span> px.scatter(</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>        x<span class="op">=</span>mx_dn_panels.loc[i], </span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>        y<span class="op">=</span>surface_reflectance.loc[i], </span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>        trendline<span class="op">=</span><span class="st">"ols"</span>,</span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>        title<span class="op">=</span>i)</span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>    fig.update_layout(</span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>        xaxis_title<span class="op">=</span><span class="st">"Digital Number"</span>,</span>
-<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>        yaxis_title<span class="op">=</span><span class="st">"Surface Reflectance"</span></span>
-<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>    fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> mica_mx[<span class="st">"band"</span>]:</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>    fig<span class="op">=</span> px.scatter(</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>        x<span class="op">=</span>mx_dn_panels.loc[i], </span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>        y<span class="op">=</span>surface_reflectance.loc[i], </span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>        trendline<span class="op">=</span><span class="st">"ols"</span>,</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>        title<span class="op">=</span>i)</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>    fig.update_layout(</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>        xaxis_title<span class="op">=</span><span class="st">"Digital Number"</span>,</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>        yaxis_title<span class="op">=</span><span class="st">"Surface Reflectance"</span></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>    fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </section>
 <section id="task-7" class="level3">
 <h3 class="anchored" data-anchor-id="task-7">Task 7</h3>
 <p>In the <em>lab-5.ipynb and lab-5-self-guided.ipynb</em> notebooks you used Scikit-learn to train machine learning models. We need to create a linear regression model that will learn relationships between a calibration panel’s surface reflectance (measured by the asd) and the calibration panel’s digital number captured by the drone for each camera band. We can then use this model to correct the drone images to surface reflectance. Have a go at fitting this linear regression model using Scikit learn and correcting the drone images. If you get stuck, check the answer and make sure you take time to understand what each step in the code is doing.</p>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">## ADD CODE HERE ##</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co">## ADD CODE HERE ##</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <details>
 <summary>
 <b>answer</b>
 </summary>
-<div class="sourceCode" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create a list to save corrected outputs</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>corrected_images <span class="op">=</span> []</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> mica_mx[<span class="st">"band"</span>]: </span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f""</span>)</span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"correcting band </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> mx_dn_panels.loc[i].values.reshape(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>)</span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> surface_reflect.loc[i].values.reshape(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>)</span>
-<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>    model <span class="op">=</span> LinearRegression().fit(x, y)</span>
-<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>    <span class="co">#Obtain the coefficient of determination by calling the model with the score() function, then print the coefficient:</span></span>
-<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>    r_sq <span class="op">=</span> model.score(x, y)</span>
-<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>    intercept <span class="op">=</span> model.intercept_[<span class="dv">0</span>]</span>
-<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>    coef <span class="op">=</span> model.coef_[<span class="dv">0</span>][<span class="dv">0</span>]</span>
-<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"coefficient of determination:"</span>, r_sq)</span>
-<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>    <span class="co">#Print the Intercept:</span></span>
-<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"intercept:"</span>, intercept)</span>
-<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>    <span class="co">#Print the Slope:</span></span>
-<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"slope:"</span>, coef)</span>
-<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>    <span class="co">#read in raw dn image and apply correction and save</span></span>
-<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>    mg_fp<span class="op">=</span> os.path.join(os.getcwd(), <span class="st">"week-8"</span>, <span class="ss">f"swan_</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">.tif"</span>)</span>
-<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> rasterio.<span class="bu">open</span>(mg_fp) <span class="im">as</span> src:</span>
-<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a>        band <span class="op">=</span> src.read(<span class="dv">1</span>)</span>
-<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb23-27"><a href="#cb23-27" aria-hidden="true" tabindex="-1"></a>    <span class="co"># use the model to radiometrically correct drone image</span></span>
-<span id="cb23-28"><a href="#cb23-28" aria-hidden="true" tabindex="-1"></a>    band_corrected <span class="op">=</span> coef<span class="op">*</span>band <span class="op">+</span> intercept</span>
-<span id="cb23-29"><a href="#cb23-29" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb23-30"><a href="#cb23-30" aria-hidden="true" tabindex="-1"></a>    <span class="co"># visualise outputs</span></span>
-<span id="cb23-31"><a href="#cb23-31" aria-hidden="true" tabindex="-1"></a>    fig_dn <span class="op">=</span> px.imshow(band, title <span class="op">=</span> <span class="ss">f"DN band </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb23-32"><a href="#cb23-32" aria-hidden="true" tabindex="-1"></a>    fig_dn.show()</span>
-<span id="cb23-33"><a href="#cb23-33" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb23-34"><a href="#cb23-34" aria-hidden="true" tabindex="-1"></a>    fig_corr <span class="op">=</span> px.imshow(band_corrected, title <span class="op">=</span> <span class="ss">f"corrected band </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb23-35"><a href="#cb23-35" aria-hidden="true" tabindex="-1"></a>    fig_corr.show()</span>
-<span id="cb23-36"><a href="#cb23-36" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb23-37"><a href="#cb23-37" aria-hidden="true" tabindex="-1"></a>    <span class="co"># store corrected images as a list</span></span>
-<span id="cb23-38"><a href="#cb23-38" aria-hidden="true" tabindex="-1"></a>    corrected_images.append(band_corrected)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create a list to save corrected outputs</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>corrected_images <span class="op">=</span> []</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> mica_mx[<span class="st">"band"</span>]: </span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f""</span>)</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"correcting band </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> mx_dn_panels.loc[i].values.reshape(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>)</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> surface_reflect.loc[i].values.reshape(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>)</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>    model <span class="op">=</span> LinearRegression().fit(x, y)</span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>    <span class="co">#Obtain the coefficient of determination by calling the model with the score() function, then print the coefficient:</span></span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>    r_sq <span class="op">=</span> model.score(x, y)</span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>    intercept <span class="op">=</span> model.intercept_[<span class="dv">0</span>]</span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>    coef <span class="op">=</span> model.coef_[<span class="dv">0</span>][<span class="dv">0</span>]</span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"coefficient of determination:"</span>, r_sq)</span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>    <span class="co">#Print the Intercept:</span></span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"intercept:"</span>, intercept)</span>
+<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a>    <span class="co">#Print the Slope:</span></span>
+<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"slope:"</span>, coef)</span>
+<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a>    <span class="co">#read in raw dn image and apply correction and save</span></span>
+<span id="cb26-23"><a href="#cb26-23" aria-hidden="true" tabindex="-1"></a>    mg_fp<span class="op">=</span> os.path.join(os.getcwd(), <span class="st">"week-8"</span>, <span class="ss">f"swan_</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">.tif"</span>)</span>
+<span id="cb26-24"><a href="#cb26-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> rasterio.<span class="bu">open</span>(mg_fp) <span class="im">as</span> src:</span>
+<span id="cb26-25"><a href="#cb26-25" aria-hidden="true" tabindex="-1"></a>        band <span class="op">=</span> src.read(<span class="dv">1</span>)</span>
+<span id="cb26-26"><a href="#cb26-26" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb26-27"><a href="#cb26-27" aria-hidden="true" tabindex="-1"></a>    <span class="co"># use the model to radiometrically correct drone image</span></span>
+<span id="cb26-28"><a href="#cb26-28" aria-hidden="true" tabindex="-1"></a>    band_corrected <span class="op">=</span> coef<span class="op">*</span>band <span class="op">+</span> intercept</span>
+<span id="cb26-29"><a href="#cb26-29" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb26-30"><a href="#cb26-30" aria-hidden="true" tabindex="-1"></a>    <span class="co"># visualise outputs</span></span>
+<span id="cb26-31"><a href="#cb26-31" aria-hidden="true" tabindex="-1"></a>    fig_dn <span class="op">=</span> px.imshow(band, title <span class="op">=</span> <span class="ss">f"DN band </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb26-32"><a href="#cb26-32" aria-hidden="true" tabindex="-1"></a>    fig_dn.show()</span>
+<span id="cb26-33"><a href="#cb26-33" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb26-34"><a href="#cb26-34" aria-hidden="true" tabindex="-1"></a>    fig_corr <span class="op">=</span> px.imshow(band_corrected, title <span class="op">=</span> <span class="ss">f"corrected band </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb26-35"><a href="#cb26-35" aria-hidden="true" tabindex="-1"></a>    fig_corr.show()</span>
+<span id="cb26-36"><a href="#cb26-36" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb26-37"><a href="#cb26-37" aria-hidden="true" tabindex="-1"></a>    <span class="co"># store corrected images as a list</span></span>
+<span id="cb26-38"><a href="#cb26-38" aria-hidden="true" tabindex="-1"></a>    corrected_images.append(band_corrected)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<p>
+</p>
 <p>Let’s check an RGB image of the vineyard looks sensible.</p>
-<div class="cell" data-execution_count="85">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create an rgb image of the corrected data</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>red_band <span class="op">=</span> corrected_images[<span class="dv">2</span>]</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>green_band <span class="op">=</span> corrected_images[<span class="dv">1</span>]</span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>blue_band <span class="op">=</span> corrected_images[<span class="dv">0</span>]</span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="co"># make RGB image</span></span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>rgb <span class="op">=</span> np.stack((red_band, green_band, blue_band), axis<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a><span class="co"># plot the rgb image</span></span>
-<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>px.imshow(np.moveaxis(rgb, <span class="dv">0</span>, <span class="dv">2</span>), contrast_rescaling<span class="op">=</span><span class="st">"minmax"</span>, height<span class="op">=</span><span class="dv">500</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="111">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create an rgb image of the corrected data</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>red_band <span class="op">=</span> corrected_images[<span class="dv">2</span>]</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>green_band <span class="op">=</span> corrected_images[<span class="dv">1</span>]</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>blue_band <span class="op">=</span> corrected_images[<span class="dv">0</span>]</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="co"># make RGB image</span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>rgb <span class="op">=</span> np.stack((red_band, green_band, blue_band), axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="co"># plot the rgb image</span></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>px.imshow(np.moveaxis(rgb, <span class="dv">0</span>, <span class="dv">2</span>), contrast_rescaling<span class="op">=</span><span class="st">"minmax"</span>, height<span class="op">=</span><span class="dv">550</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="lab-8_files/figure-html/cell-18-output-1.png" class="img-fluid"></p>
+<p><img src="lab-8_files/figure-html/cell-19-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
