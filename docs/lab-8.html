@@ -296,7 +296,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#task-5" id="toc-task-5" class="nav-link" data-scroll-target="#task-5">Task 5</a></li>
   <li><a href="#task-6" id="toc-task-6" class="nav-link" data-scroll-target="#task-6">Task 6</a></li>
   <li><a href="#task-7" id="toc-task-7" class="nav-link" data-scroll-target="#task-7">Task 7</a></li>
-  <li><a href="#task-7-1" id="toc-task-7-1" class="nav-link" data-scroll-target="#task-7-1">Task 7</a></li>
+  <li><a href="#task-8" id="toc-task-8" class="nav-link" data-scroll-target="#task-8">Task 8</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -474,24 +474,24 @@ Weather changes, sun angle. Calibration is essential to compare changes in spect
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    pio.renderers.default <span class="op">=</span> <span class="st">"colab"</span></span>
 <span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
 <span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    pio.renderers.default <span class="op">=</span> <span class="st">"jupyterlab"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell" data-execution_count="95">
+<div class="cell" data-execution_count="115">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install rasterstats</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Requirement already satisfied: rasterstats in /opt/conda/lib/python3.10/site-packages (0.18.0)
-Requirement already satisfied: click&gt;7.1 in /opt/conda/lib/python3.10/site-packages (from rasterstats) (8.1.3)
-Requirement already satisfied: rasterio&gt;=1.0 in /opt/conda/lib/python3.10/site-packages (from rasterstats) (1.3.4)
 Requirement already satisfied: numpy&gt;=1.9 in /opt/conda/lib/python3.10/site-packages (from rasterstats) (1.23.5)
+Requirement already satisfied: rasterio&gt;=1.0 in /opt/conda/lib/python3.10/site-packages (from rasterstats) (1.3.4)
 Requirement already satisfied: shapely in /opt/conda/lib/python3.10/site-packages (from rasterstats) (1.8.5.post1)
-Requirement already satisfied: affine&lt;3.0 in /opt/conda/lib/python3.10/site-packages (from rasterstats) (2.4.0)
-Requirement already satisfied: simplejson in /opt/conda/lib/python3.10/site-packages (from rasterstats) (3.18.3)
 Requirement already satisfied: cligj&gt;=0.4 in /opt/conda/lib/python3.10/site-packages (from rasterstats) (0.7.2)
+Requirement already satisfied: click&gt;7.1 in /opt/conda/lib/python3.10/site-packages (from rasterstats) (8.1.3)
 Requirement already satisfied: fiona&lt;1.9 in /opt/conda/lib/python3.10/site-packages (from rasterstats) (1.8.22)
-Requirement already satisfied: munch in /opt/conda/lib/python3.10/site-packages (from fiona&lt;1.9-&gt;rasterstats) (2.5.0)
-Requirement already satisfied: attrs&gt;=17 in /opt/conda/lib/python3.10/site-packages (from fiona&lt;1.9-&gt;rasterstats) (22.2.0)
-Requirement already satisfied: click-plugins&gt;=1.0 in /opt/conda/lib/python3.10/site-packages (from fiona&lt;1.9-&gt;rasterstats) (1.1.1)
-Requirement already satisfied: certifi in /opt/conda/lib/python3.10/site-packages (from fiona&lt;1.9-&gt;rasterstats) (2022.12.7)
+Requirement already satisfied: simplejson in /opt/conda/lib/python3.10/site-packages (from rasterstats) (3.18.3)
+Requirement already satisfied: affine&lt;3.0 in /opt/conda/lib/python3.10/site-packages (from rasterstats) (2.4.0)
 Requirement already satisfied: setuptools in /opt/conda/lib/python3.10/site-packages (from fiona&lt;1.9-&gt;rasterstats) (65.6.3)
+Requirement already satisfied: certifi in /opt/conda/lib/python3.10/site-packages (from fiona&lt;1.9-&gt;rasterstats) (2022.12.7)
 Requirement already satisfied: six&gt;=1.7 in /opt/conda/lib/python3.10/site-packages (from fiona&lt;1.9-&gt;rasterstats) (1.16.0)
+Requirement already satisfied: click-plugins&gt;=1.0 in /opt/conda/lib/python3.10/site-packages (from fiona&lt;1.9-&gt;rasterstats) (1.1.1)
+Requirement already satisfied: attrs&gt;=17 in /opt/conda/lib/python3.10/site-packages (from fiona&lt;1.9-&gt;rasterstats) (22.2.0)
+Requirement already satisfied: munch in /opt/conda/lib/python3.10/site-packages (from fiona&lt;1.9-&gt;rasterstats) (2.5.0)
 Requirement already satisfied: snuggs&gt;=1.4.1 in /opt/conda/lib/python3.10/site-packages (from rasterio&gt;=1.0-&gt;rasterstats) (1.4.7)
 Requirement already satisfied: pyparsing&gt;=2.1.6 in /opt/conda/lib/python3.10/site-packages (from snuggs&gt;=1.4.1-&gt;rasterio&gt;=1.0-&gt;rasterstats) (3.0.9)</code></pre>
 </div>
@@ -504,10 +504,10 @@ Requirement already satisfied: pyparsing&gt;=2.1.6 in /opt/conda/lib/python3.10/
 <p>Let’s also visualise the near infrared and red images captured by the MicaSense RedEdge-MX camera.</p>
 <p><strong>Can you spot the calibration panels in the images?</strong></p>
 <p><strong>Can you explain why the vines appear bright in the near infrared image and dark in the red image?</strong></p>
-<div class="cell" data-execution_count="97">
+<div class="cell" data-execution_count="117">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>path_to_week8_data <span class="op">=</span> os.path.join(os.getcwd(), <span class="st">"week-8"</span>)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>os.listdir(path_to_week8_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="97">
+<div class="cell-output cell-output-display" data-execution_count="117">
 <pre><code>['calibration_panels.cpg',
  'calibration_panels.dbf',
  'calibration_panels.prj',
@@ -526,7 +526,7 @@ Requirement already satisfied: pyparsing&gt;=2.1.6 in /opt/conda/lib/python3.10/
  'swan_rededge.tif']</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="108">
+<div class="cell" data-execution_count="118">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># visualise NIR data</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>swan_nir_path <span class="op">=</span> os.path.join(path_to_week8_data, <span class="st">"swan_nir.tif"</span>)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -538,7 +538,7 @@ Requirement already satisfied: pyparsing&gt;=2.1.6 in /opt/conda/lib/python3.10/
 <p><img src="lab-8_files/figure-html/cell-8-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-execution_count="109">
+<div class="cell" data-execution_count="119">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># visualise RED data</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>swan_red_path <span class="op">=</span> os.path.join(path_to_week8_data, <span class="st">"swan_red.tif"</span>)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -565,12 +565,12 @@ Requirement already satisfied: pyparsing&gt;=2.1.6 in /opt/conda/lib/python3.10/
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>panel_gdf <span class="op">=</span> gpd.read_file(panel_path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <p>Before moving on we need to reverse the ordering of the data in the <code>panel</code> column so it has a black-to-white ordering. Let’s do this and also inspect the data.</p>
-<div class="cell" data-execution_count="101">
+<div class="cell" data-execution_count="121">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#reverse b-w instead w-b </span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>panel_gdf <span class="op">=</span> panel_gdf.iloc[::<span class="op">-</span><span class="dv">1</span>]</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>panel_gdf <span class="op">=</span> panel_gdf.reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>panel_gdf.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="101">
+<div class="cell-output cell-output-display" data-execution_count="121">
 
 <div>
 
@@ -585,23 +585,23 @@ Requirement already satisfied: pyparsing&gt;=2.1.6 in /opt/conda/lib/python3.10/
   <tbody>
     <tr>
       <th>0</th>
-      <td>black</td>
-      <td>POLYGON ((405357.703 6478231.029, 405357.703 6...</td>
+      <td>white</td>
+      <td>POLYGON ((405359.865 6478231.612, 405359.863 6...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>darkgrey</td>
-      <td>POLYGON ((405358.314 6478231.069, 405358.314 6...</td>
-    </tr>
-    <tr>
-      <th>2</th>
       <td>lightgrey</td>
       <td>POLYGON ((405358.907 6478231.172, 405358.911 6...</td>
     </tr>
     <tr>
+      <th>2</th>
+      <td>darkgrey</td>
+      <td>POLYGON ((405358.314 6478231.069, 405358.314 6...</td>
+    </tr>
+    <tr>
       <th>3</th>
-      <td>white</td>
-      <td>POLYGON ((405359.865 6478231.612, 405359.863 6...</td>
+      <td>black</td>
+      <td>POLYGON ((405357.703 6478231.029, 405357.703 6...</td>
     </tr>
   </tbody>
 </table>
@@ -622,10 +622,10 @@ Requirement already satisfied: pyparsing&gt;=2.1.6 in /opt/conda/lib/python3.10/
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>asd <span class="op">=</span> pd.read_csv(asd_fp)</span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>asd.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell" data-execution_count="102">
+<div class="cell" data-execution_count="123">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># summary of asd data</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>asd.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="102">
+<div class="cell-output cell-output-display" data-execution_count="123">
 
 <div>
 
@@ -874,7 +874,7 @@ Requirement already satisfied: pyparsing&gt;=2.1.6 in /opt/conda/lib/python3.10/
 <p>
 </p>
 <p>Let’s check an RGB image of the vineyard looks sensible.</p>
-<div class="cell" data-execution_count="111">
+<div class="cell" data-execution_count="129">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create an rgb image of the corrected data</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>red_band <span class="op">=</span> corrected_images[<span class="dv">2</span>]</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>green_band <span class="op">=</span> corrected_images[<span class="dv">1</span>]</span>
@@ -890,8 +890,8 @@ Requirement already satisfied: pyparsing&gt;=2.1.6 in /opt/conda/lib/python3.10/
 </div>
 </div>
 </section>
-<section id="task-7-1" class="level3">
-<h3 class="anchored" data-anchor-id="task-7-1">Task 7</h3>
+<section id="task-8" class="level3">
+<h3 class="anchored" data-anchor-id="task-8">Task 8</h3>
 <p>Create a vegetation index (e.g NDVI) from your corrected data. NumPy <code>ndarray</code> objects storing the corrected data are elements in the list <code>corrected_images</code> at the following index locations:</p>
 <ol start="0" type="1">
 <li>blue</li>
